@@ -1,0 +1,1873 @@
+<%- include partials/innerheader %>
+<div class="app_main">
+<%- include partials/innersidebar %>
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="mentor_wrapper mentor_follow_wrapper row">
+      <div class="mentor_wrapper_left col">
+        <div class="mentor_head">
+        <a href="myprofile"><button class="btn back_btn"><i class="fas fa-arrow-left"></i></button></a>
+        <div class="author_bx">
+          <img id = "imagePreview" alt="images" onerror="imgError(this);">
+          <div class="author_bx_txt">
+            <!-- <h2 id ="user_n"><span><img src="images/mentor-tag.png" alt="images"></span></h2> -->
+            <h2 id ="user_n"></h2>
+         </div>
+        </div>    
+        </div>
+        <div class="mentor_tab_area my_tab_content">
+          <nav>
+            <div class="nav nav-tabs nav-fill" role="tablist">
+              <a class="nav-item nav-link active" id="mt_feed" data-toggle="tab" href="#mtb_feed" role="tab" aria-controls="mtb_feed" aria-selected="true">All</a>
+              <a class="nav-item nav-link" id="mt_save" data-toggle="tab" href="#mtb_save" role="tab" aria-controls="mtb_save" aria-selected="false">Saved</a>
+              <a class="nav-item nav-link" id="mt_comments" data-toggle="tab" href="#mtb_comments" role="tab" aria-controls="mtb_comments" aria-selected="false">Comments</a>
+              <a class="nav-item nav-link" id="mt_service" data-toggle="tab" href="#mtb_service" role="tab" aria-controls="mtb_service" aria-selected="false">Services</a>
+             <a class="nav-item nav-link" id="mt_follower" data-toggle="tab" href="#mt_follower_tab" role="tab" aria-controls="mt_follower_tab" aria-selected="false">Following</a>
+            <a class="nav-item nav-link" id="mt_following" data-toggle="tab" href="#mt_following_tab" role="tab" aria-controls="mt_following_tab" aria-selected="false">Followers</a>
+            </div>
+          </nav>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="mtb_feed" role="tabpanel" aria-labelledby="mt_feed">
+             <!--  <div class="mentor_feed">
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mentor_feed_head">
+                  <div class="author_bx">
+                    <img src="images/user.png" alt="images">
+                    <div class="author_bx_txt">
+                      <h2>Williams Park <span><a href="#"><i class="fas fa-comment-dots"></i></a></span></h2>
+                      <h3>2 mins ago</h3>
+                    </div>
+                  </div>
+                  <h4>That's all you got Ashley?</h4>
+                </div>
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mentor_feed_head">
+                  <div class="author_bx">
+                    <img src="images/user.png" alt="images">
+                    <div class="author_bx_txt">
+                      <h2>Williams Park <span><a href="#"><i class="far fa-thumbs-up"></i></a></span></h2>
+                      <h3>2 mins ago</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="mentor_feed_head">
+                  <div class="author_bx">
+                    <img src="images/user.png" alt="images">
+                    <div class="author_bx_txt">
+                      <h2>Williams Park <span><a href="#"><i class="far fa-thumbs-up"></i></a></span> <span><a href="#"><i class="fas fa-comment-dots"></i></a></span></h2>
+                      <h3>2 mins ago</h3>
+                    </div>
+                  </div>
+                  <h4>That's all you got Ashley?</h4>
+                </div>
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <div class="tab-pane fade" id="mtb_save" role="tabpanel" aria-labelledby="mt_save">
+       <!--        <div class="mentor_feed">
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="tips_bx buy_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_buy">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn buy_btn">Buy</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_buy">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="tips_bx sell_bg">
+                  <div class="tips_bx_head">
+                    <div class="tips_bx_author author_bx">
+                      <img src="images/user.png" alt="images">
+                      <div class="author_bx_txt">
+                        <h2>Williams Park</h2>
+                        <h3>2 mins ago</h3>
+                      </div>
+                    </div>
+                    <div class="tips_bx_amount">
+                      <h2>$782.65</h2>
+                      <p>AT TIME OF TIP : $781.50 | Change $1.01, <span class="color_sell">1.13%</span></p>
+                    </div>
+                  </div>
+                  <div class="tips_bx_cmpny">
+                    <div class="tips_bx_cmpny_name">
+                      <span class="bs_btn sell_btn">Sell</span>
+                      <h2>NKE <span>NIKE, Inc.</span></h2>
+                    </div>
+                    <div class="tips_bx_cmpny_states">
+                      <ul>
+                        <li>
+                          <h3>Entry</h3>
+                          <h4>$789</h4>
+                        </li>
+                        <li>
+                          <h3>Stop</h3>
+                          <h4>$888</h4>
+                        </li>
+                        <li>
+                          <h3>Exit</h3>
+                          <h4><span class="color_sell">$888</span></h4>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tips_bx_txt">
+                    <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.</p>
+                  </div>
+                  <div class="tips_bx_social">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-comment-icon.png" alt="images">
+                          21 Comments
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-save-icon.png" alt="images">
+                          Save
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <img src="images/tips-like-icon.png" alt="images">
+                          6 Likes
+                        </a>
+                      </li>
+                      <li>
+                        <div class="dropdown msg_option_dropdown">
+                          <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <img src="images/tips-more-icon.png" alt="images"> More
+                          </a>
+                          <div class="dropdown-menu">
+                            <ul>
+                              <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                              <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <!-- <div class="mentor_feed" id="Services">
+              </div> -->
+
+            <div class="tab-pane fade" id="mtb_service" role="tabpanel" aria-labelledby="mt_service">
+              <div class="mentor_service_area" id="newsletterServices">
+               <h4>TradeTips Recommended Services</h4>  
+                <p>Learn how to invest, trade and use TradeTips</p>      
+                <br>
+              </div>
+             
+            </div>
+            <div class="tab-pane fade" id="mtb_comments" role="tabpanel" aria-labelledby="mt_comments">
+              
+             
+            </div>
+             <div class="tab-pane fade" id="mt_follower_tab" role="tabpanel" aria-labelledby="mt_follower">
+               
+              <div class="mentor_follow_list" id="newFollowerlist">
+              
+              </div>
+            </div>
+            <div class="tab-pane fade" id="mt_following_tab" role="tabpanel" aria-labelledby="mt_following">
+             
+             
+              <div class="mentor_follow_list" id="newFollowinglist">
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      </div>
+      <div class="mentor_wrapper_right col">
+        <div class="mentor_follow_area">
+          <ul>
+            <li>
+              <h2 id = "followings" style="text-align: center;"></h2>
+              <h3>Followers</h3>
+            </li>
+            <li>
+              <h2 id = "follower" style="text-align: center;"></h2>
+              <h3>Following</h3>
+            </li>
+          </ul>
+          <!-- <button class="btn cmn_btn btn_primary">Follow</button> -->
+        </div>
+        <div class="abt_mentor" style="display: none;">
+          <h2>About Mentor</h2>
+         <!--  <p>Voyez ce jeu exquis wallon, de graphie en kit mais bref. Portez ce vieux whisky au juge blond qui fume sur son île intérieure, à côté de l"alcôve ovoïde, où les bûches se consument dans l"âtre, ce qui lui permet de penser à la cænogenèse de l"être dont il est.</p>
+          <h3><a href="#">Read more</a></h3> -->
+          <h4>Member Since <span id = "create_date"></span></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page Content Start -->
+</div>
+<%- include partials/innerfooter %>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script type="text/javascript">
+
+
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  var loginUnamee = storageData.uname;
+
+  var user_name = "<%= visitedName %>";
+  // var email_id = storageData.email;
+  var LoggedInId = "<%= visitedId %>";
+  console.log(LoggedInId);
+  var tokens = storageData.tokendata;
+
+  var date = storageData.creation_date;
+  var newdate2 = date.split(/(\s+)/);
+  var date1 = new Date(newdate2[0]);
+  mm =  date1.toDateString();
+  var newdate1 = mm.split(/(\s+)/);
+  newdate1.splice(0, 2);
+  var newdate3 = newdate1.toString(newdate1);
+  var res = newdate3.replace(/[, ]+/g, " ").trim();
+  var date2 = res.substring(0, 6) + "," + res.substring(6, res.length);
+   document.getElementById("create_date").textContent = date2;
+
+  document.getElementById("imagePreview").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+LoggedInId;
+  document.getElementById("user_n").textContent = user_name;
+
+
+        $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllTypeServicesForUser',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  userId: LoggedInId,
+                },
+               success: function(data) {
+                 var datak = JSON.stringify(data);
+                 var fdataResult = JSON.parse(datak); 
+                // console.log(fdataResult.suggestedServiceSubscriptionPlans);
+                 var dataResult = fdataResult.suggestedServiceSubscriptionPlans;
+                 //console.log(dataResult);
+                  var len = dataResult.length;
+                  //alert(len);
+               if(dataResult.length == 0){
+                  
+                    document.getElementById('newsletterServices').innerHTML="<br><p>You currently have no Services created.</p>";
+                    $("#newsletterServices").css("text-align", "center");
+                    $("#newsletterServices").css("color", "white");
+
+                 } else {
+
+
+                let newtip = [];
+                  for(var i=0; i< dataResult.length; i++) {  
+
+
+                  if(dataResult[i].isActive == true){
+
+                  //  console.log(dataResult[i].title);
+                    newtip += '<div class="mentor_srvc"><h2>'+dataResult[i].serviceTypeMaster.title+'</h2><div class="mentor_srvc_bx"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"><div class="mentor_srvc_bx_txt"><h3>'+dataResult[i].title+'<span>Free</span></h3><p>'+dataResult[i].descriptionOne+'</p><a href="'+dataResult[i].descriptionTwo+'" target="_blank"><button class="btn cmn_btn btn_primary">View Detail</button></a></div></div><br>'                 
+                  }
+                    
+
+                  }
+                   $("#newsletterServices").append(newtip);
+
+                }                  
+                 
+             }
+             });
+
+        $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/followUserList/getAllFollowUserListByUserName',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  limit: 100,
+                  offset: 0,
+                  followUserName: user_name
+                },
+               success: function(data) {
+                var data_len = data.length;
+                document.getElementById("followings").textContent = data_len;
+                 for( var i = 0; i< data_len; i++){
+                    var userid = data[i]['id'];
+                    var followUserName = data[i]['followUserName'];
+                    var followUserId = data[i]['followUserId'];
+                    var loginUserFollow = data[i]['loginUserFollow'];
+                    $("#newFollowinglist").append('<div class="mentor_follow_item"><a href="visitProfile?Ids='+followUserId+'&Names='+followUserName+'"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+followUserId+'" alt="images" onerror="imgError(this);"><div class="author_bx_txt"><h2>'+followUserName+'</h2></div></div></a>'+( loginUserFollow == true ? '<button class="btn cmn_btn btn_primary btn_small">Following</button>' : '<button class="btn cmn_btn btn_primary btn_small">Follow</button>')+'</div>');
+                    }    
+
+               }
+             });
+
+         $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/followUserList/getAllFollowUserListByUserName',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  limit: 100,
+                  offset: 0,
+                  userName: user_name
+                },
+               success: function(data) {
+                var data_len = data.length;
+                document.getElementById("follower").textContent = data_len;
+                  for( var i = 0; i< data_len; i++){
+                    var userid = data[i]['id'];
+                    var followUserName = data[i]['followUserName'];
+                    var followUserId = data[i]['followUserId'];
+                    var follow = data[i]['follow'];
+                    $("#newFollowerlist").append('<div class="mentor_follow_item"><a href="visitProfile?Ids='+followUserId+'&Names='+followUserName+'"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+followUserId+'" alt="images" onerror="imgError(this);"><div class="author_bx_txt"><h2>'+followUserName+'</h2></div></div></a>'+( follow == true ? '<button class="btn cmn_btn btn_primary btn_small">Following</button>' : '<button class="btn cmn_btn btn_primary btn_small">Follow</button>')+'</div>');
+                    }    
+               }
+             });
+          $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/timeline/getTimeLineWithPaginationForUser',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  limit: 100,
+                  offset: 0,
+                  activityType: "TipPin",
+                  userName: user_name
+                },
+               success: function(data) {
+                   console.log(data);
+                    let savedtip = [];
+                    var stockdata1 = [];
+                    var tipId1 = [];
+                    var usernames1 = [];
+                  for(var i=0; i< data.length; i++) {
+                    stockdata1.push(data[i].tipResponse.tip.stockName);
+                    tipId1.push(data[i].tipResponse.tip.id);
+                    usernames1.push(data[i].tipResponse.tip.appUser.userName);
+
+                    var date = new Date(data[i].tipResponse.tip.modifiedOn);
+                               var options = {year: "numeric", month: "long", day: "numeric"};
+
+                    var newdate = date.toGMTString('en-US', options);  
+
+            
+                    const stripped = newdate.replace(/GMT/g, 'EST');
+                    var newdate1 = stripped.toString(stripped);  
+                    var newdate2 = newdate1.split(/(\s+)/);
+                    newdate2.splice(11, 18);
+                    newdate2.splice(0, 2);
+                    newdate2.splice(3,3);
+                    //console.log(newdate2);
+                    function moveArrayItemToNewIndex(arr, old_index, new_index) {
+                    if (new_index >= arr.length) {
+                        var k = new_index - arr.length + 1;
+                        while (k--) {
+                                arr.push(undefined);
+                            }
+                        }
+                    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+                       return arr;
+                      };
+
+                    moveArrayItemToNewIndex(newdate2, 0, 2);
+                    var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+                    //console.log(result1);
+                    result1.splice(1, 0, ' ');
+                    var newdate3 = result1.toString(result1);
+                    var result = newdate3.replace(/,/g, "");
+                    //console.log(result);
+                    x = result.substring(0, 6) + "," + result.substring(6, result.length);
+                    //console.log(x);
+                    function formatAMPM(date) {
+                          var hours = date.getHours();
+                          var minutes = date.getMinutes();
+                          var ampm = hours >= 12 ? 'PM' : 'AM';
+                          hours = hours % 12;
+                          hours = hours ? hours : 12; // the hour '0' should be '12'
+                          minutes = minutes < 10 ? '0'+minutes : minutes;
+                          var strTime = hours + ':' + minutes + ' ' + ampm;
+                          return strTime;
+                        }
+
+                    var date1 = formatAMPM(date);
+                    //console.log(date1);
+                    //console.log(newdate2);
+                    const stripped2 = x.replace(newdate2[4], date1);
+                    //console.log(stripped2);
+
+                    if(data[i].tipResponse.tip.stockSuggestion == "Buy") 
+
+                    {
+                    savedtip += '<div class="mentor_feed><div class="tips_bx buy_bg"><div class="mentor_feed"><div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrice' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusg' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+                  }
+                  else if(data[i].tipResponse.tip.stockSuggestion == "Sell")
+                  {
+                    
+                    savedtip +='<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusg' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+
+                  }
+ /*                 else{
+
+                    savedtip +='<div class="tips_bx avoid_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn avoid_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+
+                  }*/
+                             
+
+               }
+               if(stockdata1.length>0){
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdata1 , function(d) {
+                  for (k= 0; k< stockdata1.length; k ++) {
+                    var userdataLike = $("#StatusLike"+ tipId1[k]).text();
+                                 
+                             
+                    if(userdataLike == "true"){
+                        // alert("true");
+                        $("#imgLikestatusg"+ tipId1[k]).attr("src","unnamed.png");
+
+                    }
+                    else{
+                       // alert("false");
+                        $("#imgLikestatusg"+ tipId1[k]).attr("src","images/tips-like-icon.png");
+
+                    }
+
+                     
+                   ////////////////////////////////////////////////////////////////////
+
+                    $("#skComnyNames"+tipId1[k]).text(d[stockdata1[k]].quote.companyName);
+                    $("#flatestPrice"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+                    $("#flatestPrices"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+
+                   var newwdata1 = $("#flatestPrice"+ tipId1[k]).text();
+                    var newwdatas = $("#flatestPrices"+ tipId1[k]).text();
+
+                   var stockPricess1= $("#stockTipPrice1"+ tipId1[k]).text();
+                   var stockentry1 = $("#entrydata1"+ tipId1[k]).text();
+                   var stockexit1 = $("#exitdata1"+ tipId1[k]).text();
+                   var stockstop1 = $("#stopdata1"+ tipId1[k]).text();
+                   var suggestionslist = $(".suggestion"+ tipId1[k]).text();
+
+                    //////////////////////////clipboard//////////////////////////////////
+
+                    $("#divClipboard"+tipId1[k]).val(d[stockdata1[k]].quote.companyName+' Current price:$'+d[stockdata1[k]].quote.latestPrice+' Suggested entry: '+stockentry1+' exit: '+stockexit1+' stop: '+stockstop1+' Stock tip by '+usernames1[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                   //////////////////////chnage value//////////////////////////
+                   const minusValues = newwdata1.replace("$","") - stockPricess1.replace("$","");
+                   const values = Number(minusValues).toFixed(2);
+                   // alert(values);
+
+                    if(values > 0){
+                    // alert("home");
+                    $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +values + '</b></span>');
+
+                    }else{
+                    // alert("calling home");
+                    $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +values + '</b></span>');
+
+                    }
+
+                    //////////////////////////////////////////////////////
+
+                    const minusValuesNew = newwdatas.replace("$","") - stockPricess1.replace("$","");
+                    const valuesk = Number(minusValuesNew).toFixed(2);
+                    // alert(values);
+                    if(valuesk > 0){
+                    // alert("home");
+
+                    $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +valuesk + '</b></span>');
+
+                    }else{
+                    // alert("calling home");
+
+                    $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +valuesk + '</b></span>');
+
+                    }
+                     /////////////////////////entry data/////////////////////////
+
+
+                    if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+                   
+                      $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                    
+                               
+                        } 
+
+                    else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                                  
+                      $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                                
+
+                      }
+                      else
+                      {
+                                    
+                      $("#entrydata1"+ tipId1[k]).css("color" , "white");
+                                     
+                      }
+
+                     //////////////////exit data///////////////////////////////
+
+
+                    if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+                               
+                                } 
+                    else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+
+                     }
+                    else{
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "white");
+
+                      }
+                         
+
+                      /////////////////////stop data//////////////////////////////  
+     
+
+                    if(suggestionslist == "Buy" && newwdata1.replace("$","") < stockPricess1.replace("$","") && newwdata1.replace("$","") <=  stockstop1.replace("$","")){
+
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "#d93545");
+
+                               
+                      } 
+                    else if(suggestionslist == "Sell" && stockPricess1.replace("$","") < newwdata1.replace("$","") && newwdata1.replace("$","") >=  stockstop1.replace("$","")){
+
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                        }
+                    else{
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                                }
+
+
+
+                  }
+
+                });
+
+               }
+               $("#mtb_save").append(savedtip);
+             }
+
+             });
+
+//////////////////////////////////////////////////////////////
+          $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/timeline/getTimeLineWithPaginationForUser',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  limit: 100,
+                  offset: 0,
+                  activityType: "Comment",
+                  userName: user_name
+                },
+               success: function(data) {
+                   console.log(data);
+                    let savedtip = [];
+                    var stockdata1 = [];
+                    var tipId1 = [];
+                    var usernames1 = [];
+                  for(var i=0; i< data.length; i++) {
+                    stockdata1.push(data[i].tipResponse.tip.stockName);
+                    tipId1.push(data[i].tipResponse.tip.id);
+                    usernames1.push(data[i].tipResponse.tip.appUser.userName);
+
+                    var date = new Date(data[i].tipResponse.tip.modifiedOn);
+                               var options = {year: "numeric", month: "long", day: "numeric"};
+
+                    var newdate = date.toGMTString('en-US', options);  
+
+            
+                    const stripped = newdate.replace(/GMT/g, 'EST');
+                    var newdate1 = stripped.toString(stripped);  
+                    var newdate2 = newdate1.split(/(\s+)/);
+                    newdate2.splice(11, 18);
+                    newdate2.splice(0, 2);
+                    newdate2.splice(3,3);
+                    //console.log(newdate2);
+                    function moveArrayItemToNewIndex(arr, old_index, new_index) {
+                    if (new_index >= arr.length) {
+                        var k = new_index - arr.length + 1;
+                        while (k--) {
+                                arr.push(undefined);
+                            }
+                        }
+                    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+                       return arr;
+                      };
+
+                    moveArrayItemToNewIndex(newdate2, 0, 2);
+                    var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+                    //console.log(result1);
+                    result1.splice(1, 0, ' ');
+                    var newdate3 = result1.toString(result1);
+                    var result = newdate3.replace(/,/g, "");
+                    //console.log(result);
+                    x = result.substring(0, 6) + "," + result.substring(6, result.length);
+                    //console.log(x);
+                    function formatAMPM(date) {
+                          var hours = date.getHours();
+                          var minutes = date.getMinutes();
+                          var ampm = hours >= 12 ? 'PM' : 'AM';
+                          hours = hours % 12;
+                          hours = hours ? hours : 12; // the hour '0' should be '12'
+                          minutes = minutes < 10 ? '0'+minutes : minutes;
+                          var strTime = hours + ':' + minutes + ' ' + ampm;
+                          return strTime;
+                        }
+
+                    var date1 = formatAMPM(date);
+                    //console.log(date1);
+                    //console.log(newdate2);
+                    const stripped2 = x.replace(newdate2[4], date1);
+                    //console.log(stripped2);
+
+                    if(data[i].tipResponse.tip.stockSuggestion == "Buy") 
+
+                    {
+                    savedtip += '<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_cmpny_name"><h2>'+stripped2+'</h2></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusp' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
+
+                  } else {
+                    
+                    savedtip +='<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_cmpny_name"><h2>'+stripped2+'</h2></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusp' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
+
+                  }                            
+
+               }
+               if(stockdata1.length>0){
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdata1 , function(d) {
+                  for (k= 0; k< stockdata1.length; k ++) {
+                    var userdataLike = $("#StatusLike"+ tipId1[k]).text();
+                     // alert(userdataLike);            
+                             
+                    if(userdataLike == "true"){
+                       // alert("true");
+                        $("#imgLikestatusp"+ tipId1[k]).attr("src","unnamed.png");
+
+                    }
+                    else{
+                      //  alert("false");
+                        $("#imgLikestatusp"+ tipId1[k]).attr("src","images/tips-like-icon.png");
+
+                    }
+
+                     
+                   ////////////////////////////////////////////////////////////////////
+
+                    $("#skComnyNames"+tipId1[k]).text(d[stockdata1[k]].quote.companyName);
+                    $("#flatestPrice"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+                    $("#flatestPrices"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+
+                   var newwdata1 = $("#flatestPrice"+ tipId1[k]).text();
+                    var newwdatas = $("#flatestPrices"+ tipId1[k]).text();
+
+                   var stockPricess1= $("#stockTipPrice1"+ tipId1[k]).text();
+                   var stockentry1 = $("#entrydata1"+ tipId1[k]).text();
+                   var stockexit1 = $("#exitdata1"+ tipId1[k]).text();
+                   var stockstop1 = $("#stopdata1"+ tipId1[k]).text();
+                   var suggestionslist = $(".suggestion"+ tipId1[k]).text();
+
+                    //////////////////////////clipboard//////////////////////////////////
+
+                    $("#divClipboard"+tipId1[k]).val(d[stockdata1[k]].quote.companyName+' Current price:$'+d[stockdata1[k]].quote.latestPrice+' Suggested entry: '+stockentry1+' exit: '+stockexit1+' stop: '+stockstop1+' Stock tip by '+usernames1[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                   //////////////////////chnage value//////////////////////////
+                   const minusValues = newwdata1.replace("$","") - stockPricess1.replace("$","");
+                   const values = Number(minusValues).toFixed(2);
+                   // alert(values);
+
+                    if(values > 0){
+                    // alert("home");
+                    $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +values + '</b></span>');
+
+                    }else{
+                    // alert("calling home");
+                    $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +values + '</b></span>');
+
+                    }
+
+                    //////////////////////////////////////////////////////
+
+                    const minusValuesNew = newwdatas.replace("$","") - stockPricess1.replace("$","");
+                    const valuesk = Number(minusValuesNew).toFixed(2);
+                    // alert(values);
+                    if(valuesk > 0){
+                    // alert("home");
+
+                    $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +valuesk + '</b></span>');
+
+                    }else{
+                    // alert("calling home");
+
+                    $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +valuesk + '</b></span>');
+
+                    }
+                     /////////////////////////entry data/////////////////////////
+
+
+                    if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+                   
+                      $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                    
+                               
+                        } 
+
+                    else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                                  
+                      $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                                
+
+                      }
+                      else
+                      {
+                                    
+                      $("#entrydata1"+ tipId1[k]).css("color" , "white");
+                                     
+                      }
+
+                     //////////////////exit data///////////////////////////////
+
+
+                    if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+                               
+                                } 
+                    else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+
+                     }
+                    else{
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "white");
+
+                      }
+                         
+
+                      /////////////////////stop data//////////////////////////////  
+     
+
+                    if(suggestionslist == "Buy" && newwdata1.replace("$","") < stockPricess1.replace("$","") && newwdata1.replace("$","") <=  stockstop1.replace("$","")){
+
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "#d93545");
+
+                               
+                      } 
+                    else if(suggestionslist == "Sell" && stockPricess1.replace("$","") < newwdata1.replace("$","") && newwdata1.replace("$","") >=  stockstop1.replace("$","")){
+
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                        }
+                    else{
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                                }
+
+
+
+                  }
+
+                });
+
+               }
+               $("#mtb_comments").append(savedtip);
+             }
+
+             });
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////
+          $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/timeline/getTimeLineWithPaginationForUser',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  limit: 1000,
+                  offset: 0,
+                  // activityType: "Comment",
+                  userName: user_name
+                },
+               success: function(data) {
+                   // console.log(data);
+                   var savedtip = [];
+                   var stockdata1 = [];
+                   var tipId1 = [];
+                   var usernames1 = [];
+
+               for(var i=0; i< data.length; i++) {
+                 
+                 console.log(data[i].activityType);
+
+
+                 if(data[i].activityType == "Comment"){
+
+                  stockdata1.push(data[i].tipResponse.tip.stockName);
+                    tipId1.push(data[i].tipResponse.tip.id);
+                    usernames1.push(data[i].tipResponse.tip.appUser.userName);
+
+                    var date = new Date(data[i].tipResponse.tip.modifiedOn);
+                               var options = {year: "numeric", month: "long", day: "numeric"};
+
+                    var newdate = date.toGMTString('en-US', options);  
+
+            
+                    const stripped = newdate.replace(/GMT/g, 'EST');
+                    var newdate1 = stripped.toString(stripped);  
+                    var newdate2 = newdate1.split(/(\s+)/);
+                    newdate2.splice(11, 18);
+                    newdate2.splice(0, 2);
+                    newdate2.splice(3,3);
+                    //console.log(newdate2);
+                    function moveArrayItemToNewIndex(arr, old_index, new_index) {
+                    if (new_index >= arr.length) {
+                        var k = new_index - arr.length + 1;
+                        while (k--) {
+                                arr.push(undefined);
+                            }
+                        }
+                    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+                       return arr;
+                      };
+
+                    moveArrayItemToNewIndex(newdate2, 0, 2);
+                    var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+                    //console.log(result1);
+                    result1.splice(1, 0, ' ');
+                    var newdate3 = result1.toString(result1);
+                    var result = newdate3.replace(/,/g, "");
+                    //console.log(result);
+                    x = result.substring(0, 6) + "," + result.substring(6, result.length);
+                    //console.log(x);
+                    function formatAMPM(date) {
+                          var hours = date.getHours();
+                          var minutes = date.getMinutes();
+                          var ampm = hours >= 12 ? 'PM' : 'AM';
+                          hours = hours % 12;
+                          hours = hours ? hours : 12; // the hour '0' should be '12'
+                          minutes = minutes < 10 ? '0'+minutes : minutes;
+                          var strTime = hours + ':' + minutes + ' ' + ampm;
+                          return strTime;
+                        }
+
+                    var date1 = formatAMPM(date);
+                    //console.log(date1);
+                    //console.log(newdate2);
+                    const stripped2 = x.replace(newdate2[4], date1);
+                    //console.log(stripped2);
+
+                   savedtip += '<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusgg' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
+
+                    if(stockdata1.length>0){
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdata1 , function(d) {
+                  for (k= 0; k< stockdata1.length; k ++) {
+                    var userdataLike = $("#StatusLike"+ tipId1[k]).text();
+                     // alert(userdataLike);            
+                             
+                    if(userdataLike == "true"){
+                       // alert("true");
+                        $("#imgLikestatusgg"+ tipId1[k]).attr("src","unnamed.png");
+
+                    }
+                    else{
+                      //  alert("false");
+                        $("#imgLikestatusgg"+ tipId1[k]).attr("src","images/tips-like-icon.png");
+
+                    }
+
+                     
+                   ////////////////////////////////////////////////////////////////////
+
+                    $("#skComnyNames"+tipId1[k]).text(d[stockdata1[k]].quote.companyName);
+                    $("#flatestPrice"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+                    $("#flatestPrices"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+
+                   var newwdata1 = $("#flatestPrice"+ tipId1[k]).text();
+                    var newwdatas = $("#flatestPrices"+ tipId1[k]).text();
+
+                   var stockPricess1= $("#stockTipPrice1"+ tipId1[k]).text();
+                   var stockentry1 = $("#entrydata1"+ tipId1[k]).text();
+                   var stockexit1 = $("#exitdata1"+ tipId1[k]).text();
+                   var stockstop1 = $("#stopdata1"+ tipId1[k]).text();
+                   var suggestionslist = $(".suggestion"+ tipId1[k]).text();
+
+                    //////////////////////////clipboard//////////////////////////////////
+
+                    $("#divClipboard"+tipId1[k]).val(d[stockdata1[k]].quote.companyName+' Current price:$'+d[stockdata1[k]].quote.latestPrice+' Suggested entry: '+stockentry1+' exit: '+stockexit1+' stop: '+stockstop1+' Stock tip by '+usernames1[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                   //////////////////////chnage value//////////////////////////
+                   const minusValues = newwdata1.replace("$","") - stockPricess1.replace("$","");
+                   const values = Number(minusValues).toFixed(2);
+                   // alert(values);
+
+                    if(values > 0){
+                    // alert("home");
+                    $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +values + '</b></span>');
+
+                    }else{
+                    // alert("calling home");
+                    $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +values + '</b></span>');
+
+                    }
+
+                    //////////////////////////////////////////////////////
+
+                    const minusValuesNew = newwdatas.replace("$","") - stockPricess1.replace("$","");
+                    const valuesk = Number(minusValuesNew).toFixed(2);
+                    // alert(values);
+                    if(valuesk > 0){
+                    // alert("home");
+
+                    $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +valuesk + '</b></span>');
+
+                    }else{
+                    // alert("calling home");
+
+                    $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +valuesk + '</b></span>');
+
+                    }
+                     /////////////////////////entry data/////////////////////////
+
+
+                    if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+                   
+                      $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                    
+                               
+                        } 
+
+                    else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                                  
+                      $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                                
+
+                      }
+                      else
+                      {
+                                    
+                      $("#entrydata1"+ tipId1[k]).css("color" , "white");
+                                     
+                      }
+
+                     //////////////////exit data///////////////////////////////
+
+
+                    if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+                               
+                                } 
+                    else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+
+                     }
+                    else{
+
+                      $("#exitdata1"+ tipId1[k]).css("color" , "white");
+
+                      }
+                         
+
+                      /////////////////////stop data//////////////////////////////  
+     
+
+                    if(suggestionslist == "Buy" && newwdata1.replace("$","") < stockPricess1.replace("$","") && newwdata1.replace("$","") <=  stockstop1.replace("$","")){
+
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "#d93545");
+
+                               
+                      } 
+                    else if(suggestionslist == "Sell" && stockPricess1.replace("$","") < newwdata1.replace("$","") && newwdata1.replace("$","") >=  stockstop1.replace("$","")){
+
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                        }
+                    else{
+
+                      $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                                }
+
+
+
+                  }
+
+                });
+                
+                  }
+
+
+                 }
+
+                 if(data[i].activityType == "FollowUser"){
+
+                    var userid = data[i]['id'];
+                    var followUserName = data[i]['followUserName'];
+                    var followUserId = data[i]['followUserId'];
+                    var loginUserFollow = data[i]['userFollowing'];
+
+                  savedtip += '<div class="mentor_follow_item"><a href="visitProfile?Ids='+followUserId+'&Names='+followUserName+'"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+followUserId+'" alt="images" onerror="imgError(this);"><div class="author_bx_txt"><h2>'+( followUserName == loginUnamee ? "You followed govinda " : ''+followUserName+' followed '+user_name+'')+'</h2></div></div></a>'+( loginUserFollow == true ? '<button class="btn cmn_btn btn_primary btn_small">Following</button>' : '<button class="btn cmn_btn btn_primary btn_small">Follow</button>')+'</div>'
+
+                 }
+
+                 if(data[i].activityType == "TipPin"){
+
+                        stockdata1.push(data[i].tipResponse.tip.stockName);
+                        tipId1.push(data[i].tipResponse.tip.id);
+                        usernames1.push(data[i].tipResponse.tip.appUser.userName);
+
+                        var date = new Date(data[i].tipResponse.tip.modifiedOn);
+                        var options = {year: "numeric", month: "long", day: "numeric"};
+
+                        var newdate = date.toGMTString('en-US', options);  
+
+                
+                        const stripped = newdate.replace(/GMT/g, 'EST');
+                        var newdate1 = stripped.toString(stripped);  
+                        var newdate2 = newdate1.split(/(\s+)/);
+                        newdate2.splice(11, 18);
+                        newdate2.splice(0, 2);
+                        newdate2.splice(3,3);
+                        //console.log(newdate2);
+                        function moveArrayItemToNewIndex(arr, old_index, new_index) {
+                        if (new_index >= arr.length) {
+                            var k = new_index - arr.length + 1;
+                            while (k--) {
+                                    arr.push(undefined);
+                                }
+                            }
+                        arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+                           return arr;
+                          };
+
+                        moveArrayItemToNewIndex(newdate2, 0, 2);
+                        var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+                        //console.log(result1);
+                        result1.splice(1, 0, ' ');
+                        var newdate3 = result1.toString(result1);
+                        var result = newdate3.replace(/,/g, "");
+                        //console.log(result);
+                        x = result.substring(0, 6) + "," + result.substring(6, result.length);
+                        //console.log(x);
+                        function formatAMPM(date) {
+                              var hours = date.getHours();
+                              var minutes = date.getMinutes();
+                              var ampm = hours >= 12 ? 'PM' : 'AM';
+                              hours = hours % 12;
+                              hours = hours ? hours : 12; // the hour '0' should be '12'
+                              minutes = minutes < 10 ? '0'+minutes : minutes;
+                              var strTime = hours + ':' + minutes + ' ' + ampm;
+                              return strTime;
+                            }
+
+                        var date1 = formatAMPM(date);
+                        //console.log(date1);
+                        //console.log(newdate2);
+                        const stripped2 = x.replace(newdate2[4], date1);
+                        //console.log(stripped2);
+
+
+                        if(data[i].tipResponse.tip.stockSuggestion == "Buy") 
+
+                          {
+                          savedtip += '<div class="mentor_feed><div class="tips_bx buy_bg"><div class="mentor_feed"><div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrice1' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span id="skComnyNames1'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus1' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+                        }
+                        else if(data[i].tipResponse.tip.stockSuggestion == "Sell")
+                        {
+                          
+                          savedtip +='<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices1' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames1'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus1' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+
+                        }
+
+                      if(stockdata1.length>0){
+
+                          $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdata1 , function(d) {
+                          for (k= 0; k< stockdata1.length; k ++) {
+                            var userdataLike = $("#StatusLike"+ tipId1[k]).text();
+                                         
+                                     
+                            if(userdataLike == "true"){
+                                // alert("true");
+                                $("#imgLikestatus1"+ tipId1[k]).attr("src","unnamed.png");
+
+                            }
+                            else{
+                               // alert("false");
+                                $("#imgLikestatus1"+ tipId1[k]).attr("src","images/tips-like-icon.png");
+
+                            }
+
+                             
+                           ////////////////////////////////////////////////////////////////////
+
+                            $("#skComnyNames1"+tipId1[k]).text(d[stockdata1[k]].quote.companyName);
+                            $("#flatestPrice1"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+                            $("#flatestPrices1"+tipId1[k]).text("$"+d[stockdata1[k]].quote.latestPrice);
+
+
+                           var newwdata1 = $("#flatestPrice1"+ tipId1[k]).text();
+                            var newwdatas = $("#flatestPrices1"+ tipId1[k]).text();
+
+                           var stockPricess1= $("#stockTipPrice1"+ tipId1[k]).text();
+                           var stockentry1 = $("#entrydata1"+ tipId1[k]).text();
+                           var stockexit1 = $("#exitdata1"+ tipId1[k]).text();
+                           var stockstop1 = $("#stopdata1"+ tipId1[k]).text();
+                           var suggestionslist = $(".suggestion"+ tipId1[k]).text();
+
+                            //////////////////////////clipboard//////////////////////////////////
+
+                            $("#divClipboard"+tipId1[k]).val(d[stockdata1[k]].quote.companyName+' Current price:$'+d[stockdata1[k]].quote.latestPrice+' Suggested entry: '+stockentry1+' exit: '+stockexit1+' stop: '+stockstop1+' Stock tip by '+usernames1[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                           //////////////////////chnage value//////////////////////////
+                           const minusValues = newwdata1.replace("$","") - stockPricess1.replace("$","");
+                           const values = Number(minusValues).toFixed(2);
+                           // alert(values);
+
+                            if(values > 0){
+                            // alert("home");
+                            $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +values + '</b></span>');
+
+                            }else{
+                            // alert("calling home");
+                            $("#changeVals1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +values + '</b></span>');
+
+                            }
+
+                            //////////////////////////////////////////////////////
+
+                            const minusValuesNew = newwdatas.replace("$","") - stockPricess1.replace("$","");
+                            const valuesk = Number(minusValuesNew).toFixed(2);
+                            // alert(values);
+                            if(valuesk > 0){
+                            // alert("home");
+
+                            $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_buy hclass green"><b>' +valuesk + '</b></span>');
+
+                            }else{
+                            // alert("calling home");
+
+                            $("#changeValsfront1"+ tipId1[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;&nbsp;<span class="color_sell hclass red"><b>' +valuesk + '</b></span>');
+
+                            }
+                             /////////////////////////entry data/////////////////////////
+
+
+                            if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+                           
+                              $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                    
+                                       
+                                } 
+
+                            else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                                          
+                              $("#entrydata1"+ tipId1[k]).css("color" , "#09b598");                                
+
+                              }
+                              else
+                              {
+                                            
+                              $("#entrydata1"+ tipId1[k]).css("color" , "white");
+                                             
+                              }
+
+                             //////////////////exit data///////////////////////////////
+
+
+                            if(stockentry1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist == "Buy"){
+
+
+                              $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+                                       
+                                        } 
+                            else if(stockentry1.replace("$","") >= newwdata1.replace("$","") && suggestionslist == "Sell"){
+
+                              $("#exitdata1"+ tipId1[k]).css("color" , "#09b598");
+
+                             }
+                            else{
+
+                              $("#exitdata1"+ tipId1[k]).css("color" , "white");
+
+                              }
+                                 
+
+                              /////////////////////stop data//////////////////////////////  
+             
+
+                            if(suggestionslist == "Buy" && newwdata1.replace("$","") < stockPricess1.replace("$","") && newwdata1.replace("$","") <=  stockstop1.replace("$","")){
+
+
+                              $("#stopdata1"+ tipId1[k]).css("color" , "#d93545");
+
+                                       
+                              } 
+                            else if(suggestionslist == "Sell" && stockPricess1.replace("$","") < newwdata1.replace("$","") && newwdata1.replace("$","") >=  stockstop1.replace("$","")){
+
+
+                              $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                                }
+                            else{
+
+                              $("#stopdata1"+ tipId1[k]).css("color" , "white");
+
+                                        }
+
+
+
+                          }
+
+                        });
+
+                       }
+
+                  }
+
+
+
+               }     
+                 
+
+               
+               $("#mtb_feed").append(savedtip);
+              }
+
+             });
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////
+
+
+function copyClipboard(e){
+  var copyText = document.getElementById("divClipboard"+ e);
+   //alert(copyText);
+ 
+  copyText.select();
+  // copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  // document.body.removeChild(copyText);
+  //alert("Copied the text: " + copyText.value);
+  $(".successmsg").html('<span>Text Copied to Clipboard.</span>');
+ setTimeout(function(){$(".successmsg").empty()}, 3000);
+                                 
+                                 
+}
+
+ function imgError(image) {
+    image.onerror = "";
+    image.src = "images/userIcon.png";
+    return true;
+}
+
+ function likeFunction(e) {
+  // alert(e);
+ 
+  var formdata = {tipId : e};
+  var imgCount = $("#textvalLike"+ e).text();
+  var userdataPin = $("#StatusLike"+ e).text();
+  if(userdataPin == "true"){
+    // alert("equal true");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        var valss = parseInt(imgCount) - 1;
+        $("#textvalLike"+e).text(valss);
+        $("#StatusLike"+ e).text("false");
+        $("#imgLikestatus"+e).attr("src","images/tips-like-icon.png");
+        $(".successmsg").html('<span>Unliked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }else{
+    // alert("equal false");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        var valss = parseInt(imgCount) + 1;
+        $("#textvalLike"+e).text(valss);
+        $("#StatusLike"+ e).text("true");
+        $("#imgLikestatus"+e).attr("src","unnamed.png");
+        $(".successmsg").html('<span>Liked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }
+}              
+</script>
+      

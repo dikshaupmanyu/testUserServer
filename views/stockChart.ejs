@@ -1,0 +1,1038 @@
+<%- include partials/innerheader %>
+<!-- Page Content Start -->
+<script src="js/canvasjs.min.js"></script>
+<style type="text/css">
+  .avoid_btn {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
+}
+
+a.canvasjs-chart-credit{
+  display: none!important;
+}
+.canvas.canvasjs-chart-canvas{
+  width: 100%!important;
+}
+
+.canvasjs-chart-canvas {
+  width: 100%!important;
+}
+
+.highcharts-credits {
+  display: none!important;
+}
+credits{
+  enabled:false;
+}
+</style>
+<div class="app_main">
+  <%- include partials/innersidebar %>
+<div class="app_content">
+   <div class="dsbrd_container">
+    <div class="ai_dtl_head">
+      <div class="ai_dtl_head_left">
+        <a href="dashboard"><button class="btn back_btn"><i class="fas fa-arrow-left"></i></button></a>
+        <div class="tips_bx_cmpny_name">
+          <span id="resultSet"></span>
+          <h2><em class="only_id_use" id="CompanySymbol"></em> <span id="skComnyNames"></span></h2>
+        </div>
+      </div>
+      <div class="ai_dtl_head_right">
+         
+       <!--  <div class="ai_dtl_head_right_bx">
+          <h4 class="border_secondary">Today’s High</h4>
+          <h3 id="highval"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx">
+          <h4 class="border_danger">Today’s Low</h4>
+          <h3 id="lowval"></h3>
+        </div> -->
+        <div class="ai_dtl_head_right_bx tips_wtlist_item_right" style="width: 100px;">
+          <h4 class="border_primary">Change</h4>
+          <h3 id="changepoint"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx text-right">
+          <h2 id="currentprice"></h2>
+          <h5 id="DateVals"></h5>
+        </div>
+      </div>
+       <a id="symbolprediction" style="color: white;"><button class="btn btn-success">Get 5-Day Prediction</button></a>
+    </div> 
+  </div>
+  <div class="graph_area">
+    <div class="row ml-0 mr-0">
+      <div class="graph_bx graph_bx_left col">        
+        <div class="mentor_tab_area my_tab_content">
+          <nav>
+            <div class="nav nav-tabs nav-fill" role="tablist">
+              <a class="nav-item nav-link active" id="mt_feed" data-toggle="tab" href="#mtb_feed" role="tab" aria-controls="mtb_feed" aria-selected="true">1D</a>
+              <a class="nav-item nav-link" id="mt_save" data-toggle="tab" href="#mtb_save" role="tab" aria-controls="mtb_save" aria-selected="false">5D</a>
+              <a class="nav-item nav-link" id="mt_service" data-toggle="tab" href="#mtb_service" role="tab" aria-controls="mtb_service" aria-selected="false">1M</a>
+               <a class="nav-item nav-link" id="mt_feed1" data-toggle="tab" href="#mtb_feed1" role="tab" aria-controls="mtb_feed1" aria-selected="false">3M</a>
+              <a class="nav-item nav-link" id="mt_save1" data-toggle="tab" href="#mtb_save1" role="tab" aria-controls="mtb_save1" aria-selected="false">6M</a>
+              <a class="nav-item nav-link" id="mt_service1" data-toggle="tab" href="#mtb_service1" role="tab" aria-controls="mtb_service1" aria-selected="false">1YR</a>
+            </div>
+          </nav>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="mtb_feed" role="tabpanel" aria-labelledby="mt_feed">
+             <div class="ai_dtl_head">
+               <div class="col-md-9">
+                  <div id="chartContainer" style="height: 500px; width: 100%!important;"></div>
+               </div>
+               <div class="col-md-3">
+                  <div class="ai_dtl_head">                
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_secondary">Today’s High</h4>
+                      <h3 id="highval"></h3>
+                    </div>
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_danger">Today’s Low</h4>
+                      <h3 id="lowval"></h3>
+                    </div>
+               </div>
+               </div>
+             </div>              
+            </div>
+            <div class="tab-pane fade" id="mtb_save" role="tabpanel" aria-labelledby="mt_save">
+               <div class="ai_dtl_head">
+               <div class="col-md-9">
+                  <div id="chartContainer1" style="height: 500px; width: 100%!important;"></div>
+               </div>
+               <div class="col-md-3">
+                  <div class="ai_dtl_head">                
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_secondary">Today’s High</h4>
+                      <h3 id="highval5d"></h3>
+                    </div>
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_danger">Today’s Low</h4>
+                      <h3 id="lowval5d"></h3>
+                    </div>
+               </div>
+               </div>
+             </div>      
+            </div>
+            <div class="tab-pane fade" id="mtb_service" role="tabpanel" aria-labelledby="mt_service">
+               <div class="ai_dtl_head">
+               <div class="col-md-9">
+                  <div id="chartContainer2" style="height: 500px; width: 100%!important;"></div>
+               </div>
+               <div class="col-md-3">
+                  <div class="ai_dtl_head">                
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_secondary">Today’s High</h4>
+                      <h3 id="highval1m"></h3>
+                    </div>
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_danger">Today’s Low</h4>
+                      <h3 id="lowval1m"></h3>
+                    </div>
+               </div>
+               </div>
+            </div>      
+            </div>
+            <div class="tab-pane fade" id="mtb_feed1" role="tabpanel" aria-labelledby="mt_feed1">
+                <div class="ai_dtl_head">
+               <div class="col-md-9">
+                  <div id="chartContainer3" style="height: 500px; width: 100%!important;"></div>
+               </div>
+               <div class="col-md-3">
+                  <div class="ai_dtl_head">                
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_secondary">Today’s High</h4>
+                      <h3 id="highval3m"></h3>
+                    </div>
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_danger">Today’s Low</h4>
+                      <h3 id="lowval3m"></h3>
+                    </div>
+               </div>
+               </div>
+             </div>   
+            </div>
+            <div class="tab-pane fade" id="mtb_save1" role="tabpanel" aria-labelledby="mt_save1">
+              <div class="ai_dtl_head">
+               <div class="col-md-9">
+                  <div id="chartContainer4" style="height: 500px; width: 100%!important;"></div>
+               </div>
+               <div class="col-md-3">
+                  <div class="ai_dtl_head">                
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_secondary">Today’s High</h4>
+                      <h3 id="highval6m"></h3>
+                    </div>
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_danger">Today’s Low</h4>
+                      <h3 id="lowval6m"></h3>
+                    </div>
+                  </div>
+               </div>
+             </div>   
+            </div>
+            <div class="tab-pane fade" id="mtb_service1" role="tabpanel" aria-labelledby="mt_service1">
+               
+              <div class="ai_dtl_head">
+               <div class="col-md-9">
+                  <div id="chartContainer5" style="height: 500px; width: 100%!important;"></div>
+               </div>
+               <div class="col-md-3">
+                  <div class="ai_dtl_head">                
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_secondary">Today’s High</h4>
+                      <h3 id="highval1y"></h3>
+                    </div>
+                    <div class="ai_dtl_head_right_bx">
+                      <h4 class="border_danger">Today’s Low</h4>
+                      <h3 id="lowval1y"></h3>
+                    </div>
+               </div>
+               </div>
+             </div>   
+            </div>
+
+
+        </div>
+
+      </div>
+
+      <!-- <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'All')">All</button>
+  <button class="tablinks" onclick="openCity(event, 'AI')">AI</button>
+  <button class="tablinks" onclick="openCity(event, 'MENTOR')">MENTOR</button>
+</div>
+<div id="All" class="tabcontent">
+  <div id="AIFilter"> </div>
+  <div id="MENTORFilter"> </div>
+</div>
+<div id="AI" class="tabcontent">
+  <div id="AIdemo"> </div>
+</div>
+<div id="MENTOR" class="tabcontent">
+ <div id="demo"> </div>
+</div> -->
+     
+    </div>
+  </div>
+ 
+</div>
+</div>
+<!-- Page Content Start -->
+<%- include partials/innerfooter %>
+<script type="text/javascript">
+
+ var sData = localStorage.getItem('allTokenData');
+   var storageData= JSON.parse(sData);
+ 
+   var tokens = storageData.tokendata;
+  // alert(tokens);
+  
+  var userName = storageData.uname;
+
+
+  var LoggedInId = storageData.uid;
+
+  var symbol = "<%=stockSymbol%>";
+
+  var stockid = "<%=tipsIds%>";
+
+  document.getElementById("symbolprediction").href= "prediction?stockName=<%=stockSymbol%>&id=<%=tipsIds%>";
+
+ // var newftd = "1621232672661" ;
+var date = new Date();
+
+var usaTime = date.toLocaleString("en-US", {timeZone: "America/New_York"});
+//alert(usaTime);
+
+var resusaTime = usaTime.substr(10, 15);
+
+
+$("#DateVals").text("NY "+resusaTime);
+
+  // var startTime = 0, endTime = 0;
+  // var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+
+const a = null
+
+  function filter_array(test_array) {
+    var index = -1,
+        arr_length = test_array ? test_array.length : 0,
+        resIndex = -1,
+        result = [];
+
+    while (++index < arr_length) {
+        var value = test_array[index];
+
+        if (value) {
+            result[++resIndex] = value;
+        }
+    }
+
+    return result;
+ }
+
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/sectorNewsSentiment/getSentimentandSMAByStockSymbolResultSet?stockSymbol='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        // data: formdata,
+      success: function(data) {
+     
+            const dataResult = data;
+
+                 if(dataResult[0].rsiResult == "buy"){
+
+                   document.getElementById("resultSet").textContent = dataResult[0].rsiResult ;
+                  document.getElementById('resultSet').className = 'bs_btn buy_btn';
+
+                   }else if (dataResult[0].rsiResult == "sell"){
+
+
+                      document.getElementById("resultSet").textContent = dataResult[0].rsiResult ;
+                      document.getElementById('resultSet').className = 'bs_btn sell_btn';
+
+                     } else {
+
+                      document.getElementById("resultSet").textContent = "AVOID" ;
+
+                      document.getElementById('resultSet').className = 'bs_btn avoid_btn';
+                      
+                     }
+
+
+                  document.getElementById("CompanySymbol").textContent = dataResult[0].stock_name;
+   
+               
+                  function datechange(publish_date){
+                   var date = publish_date
+                   const stripped = date.replace(/EST-0500/g, 'EST');
+                   //console.log(stripped);
+                   var newdate2 = stripped .split(/(\s+)/);
+                   //console.log(newdate2);
+                   newdate2.splice(3,3);
+                   //console.log(newdate2);
+              
+                    var newdate3 = newdate2.toString(newdate2);
+                    var result = newdate3.replace(/,/g, "");
+                    var SMA_date = result.substring(0, 6) + ", " + result.substring(6, result.length);                
+                    return SMA_date;
+                  }
+
+                  
+
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ dataResult[0].stock_name , function(d) {
+
+                          var count = Object.keys(d).length;
+                          Object.keys(d).map((keyName, key) => {
+                            console.log(d[keyName].quote);
+                             $("#currentprice").text("$"+d[keyName].quote.latestPrice);
+                            $("#skComnyNames").text(d[keyName].quote.companyName);
+                             // $("#highval").text("$"+d[keyName].quote.high);
+                             //  $("#lowval").text("$"+d[keyName].quote.low);
+                        
+                                var valuees = parseFloat(d[keyName].quote.change).toFixed(2);
+                                if(valuees > 0){
+                                   // $("#changepoint").text(valuees);
+
+                                  $("#changepoint").html('<span class="color_buy">' +valuees + '</span>');
+                                   $("#changepoint").css("color" , "#09b598");
+
+                                }else{
+
+                                  $("#changepoint").html('<span class="color_sell">' +valuees + '</span>');
+                                   $("#changepoint").css("color" , "#dc3545");
+                                }
+
+                  
+                      });
+
+                   }); 
+      
+           }       
+       });
+
+/////////////////////////////////////////////1 day///////////////////////////////////////
+
+
+
+                      $.get('https://cloud.iexapis.com/stable/stock/'+symbol+'/chart/1d?token=pk_dd324da3fb5f4428a47b05ab12f23ce2' , function(d) {
+
+                    
+                             var stocktime = [];
+                             var stockhigh = [];
+                             var stocklow = [];
+
+                             var totalreslt = [];
+                             var dataaa = [];
+
+
+                          for(var i=0; i< d.length; i++){
+                             stocktime.push(d[i].minute);
+                             stockhigh.push(d[i].high);
+                             stocklow.push(d[i].low);
+                          }
+
+                          totalreslt = d.length;
+                          dataaa = d; 
+
+                       
+   
+                      var arraydata = d;
+                      arraydata = arraydata.filter(function (n) { return n.high !== null });
+                      var highvaldata = stockhigh;
+                      var lowvaldata = stocklow;
+                      var dataakhigh = Math.max.apply(null, highvaldata);
+                      var filtered = filter_array(lowvaldata);
+                      var dataaklow = Math.min.apply(null, filtered);
+                            var y ;    
+                      var data = [];
+
+                        for (var i = 0 ; i < arraydata.length; i ++) {
+                            data.push({
+                            x: i,
+                            label : arraydata[i].label,
+                            y: arraydata[i].low
+                          });
+                        }
+
+                        $("#highval").text(dataakhigh);
+                        $("#lowval").text(dataaklow);
+
+
+                      var chart = new CanvasJS.Chart("chartContainer", {
+                        width : 750,
+                        height:500,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        // title :{
+                        //   text: symbol
+                        // },
+                        // showScale: false,
+                        // subtitles: [{
+                        //      text: "High Value :"+ dataakhigh 
+                        //     },
+                        //     {text: "Low Value :"+ dataaklow
+                        //     }
+                        //     ],
+                            // axisY: {
+                            //   includeZero: false
+                            // },
+                             axisX:{
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "MMM YYYY"
+                              }
+                            },
+                            axisY: {
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "$#,###.00",
+                                includeZero: false
+                              },
+                               gridThickness: 0,
+                               stripLines: [
+                                  {
+                                    value: 0,
+                                    showOnTop: true,
+                                    color: "gray",
+                                    thickness: 2
+                                  }
+                                ]
+                            },
+                           scales : {
+                              axisY : [ {
+                                  gridlines : {
+                                      color: 'none',
+                                  }
+                              } ]
+                          }, 
+                        data: [{
+                          type: "line",
+                          markerType : "none",
+                          dataPoints: data
+                        }]
+                      });
+
+                      chart.render();
+                      
+
+                });
+     
+/////////////////////////////////////////////5 day///////////////////////////////////////
+
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/getcsvfile/getstockjsonfile?stockName='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+      success: function(data) {
+         var stocktime = [];
+         var stockhigh = [];
+         var stocklow = [];
+         var newdatekk = [];
+         var totalreslt = [];
+         var dataaaf = [];
+
+         var ress = data.slice(Math.max(data.length - 5, 0));
+         console.log(ress);
+
+           for(var i=0; i< ress.length; i++){
+            newdatekk.push(ress[i]);
+            stockhigh.push(ress[i].Close);
+            stocklow.push(ress[i].Close);
+               
+
+          }
+           dataaaf = newdatekk;
+                    var days = 5;
+                    var date = new Date();
+                    var res = date.setTime(date.getTime() - (days * 24 * 60 * 60 * 1000));
+                    var todayres = date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    var d = new Date(res);
+                    var month = d.getMonth() + 1;
+                    var day = d.getDate();
+
+                    var output = d.getFullYear() + '-' +
+                        (month < 10 ? '0' : '') + month + '-' +
+                        (day < 10 ? '0' : '') + day;
+
+                    var dtodayres = new Date(todayres);
+                    var month = dtodayres.getMonth() + 1;
+                    var day = dtodayres.getDate();
+
+                    var outputtodayres = dtodayres.getFullYear() + '-' +
+                        (month < 10 ? '0' : '') + month + '-' +
+                        (day < 10 ? '0' : '') + day;
+
+                   
+                    var arraydatak = dataaaf;
+                    var highvaldatads = stockhigh;
+                    var lowvaldatads = stocklow;
+                    var dataakhighds = Math.max.apply(null, highvaldatads);
+                    var filteredds = filter_array(lowvaldatads);
+                    var dataaklowds = Math.min.apply(null, filteredds);
+
+                          var y;
+                          var data = [];
+                            for (var j = 0 ; j < arraydatak.length; j ++) {
+                              // console.log(arraydatak[j].Date);
+
+                              data.push({
+                              x: j,
+                              label : arraydatak[j].Date,
+                              y: JSON.parse(arraydatak[j].Close)
+                            });
+                          }
+
+                        $("#highval5d").text(dataakhighds);
+                        $("#lowval5d").text(dataaklowds);
+
+
+                         var chart = new CanvasJS.Chart("chartContainer1", {
+                        width:750,
+                        height:500,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        // title :{
+                        //   text: symbol
+                        // },
+                        // subtitles: [{
+                        //      text: "High Value :"+ dataakhighds 
+                        //     },
+                        //     {text: "Low Value :"+ dataaklowds
+                        //     }
+                        //     ],
+                             axisX:{
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "MMM YYYY"
+                              }
+                            },
+                            axisY: {
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "$#,###.00",
+                                includeZero: false
+                              },
+                               gridThickness: 0,
+                               stripLines: [
+                                  {
+                                    value: 0,
+                                    showOnTop: true,
+                                    color: "gray",
+                                    thickness: 2
+                                  }
+                                ]
+                            },
+                           scales : {
+                              axisY : [ {
+                                  gridlines : {
+                                      color: 'none',
+                                  }
+                              } ]
+                          }, 
+                        data: [{
+                          type: "line",
+                          markerType : "none",
+                          dataPoints: data
+                        }]
+                      });
+
+                      chart.render();
+                 }
+                 
+                 });     
+
+////////////////////////////////////1 month///////////////////////////////////////
+
+
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/getcsvfile/getstockjsonfile?stockName='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+      success: function(data) {
+
+                    var stocktime1m = [];
+                   var stockhigh1m = [];
+                   var stocklow1m = [];
+                   var newdatekk1m = [];
+                   var totalreslt1m = [];
+                   var dataaaf1m = [];
+
+                  var ress1m = data.slice(Math.max(data.length - 30, 0));
+                   console.log(ress1m);
+
+                     for(var i=0; i< ress1m.length; i++){
+                      newdatekk1m.push(ress1m[i]);
+                      stockhigh1m.push(ress1m[i].Close);
+                      stocklow1m.push(ress1m[i].Close);
+                         
+
+                    }
+                     dataaaf1m = newdatekk1m;
+                   
+                    var arraydatak1m = dataaaf1m;
+                    var highvaldatads1m = stockhigh1m;
+                    var lowvaldatads1m = stocklow1m;
+                    var dataakhighds1m = Math.max.apply(null, highvaldatads1m);
+                    var filteredds1m = filter_array(lowvaldatads1m);
+                    var dataaklowds1m = Math.min.apply(null, filteredds1m);
+
+                          var y;
+                          var dataPoints1m = [];
+                            for (var j = 0 ; j < arraydatak1m.length; j ++) {
+                              // console.log(arraydatak[j].Date);
+
+                              dataPoints1m.push({
+                              x: j,
+                              label : arraydatak1m[j].Date,
+                              y: JSON.parse(arraydatak1m[j].Close)
+                            });
+                          }
+
+                         $("#highval1m").text(dataakhighds1m);
+                        $("#lowval1m").text(dataaklowds1m);
+
+
+                        var chart2 = new CanvasJS.Chart("chartContainer2", {
+                        width:750,
+                        height:500,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        // title :{
+                        //   text: symbol
+                        // },
+                        // subtitles: [{
+                        //      text: "High Value :"+ dataakhighds1m 
+                        //     },
+                        //     {text: "Low Value :"+ dataaklowds1m
+                        //     }
+                        //     ],
+                            axisX:{
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "MMM YYYY"
+                              }
+                            },
+                            axisY: {
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "$#,###.00",
+                                includeZero: false
+                              },
+                               gridThickness: 0,
+                               stripLines: [
+                                  {
+                                    value: 0,
+                                    showOnTop: true,
+                                    color: "gray",
+                                    thickness: 2
+                                  }
+                                ]
+                            },
+                           scales : {
+                              axisY : [ {
+                                  gridlines : {
+                                      color: 'none',
+                                  }
+                              } ]
+                          }, 
+                        data: [{
+                          type: "line",
+                          markerType : "none",
+                          dataPoints: dataPoints1m
+                        }]
+                      });
+
+                      chart2.render();
+                    }
+
+                  });
+
+///////////////////////// 3month //////////////////////////////////////////////////
+
+
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/getcsvfile/getstockjsonfile?stockName='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+      success: function(data) {
+
+                    var stocktime3m = [];
+                   var stockhigh3m = [];
+                   var stocklow3m = [];
+                   var newdatekk3m = [];
+                   var totalreslt3m = [];
+                   var dataaaf3m = [];
+
+                  var ress3m = data.slice(Math.max(data.length - 90, 0));
+                  // console.log(ress3m);
+
+                     for(var i=0; i< ress3m.length; i++){
+                      newdatekk3m.push(ress3m[i]);
+                      stockhigh3m.push(ress3m[i].Close);
+                      stocklow3m.push(ress3m[i].Close);
+                         
+
+                    }
+                     dataaaf3m = newdatekk3m;
+                   
+                    var arraydatak3m = dataaaf3m;
+                    var highvaldatads3m = stockhigh3m;
+                    var lowvaldatads3m = stocklow3m;
+                    var dataakhighds3m = Math.max.apply(null, highvaldatads3m);
+                    var filteredds3m = filter_array(lowvaldatads3m);
+                    var dataaklowds3m = Math.min.apply(null, filteredds3m);
+
+                          var y;
+                          var dataPoints3m = [];
+                            for (var j = 0 ; j < arraydatak3m.length; j ++) {
+                              // console.log(arraydatak[j].Date);
+
+                              dataPoints3m.push({
+                              x: j,
+                              label : arraydatak3m[j].Date,
+                              y: JSON.parse(arraydatak3m[j].Close)
+                            });
+                          }
+
+                        $("#highval3m").text(dataakhighds3m);
+                        $("#lowval3m").text(dataaklowds3m);
+
+
+                        var chart3 = new CanvasJS.Chart("chartContainer3", {
+                        width:750,
+                        height:500,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        // title :{
+                        //   text: symbol
+                        // },
+                        // subtitles: [{
+                        //      text: "High Value :"+ dataakhighds3m 
+                        //     },
+                        //     {text: "Low Value :"+ dataaklowds3m
+                        //     }
+                        //     ],
+                            axisX:{
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "MMM YYYY"
+                              }
+                            },
+                            axisY: {
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "$#,###.00",
+                                includeZero: false
+                              },
+                               gridThickness: 0,
+                               stripLines: [
+                                  {
+                                    value: 0,
+                                    showOnTop: true,
+                                    color: "gray",
+                                    thickness: 2
+                                  }
+                                ]
+                            },
+                           scales : {
+                              axisY : [ {
+                                  gridlines : {
+                                      color: 'none',
+                                  }
+                              } ]
+                          },  
+                        data: [{
+                          type: "line",
+                          markerType : "none",
+                          dataPoints: dataPoints3m
+                        }]
+                      });
+
+                      chart3.render();
+
+                    }
+
+                  });
+
+///////////////////////////////6 month ////////////////////////////////////////
+
+    
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/getcsvfile/getstockjsonfile?stockName='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+      success: function(data) {
+
+                    var stocktime6m = [];
+                   var stockhigh6m = [];
+                   var stocklow6m = [];
+                   var newdatekk6m = [];
+                   var totalreslt6m = [];
+                   var dataaaf6m = [];
+
+                  var ress6m = data.slice(Math.max(data.length - 180, 0));
+                  // console.log(ress3m);
+
+                     for(var i=0; i< ress6m.length; i++){
+                      newdatekk6m.push(ress6m[i]);
+                      stockhigh6m.push(ress6m[i].Close);
+                      stocklow6m.push(ress6m[i].Close);
+                         
+
+                    }
+                     dataaaf6m = newdatekk6m;
+                   
+                    var arraydatak6m = dataaaf6m;
+                    var highvaldatads6m = stockhigh6m;
+                    var lowvaldatads6m = stocklow6m;
+                    var dataakhighds6m = Math.max.apply(null, highvaldatads6m);
+                    var filteredds6m = filter_array(lowvaldatads6m);
+                    var dataaklowds6m = Math.min.apply(null, filteredds6m);
+
+                          var y;
+                          var dataPoints6m = [];
+                            for (var j = 0 ; j < arraydatak6m.length; j ++) {
+                              // console.log(arraydatak[j].Date);
+
+                              dataPoints6m.push({
+                              x: j,
+                              label : arraydatak6m[j].Date,
+                              y: JSON.parse(arraydatak6m[j].Close)
+                            });
+                          }
+
+                         $("#highval6m").text(dataakhighds6m);
+                        $("#lowval6m").text(dataaklowds6m);
+
+
+                        var chart4 = new CanvasJS.Chart("chartContainer4", {
+                        width:750,
+                        height:500,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        // title :{
+                        //   text: symbol
+                        // },
+                        // subtitles: [{
+                        //      text: "High Value :"+ dataakhighds6m 
+                        //     },
+                        //     {text: "Low Value :"+ dataaklowds6m
+                        //     }
+                        //     ],
+                           axisX:{
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "MMM YYYY"
+                              }
+                            },
+                            axisY: {
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "$#,###.00",
+                                includeZero: false
+                              },
+                               gridThickness: 0,
+                               stripLines: [
+                                  {
+                                    value: 0,
+                                    showOnTop: true,
+                                    color: "gray",
+                                    thickness: 2
+                                  }
+                                ]
+                            },
+                           scales : {
+                              axisY : [ {
+                                  gridlines : {
+                                      color: 'none',
+                                  }
+                              } ]
+                          }, 
+                        data: [{
+                          type: "line",
+                          markerType : "none",
+                          dataPoints: dataPoints6m,
+                        }]
+                      });
+
+                      chart4.render();
+
+                    }
+
+
+                  });
+
+///////////////////////////////1 year ////////////////////////////////////////
+
+
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/getcsvfile/getstockjsonfile?stockName='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+      success: function(data) {
+
+                    var stocktime1y = [];
+                   var stockhigh1y = [];
+                   var stocklow1y = [];
+                   var newdatekk1y = [];
+                   var totalreslt1y = [];
+                   var dataaaf1y = [];
+
+                  var ress1y = data.slice(Math.max(data.length - 365, 0));
+                  // console.log(ress3m);
+
+                     for(var i=0; i< ress1y.length; i++){
+                      newdatekk1y.push(ress1y[i]);
+                      stockhigh1y.push(ress1y[i].Close);
+                      stocklow1y.push(ress1y[i].Close);
+                         
+
+                    }
+                     dataaaf1y = newdatekk1y;
+                   
+                    var arraydatak1y = dataaaf1y;
+                    var highvaldatads1y = stockhigh1y;
+                    var lowvaldatads1y = stocklow1y;
+                    var dataakhighds1y = Math.max.apply(null, highvaldatads1y);
+                    var filteredds1y = filter_array(lowvaldatads1y);
+                    var dataaklowds1y = Math.min.apply(null, filteredds1y);
+
+                          var y;
+                          var dataPoints1y = [];
+                            for (var j = 0 ; j < arraydatak1y.length; j ++) {
+                              // console.log(arraydatak[j].Date);
+
+                              dataPoints1y.push({
+                              x: j,
+                              label : arraydatak1y[j].Date,
+                              y: JSON.parse(arraydatak1y[j].Close)
+                            });
+                          }
+
+                         $("#highval1y").text(dataakhighds1y);
+                        $("#lowval1y").text(dataaklowds1y);
+
+
+                        var chart5 = new CanvasJS.Chart("chartContainer5", {
+                        width:750,
+                        height:500,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        // title :{
+                        //   text: symbol
+                        // },
+                        // subtitles: [{
+                        //      text: "High Value :"+ dataakhighds1y 
+                        //     },
+                        //     {text: "Low Value :"+ dataaklowds1y
+                        //     }
+                        //     ],
+                            axisX:{
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "MMM YYYY"
+                              }
+                            },
+                            axisY: {
+                              crosshair: {
+                                enabled: true,
+                                snapToDataPoint: true,
+                                valueFormatString: "$#,###.00",
+                                includeZero: false
+                              },
+                               gridThickness: 0,
+                               stripLines: [
+                                  {
+                                    value: 0,
+                                    showOnTop: true,
+                                    color: "gray",
+                                    thickness: 2
+                                  }
+                                ]
+                            },
+                           scales : {
+                              axisY : [ {
+                                  gridlines : {
+                                      color: 'none',
+                                  }
+                              } ]
+                          }, 
+                        data: [{
+                          type: "line",
+                          markerType : "none",
+                          dataPoints: dataPoints1y
+                        }]
+                      });
+
+                      chart5.render();
+
+                }
+
+            });
+  </script>

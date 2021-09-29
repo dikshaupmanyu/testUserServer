@@ -1,0 +1,219 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TradeTips</title>
+    <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome1-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icomoon/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive1.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.magicsearch.css">
+  </head>
+  <body>
+<style type="text/css">
+  .successmsg
+{ color: #fff;
+   padding-left: 350px;
+}
+
+.notification {
+  color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px
+}
+
+.notification:hover {
+  /*background: red;*/
+  color: white;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+}
+</style>
+</style>
+
+    <!-- Body Flyers Start -->
+    <div class="body_flyer body_flyer1">
+      <img src="images/body-flyer.png" alt="images">
+    </div>
+    <div class="body_flyer body_flyer2">
+      <img src="images/body-flyer.png" alt="images">
+    </div>
+    <!-- Body Flyers End -->
+
+   
+
+    <!-- Header Start -->
+    <div class="body_wrapper">
+      <div class="app_header">
+        <div class="app_header_logo">
+          <button class="btn mob_menu_btn side_toggle"><i class="fas fa-bars"></i></button>
+          <a href="#">
+            <img src="images/logo-icon.png" alt="images">
+            <h3 style="color: white;">TradeTips</h3>
+          </a>
+        </div>
+        <div class="app_header_content">
+          <div class="dsbrd_container">
+            <div class="successmsg"></div>
+            <div class="app_header_content_left">
+              <!-- <h3>Free trial expire In 6 days <a href="#">Upgrade</a></h3> -->
+              <div class="header_search">
+               <!--  <div class="input-group input_group">
+                  <input type="text" class="form-control" placeholder="Search over 1 million stocks & tips" style="text-transform:uppercase">
+                  <div class="input-group-append">
+                    <button class="btn">Search</button>
+                  </div>                   
+                </div> -->
+              <!--   <div class="post_new_tip_bx post_new_tip_bx2">
+                      <label></label>
+                      <ul id="suggesstion-box">
+                      </ul>
+                </div> -->
+              </div>
+            </div>
+            <div class="app_header_content_right">
+              <ul class="d-flex">
+                <li class="header_right_menu">
+                   <div class="dropdown user_dropdown">
+                    <a href="notification" class="notification">
+                     <i class="far fa-bell"></i>
+                      <span class="badge" id="badgecount"></span></a>
+                  </div>
+                </li>
+                <li class="header_right_menu">
+                 
+                  <div class="dropdown user_dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img id="myImg" alt="images">
+                      <h4 id=loginvals></h4>
+                    </a>
+                     <div class="dropdown-menu" aria-labelledby="dropdownUser">
+                      
+                        <a class="dropdown-item" href="myprofile">
+                        <svg id="noun_Log_Out_1933995" data-name="noun_Log Out_1933995" xmlns="http://www.w3.org/2000/svg" width="16.524" height="16.524" viewBox="0 0 16.524 16.524">
+                          <g id="Group_14310" data-name="Group 14310" transform="translate(0 0)">
+                            <g id="Group_14309" data-name="Group 14309">
+                              <path id="Path_576" data-name="Path 576" class="cls-1" d="M25.188,20.72a.57.57,0,0,0,.191.433L29.4,25.188H18.174a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624H29.4l-4.023,4.023a.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624.611.611,0,0,0,.446-.191l5.092-5.092a.589.589,0,0,0,.178-.433.632.632,0,0,0-.178-.446l-5.092-5.092a.632.632,0,0,0-.446-.178.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446m8.886-2.546a.609.609,0,0,0-.624-.624H30.9a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624h1.922V32.826H30.9a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624H33.45a.611.611,0,0,0,.446-.191.589.589,0,0,0,.178-.433Z" transform="translate(-17.55 -17.55)"/>
+                            </g>
+                          </g>
+                        </svg>
+                        My Profile
+                      </a>
+                      <a class="dropdown-item" href="settings">
+                        <svg id="noun_Log_Out_1933995" data-name="noun_Log Out_1933995" xmlns="http://www.w3.org/2000/svg" width="16.524" height="16.524" viewBox="0 0 16.524 16.524">
+                          <g id="Group_14310" data-name="Group 14310" transform="translate(0 0)">
+                            <g id="Group_14309" data-name="Group 14309">
+                              <path id="Path_576" data-name="Path 576" class="cls-1" d="M25.188,20.72a.57.57,0,0,0,.191.433L29.4,25.188H18.174a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624H29.4l-4.023,4.023a.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624.611.611,0,0,0,.446-.191l5.092-5.092a.589.589,0,0,0,.178-.433.632.632,0,0,0-.178-.446l-5.092-5.092a.632.632,0,0,0-.446-.178.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446m8.886-2.546a.609.609,0,0,0-.624-.624H30.9a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624h1.922V32.826H30.9a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624H33.45a.611.611,0,0,0,.446-.191.589.589,0,0,0,.178-.433Z" transform="translate(-17.55 -17.55)"/>
+                            </g>
+                          </g>
+                        </svg>
+                        Settings
+                      </a>
+                     <a class="dropdown-item" href="#" onclick="myFunction()">
+                        <svg id="noun_Log_Out_1933995" data-name="noun_Log Out_1933995" xmlns="http://www.w3.org/2000/svg" width="16.524" height="16.524" viewBox="0 0 16.524 16.524">
+                          <g id="Group_14310" data-name="Group 14310" transform="translate(0 0)">
+                            <g id="Group_14309" data-name="Group 14309">
+                              <path id="Path_576" data-name="Path 576" class="cls-1" d="M25.188,20.72a.57.57,0,0,0,.191.433L29.4,25.188H18.174a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624H29.4l-4.023,4.023a.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624.611.611,0,0,0,.446-.191l5.092-5.092a.589.589,0,0,0,.178-.433.632.632,0,0,0-.178-.446l-5.092-5.092a.632.632,0,0,0-.446-.178.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446m8.886-2.546a.609.609,0,0,0-.624-.624H30.9a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624h1.922V32.826H30.9a.589.589,0,0,0-.433.178.611.611,0,0,0-.191.446.654.654,0,0,0,.624.624H33.45a.611.611,0,0,0,.446-.191.589.589,0,0,0,.178-.433Z" transform="translate(-17.55 -17.55)"/>
+                            </g>
+                          </g>
+                        </svg>
+                        Logout
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<script type="text/javascript">
+  window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+        function myFunction() {
+  localStorage.clear();
+  window.location.href="/";
+}
+
+
+window.addEventListener("load", function() {
+
+  var url_string = window.location.href; 
+  var urls = new URL(url_string);
+ 
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData.uid);
+ 
+   var LoggedInUsername = storageData.uname;
+   var LoggedInEmail = storageData.email;
+   var LoggedInId = storageData.uid;
+   var tokens = storageData.tokens;
+   // alert(LoggedInId);
+   document.getElementById("myImg").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+LoggedInId;
+   $('#loginvals').html(LoggedInUsername);
+   $('#loginemailvals').html(LoggedInEmail);
+
+
+   var testtoken = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Im1haGVzaHdhcmkwNmdvdmluZEBnbWFpbC5jb20iLCJzdWIiOiJmMTQ4NmIzMy03YTM0LTQ1MDYtYWFhMS1kM2Y0YmYzOGQzNjYiLCJpYXQiOjE2MjYwODUxMjUsImV4cCI6MTYyNjY4OTkyNX0.m7wG3BhTp4sG4_PO0rAUtpO-Lc79jtryf78swvw8zdRz8lNj-z3Mm6G1HlGzgZuUbfYcawigT5tc9SREGNh6JA';
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/getCountOfAllUnreadNotificationActivityDetails',
+        headers: {
+          Authorization: 'Bearer '+ testtoken,
+           },
+        // data: formdata,
+       success: function(data) {
+
+            // alert(data);
+
+            if(data.unReadCount > 0){
+
+              // alert(data.unReadCount);
+
+               document.getElementById("badgecount").textContent = data.unReadCount;
+
+            }else {
+
+               document.getElementById("badgecount").textContent = "0";
+              // alert("no count");
+            }
+
+         },error: function(error){
+           document.getElementById("badgecount").textContent = "0";
+         }
+
+
+   });
+
+
+});
+
+
+
+
+</script>
+
+
+

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TradeTips</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap1.min.css">
+  <link rel="stylesheet" type="text/css" href="css/fontawesome1-all.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style1.css">
+  <link rel="stylesheet" type="text/css" href="css/responsive1.css">
+</head>
+<style>
+       #pswrd{
+           -webkit-text-security:disc;
+       }
+   </style>
+<body>
+
+        <!-- Body Flyers Start -->
+    <div class="body_flyer body_flyer1">
+      <img src="images/body-flyer.png" alt="images">
+    </div>
+    <div class="body_flyer body_flyer2">
+      <img src="images/body-flyer.png" alt="images">
+    </div>
+    <!-- Body Flyers End -->
+
+</form>
+    <!-- Login Start -->
+    <div class="onboard_wrapper">
+      <div class="account_bx login_bx">
+        <div class="account_bx_head">
+          <a href="#"><img src="images/logo.png" alt="images"></a>
+        </div>
+        <div class="account_bx_frm">
+          <input type="text" class="form-control" id="uname" name="userName" placeholder="Enter Username" required="required">
+          <input type="text" class="form-control" id="pswrd" name="password" placeholder="Enter Password" autocomplete="off" required="required">
+          <div class="rmbr_frgt">
+           <label>
+            <!--  <input type="checkbox" required="required" name="remember" id="rememberme">
+            Remember Me-->
+            </label> 
+            <h4><a href="/forgetPassword">Forgot password?</a></h4>
+          </div>
+          <button class="btn cmn_btn btn_primary" id="butlogin">Login</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- Login End -->
+
+ <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/fontawesome-all.min.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+
+   window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+    window.addEventListener("load", function() 
+       {
+         var url_string = window.location.href; 
+         var urls = new URL(url_string);
+       //alert(urls);
+         $('#butlogin').on('click', function() {
+            //alert("hii");
+            var userName = $('#uname').val();
+            var password = $('#pswrd').val();
+            if(userName!="" && password!="" ){
+              $.ajax({
+                type: 'POST',
+                url: 'https://apistest.tradetipsapp.com/api/auth/appSignIn',
+                headers: {
+                  Authorization: 'Bearer '+ localStorage.getItem("token"),
+                  Authorization: 'Bearer '+ sessionStorage.getItem("token")
+                },
+                data: {
+                  type:2,
+                  userName: userName,
+                  password: password            
+                },
+                dataType:'json',
+                cache:false,
+                success: function(data){
+                  // alert(dataResult.accessToken);
+                  // alert(userName);
+                  var datak = JSON.stringify(data); 
+                  var dataResult = JSON.parse(datak);
+                  var mentor = dataResult.isMentor        
+                  // alert(data.accessToken); 
+                  if(dataResult.accessToken){                  
+                    if(userName != "admin"){
+                      $("#success").show();
+                      $('#success').html('Login Sucessfully !');
+                  
+                            const tdss = dataResult.accessToken;
+                            const tds7 = dataResult.fcmToken;
+                            const tds1 = dataResult.accessTokenStreamIO;
+                            const tds2 = dataResult.userName;
+                            const tds3 = dataResult.id;
+                            const tds4 = dataResult.accessTokenStreamIOWithID;
+                            const tds5 = dataResult.email;
+                            const tds6 = dataResult.createdOn;
+
+                            localStorage.setItem('allTokenData', JSON.stringify({
+                                tokendata: tdss,
+                                fcmToken: tds7,
+                                streamtoken: tds1,
+                                uname: tds2,
+                                uid: tds3,
+                                streamdatatoken: tds4,
+                                email:tds5,
+                                creation_date : tds6
+                            }));
+
+                       // window.location.href = "/home";  
+                       window.location.href = "/dashboard";  
+                      }
+                    else{
+                       alert('Invalid Username or Password !!!');
+                       window.location.href = "/"; 
+                      }                                       
+                    }
+                  else if(dataResult.statusCode==201){
+                    // alert("false");
+                    $("#error").show();
+                    $('#error').html('Invalid Username or Password !!!');
+
+                  } else {
+                    alert('Invalid Username or Password !!!');
+                    window.location.href = "/"; 
+
+                  }
+                  
+                }
+
+              });
+            }
+            else{
+              alert('Please fill all the field !');
+            }
+          });
+
+    });
+
+
+       
+ </script>
+
+
+<!-- <script type="text/javascript">
+
+ $('#rememberme').click(function() {
+  var rem = document.getElementById("rememberme");
+  //alert(rem.checked);
+  if (rem.checked == true){
+      if ($('#rememberme').is(':checked')){
+          //alert("yesss");
+          var usrname = $('#uname').val(); 
+          var pass = $('#pswrd').val();
+          var expires = (new Date(Date.now()+ 10*24*60*60*1000)).toUTCString();
+          // alert(expires);
+          document.cookie = "userName="+usrname+";expires="+expires+";path=/";
+          //document.cookie = "password="+pass+";expires="+expires+";path=/"+"; secure";
+          function encode_cookie(cookie_value) {
+
+              // This variable holds the encoded cookie characters
+              var coded_string = ""
+              
+              // Run through each character in the cookie value
+              for (var counter = 0; counter < cookie_value.length; counter++) {
+              
+                // Add the character's numeric code to the string
+                coded_string += cookie_value.charCodeAt(counter)+ 25
+                
+                // Separate each code with a plus sign (+)
+                if (counter < cookie_value.length - 1) {
+                  coded_string += "+"
+                }
+              }
+              return coded_string
+            }
+AA = encode_cookie(pass);
+//alert(AA);
+document.cookie = "password="+AA+";expires="+expires+";path=/";
+
+  }
+}
+  else{
+      //alert("noooooo");
+      document.cookie = "userName=; max-age=0; path=/;";
+      document.cookie = "password=; max-age=0; path=/;";
+  }
+});
+
+function getCookie(){
+  //alert(document.cookie.length);
+  if(document.cookie.length!=0){
+
+    var data = document.cookie.split("=");
+    var name = data[1].split(";");
+    //alert(name[0]);
+    //alert(data[2]);
+    function decode_cookie(coded_string) {
+
+        // This variable holds the decoded cookie value
+        var cookie_value = ""
+        
+        // Use + to split the coded string into an array
+        var code_array = coded_string.split("+")
+        
+        // Loop through the array
+        for (var counter = 0; counter < code_array.length; counter++) {
+
+          // Convert the code into a character and 
+          // add it to the cookie value string
+          cookie_value += String.fromCharCode(code_array[counter]- 25)
+        }
+        return cookie_value
+}
+
+BB = decode_cookie(data[2]);
+//alert(BB);
+    $("#uname").val(name[0]);
+    $("#pswrd").val(BB);
+    $("#rememberme").prop('checked', true);
+ }
+ else{
+    $("#rememberme").prop('checked', false);
+     // alert(document.cookie);
+     document.cookie = "userName=; max-age=0; path=/;";
+     document.cookie = "password=; max-age=0; path=/;";
+ }
+}
+</script>
+ -->
+ 
+</body>
+</html>

@@ -1,0 +1,91 @@
+@media screen and (min-width: 1900px) {
+           .emojis
+        {
+            margin-left: 58%;
+            margin-top : -264px;
+        }
+
+        .emoji-button{
+            position:absolute;
+            margin-left: 94%;
+            margin-top: 0;
+            z-index: 1000;
+        }
+  }
+
+  @media screen and (min-width: 1400px)  and (max-width: 1600px){
+    
+            .emojis
+        {
+            margin-left: 52%;
+            margin-top : -342px;
+        }
+
+        .emoji-button{
+            position:absolute;
+            margin-left: 93%;
+            margin-top: 0;
+            z-index: 1000;
+        }
+
+  }
+  
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+     .emojis
+        {
+            margin-left: 64%;
+            margin-top : -254px;
+        }
+
+        .emoji-button{
+            position:absolute;
+            margin-left: 93%;
+            margin-top: 0;
+            z-index: 1000;
+        }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+     .emojis
+        {
+            margin-left: 54%;
+            margin-top : -318px;
+        }
+
+        .emoji-button{
+            position:absolute;
+            margin-left: 92%;
+            margin-top: 0;
+            z-index: 1000;
+        }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+     .emojis
+        {
+            margin-left: 54%;
+            margin-top : -229px;
+        }
+
+        .emoji-button{
+            position:absolute;
+            margin-left: 90%;
+            margin-top: 0;
+            z-index: 1000;
+        }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 767px){
+     .emojis
+        {
+            margin-left: 0%;
+            margin-top : -318px;
+        }
+
+        .emoji-button{
+            position:absolute;
+            margin-left: 74%;
+            margin-top: 0;
+            z-index: 1000;
+        }
+}

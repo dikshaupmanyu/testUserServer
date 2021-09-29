@@ -1,0 +1,219 @@
+  <%- include partials/innerheader %>
+<!-- Page Content Start -->
+<div class="app_main">
+                  
+   <%- include partials/innersidebar %>
+
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="package_head">
+        <h2>My Services</h2>
+        <%- include partials/serviceslist %>
+        </div>
+      </div>
+    <div class="createpackage_wrapper create_newsletter">
+      <div class="createpackage_head">
+<!--         <button class="btn back_btn"><i class="fas fa-arrow-left"></i></button>
+ -->        <h2>Create New Video Channel Subscription</h2>
+      </div>
+      <form id="formoid" enctype="multipart/form-data" onsubmit="return false">
+
+      <input type="text" class="form-control" placeholder="Enter your title here" name="serviceTypeId" id="serviceTypeIds" value="b9259b4f-4529-4aaa-b223-95d711ecb969" style="display: none;">
+
+       <input type="text" class="form-control" placeholder="Enter your title here" name="serviceName" id="serviceName" value="VideoSubscription" style="display: none;">
+
+      <div class="createpackage_form">
+        <div class="form-group">
+          <label>Video Subscription Title</label>
+          <input type="text" class="form-control" placeholder="Enter your title here" name="title" id="title">
+          <h5>Max 200 Characters</h5>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" placeholder="Enter your description here" name="description1" id="description1">
+          <h5>Max 200 Characters</h5>
+        </div>
+       <!--  <div class="form-group">
+         <label>What you will get</label>
+          <input type="text" class="form-control" placeholder="Enter your description here" name="description2" id="description2">
+          <h5>Max 200 Characters</h5>
+        </div> -->
+      <!--   <div class="form-group">
+         <label>Sample Video Url</label>
+          <input type="text" class="form-control" placeholder="https://www.youtube.com/watch?v=8vu6nW_qs23343" name="video url">
+        </div> -->
+        <div class="row">
+           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="form-group">
+             <label>Price </label>
+              <div class="price_box">
+                <img src="images/doller-icon.png" alt="images">
+                <input type="text" class="form-control" name="onlynumbers" placeholder="Ex. 200" id="price">
+              </div>
+            </div>          
+           </div>
+           <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="form-group">
+             <label>Video Channel Subscription Schedule</label>
+              <select name="frequency" id="frequency" class="form-control">
+                <option>Select Schedule</option>
+                <option value="1">Daily</option>
+                <option value="7">Weekly</option>
+                <option value="15">Bi-Weekly</option>
+                <option value="30">Monthly</option>
+                <option value="365">Yearly</option>
+              </select>
+            </div>
+           </div>
+        </div>
+        <div class="form-group">
+         <label>Add Cover</label>
+          <div id="file-upload-form" class="uploader">
+            <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+            <label class="file_upload_label" for="file-upload" id="file-drag">
+              <img id="file-image" src="#" alt="Preview" class="hidden">
+              <div id="start">
+                <h4 id="file-upload-btn"> + Click or drag cover image</h4>
+                <div id="notimage" class="hidden color_sell">Please select an image</div>
+              </div>
+              <div id="response" class="hidden">
+                <div id="messages"></div>
+                <progress class="progress" id="file-progress" value="0">
+                  <span>0</span>%
+                </progress>
+              </div>
+            </label>
+          </div>
+          <div class="cover_img_optn">
+            <ul>
+              <li><a onclick="ImgDelete();" style="cursor: pointer;"><span><i class="far fa-trash-alt"></i></span> Remove Picture</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="createpackage_form_btns">
+          <a href="/services"  class="btn cmn_btn btn_danger" style="color: white;border-color: white;">Cancel</a>
+          <button type="submit" class="btn cmn_btn btn_primary">Publish Service</button>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Page Content Start -->
+
+  <%- include partials/innerfooter %>
+
+  <script type="text/javascript">
+
+  // $(function(){
+  // $("input[name='onlynumbers']").on('input', function (e) {
+  //     $(this).val($(this).val().replace(/[^0-9]/g, ''));
+  //   });
+  // });
+
+  var sData = localStorage.getItem('allTokenData');
+
+  var storageData= JSON.parse(sData);
+ 
+  var tokens = storageData.tokendata;
+  
+  var userids = storageData.uid;
+
+  var userName = storageData.uname;
+
+   function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#file-image').attr('src', e.target.result);
+      document.getElementById('file-image').style.display= "block";
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$("#file-upload").change(function() {
+  readURL(this);
+});
+
+function ImgDelete(){
+  document.getElementById('file-image').style.display= "none";
+}
+
+
+$("#formoid").submit(function(event){
+
+  var title = $('#title').val();
+  var userId = userids;
+  var serviceName = $('#serviceName').val();
+  var descriptionOne = $('#description1').val();
+  // var descriptionTwo = $('#description2').val();
+  var serviceTypeId = $('#serviceTypeIds').val();
+  var frequency = $('#frequency').val();
+  var price = $('#price').val();
+  var imageDetails = $('#file-image').val();
+  
+  
+  var file = document.getElementById("file-upload").files[0];
+  // alert(file);
+  var fullPath = $("#file-upload").val();    
+  var filename = fullPath.replace(/^.*[\\\/]/, '');
+  // alert(filename);
+  var frequencyss = $("#frequency option:selected").text();
+  var stripeProductName = userName +'_'+ serviceName +'_'+ frequencyss;
+ var formdata = new FormData();
+    formdata.append("title", title);
+    formdata.append("serviceTypeId", serviceTypeId);
+    formdata.append("descriptionOne", descriptionOne);
+    formdata.append("descriptionTwo", "null");
+    formdata.append("stripeProductName", stripeProductName);
+    formdata.append("frequency", frequency);
+    formdata.append("price", price);
+    formdata.append("mentorId", userId);
+    if(filename == ""){
+    // alert("null");
+      formdata.append("imageDetails", "");
+
+    }else{
+    // alert("not null");
+      formdata.append("imageDetails", file , filename);
+
+    }
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+              Authorization: 'Bearer '+ tokens
+            },
+      body: formdata,
+      redirect: 'follow'
+    };
+
+    fetch("https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/addServiceSubscriptionPlanByMentor", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+                // alert("calling val" +result);
+                // alert(JSON.stringify(result));
+                var datak = JSON.stringify(result);
+                // alert(datak);
+                var dataResultp = JSON.parse(datak); 
+                // alert(dataResultp.title);
+                $(".successmsg").html('<span>"Your Video '+dataResultp.title+' submitted successfully."</span>');
+               setTimeout(function(){$(".successmsg").empty()}, 2000);
+               setTimeout(function(){
+               window.location.reload(1);
+               }, 2000);
+               // window.location.reload();
+
+       })
+      .catch(error => console.log('error', error));
+
+
+  });
+
+  </script>
+
+      

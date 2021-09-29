@@ -1,0 +1,39 @@
+<!--   <button class="btn cmn_btn btn_small btn_primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create New Services</button> -->
+          <div class="dropdown-menu"  id="listservice">
+           
+          </div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript">
+  var sData = localStorage.getItem('allTokenData');
+
+  var storageData= JSON.parse(sData);
+ 
+  var tokens = storageData.tokendata;
+  
+  var userids = storageData.uid;
+
+
+        $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/serviceTypeMaster/getAllServiceType',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+            success: function(data) {
+
+               const dataResult = data;
+                  let tiplist = [];
+                  for(var i=0; i< dataResult.length; i++){
+
+                 
+                  tiplist += ' <a class="dropdown-item" href="/' + dataResult[i].serviceType + '">' + dataResult[i].title + '</a>';
+
+                   // newtip.push(dataResult[i]);
+                  }
+                   $("#listservice").append(tiplist);
+                 
+
+              }
+
+            });
+  </script>

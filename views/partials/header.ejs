@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>TradeTips</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: auto; background: rgb(38, 59, 102);}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: rgb(32, 40, 66);
+      height: auto;
+      color: white;
+    }
+
+    .nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    font-size: larger;
+    }
+
+    .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #06264D;
+    background-color: #fff;
+}
+
+    .nav>li>a:focus, .nav>li>a:hover {
+        text-decoration: none;
+        background-color: #fff;
+        color: black;
+    }
+
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #06264D;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+
+
+.Buy{
+ color:white;
+ background-color: green;
+ border: 8px solid green;
+ border-radius: 5px;
+}
+
+.Sell{
+ color:white;
+ background-color: #dc3545;
+ border: 8px solid #dc3545;
+ border-radius: 5px;
+}
+
+.Avoid{
+ color:white;
+ background-color: black;
+ border: 8px solid black;
+ border-radius: 5px;
+}
+
+.suggestion{
+ margin-top: 12px;
+}
+
+.nname{
+  width: 50%;
+}
+
+.tableone{
+  width: 50%;
+}
+
+.tabletwo{
+  width: 25%;
+}
+
+.tablefour{
+  width: 25%;
+}
+
+.red{
+  color: red !important;
+}
+
+.green{
+  color: #228B22 !important;
+}
+.hclass{
+  color: black;
+}
+
+
+  </style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+  window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+window.addEventListener("load", function() {
+
+  var url_string = window.location.href; 
+  var urls = new URL(url_string);
+  // var tokens = urls.searchParams.get("tokendata");
+  // alert(tokens);
+
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData);
+  // alert(storageData.tokendata);
+  // alert(storageData.uname);
+  // alert(storageData.uid);
+   var LoggedInUsername = storageData.uname;
+
+   $('#loginvals').html(LoggedInUsername + " " + "Blog");
+   
+    var LoggedInchatt = storageData.userIds;
+
+    $('#loginChat').html(LoggedInchatt + " " + "Blog");
+   
+
+});
+
+
+function myFunction() {
+  localStorage.clear();
+  window.location.href="/";
+}
+
+</script>

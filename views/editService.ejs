@@ -1,0 +1,620 @@
+  <%- include partials/innerheader %>
+<!-- Page Content Start -->
+<div class="app_main">
+                  
+   <%- include partials/innersidebar %>
+
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="package_head">
+        <h2>My Services</h2>
+        <%- include partials/serviceslist %>
+        </div>
+      </div>
+
+
+    <div class="createpackage_wrapper create_newsletter">
+      <div class="createpackage_head">
+       <h2>Edit Services</h2>
+      </div>
+
+      <div id="newsletterServices"></div>
+
+      <form id="formoid" enctype="multipart/form-data" onsubmit="return false">
+
+        <input type="text" class="form-control" placeholder="Enter your title here" name="serviceTypeSubscriptionId" id="serviceTypeSubscriptionId" value="<%= subscriptionServiceId %>" style="display: none;">
+
+         <input type="text" class="form-control" placeholder="Enter your title here" name="serviceTypeId" id="serviceTypeId" value="<%= servicesMainId %>" style="display: none;">
+
+          <input type="text" class="form-control" placeholder="Enter your title here" name="serviceName" id="serviceName" value="<%= serviceName %>" style="display: none;">
+
+          <div class="createpackage_form">
+
+         <!--    <div class="form-group">
+              <label>Select Service</label>
+              <select class="form-control">
+                <option value="54619720-63dc-4287-bb68-adabedf01f0b">Newsletter</option>
+                <option value="b5d735b0-92ef-45d3-8f6e-e7adc7d9a8a8">1-1 Chat 15 mins (Video / Non Video)</option>
+                <option value="668b8486-64dd-43b7-9d24-563944009ebe">Live Chat</option>
+                <option value="6faa1011-33a7-4b71-b001-e20cebdaed22">Webinar</option>
+                <option value="0f27f77e-1277-426d-83fa-192ae12165ba">Mentor Phone Group</option>
+                <option value="b9259b4f-4529-4aaa-b223-95d711ecb969">Video Subscription</option>
+                <option value="b098c61a-e451-4df7-a5d5-6ad88e096c3b">Books</option>
+              </select>
+              <h5>Max 200 Characters</h5>
+            </div> -->
+
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" placeholder="Enter your title here" name="title" id="title">
+              <h5>Max 200 Characters</h5>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <input type="text" class="form-control" placeholder="Enter your description here" name="description1" id="description1">
+              <h5>Max 200 Characters</h5>
+            </div>
+            <div class="row">
+           <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
+            <div class="form-group">
+             <label>Price </label>
+              <div class="price_box" style="width: 50%;">
+                <img src="images/doller-icon.png" alt="images">
+                <input type="text" class="form-control" name="onlynumbers" placeholder="Ex. 200" id="price">
+              </div>
+            </div>          
+           </div>
+           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+            <div class="form-group">
+             <label>Schedule</label>
+              <select name="frequency" id="frequency" class="form-control">
+                <option>Select Schedule</option>
+                <option value="0">One Time</option>
+                <option value="1">Daily</option>
+                <option value="7">Weekly</option>
+                <option value="15">Bi-weekly</option>
+                <option value="30">Monthly</option>
+                <option value="365">Yearly</option>
+              </select>
+            </div>
+           </div>
+        </div>
+            <div class="form-group">
+             <label>Add Cover</label>
+              <div id="file-upload-form" class="uploader">
+                <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+                <label class="file_upload_label" for="file-upload" id="file-drag">
+                  <img id="file-image" src="#" alt="Preview" class="">
+                   <div id="start">
+                     <h2>+</h2> <h4 id="file-upload-btn">Click or Drag & Drop Your Own Image Here</h4>
+                    <div id="notimage" class="hidden color_sell">Please select an image</div>
+                  </div>
+                  <div id="response" class="hidden">
+                    <div id="messages"></div>
+                    <progress class="progress" id="file-progress" value="0">
+                      <span>0</span>%
+                    </progress>
+                  </div>
+                </label>
+              </div>
+              <div class="cover_img_optn">
+                <ul>
+                  <li class="mr-auto ml-0"><a href="#">Click here</a> and Choose from a Group of Images</li>
+                 <li><a onclick="ImgDelete();" style="cursor: pointer;"><span><i class="far fa-trash-alt"></i></span> Remove Picture</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div id="carousel-thumbs" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row mx-0">
+               <!--  <div id="carousel-selector-0" class="thumb col-4 col-sm-2 px-1 py-2 selected" data-target="#myCarousel" data-slide-to="0">
+                  <img src="/thumbnail/Image_v1.png" alt="...">
+                </div> -->
+                <div id="carousel-selector-1" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="1">
+                  <img src="/thumbnail/Image_v2.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-2" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="2">
+                  <img src="/thumbnail/Image_v3.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-3" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="3">
+                  <img src="/thumbnail/Image_v4.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-4" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="4">
+                  <img src="/thumbnail/Image_v5.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-5" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="5">
+                  <img src="/thumbnail/Image_v6.png" class="img-fluid" alt="...">
+                </div>
+                 <div id="carousel-selector-10" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="10">
+                  <img src="/thumbnail/Image_v11.png" class="img-fluid" alt="...">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row mx-0">
+                <div id="carousel-selector-6" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="6">
+                  <img src="/thumbnail/Image_v7.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-7" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="7">
+                  <img src="/thumbnail/Image_v8.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-8" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="8">
+                  <img src="/thumbnail/Image_v9.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-9" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="9">
+                  <img src="/thumbnail/Image_v10.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-11" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="9">
+                  <img src="/thumbnail/Image_v12.png" class="img-fluid" alt="...">
+                </div>
+                 <div id="carousel-selector-27" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="27">
+                  <img src="/thumbnail/Image_v28.png" class="img-fluid" alt="...">
+                </div>
+                <div class="col-2 px-1 py-2"></div>
+                <div class="col-2 px-1 py-2"></div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row mx-0">
+                <div id="carousel-selector-12" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="12">
+                  <img src="/thumbnail/Image_v13.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-13" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="13">
+                  <img src="/thumbnail/Image_v14.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-14" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="14">
+                  <img src="/thumbnail/Image_v15.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-15" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="15">
+                  <img src="/thumbnail/Image_v16.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-16" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="16">
+                  <img src="/thumbnail/Image_v17.png" class="img-fluid" alt="...">
+                </div>
+                 <div id="carousel-selector-28" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="28">
+                  <img src="/thumbnail/Image_v29.png" class="img-fluid" alt="...">
+                </div>
+                <div class="col-2 px-1 py-2"></div>
+                <div class="col-2 px-1 py-2"></div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row mx-0">
+                <div id="carousel-selector-17" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="17">
+                  <img src="/thumbnail/Image_v18.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-18" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="18">
+                  <img src="/thumbnail/Image_v19.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-19" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="19">
+                  <img src="/thumbnail/Image_v20.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-20" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="20">
+                  <img src="/thumbnail/Image_v21.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-21" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="21">
+                  <img src="/thumbnail/Image_v22.png" class="img-fluid" alt="...">
+                </div>
+                 <div id="carousel-selector-31" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="31">
+                  <img src="/thumbnail/Image_v32.png" class="img-fluid" alt="...">
+                </div>
+                <div class="col-2 px-1 py-2"></div>
+                <div class="col-2 px-1 py-2"></div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row mx-0">
+                <div id="carousel-selector-22" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="22">
+                  <img src="/thumbnail/Image_v23.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-23" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="23">
+                  <img src="/thumbnail/Image_v24.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-24" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="24">
+                  <img src="/thumbnail/Image_v25.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-25" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="25">
+                  <img src="/thumbnail/Image_v26.png" class="img-fluid" alt="...">
+                </div>
+                <div id="carousel-selector-26" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="26">
+                  <img src="/thumbnail/Image_v27.png" class="img-fluid" alt="...">
+                </div>
+                 <div id="carousel-selector-30" class="thumb col-4 col-sm-2 px-1 py-2" data-target="#myCarousel" data-slide-to="30">
+                  <img src="/thumbnail/Image_v31.png" class="img-fluid" alt="...">
+                </div>
+                <div class="col-2 px-1 py-2"></div>
+                <div class="col-2 px-1 py-2"></div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carousel-thumbs" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel-thumbs" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+
+        <br>
+            <div class="createpackage_form_btns">
+              <a href="/services"  class="btn cmn_btn btn_danger" style="color: white;border-color:white;">Cancel</a>
+              <button type="submit" class="btn cmn_btn btn_primary">Publish Service</button>
+            </div>
+          </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Page Content Start -->
+
+  <%- include partials/innerfooter %>
+  <style type="text/css">
+  .carousel {
+  position: relative;
+}
+.carousel-item img {
+  object-fit: cover;
+}
+#carousel-thumbs {
+  background: rgba(255,255,255,.3);
+  bottom: 0;
+  left: 0;
+  padding: 0 50px;
+  right: 0;
+}
+#carousel-thumbs img {
+  border: 5px solid transparent;
+  cursor: pointer;
+}
+#carousel-thumbs img:hover {
+  border-color: rgba(255,255,255,.3);
+}
+#carousel-thumbs .selected img {
+  border-color: #fff;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  width: 50px;
+}
+@media all and (max-width: 767px) {
+  .carousel-container #carousel-thumbs img {
+    border-width: 3px;
+  }
+}
+@media all and (min-width: 576px) {
+  .carousel-container #carousel-thumbs {
+    position: absolute;
+  }
+}
+@media all and (max-width: 576px) {
+  .carousel-container #carousel-thumbs {
+    background: #ccccce;
+  }
+}
+</style>
+<script type="text/javascript">
+  $('#myCarousel').carousel({
+  interval: false
+});
+$('#carousel-thumbs').carousel({
+  interval: false
+});
+
+// handles the carousel thumbnail
+// https://stackoverflow.com/questions/25752187/bootstrap-carousel-with-thumbnail-multiple-carousel
+$('[id^=carousel-selector-]').click(function() {
+  var id_selector = $(this).attr('id');
+  var id = parseInt( id_selector.substr(id_selector.lastIndexOf('-') + 1) );
+  $('#myCarousel').carousel(id);
+});
+// Only display 3 items in nav on mobile.
+// if ($(window).width() < 575) {
+//   $('#carousel-thumbs .row div:nth-child(4)').each(function() {
+//     var rowBoundary = $(this);
+//     $('<div class="row mx-0">').insertAfter(rowBoundary.parent()).append(rowBoundary.nextAll().addBack());
+//   });
+//   $('#carousel-thumbs .carousel-item .row:nth-child(even)').each(function() {
+//     var boundary = $(this);
+//     $('<div class="carousel-item">').insertAfter(boundary.parent()).append(boundary.nextAll().addBack());
+//   });
+// }
+// Hide slide arrows if too few items.
+if ($('#carousel-thumbs .carousel-item').length < 2) {
+  $('#carousel-thumbs [class^=carousel-control-]').remove();
+  $('.machine-carousel-container #carousel-thumbs').css('padding','0 5px');
+}
+// when the carousel slides, auto update
+$('#myCarousel').on('slide.bs.carousel', function(e) {
+  var id = parseInt( $(e.relatedTarget).attr('data-slide-number') );
+  $('[id^=carousel-selector-]').removeClass('selected');
+  $('[id=carousel-selector-'+id+']').addClass('selected');
+});
+// when user swipes, go next or previous
+// $('#myCarousel').swipe({
+//   fallbackToMouseEvents: true,
+//   swipeLeft: function(e) {
+//     $('#myCarousel').carousel('next');
+//   },
+//   swipeRight: function(e) {
+//     $('#myCarousel').carousel('prev');
+//   },
+//   allowPageScroll: 'vertical',
+//   preventDefaultEvents: false,
+//   threshold: 75
+// });
+/*
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+  event.preventDefault();
+  $(this).ekkoLightbox();
+});
+*/
+
+$('#carousel-thumbs .carousel-item img').on('click', function(e) {
+  // alert(e.target.src);
+  $('#file-image').attr('src', e.target.src);
+  document.getElementById('file-image').style.display= "block";
+  // var src = $(e.target).attr('data-remote');
+  // alert(src);
+  // if (src) $(this).ekkoLightbox();
+  readURLs(this);
+  // alert(readURLs(this));
+});
+
+ function readURLs(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#file-image').attr('src', e.target.src);
+      document.getElementById('file-image').style.display= "block";
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+</script>
+
+  <script type="text/javascript">
+
+
+
+  var sData = localStorage.getItem('allTokenData');
+
+  var storageData= JSON.parse(sData);
+ 
+  var tokens = storageData.tokendata;
+  
+  var userids = storageData.uid;
+
+  var userName = storageData.uname;
+
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#file-image').attr('src', e.target.result);
+      document.getElementById('file-image').style.display= "block";
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$("#file-upload").change(function() {
+  readURL(this);
+  var serviceTypeId = $('#serviceTypeId').val();
+  var serviceTypeSubscriptionId = $('#serviceTypeSubscriptionId').val();
+  var serviceName = $('#serviceName').val();
+  var title = $('#title').val();
+  var userId = userids;
+  var descriptionOne = $('#description1').val();
+  // var descriptionTwo = "";
+  var frequency = $('#frequency').val();
+  var price = $('#price').val();
+  var imageDetails = $('#file-image').val();
+  var file = document.getElementById("file-upload").files[0];
+  // alert(file);
+  var fullPath = $("#file-upload").val();    
+  var filename = fullPath.replace(/^.*[\\\/]/, '');
+  // alert(filename);
+  var frequencyss = $("#frequency option:selected").text();
+  var stripeProductName = userName +'_'+ serviceName +'_'+ frequencyss;
+  // alert(stripeProductName);
+
+  var formdata = new FormData();
+    formdata.append("title", title);
+    formdata.append("serviceTypeId", serviceTypeId);
+    formdata.append("serviceSubscriptionPlanMentorId", serviceTypeSubscriptionId);
+    formdata.append("descriptionOne", descriptionOne);
+    formdata.append("descriptionTwo", "null");
+    formdata.append("stripeProductName", stripeProductName);
+    formdata.append("frequency", frequency);
+    formdata.append("price", price);
+    formdata.append("mentorId", userId);
+    if(filename == ""){
+    // alert("null");
+      formdata.append("imageDetails", "");
+
+    }else{
+    // alert("not null");
+      formdata.append("imageDetails", file , filename);
+
+    }
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+              Authorization: 'Bearer '+ tokens
+            },
+      body: formdata,
+      redirect: 'follow'
+    };
+    fetch("https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/modifyServiceSubscriptionPlanByMentor", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+                // alert("calling val" +result);
+                // alert(JSON.stringify(result));
+                var datak = JSON.stringify(result);
+                 console.log(datak);
+                var dataResultp = JSON.parse(datak);
+                // alert(dataResultp.title);
+                $(".successmsg").html('<span>Your Image uploaded successfully</span>');
+           setTimeout(function(){$(".successmsg").empty()}, 3000);
+                //window.location.reload();
+
+       })
+      .catch(error => console.log('error', error));
+});
+
+function ImgDelete(){
+  var r = confirm("Are you sure to delete this Image ?");
+  if (r == true) {
+  var serviceTypeSubscriptionId = $('#serviceTypeSubscriptionId').val();
+         $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/deleteServiceSubscriptionPlanImageByMentor',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  serviceSubscriptionPlanMentorId : serviceTypeSubscriptionId,
+                },
+            success: function(data) {
+                 // alert(JSON.stringify(data));
+                   
+                 
+
+              }
+
+            });
+
+     document.getElementById('file-image').style.display= "none";
+   }
+}
+
+
+
+  $(function(){
+  // $("input[name='onlynumbers']").on('input', function (e) {
+  //     $(this).val($(this).val().replace(/[^0-9]/g, ''));
+  //   });
+
+    var serviceTypeSubscriptionId = $('#serviceTypeSubscriptionId').val();
+  
+         $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getServiceSubscriptionPlanById',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  serviceSubscriptionPlanId : serviceTypeSubscriptionId,
+                },
+            success: function(data) {
+                // alert(JSON.stringify(data));
+               const dataResult = data;
+                  let newtip = [];
+
+                  // alert(dataResult.frequency);
+
+                  document.getElementById("title").value = dataResult.title;
+                  document.getElementById("description1").value = dataResult.descriptionOne;
+                  // document.getElementById("description2").value = null;
+                  document.getElementById("frequency").value = dataResult.frequency;
+                  document.getElementById("price").value = dataResult.price;
+                  document.getElementById("file-image").src = "https://apistest.tradetipsapp.com"+dataResult.imageDetails;
+                   
+                 
+
+              }
+
+            });
+
+
+  });
+
+ 
+
+$("#formoid").submit(function(event){
+  var serviceTypeId = $('#serviceTypeId').val();
+  var serviceTypeSubscriptionId = $('#serviceTypeSubscriptionId').val();
+  var serviceName = $('#serviceName').val();
+  var title = $('#title').val();
+  var userId = userids;
+  var descriptionOne = $('#description1').val();
+  // var descriptionTwo = "";
+  var frequency = $('#frequency').val();
+  var price = $('#price').val();
+  var imageDetails = $('#file-image').val();
+  var file = document.getElementById("file-upload").files[0];
+  // alert(file);
+  var fullPath = $("#file-upload").val();    
+  var filename = fullPath.replace(/^.*[\\\/]/, '');
+  // alert(filename);
+  var frequencyss = $("#frequency option:selected").text();
+  var stripeProductName = userName +'_'+ serviceName +'_'+ frequencyss;
+  // alert(stripeProductName);
+
+  var formdata = new FormData();
+    formdata.append("title", title);
+    formdata.append("serviceTypeId", serviceTypeId);
+    formdata.append("serviceSubscriptionPlanMentorId", serviceTypeSubscriptionId);
+    formdata.append("descriptionOne", descriptionOne);
+    formdata.append("descriptionTwo", "null");
+    formdata.append("stripeProductName", stripeProductName);
+    formdata.append("frequency", frequency);
+    formdata.append("price", price);
+    formdata.append("mentorId", userId);
+    if(filename == ""){
+    // alert("null");
+      formdata.append("imageDetails", "");
+
+    }else{
+    // alert("not null");
+      formdata.append("imageDetails", file , filename);
+
+    }
+    var requestOptions = {
+      method: 'POST',
+      headers: {
+              Authorization: 'Bearer '+ tokens
+            },
+      body: formdata,
+      redirect: 'follow'
+    };
+
+    fetch("https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/modifyServiceSubscriptionPlanByMentor", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+                // alert("calling val" +result);
+                // alert(JSON.stringify(result));
+                var datak = JSON.stringify(result);
+                // alert(datak);
+                var dataResultp = JSON.parse(datak); 
+                // alert(dataResultp.title);
+                //alert("Your newsletter "+dataResultp.title+" was submitted successfully");
+                $(".successmsg").html('<span>"Your '+dataResultp.title+' submitted successfully."</span>');
+               setTimeout(function(){$(".successmsg").empty()}, 2000);
+               setTimeout(function(){
+               // /window.location.reload(1);
+               window.location.href = "/services"; 
+               }, 2000);
+               // window.location.reload();
+
+       })
+      .catch(error => console.log('error', error));
+
+
+  });
+
+  </script>
+
+      

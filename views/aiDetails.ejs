@@ -1,0 +1,759 @@
+<%- include partials/innerheader %>
+<!-- Page Content Start -->
+<style type="text/css">
+  .avoid_btn {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
+}
+</style>
+<div class="app_main">
+  <%- include partials/innersidebar %>
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="ai_dtl_head">
+      <div class="ai_dtl_head_left">
+        <a href="dashboard"><button class="btn back_btn"><i class="fas fa-arrow-left"></i></button></a>
+        <div class="tips_bx_cmpny_name">
+          <span id="resultSet"></span>
+          <h2><em class="only_id_use" id="CompanySymbol"></em> <span id="skComnyNames"></span></h2>
+
+         <!--  <span>Automatic Data Processing Inc</span> -->
+        </div>
+      </div>
+      <div class="ai_dtl_head_right">
+        <div class="ai_dtl_head_right_bx">
+          <h4 class="border_secondary">Today’s High</h4>
+          <h3 id="highval"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx">
+          <h4 class="border_danger">Today’s Low</h4>
+          <h3 id="lowval"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx tips_wtlist_item_right">
+          <h4 class="border_primary">Change</h4>
+          <h3 id="changepoint"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx text-right">
+          <h2 id="currentprice"></h2>
+          <h5 id="datetime"></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!--  <div class="graph_area">
+    <div class="row ml-0 mr-0">
+      <div class="graph_bx graph_bx_left col">
+        <h2>Historical Data</h2>
+        <ul>
+          <li class="active">1D</li>
+          <li>5D</li>
+          <li>1M</li>
+          <li>3M</li>
+          <li>6M</li>
+          <li>1YR</li>
+        </ul>
+        <div class="graph_bx_img">
+          <img src="images/left-graph.png" alt="images">
+        </div>
+      </div>
+      <div class="graph_bx graph_bx_right col">
+        <h2>Prediction Graph</h2>
+        <div class="graph_bx_img">
+          <img src="images/right-graph.png" alt="images">
+          <div class="unlock_prediction">
+            <h3>
+              <span><i class="fas fa-lock"></i></span>
+              Unlock Prediction
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="dsbrd_container">
+    <div class="ai_dtl_btm row">
+      <div class="ai_dtl_btm_left col">
+        <div class="mvng_avrg">
+          <h2>Moving Averages</h2>
+          <ul>
+            <li>10 Days <span id="entrypoint"></span></li>
+            <li>50 Days <span id="stoppoint"></span></li>
+            <li>200 Days <span id="exitpoint"></span></li>
+          </ul>
+        </div>
+        <div class="news_area">
+          <div class="news_area_head">
+            <h2 id="sectorname"></h2>
+            <h3 id="sectornews"></h3>
+            <h4 class="color_buy" id="sectorsentiment"></h4>
+          </div>
+          <div class="news_boxes">
+            <div class="news_bx">
+              <h4><em class="only_id_use" id="srcname1"></em> <span id="srcdate1"></span></h4>
+              <h5 id="srcdetail1"></h5>
+              <p id="srcsumarry1"></p>
+            </div>
+            <div class="news_bx">
+              <h4><em class="only_id_use" id="srcname2"></em> <span id="srcdate2"></span></h4>
+              <h5 id="srcdetail2"></h5>
+              <p id="srcsumarry2"></p>
+            </div>
+            <div class="news_bx">
+              <h4><em class="only_id_use" id="srcname3"></em> <span id="srcdate3"></span></h4>
+              <h5 id="srcdetail3"></h5>
+              <p id="srcsumarry3"></p>
+            </div>
+            <div class="news_bx">
+              <h4><em class="only_id_use" id="srcname4"></em> <span id="srcdate4"></span></h4>
+              <h5 id="srcdetail4"></h5>
+              <p id="srcsumarry4"></p>
+            </div>
+            <div class="news_bx">
+              <h4><em class="only_id_use" id="srcname5"></em> <span id="srcdate5"></span></h4>
+              <h5 id="srcdetail5"></h5>
+              <p id="srcsumarry5"></p>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <!-- <div class="ai_dtl_btm_right col">
+        <div class="mentor_tips_area">
+          <div class="mentor_tips_head">
+            <h2>Mentors Tips</h2>
+          </div>
+          <div class="mentor_tips_boxes">
+            <div class="mentor_tips_bx buy_bg">
+              <div class="author_bx">
+                <img src="images/user.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>JakeCatskill</h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+              <div class="tips_bx_cmpny_name">
+                <span class="bs_btn buy_btn">Buy</span>
+                <h2>TZA</h2>
+                <h2>$7.68</h2>
+              </div>
+              <ul>
+                <li>Entry <span>$789</span></li>
+                <li>Exit <span class="color_buy">$10.00</span></li>
+                <li>Stop <span>$888</span></li>
+              </ul>
+            </div>
+            <div class="mentor_tips_bx buy_bg">
+              <div class="author_bx">
+                <img src="images/user.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>JakeCatskill</h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+              <div class="tips_bx_cmpny_name">
+                <span class="bs_btn buy_btn">Buy</span>
+                <h2>TZA</h2>
+                <h2>$7.68</h2>
+              </div>
+              <ul>
+                <li>Entry <span>$789</span></li>
+                <li>Exit <span class="color_buy">$10.00</span></li>
+                <li>Stop <span>$888</span></li>
+              </ul>
+            </div>
+            <div class="mentor_tips_bx buy_bg">
+              <div class="author_bx">
+                <img src="images/user.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>JakeCatskill</h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+              <div class="tips_bx_cmpny_name">
+                <span class="bs_btn buy_btn">Buy</span>
+                <h2>TZA</h2>
+                <h2>$7.68</h2>
+              </div>
+              <ul>
+                <li>Entry <span>$789</span></li>
+                <li>Exit <span class="color_buy">$10.00</span></li>
+                <li>Stop <span>$888</span></li>
+              </ul>
+            </div>
+            <div class="mentor_tips_bx buy_bg">
+              <div class="author_bx">
+                <img src="images/user.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>JakeCatskill</h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+              <div class="tips_bx_cmpny_name">
+                <span class="bs_btn buy_btn">Buy</span>
+                <h2>TZA</h2>
+                <h2>$7.68</h2>
+              </div>
+              <ul>
+                <li>Entry <span>$789</span></li>
+                <li>Exit <span class="color_buy">$10.00</span></li>
+                <li>Stop <span>$888</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+</div>
+<!-- Page Content Start -->
+<%- include partials/innerfooter %>
+<script type="text/javascript">
+var default_avatar = 'images/userIcon.png';
+ 
+function handleError(image) {
+    image.src = default_avatar;
+    return true;
+}
+
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  var LoggedInId = storageData.uid;
+
+  var tokens = storageData.tokendata;
+
+  var symbol = "<%=stockSymbol%>";
+
+  // alert(tipIds);
+
+  // var formdata = {tipId: symbol};
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/sectorNewsSentiment/getSentimentandSMAByStockSymbolResultSet?stockSymbol='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        // data: formdata,
+      success: function(data) {
+     
+          console.log(data);    
+
+            const dataResult = data;
+
+                // alert(dataResult.userPinStatus);
+
+                 // if(dataResult.userPinStatus == true){
+
+                 //    // alert("true");
+
+                 //    document.getElementById("imgstatus").src = "/savetip.png";
+
+                 //  }else{
+
+                 //    // alert("false");
+                     
+                 //     document.getElementById("imgstatus").src = "images/tips-save-icon.png";
+                 //  }
+
+                 //  if(dataResult.userLikeStatus == true){
+
+                 //     document.getElementById("likeimgstatus").src = "/unnamed.png";
+
+                 //  }else{
+
+                 //    document.getElementById("likeimgstatus").src = "images/tips-like-icon.png";
+
+                 //  }
+
+                  
+                 // document.getElementById("resultSet").textContent = dataResult[0].rsiResult ;
+                 if(dataResult[0].rsiResult == "buy"){
+
+                   document.getElementById("resultSet").textContent = dataResult[0].rsiResult ;
+                  document.getElementById('resultSet').className = 'bs_btn buy_btn';
+
+                 }else if (dataResult[0].rsiResult == "sell"){
+
+
+                  document.getElementById("resultSet").textContent = dataResult[0].rsiResult ;
+                  document.getElementById('resultSet').className = 'bs_btn sell_btn';
+
+                 } else {
+
+                  document.getElementById("resultSet").textContent = "AVOID" ;
+
+                  document.getElementById('resultSet').className = 'bs_btn avoid_btn';
+                  
+                 }
+                  document.getElementById("CompanySymbol").textContent = dataResult[0].stock_name;
+   
+                  // document.getElementById("stoppoint").textContent = ">$"+parseFloat(dataResult[0].avg50days).toFixed(2);
+                  // document.getElementById("exitpoint").textContent = ">$"+parseFloat(dataResult[0].avg200days).toFixed(2);
+                   document.getElementById("sectorname").textContent = dataResult[0].sector_name + " Sector News" ;
+                  document.getElementById("sectornews").textContent =" Sentiment based on " + dataResult[0].sector_news + " News sources" ;
+                  document.getElementById("sectorsentiment").textContent = dataResult[0].news_sector_sentiment ;
+                   document.getElementById("srcname1").textContent = dataResult[0].news_source_name ;
+                   document.getElementById("srcdate1").textContent = dataResult[0].news_publish_date ;
+                   var section1 = "<a href= "+dataResult[0].sector_news_url+" target='_blank'>"+dataResult[0].news_title+"</a>";
+                   document.getElementById("srcdetail1").innerHTML = section1 ;
+
+                   document.getElementById("srcsumarry1").textContent = dataResult[0].news_summary ;
+                   document.getElementById("srcname2").textContent = dataResult[1].news_source_name ;
+                   document.getElementById("srcdate2").textContent = dataResult[1].news_publish_date ;
+                    var section2 = "<a href= "+dataResult[1].sector_news_url+" target='_blank'>"+dataResult[1].news_title+"</a>";
+
+                   document.getElementById("srcdetail2").innerHTML = section2 ;
+
+                   document.getElementById("srcsumarry2").textContent = dataResult[1].news_summary ;
+                    document.getElementById("srcname3").textContent = dataResult[2].news_source_name ;
+                    document.getElementById("srcdate3").textContent = dataResult[2].news_publish_date ;
+                    var section3 = "<a href= "+dataResult[2].sector_news_url+" target='_blank'>"+dataResult[2].news_title+"</a>";
+
+                   document.getElementById("srcdetail3").innerHTML = section3 ;
+                   document.getElementById("srcsumarry3").textContent = dataResult[2].news_summary ;
+                     document.getElementById("srcname4").textContent = dataResult[3].news_source_name ;
+                     document.getElementById("srcdate4").textContent = dataResult[3].news_publish_date ;
+                    var section4 = "<a href= "+dataResult[3].sector_news_url+" target='_blank'>"+dataResult[3].news_title+"</a>";
+
+                   document.getElementById("srcdetail4").innerHTML = section4 ;
+                   document.getElementById("srcsumarry4").textContent = dataResult[3].news_summary ;
+                    document.getElementById("srcname5").textContent = dataResult[4].news_source_name ;
+                   var section5 = "<a href= "+dataResult[4].sector_news_url+" target='_blank'>"+dataResult[4].news_title+"</a>";
+
+                   document.getElementById("srcdetail5").innerHTML = section5 ;
+                   document.getElementById("srcsumarry5").textContent = dataResult[4].news_summary ;
+                   document.getElementById("srcdate5").textContent = dataResult[4].news_publish_date ;
+                 
+
+                    document.getElementById("datetime").textContent = dataResult[0].sma_generation_date ;
+                  
+                 //  document.getElementById("suggestion").textContent = dataResult.tip.stockSuggestion;
+                 //  // console.log(dataResult.commentCount);
+                 //  document.getElementById("commentcount").textContent = dataResult.commentCount +" Comments";
+                 //  document.getElementById("likecount").textContent = dataResult.likeCount +" Likes";
+
+                 //   document.getElementById("textvalLike").textContent = dataResult.likeCount;
+
+                  
+                 //  document.getElementById("commentDetail").textContent = dataResult.tip.comment;
+
+                 //   document.getElementById("myImguser").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+LoggedInId;
+
+                 //  document.getElementById("StatusPin").textContent = dataResult.userPinStatus;
+
+                 //  document.getElementById("StatusLike").textContent = dataResult.userLikeStatus;
+
+                 //  // alert(dataResult.tip.stockSuggestion);
+
+                 //  if(dataResult.tip.stockSuggestion == "Buy" ){
+
+                 //    document.getElementById('idOfElement').className = 'trade_dtl_box tips_bx buy_bg';
+                 //    document.getElementById('suggestion').className = 'bs_btn buy_btn';
+
+                 //  }else{
+
+                 //    document.getElementById('idOfElement').className = 'trade_dtl_box tips_bx sell_bg';
+                 //    document.getElementById('suggestion').className = 'bs_btn sell_btn';
+
+                 //  }
+
+
+                 // '+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:green;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:red;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:red;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'
+
+                 //                        '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:green;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:red;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:red;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'
+
+                 //                        '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:green;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:red;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:red;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'
+
+                 
+
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ dataResult[0].stock_name , function(d) {
+
+                          var count = Object.keys(d).length;
+                          Object.keys(d).map((keyName, key) => {
+                            console.log(d[keyName].quote);
+                             $("#currentprice").text("$"+d[keyName].quote.latestPrice);
+                            $("#skComnyNames").text(d[keyName].quote.companyName);
+                             $("#highval").text("$"+d[keyName].quote.high);
+                              $("#lowval").text("$"+d[keyName].quote.low);
+                            // var latestPrice = d[keyName].quote.latestPrice;
+                            // var createTipPrice = Number(dataResult.tip.createTipPrice);
+                            // var changeprice = latestPrice - createTipPrice
+                            var valuees = parseFloat(d[keyName].quote.change).toFixed(2);
+                            if(valuees > 0){
+                               // $("#changepoint").text(valuees);
+
+                              $("#changepoint").html('<span class="color_buy">' +valuees + '</span>');
+                               $("#changepoint").css("color" , "#09b598");
+
+                            }else{
+
+                              $("#changepoint").html('<span class="color_sell">' +valuees + '</span>');
+                               $("#changepoint").css("color" , "#dc3545");
+                            }
+
+                      if(dataResult[0].avg10days != "--"){
+                   if(dataResult[0].avg10days < parseFloat(d[keyName].quote.latestPrice).toFixed(2)){
+                     document.getElementById("entrypoint").textContent = ">$"+parseFloat(dataResult[0].avg10days).toFixed(2);
+                      $("#entrypoint").css("color" , "#09b598");
+                   } else if(dataResult[0].avg10days > parseFloat(d[keyName].quote.latestPrice).toFixed(2)){
+                     document.getElementById("entrypoint").textContent = "<$"+parseFloat(dataResult[0].avg10days).toFixed(2);
+                      $("#entrypoint").css("color" , "#dc3545");
+                   } else {
+                     document.getElementById("entrypoint").textContent = "<$"+parseFloat(dataResult[0].avg10days).toFixed(2);
+                      $("#entrypoint").css("color" , "#dc3545");
+                   }
+                 }
+                 else{
+                  document.getElementById("entrypoint").textContent = dataResult[0].avg10days;
+                 }
+                 
+                 if(dataResult[0].avg50days != "--"){
+                   if(dataResult[0].avg50days < parseFloat(d[keyName].quote.latestPrice).toFixed(2)){
+                     document.getElementById("stoppoint").textContent = ">$"+parseFloat(dataResult[0].avg50days).toFixed(2);
+                      $("#stoppoint").css("color" , "#09b598");
+                   } else if(dataResult[0].avg10days > parseFloat(d[keyName].quote.latestPrice).toFixed(2)){
+                     document.getElementById("stoppoint").textContent = "<$"+parseFloat(dataResult[0].avg50days).toFixed(2);
+                      $("#stoppoint").css("color" , "#dc3545");
+                   } else {
+                     document.getElementById("stoppoint").textContent = "<$"+parseFloat(dataResult[0].avg50days).toFixed(2);
+                      $("#stoppoint").css("color" , "#dc3545");
+                   }
+                 }
+                 else{
+                  document.getElementById("stoppoint").textContent = dataResult[0].avg50days;
+                 }
+
+                 if (dataResult[0].avg200days != "--"){
+
+                    if(dataResult[0].avg200days < parseFloat(d[keyName].quote.latestPrice).toFixed(2)){
+                     document.getElementById("exitpoint").textContent = ">$"+parseFloat(dataResult[0].avg200days).toFixed(2);
+                      $("#exitpoint").css("color" , "#09b598");
+                   } else if(dataResult[0].avg200days > parseFloat(d[keyName].quote.latestPrice).toFixed(2)){
+                     document.getElementById("exitpoint").textContent = "<$"+parseFloat(dataResult[0].avg200days).toFixed(2);
+                      $("#exitpoint").css("color" , "#dc3545");
+                   } else {
+                     document.getElementById("exitpoint").textContent = "<$"+parseFloat(dataResult[0].avg200days).toFixed(2);
+                      $("#exitpoint").css("color" , "#dc3545");
+                   }
+                 }
+                 else{
+                  document.getElementById("exitpoint").textContent = dataResult[0].avg200days;
+                 }
+                    });
+                    });
+
+                  //   var formdata = {tipId: tipIds,offset: 0, limit: 100};
+                  //    $.ajax({
+                  //   type: 'POST',
+                  //   url: 'https://apistest.tradetipsapp.com/api/comment/getCommentsByTipIdPagination',
+                  //   headers: {
+                  //     Authorization: 'Bearer '+ tokens,
+                  //      },
+                  //   data: formdata,
+                  //   success: function(data) {
+                  //     var dataResult1 = data;
+                  //     //console.log(dataResult1);          
+                  //     //console.log(dataResult1.length);
+                  //     if(dataResult1.length != 0) {
+                  //       for(i=0;i<dataResult1.length;i++){
+
+                  //           var text = '<div class="review_bx"><div class="review_bx_head"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+dataResult1[i].appUser.id+'" alt="images"><div class="author_bx_txt"><h2 style="display: inline-block";>'+dataResult1[i].appUser.userName+'<span class="author_tag"><i class="fa fa-flag" aria-hidden="true" onclick = "flagclick(this.id)" id = "'+ dataResult1[i].id +'" style="color:white;"></i></span></h2></div></div></div><div class="review_bx_txt"><p>'+dataResult1[i].commentDetails+'</p></div>';
+                  //           $("#commentdemo").append(text);
+                  //      }
+                  //      }
+                  //     // } else{
+                  //     //   document.getElementById('demo').style.display = 'none';
+
+
+                  //     // }  
+              
+                       
+                  //   }
+                  // });
+                           
+                  
+
+
+
+                   // document.getElementById("description1").value = dataResult.descriptionOne;
+                  // // document.getElementById("description2").value = null;
+                  // document.getElementById("frequency").value = dataResult.frequency;
+                  // document.getElementById("price").value = dataResult.price;
+         
+               
+       }
+       
+  });
+
+//  function imgError(image) {
+//     image.onerror = "";
+//     image.src = "images/userIcon.png";
+//     return true;
+// }
+
+ $('#postbtn').on('click', function() {
+      var commentval = $('#test').val();
+      if(commentval!=""){
+          var formdata = new FormData();
+          formdata.append("tipId", tipIds);
+          formdata.append("commentDetails", commentval);
+          formdata.append("status", "Pending");
+          formdata.append("userid", LoggedInId);
+          var requestOptions = {
+            method: 'POST',
+            headers: {
+                    Authorization: 'Bearer '+ tokens
+                   },
+            body: formdata,
+            redirect: 'follow'};
+            fetch("https://apistest.tradetipsapp.com/api/comment/addCommentOnTip", requestOptions)
+           .then(response => response.json())
+           .then(result => {
+                //console.log("calling val" +result);
+                var datak = JSON.stringify(result);
+                //console.log(datak);
+                var dataResultp = JSON.parse(datak);
+                //console.log(dataResultp);
+                //console.log(tipIds);
+                var formdata = {tipId: tipIds,offset: 0, limit: 100};
+
+                $.ajax({
+                      type: 'POST',
+                      url: 'https://apistest.tradetipsapp.com/api/comment/getCommentsByTipIdPagination',
+                      headers: {
+                         Authorization: 'Bearer '+ tokens,
+                       },
+                      data: formdata,
+                      success: function(data) {
+         
+                      var texts = '<div class="review_bx"><div class="review_bx_head"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[0].appUser.id+'" alt="images"><div class="author_bx_txt"><h2 style="display: inline-block";>'+data[0].appUser.userName+'<span class="author_tag"><i class="fa fa-flag" aria-hidden="true" onclick = "flagclick(this.id)" id = "'+ data[0].id +'" style="color:white;"></i></span></h2></div></div></div><div class="review_bx_txt"><p>'+data[0].commentDetails+'</p></div>';
+                      $("#commentdemo").prepend(texts);
+                      }
+                    });
+
+                 var formdata = {tipId: tipIds};
+                  $.ajax({
+                        type: 'POST',
+                        url: 'https://apistest.tradetipsapp.com/api/tip/getAllTipFeatureDetailsByTipId',
+                        headers: {
+                          Authorization: 'Bearer '+ tokens,
+                           },
+                        data: formdata,
+                      success: function(data) {
+
+                            const dataResult = data;
+                            var comnt = (dataResult.commentCount);
+                            console.log(comnt);
+
+                            document.getElementById("commentcount").textContent = comnt+" Comments";
+                          }
+                        });
+               
+
+       })
+      .catch(error => console.log('error', error));
+      document.getElementById("test").value = "";
+
+
+
+     
+
+            }
+            else{
+              alert('Please fill the field !');
+            }
+          });
+
+function flagclick(e) {
+  //alert("yes");
+  //console.log(e);
+//console.log(LoggedInId);
+var formdata = new FormData();
+formdata.append("commentId", e);
+formdata.append("userId", LoggedInId);
+formdata.append("isFlag", "true");
+formdata.append("flagReason", "");
+//console.log(formdata);
+var requestOptions = {
+  method: 'POST',
+  headers: {
+               Authorization: 'Bearer '+ tokens
+                },
+  body: formdata,
+  redirect: 'follow'
+};
+// console.log(requestOptions);
+fetch("https://apistest.tradetipsapp.com/api/tipCommentFlag/addCommentFlag", requestOptions)
+.then(response => response.json())
+.then(result => {
+// console.log("calling val" +result);
+                var datak = JSON.stringify(result);
+                console.log(datak);
+                var dataResultp = JSON.parse(datak);
+                console.log(dataResultp);
+                var flagstatus = dataResultp.status;
+                //console.log(flagstatus);
+                if (flagstatus=="true"){
+                  //alert("Flag has been added for comment.");
+                   $(".successmsg").html('<span>Flag has been added for comment.</span>');
+                    setTimeout(function(){$(".successmsg").empty()}, 3000);
+                }
+                else{
+                  //alert("This user has already submitted flag for this comment !!!");
+                  $(".successmsg").html('<span>This user has already submitted flag for this comment !!!</span>');
+                    setTimeout(function(){$(".successmsg").empty()}, 3000);
+                }
+
+              })
+
+}
+
+function pinFunction(e) {
+
+  //alert(e);
+ 
+  var formdata = {tipId : e};
+
+  // var imgCount = $("#textval"+ e).text();
+
+  var userdataPin = $("#StatusPin").text();
+
+ // alert(userdataPin);
+
+  if(userdataPin == "true"){
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        // var valss = parseInt(imgCount) - 1;
+
+        // $("#textval").text(valss);
+
+        $("#StatusPin").text("false");
+
+        // $("#imgstatus").attr("src","show.jpeg");
+
+        document.getElementById("imgstatus").src="images/tips-save-icon.png";
+
+
+        }
+
+      });
+
+  }else{
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+      
+        // var valss = parseInt(imgCount) + 1;
+
+        // $("#textval"+e).text(valss);
+
+        $("#StatusPin").text("true");
+
+
+        // $("#imgstatus").attr("src","savetip.png");
+
+
+        document.getElementById("imgstatus").src="savetip.png";
+
+
+
+        }
+
+      });
+  }
+
+
+
+}
+
+function likeFunction(e) {
+
+  // alert(e);
+ 
+  var formdata = {tipId : e};
+
+  var imgCount = $("#textvalLike").text();
+
+  // alert(imgCount);
+
+  var userdataPin = $("#StatusLike").text();
+
+  if(userdataPin == "true"){
+    // alert("equal true");
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        // var valss = parseInt(imgCount) - 1;
+
+        // $("textvalLike").text(valss);
+
+        // $("#likecount").text(valss + " Likes");
+
+        $("#StatusLike").text("false");
+
+        $("#likeimgstatus").attr("src","images/tips-like-icon.png");
+
+        window.location.reload("/");
+
+
+        }
+
+      });
+
+  }else{
+    // alert("equal false");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+      
+        // var valss = parseInt(imgCount) + 1;
+
+        // $("textvalLike").text(valss);
+
+        // $("#likecount").text(valss + " Likes");
+
+        $("#StatusLike").text("true");
+
+
+        $("#likeimgstatus").attr("src","unnamed.png");
+
+         window.location.reload("/");
+
+
+        }
+
+      });
+  }
+
+
+}
+
+
+  </script>

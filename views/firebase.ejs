@@ -1,0 +1,403 @@
+  <%- include partials/innerheader %>
+
+   
+<!--     <link rel="stylesheet" href="css/style.css">
+ -->    <link rel="stylesheet" href="css/emoji.css">
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+
+    <script>
+        window.addEventListener("load", function() {
+
+             var url_string = window.location.href; 
+            var urls = new URL(url_string);
+            var sData = localStorage.getItem('allTokenData');
+            var storageData= JSON.parse(sData);
+            // alert(JSON.stringify(storageData));
+            $("#user_nickname").val(storageData.uname);
+            $('#user_id').val(storageData.uid);
+            $('#user_fcm_token').val(storageData.fcmToken);
+
+            // alert(storageData.fcmToken);
+           
+
+            var fcmToken = document.getElementById('user_fcm_token').value;
+            // alert(fcmToken);
+
+
+          firebase.auth().signInWithCustomToken(fcmToken)
+            .then((userCredential) => {
+              // Signed in
+              // console.log(userCredential);
+              var user = userCredential.user;
+              // var ids = userCredential.uid;
+              console.log(user.uid);
+              // ...
+            })
+            .catch((error) => {
+              console.log("error is" + error);
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              // ...
+            });
+    });
+    </script>
+      <style type="text/css">
+      .chat
+      {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          
+      }
+
+      .chat li
+      {
+          margin-bottom: 40px;
+          padding-bottom: 5px;
+
+          /* border-bottom: 1px dotted #B3A9A9; */
+          /*margin-top: 10px;
+          width: 80%;*/
+      }
+
+
+      .chat li .chat-body p
+      {
+          margin: 0;
+           color: #ffff; 
+      }
+
+
+      .chat-care
+      {
+        overflow-y: scroll;
+          height: 350px;
+          /*height: 100%;*/
+      }
+      .chat-care .chat-img
+      {
+          width: 50px;
+          height: 50px;
+      }
+      .chat-care .img-circle
+      {
+          border-radius: 50%;
+      }
+      .chat-care .chat-img
+      {
+          display: inline-block;
+      }
+      .chat-care .chat-body
+      {
+          display: inline-block;
+          max-width: 80%;
+          background-color: #0f2668eb;
+          border-radius: 12.5px;
+          padding: 15px;
+      }
+      .chat-care .chat-body strong
+      {
+        color: #ffff;
+      }
+
+      .text-muted{
+        color: #ffff !important;
+      }
+
+      .chat-care .admin
+      {
+          text-align: right ;
+          float: right;
+      }
+      .chat-care .admin p
+      {
+          text-align: left ;
+      }
+      .chat-care .agent
+      {
+          text-align: left ;
+          float: left;
+      }
+      .chat-care .left
+      {
+          float: left;
+      }
+      .chat-care .right
+      {
+          float: right;
+      }
+
+      .clearfix {
+        clear: both;
+      }
+
+      h1, h2, h3, h4, h5, h6, p {
+          color: #000;
+      }
+
+
+      ::-webkit-scrollbar-track
+      {
+          box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          background-color: #F5F5F5;
+      }
+
+      ::-webkit-scrollbar
+      {
+          width: 12px;
+          background-color: #F5F5F5;
+      }
+
+      ::-webkit-scrollbar-thumb
+      {
+          box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+          background-color: #555;
+      }
+
+
+      .dashboard_wrapper.mentordashboard1_wrapper.card{
+        height: 600px;
+        height: calc(100vh - 120px);
+      }
+
+      .emojis{
+        margin: 0 !important;
+        position: absolute !important;
+        bottom: 38px;
+        right: 40px;
+      }
+     body .emoji-button{
+        margin-left: calc(100% - 85px);
+      }
+      @media screen and (min-width:1600px) {
+        .dashboard_wrapper.mentordashboard1_wrapper.card{
+          height: calc(100vh - 180px);
+        }
+      }
+      .input-group>#btn-input.form-control:focus{
+        z-index: 1;
+      }
+      .emojis{
+        z-index: 1;
+        display: none;
+      }
+      .emojis[style*='display: block;'] + .emoji-button{
+        pointer-events: none !important;
+        opacity: .9;
+      }
+
+
+
+/* change Chat Style */
+.chat li{
+  position: relative;
+}
+.chat li .chat-body{
+  position: relative;
+  margin-top: 22px;
+  margin-bottom: 25px;
+}
+.header.clearfix small.text-muted {
+    bottom: -25px;
+    position: absolute;
+    left: 3px;
+    color: #777 !important;
+    min-width: 150px;
+}
+.header.clearfix small.text-muted.left{
+  right: 3px;
+  left: auto;
+}
+
+.header.clearfix strong.primary-font {
+    position: absolute;
+    top: -23px;
+    left: 3px;
+    color: #666 !important;
+    font-weight: 100;
+    font-size: 14px;
+    min-width: 110px;
+}
+.header.clearfix strong.primary-font.right{
+  right: 3px;
+  left: auto;
+}
+.chat-care .chat-img .img-circle {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 9px;
+    left: .5rem;
+    background: #eee;
+}
+.chat-care .chat-img.right .img-circle {
+    left: auto;
+    right: .5rem;
+}
+
+      </style>
+<!--       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+ -->
+      <div class="app_main">
+                  
+       <%- include partials/innersidebar %>
+<!-- 
+       <style type="text/css">
+         #chatbox-history {
+  overflow: none;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
+}
+#messages {
+  overflow: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  max-height: 200px;
+}
+#messages div {
+  border: 1px solid #e2e4e3;
+  margin: 5px;
+  padding: 10px;
+  background: #fafafa;
+}
+       </style> -->
+
+       <div class="app_content">
+          <div class="dsbrd_container">
+
+
+          <div class="dashboard_wrapper mentordashboard1_wrapper card" style="background: #ffff;">
+                <div class="card-header text-center" style="border: none!important;">
+                    <span><b>Room One</b></span>
+                </div>
+
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div id="chatbox-history">
+  <div id="messages">
+    <div>asdjf ;asd</div>
+    <div>ajsd fa ;skd f;s</div>
+    <div>asdjf ;akjs d;lf a;lksd fj</div>
+    <div>ajsd fkaj s;dlf a;ljsdl;fkja;lsd f; asd</div>
+    <div>Wassup?</div>
+  </div>
+</div>
+    <script type="text/javascript">
+        $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    </script> -->
+
+
+                <div class="card-body chat-care">
+                    <ul class="chat" id="tasks">
+                    </ul>
+                </div>
+                <div class="card-footer" style="padding: 0px;">
+                   <form onsubmit="return handleCreate(event)">
+                      <div class="input-group">
+                        <input type="hidden" id="user_id">
+                        <input type="hidden" id="user_nickname">
+                        <input type="hidden" id="user_fcm_token">
+                       <!--  <input type="hidden" id="dateval"> -->
+                        <span class="input-group-btn">
+                             <input type="file" style="display: none;">
+                             <!-- <span class="name">No file selected</span> -->
+                                <i class="fa fa-paperclip attachment btn btn-primary" aria-hidden="true" style="height: 38px;"></i>
+                          
+                        </span>
+                        <input id="btn-input" type="text" class="form-control input-lg" placeholder="Type your message here..." />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </span>
+                     
+                      </div>
+                   </form>
+                </div>
+          </div>
+
+        </div>
+
+      </div>
+
+  </div>
+
+ </div>
+ </div>
+
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+ -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<!--     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+ -->
+
+<script>
+  
+
+// $(".card-body").animate({ scrollTop: $(document).height() }, "fast");
+
+// $(document).ready(function() {
+//     $('.card-body').animate({
+//         scrollTop: $('.card-body').get(0).scrollHeight
+//     }, 1000);
+// });
+</script>
+
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+<script  src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
+
+
+    <script src="js/main12.js"></script>
+
+      <script type="text/javascript" src="js/custom.js"></script>
+
+
+<!--     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+ -->
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script src='js/inputEmoji.js'></script>
+  <script>
+    $(function () {
+      $('#btn-input').emoji({place: 'after'});
+
+      $('.emoji-button').on("click", function(e){
+        if($('.emojis').is(":visible")){
+          console.log('click')
+        }
+      })
+
+      $('emojis').on("hide", function() {
+          //alert('hide');
+       })
+       $('emojis').on("show", function() {
+          //alert('show');
+       })
+
+    })
+  </script>
+<br>
+
+</body>
+</html>

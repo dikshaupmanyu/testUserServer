@@ -1,0 +1,773 @@
+  <%- include partials/innerheader %>
+
+<!--   <link rel="stylesheet" href="dist/sample.index.css">
+
+
+ -->
+
+
+  <div class="app_main">
+                  
+            <%- include partials/innersidebar %>
+           <div class="app_content">
+            <div class="dsbrd_container">
+              <div class="profile_wrapper">
+                <div class="profile_tab_area">
+                  <nav>
+                    <div class="nav nav-tabs nav_tab_btn nav-fill" role="tablist">
+                      <a class="nav-item nav-link active" id="pt1" data-toggle="tab" href="#pt-1" role="tab" aria-controls="pt-1" aria-selected="true">Profile</a>
+                      <a class="nav-item nav-link" id="pt2" data-toggle="tab" href="#pt-2" role="tab" aria-controls="pt-2" aria-selected="true">Advanced</a>
+                      <!-- <a class="nav-item nav-link" id="pt3" data-toggle="tab" href="#pt-3" role="tab" aria-controls="pt-3" aria-selected="true">Account Setting</a>
+                      <a class="nav-item nav-link" id="pt4" data-toggle="tab" href="#pt-4" role="tab" aria-controls="pt-4" aria-selected="true">Manage Subscriptions</a>
+                      <a class="nav-item nav-link" id="pt5" data-toggle="tab" href="#pt-5" role="tab" aria-controls="pt-5" aria-selected="true">Payment History</a>
+                      <a class="nav-item nav-link" id="pt6" data-toggle="tab" href="#pt-6" role="tab" aria-controls="pt-6" aria-selected="true">Invite a Friend</a> -->
+                      <!-- <a class="nav-item nav-link" id="pt7" data-toggle="tab" href="#pt-7" role="tab" aria-controls="pt-7" aria-selected="true">Bank Details</a> -->
+                    </div>
+                  </nav>
+                  <div class="tab-content">
+                    <div class="tab-pane fade show active" id="pt-1" role="tabpanel" aria-labelledby="pt1">
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Public Profile</h2>
+                        <p>The following information will be shared with other people on TradeTips and its associate platforms.</p>
+                      </div>
+                      <div class="prfl_tb_cntnt_bx">
+                        <div class="edit_profile_form">
+                          <div class="input-group">
+                            <label>Your screen name</label>
+                            <input type="text" class="form-control" name="screen name" id = "user_n" style="color:white;" readonly> 
+                          </div>
+                          <div class="input-group">
+                            <label>Your Profile Picture</label>
+                            <div class="avatar-upload">
+                              <div class="avatar-preview">
+                                <img id="imagePreview" alt="Preview" class="img-responsive">
+                                <!-- <div id="imagePreview" alt="Preview" class="" style="background-image: url(../images/avatar.png);"></div> -->
+                              </div>
+                              <div class="avatar-edit">
+                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                <label for="imageUpload"><span><i class="far fa-edit"></i></span> Click to edit picture</label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" name="full name" placeholder="Ex. William Park" id = "F_name" style="color:white;" readonly>
+                          </div>
+                          <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" name="email" id = "emails" style="color:white;" readonly>
+                          </div>
+                          <div class="input-group">
+                            <label class="hide-sm">&nbsp;</label>
+                            <button class="btn cmn_btn btn_primary" id = "postbtn">Save Changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="pt-2" role="tabpanel" aria-labelledby="pt2">
+                      <!-- <div class="prfl_tb_cntnt_bx">
+                        <h2>Advance</h2>
+                      </div>  -->
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Change Password</h2>
+                        <div class="edit_profile_form">
+                          <div class="input-group">
+                            <label>Current Password</label>
+                            <input type="password" class="form-control" name="current password" id = "current_pswrd" placeholder="Enter current password" required/> 
+                          </div>
+                          <div class="input-group">
+                            <label>Set New Psssword</label>
+                            <input type="password" class="form-control" name="new password" id = "set_pswrd" placeholder="Enter new password" required/>
+                          </div>
+                          <div class="input-group">
+                            <label>Confirm Password</label>
+                            <input type="password" class="form-control" name="confirm password" id = "confirm_password" placeholder="Confirm password" required/>
+                          </div>
+                          <div class="input-group">
+                            <label>&nbsp;</label>
+                            <button class="btn cmn_btn btn_danger" id = "button_click">Change Password</button>
+                          </div>
+                        </div>
+                      </div>
+                     <!--  <div class="dlt_tt_ac">
+                        <h2>Delete TradeTips Account</h2>
+                        <h3 data-toggle="modal" data-target="#acc_deleteModal"><span><i class="far fa-trash-alt"></i></span> I want to delete TradeTips Account</h3>
+                        <div class="modal fade delete_modal" id="acc_deleteModal" tabindex="-1" aria-labelledby="acc_deleteModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-body text-center">
+                                <h2>Are you sure you want to delete your Account?</h2>
+                                <p>Click here to delete your TradeTips Account if you no longer required it. Please not this action is not reversible. There is no way you will retrieve your date once you delete the Account</p>
+                                <button class="btn cmn_btn btn_danger" data-dismiss="modal">No’ Don’t delete</button>
+                                <button class="btn cmn_btn btn_white_outline" data-toggle="modal" data-target="#acc_deleteconfirmModal" data-dismiss="modal">Yes, I m Sure</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- delete account modal start -->
+                        <!-- delete account confirm modal start -->
+                        <div class="modal fade delete_confirmmodal" id="acc_deleteconfirmModal" tabindex="-1" aria-labelledby="acc_deleteconfirmModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-body text-center">
+                                <h2>Enter your password</h2>
+                                <div class="edit_profile_form">
+                                  <div class="input-group">
+                                    <label>Enter Password</label>
+                                    <input type="password" class="form-control" name="enter password" placeholder="Ex. William Park">
+                                  </div>
+                                  <div class="input-group">
+                                    <label>Confirm Password</label>
+                                    <input type="password" class="form-control" name="confirm password" placeholder="Ex. William Park">
+                                  </div>
+                                </div>
+                                <button class="btn cmn_btn btn_danger" data-dismiss="modal">Cancel</button>
+                                <button class="btn cmn_btn btn_white_outline" data-dismiss="modal">Continue</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- delete account confirm modal start -->
+                      </div> -->
+                    </div>
+  <!--                   <div class="tab-pane fade" id="pt-3" role="tabpanel" aria-labelledby="pt3">
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Account Settings</h2>
+                        <p>Set Account settings you wish to apply to your account</p>
+                      </div>
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Notification Settings</h2>
+                        <div class="ntfcn_setting_bx">
+                          <h3>App Notifications</h3>
+                          <ul>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Enable Desktop Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Member Invite Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Follow Notifications from Mentor
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Follow Notifications from Investors
+                                <input type="checkbox" id="desktop_notification" checked>
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Group Message Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="ntfcn_setting_bx">
+                          <h3>Email Notifications</h3>
+                          <ul>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Enable Desktop Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Member Invite Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Follow Notifications from Mentor
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Follow Notifications from Investors
+                                <input type="checkbox" id="desktop_notification" checked>
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Group Message Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="ntfcn_setting_bx">
+                          <h3>Desktop Notifications</h3>
+                          <ul>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Enable Desktop Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Member Invite Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Follow Notifications from Mentor
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Follow Notifications from Investors
+                                <input type="checkbox" id="desktop_notification" checked>
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="ntf_switch">
+                                <label for="desktop_notification">
+                                Group Message Notifications
+                                <input type="checkbox" id="desktop_notification">
+                                <span class="ntf_switch_back"><small class="ntf_switch_toggle"></small></span>
+                                </label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="pt-4" role="tabpanel" aria-labelledby="pt4">
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Manage Subscriptions</h2>
+                        <p>Set Account settings you wish to apply to your account</p>
+                      </div>
+                      <div class="mng_plan_boxes">
+                        <h2>Plan Details</h2>
+                        <div class="row">
+                          <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                            <div class="mng_plan_bx_in">
+                              <img src="<?php echo $base_url;?>images/note-icon.png" alt="images">
+                              <div class="mng_plan_bx_txt">
+                                <h3>Pro Plan (Yearly)</h3>
+                                <h5>You are on the Pro plan at $144 per year.</h5>
+                                <p>Starts : 1 Dec 2020,</p>
+                                <p>Next Payment : 31 Dec 2020</p>
+                                <button class="btn cmn_btn btn_small btn_primary">Change Plan</button>
+                                <button class="btn cmn_btn btn_small btn_danger">Cancel Subscription</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mng_plan_boxes other_subscrptn_boxes">
+                        <h2>Other Subscriptions</h2>
+                        <div class="row">
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="mng_plan_bx_in other_subscrptn_bx_in">
+                              <img src="<?php echo $base_url;?>images/people1.png" alt="images">
+                              <div class="mng_plan_bx_txt">
+                                <h3>Energy Group </h3>
+                                <h5>By William Park</h5>
+                                <p>You are on the Pro plan at $144 per year.</p>
+                                <button class="btn cmn_btn btn_small btn_primary">Manage</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="mng_plan_bx_in other_subscrptn_bx_in">
+                              <img src="<?php echo $base_url;?>images/people1.png" alt="images">
+                              <div class="mng_plan_bx_txt">
+                                <h3>Energy Group </h3>
+                                <h5>By William Park</h5>
+                                <p>You are on the Pro plan at $144 per year.</p>
+                                <button class="btn cmn_btn btn_small btn_primary">Manage</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="mng_plan_bx_in other_subscrptn_bx_in">
+                              <img src="<?php echo $base_url;?>images/people1.png" alt="images">
+                              <div class="mng_plan_bx_txt">
+                                <h3>Energy Group </h3>
+                                <h5>By William Park</h5>
+                                <p>You are on the Pro plan at $144 per year.</p>
+                                <button class="btn cmn_btn btn_small btn_primary">Manage</button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <div class="mng_plan_bx_in other_subscrptn_bx_in">
+                              <img src="<?php echo $base_url;?>images/people1.png" alt="images">
+                              <div class="mng_plan_bx_txt">
+                                <h3>Energy Group </h3>
+                                <h5>By William Park</h5>
+                                <p>You are on the Pro plan at $144 per year.</p>
+                                <button class="btn cmn_btn btn_small btn_primary">Manage</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="pt-5" role="tabpanel" aria-labelledby="pt5">
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Payment History</h2>
+                        <p>View and Download your Payment History</p>
+                      </div>
+                      <div class="pymnt_history_bx">
+                        <h2>Invoice Details</h2>
+                        <p>William Park</p>
+                        <p>william@youremail.com</p>
+                        <p>201, ABC Business Park, Your Street</p>
+                        <p>XYZ City, State, Country</p>
+                        <h5>+1 660 1234 123</h5>
+                      </div>
+                      <div class="pymnt_history_bx">
+                        <h2>Invoices</h2>
+                        <div class="profile_default_table table-responsive">
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Payment To</th>
+                                <th scope="col">Download</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td scope="row">22 May 2020</td>
+                                <td><span class="tbl_status color_buy"><i class="fas fa-check"></i></span><button class="btn cmn_btn btn_secondary">Paid</button></td>
+                                <td>$144</td>
+                                <td>Monthly Subscription</td>
+                                <td><a href="#" class="color_sell">Download PDF</a></td>
+                              </tr>
+                              <tr>
+                                <td scope="row">22 May 2020</td>
+                                <td><span class="tbl_status color_buy"><i class="fas fa-check"></i></span><button class="btn cmn_btn btn_secondary">Paid</button></td>
+                                <td>$144</td>
+                                <td>Monthly Subscription</td>
+                                <td><a href="#" class="color_sell">Download PDF</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="pt-6" role="tabpanel" aria-labelledby="pt6">
+                      <div class="prfl_tb_cntnt_bx">
+                        <h2>Invite a Friend</h2>
+                        <p>Invite your friends and earn a 30% commission from their every purchase.<br>All referred users will be upgraded to the PRO plan during the 14 days free trial.</p>
+                      </div>
+                      <div class="invite_friend_tab my_tab_content">
+                        <nav>
+                          <div class="nav nav-tabs nav-fill" role="tablist">
+                            <a class="nav-item nav-link active" id="if1" data-toggle="tab" href="#if-1" role="tab" aria-controls="if-1" aria-selected="true">Promotional Details</a>
+                            <a class="nav-item nav-link" id="if2" data-toggle="tab" href="#if-2" role="tab" aria-controls="if-2" aria-selected="false">Referrals</a>
+                            <a class="nav-item nav-link" id="if3" data-toggle="tab" href="#if-3" role="tab" aria-controls="if-3" aria-selected="false">Transaction History</a>
+                            <a class="nav-item nav-link" id="if4" data-toggle="tab" href="#if-4" role="tab" aria-controls="if-4" aria-selected="false">Rules</a>
+                          </div>
+                        </nav>
+                        <div class="tab-content">
+                          <div class="tab-pane fade show active" id="if-1" role="tabpanel" aria-labelledby="if1">
+                            <div class="prmtn_dtl_bx prmtn_dtl_one">
+                              <h3>Your balance <span>144 USD</span></h3>
+                              <h4>The minimum payout amount is <br>25 USDT</h4>
+                              <button class="btn cmn_btn btn_primary">Withdraw</button>
+                            </div>
+                            <div class="prmtn_dtl_bx prmtn_dtl_two">
+                              <h4>Visits <span>0 USDT</span></h4>
+                              <h4>Sign-ups <span>0 (0%)</span></h4>
+                              <h4>Conversions <span>0 (0%)</span></h4>
+                              <h4>Income <span>0 USDT</span></h4>
+                            </div>
+                            <div class="prmtn_dtl_bx prmtn_dtl_three">
+                              <h2>Your Personal Link</h2>
+                              <div class="input-group">
+                                <input type="text" class="form-control" value="https://tradetips.com/3kOzbNi" id="copyInput" disabled>
+                                <div class="input-group-append">
+                                  <button class="btn cmn_btn btn_primary" onclick="copyFunction()">Copy</button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="prmtn_dtl_bx prmtn_dtl_four">
+                              <h2>Or share directly on</h2>
+                              <ul>
+                                <li><a href="#">Facebook</a></li>
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="#">Linkedin</a></li>
+                                <li><a href="#">Whatsapp</a></li>
+                                <li><a href="#">Email</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="if-2" role="tabpanel" aria-labelledby="if2">
+                            <div class="profile_default_table table-responsive">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Signup Date</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Link ID</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie@youremail.com</td>
+                                    <td>Annie Kem</td>
+                                    <td>Joined</td>
+                                    <td><a href="#" class="color_link">/annie</a></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="tab-pane fade" id="if-3" role="tabpanel" aria-labelledby="if3">
+                            <div class="profile_default_table table-responsive">
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Status</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie Kem</td>
+                                    <td>$144</td>
+                                    <td><span class="tbl_status color_buy"><i class="fas fa-check"></i></span><button class="btn cmn_btn btn_secondary">Paid</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie Kem</td>
+                                    <td>$144</td>
+                                    <td><span class="tbl_status color_buy"><i class="fas fa-check"></i></span><button class="btn cmn_btn btn_secondary">Paid</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="row">22 May 2020</td>
+                                    <td>Annie Kem</td>
+                                    <td>$144</td>
+                                    <td><span class="tbl_status color_buy"><i class="fas fa-check"></i></span><button class="btn cmn_btn btn_secondary">Paid</button></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div> -->
+    <!--                       <div class="tab-pane fade" id="if-4" role="tabpanel" aria-labelledby="if4">
+                            <div class="rule_tab_txt">
+                              <h2>How does it work?</h2>
+                              <p>Affiliate Program from TradeTips is one of the most profitable ways to earn extra money online. How it works: you use online marketing channels to attract new users to our system, and once they become paying customers, we pay you a commission.</p>
+                              <p>Our crypto affiliate program is not only an additional income but also a chance to start your own business. You can start your crypto-related site or blog, share your trading results and attract traffic from social networks and other sources, and by many other activities in the field of affiliate marketing.
+                              To begin, you do not need to be a trader yourself. It is enough to have a blog, website, subscribers on social networks or use other sources of traffic, the choice of which we practically do not limit.</p>
+                            </div>
+                            <div class="rule_tab_txt">
+                              <h2>Affiliate program details</h2>
+                              <p>— Whenever somebody visits Bitsgap with your affiliate code, we put a tracking cookie into the user browser, which allows us to tag a visitor under your affiliate profile. Even if the user comes back in a few days, the cookie file will tell us that they came thanks to you.</p>
+                              <p>— The cookie lifetime is 30 days, and it automatically renews whenever a person visits our website with your affiliate code. In the case of multiple affiliates refer the same visitor, this visitor will be assigned to the affiliate whose link he clicked most recently.</p>
+                              <p>—  Once the person you have invited makes a registration, it will be automatically assigned to your affiliate account forever.</p>
+                              <p> — Inside the platform you will see the list of partly shown user emails with their sign-up date, user ID, and registration link. There are also three statuses: Free, Trial, and Converted (meaning the user paid for the services at least once).</p>
+                              <p>— You will be earning a 30% commission from every new user who registered by your link and became a paying customer.</p>
+                              <p>— All users invited via affiliate links will be automatically upgraded to the Bitsgap PRO plan with no trading volume limitations and extended functionality within the 14 days trial.</p>
+                              <p>—  All affiliate program calculations are made in EUR and paid out in USDT ERC-20 based on the exchange rate at the time of payment. The minimum payout amount is €25 that will be paid to your wallet within 5 days.</p>
+                            </div> -->
+       <!--                    </div>
+                        </div>
+                      </div>
+                    </div> -->
+                <!--     <div class="tab-pane fade" id="pt-7" role="tabpanel" aria-labelledby="pt7">
+                      <div class="prfl_tb_cntnt_bx bank_dtl">
+                        <h2>Bank Information</h2>
+                        <ul>
+                          <li><span>Bank Name</span> Bank of America</li>
+                          <li><span>Account No.</span> 1231231245334380483290</li>
+                          <li><span>Bank Code</span> BOA12323213</li>
+                          <li><span>Account Name</span> BOA12323213</li>
+                          <li><span>Tax ID</span> 32323213</li>
+                        </ul>
+                        <h3><a href="#"><span><i class="far fa-edit"></i></span> Update Bank Information</a></h3>
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  </div>
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  <script type="text/javascript">
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+ 
+  var user_name = storageData.uname;
+  var email_id = storageData.email;
+  var LoggedInId = storageData.uid;
+  var tokens = storageData.tokendata;
+  console.log(user_name);
+  console.log(email_id);
+  console.log(LoggedInId);
+  document.getElementById("user_n").value = user_name;
+  document.getElementById("F_name").value = user_name;
+  document.getElementById("emails").value = email_id;
+  document.getElementById("imagePreview").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+LoggedInId;
+
+/*  var formdata = {appuserName: user_name};
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/appUser/getAppUserByUserName',
+        headers: {
+                   Authorization: 'Bearer '+ tokens,
+                  },
+        data: formdata,
+        success: function(data) {
+          //console.log(data);
+            $('#postbtn').on('click', function() {
+            var users_id = data['id'];
+            var user1 = data['userName'];
+            var paswrd = data['password'];
+            var first_name = document.getElementById("F_name").value;
+            var email_val = document.getElementById("emails").value;
+          var formdata = new FormData();
+          formdata.append("appuserid", users_id);
+          formdata.append("status", "null");
+          formdata.append("firstName", first_name);
+          formdata.append("middleName", "");
+          formdata.append("lastName", "");
+          formdata.append("gender", "");
+          formdata.append("email", email_val);
+          formdata.append("userName", user1);
+          formdata.append("password", paswrd);
+          formdata.append("imageDetails", "");
+          formdata.append("userLocation", "");
+          formdata.append("userType", "");
+          formdata.append("saved_stocks", "MSFT,SPY");
+          formdata.append("savedMentors", "Peter J, Ron G");
+          formdata.append("description", "");
+
+var requestOptions = {
+  method: 'POST',
+  body: formdata1,
+  redirect: 'follow'
+};
+fetch("https://apistest.tradetipsapp.com/api/appUser/appUserUpdateById", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+          });
+
+        }
+      });*/
+         
+$('#button_click').on('click', function() {
+  console.log(set_pswrd.value);
+  if (set_pswrd.value == "" || confirm_password.value == "" || current_pswrd.value == ""){
+    //alert("Please fill the field");
+    $(".successmsg").html('<span>Please fill the field.</span>');
+           setTimeout(function(){$(".successmsg").empty()}, 3000);
+    
+  }
+  else
+  {
+  if (set_pswrd.value != confirm_password.value) { 
+   //alert("Your password and confirmation password do not match.");
+     $(".successmsg").html('<span>Your password and confirmation password do not match.</span>');
+             setTimeout(function(){$(".successmsg").empty()}, 3000);
+     confirm_password.focus();
+     return false; 
+    }
+  else
+   {
+    var sData = localStorage.getItem('allTokenData');
+    var storageData= JSON.parse(sData);
+   
+    var user_name = storageData.uname;
+    var  old_pswrd =  document.getElementById("current_pswrd").value;
+    var new_pswrd = document.getElementById("set_pswrd").value;
+
+    var formdata = new FormData();
+    formdata.append("userName", user_name);
+    formdata.append("oldPassword", old_pswrd);
+    formdata.append("newPassword", new_pswrd);
+    
+    var requestOptions = {
+          method: 'POST',
+          headers: {
+                  Authorization: 'Bearer '+ tokens
+                },
+          body: formdata,
+          redirect: 'follow'
+        };
+  
+    fetch("https://apistest.tradetipsapp.com/api/auth/changePassword", requestOptions)
+    .then(response => response.json())
+        .then(result => {
+            //console.log(result);
+            $(".successmsg").html('<span>Password changed successfully.</span>');
+            setTimeout(function(){$(".successmsg").empty()}, 3000);
+            setTimeout(function(){
+                window.location.href = "/profile"; 
+              }, 2000);
+
+
+           })
+          .catch(error => console.log('error', error));
+    }
+    }
+
+           });
+  </script>
+
+
+     <%- include partials/innerfooter %>
+
+
+
+     <!--  <div class="col-sm-9"  style="height:800px;color: white;">
+
+
+            <br>
+              <h2>
+                <b>Chat Room One</b>
+              </h2>
+              <br>
+              <ul style="list-style: none;">
+                <li><h5><b>1. We believe</b> in personal rights and freedom.</h5> </li>
+                <br>
+                <li><h5><b>2. This space</b> is for sharing winning trades and investing strategies, and yes to speak your mind.</h5> </li>
+                <br>
+                <li><h5><b>3. The app</b> was designed to help anyone make money and beat the market. So, as long as you don’t stand in the way of that ... we are good to go.</h5> </li>
+              </ul>
+              <br>
+              <a href="/chat">
+              <input type="hidden" id="user_id">
+              <input type="hidden" id="user_nickname">
+              <button type="button" class="nav-link" id="login-button">Enter Room</button>
+              </a><br>    
+
+              <a href="/firebase">
+           
+              <button type="button" class="nav-link" id="login-button">Enter Firesbase Chat</button>
+              </a><br>          
+      </div> -->
+
+
+  
+
+<!--     <script src="dist/sample.index.js"></script>
+ -->  
+
+    <script type="text/javascript">
+
+   window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+       
+ </script>
+

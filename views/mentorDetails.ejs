@@ -1,0 +1,952 @@
+<%- include partials/innerheader %>
+ <!-- Page Content Start -->
+<style type="text/css">
+  .tips_bx_amount span span.color_sell::after {
+    display: inline-block;
+    margin-left: .390em;
+    vertical-align: 0.100em;
+    content: "";
+    border-top: .4em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+/*img[src="#"] {
+    display: none;
+}*/
+svg text {
+  font-family: FontAwesome;
+}
+</style>
+<div class="app_main">
+  <%- include partials/innersidebar %>
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="trade_dtl_wrapper dsbrd_center_wrapper">
+      <div class="trade_dtl_head">
+        <a href="/dashboard"><button class="btn back_btn"><i class="fas fa-arrow-left"></i></button></a>
+       <!--  <button class="btn cmn_btn btn_small btn_primary">View AI Trend</button> -->
+      </div>
+      <div class="trade_dtl_box tips_bx buy_bg" id="idOfElement">
+        <div class="tips_bx_head">
+          <div class="tips_bx_author author_bx">
+            <img onerror="handleError(this);" id="MentorUserImage" src="#" alt="images">
+            <div class="author_bx_txt">
+              <h2 id="MentorUser"></h2>
+              <h3 id="datee"></h3>
+            </div>
+          </div>
+          <div class="tips_bx_amount">
+            <h2 id="currentprice"></h2>
+            
+            <p style="display: inline-block;">At Time of Tip : <span style= "font-family: 'SF UI Display Bold';" id="TipNumber"></span><p style="font-size:25px; display: inline-block;">&nbsp; | &nbsp;</p><p style="display: inline-block;"> Change&nbsp; :&nbsp; </p><span id="changepoint"></span></p>
+            
+
+          </div>
+        </div>
+        
+        <div class="tips_bx_cmpny">
+          <div class="tips_bx_cmpny_name">
+            <span class="bs_btn buy_btn" id="suggestion"></span>                       
+            <!-- <h2 id="CompanySymbol"></h2>&nbsp;<p>(</p><h2><span id="skComnyNames"></span></h2><p>)</p> -->
+             <h2><em class="only_id_use" id="CompanySymbol"></em> <span id="skComnyNames"></span></h2>
+          </div>     
+        <!--   <div class="tips_bx_txt">
+            <span id="skComnyNames"></span>
+          </div> -->
+          <div class="tips_bx_cmpny_states">
+            <ul>
+              <li>
+                <h3>Entry</h3>
+                <h4 id="entrypoint"></h4>
+              </li>
+              <li>
+                <h3>Exit</h3>
+                <h4 id="exitpoint"></h4>
+              </li>
+              <li>
+                <h3>Stop</h3>
+                <h4 id="stoppoint"></h4>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <div class="tips_bx_txt">
+          <p id="commentDetail"></p>
+        </div>
+
+         <div class="tips_bx_txt">
+          <img class="img-responsive" style="width: 100%;" id="tipImage" src="#" >
+        </div>
+         <br>
+        <div class="tips_bx_social">
+          <ul>
+            <li>
+              <a href="#">
+                <img src="images/tips-comment-icon.png" alt="images"><span id="commentcount"></span>             
+              </a>
+            </li>
+            <li onclick="pinFunction('<%=tipsIds%>')" style="color: #000;">
+              <a href="#">
+                <img alt="images" id="imgstatus"><p id="StatusPin" style="display:none;"></p>  Save
+              </a>
+            </li>
+            <li onclick="likeFunction('<%=tipsIds%>')" style="color: #000;">
+              <a href="#">
+                <img alt="images" id="likeimgstatus"><p id="StatusLike" style="display:none;"></p><span id="likecount"></span><p id="textvalLike" style="display:none;"></p>
+              </a>
+            </li>
+            <!-- <li>
+              <div class="dropdown msg_option_dropdown">
+                <a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="images/tips-more-icon.png" alt="images"> More
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <ul>
+                    <li><span><i class="fas fa-folder-open"></i></span> Archive all</li>
+                    <li><span><i class="fas fa-check-double"></i></span> Mark all as read</li>
+                  </ul>
+                </div>
+              </div>
+            </li>  -->
+          </ul>
+        </div>
+       
+        <div id="commentdemo"> </div>
+        <div class="review_area">
+          <div class="post_review_bx">
+            <h2>Leave a Comment</h2>
+            <div class="post_review_bx_in">
+              <img id="myImguser" alt="images">
+              <textarea class="form-control" placeholder="Write a comment" name="review" id="test"></textarea>
+              <button class="btn cmn_btn btn_small btn_secondary" id="postbtn">Post Comment</button>
+            </div>
+           <!--<div class="post_review_bx">
+            <h2>Leave a review</h2>
+            <div class="post_review_bx_in">
+              <img src="images/user.png" alt="images">
+              <textarea class="form-control" placeholder="Write a comment" name="review"></textarea>
+              <button class="btn cmn_btn btn_small btn_secondary">Post Review</button>
+            </div>
+          </div>
+          <div class="review_bx">
+            <div class="review_bx_head">
+              <div class="author_bx">
+                <img src="images/user1.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>Williams Park <span class="author_tag"><img src="images/pin-buy.png" alt="images"> (Author Comment)</span></h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+            </div>
+            <div class="review_bx_txt">
+              <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Vogel Quax zwickt Johnys Pferd Bim. Sylvia wagt quick den Jux bei Pforzheim. Polyfon zwitschernd aßen Mäxchens Vögel Rüben, Joghurt und Quark. "Fix, Schwyz!" quäkt Jürgen blöd vom Paß. Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Falsches Üben von.</p>
+            </div>
+            <div class="tips_bx_social review_bx_btm">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="images/tips-comment-icon.png" alt="images">
+                    21 Comments
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="images/tips-like-icon.png" alt="images">
+                    6 Likes
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="review_bx">
+            <div class="review_bx_head">
+              <div class="author_bx">
+                <img src="images/user2.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>Williams Park <span class="author_tag"><img src="images/pin-buy.png" alt="images"> (Author Comment)</span></h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+            </div>
+            <div class="review_bx_txt">
+              <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Vogel Quax zwickt Johnys Pferd Bim. Sylvia wagt quick den Jux bei Pforzheim.</p>
+            </div>
+            <div class="tips_bx_social review_bx_btm">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="images/tips-comment-icon.png" alt="images">
+                    21 Comments
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="images/tips-like-icon.png" alt="images">
+                    6 Likes
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="review_bx">
+            <div class="review_bx_head">
+              <div class="author_bx">
+                <img src="images/user3.png" alt="images">
+                <div class="author_bx_txt">
+                  <h2>Martin Methew</h2>
+                  <h3>2 mins ago</h3>
+                </div>
+              </div>
+            </div>
+            <div class="review_bx_txt">
+              <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Vogel Quax zwickt Johnys Pferd Bim. Sylvia wagt quick den Jux bei Pforzheim.
+              </p>
+            </div>
+            <div class="tips_bx_social review_bx_btm">
+              <ul>
+                <li>
+                  <a href="#">
+                    <img src="images/tips-comment-icon.png" alt="images">
+                    21 Comments
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="images/tips-like-icon.png" alt="images">
+                    6 Likes
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="reply_bx">
+              <div class="post_review_bx">
+                <h2>Post your Reply</h2>
+                <div class="post_review_bx_in">
+                  <img src="images/user.png" alt="images">
+                  <textarea class="form-control" placeholder="Write a comment" name="review"></textarea>
+                  <button class="btn cmn_btn btn_small btn_secondary">Post Review</button>
+                </div>
+              </div>
+              <div class="review_bx">
+                <div class="review_bx_head">
+                  <div class="author_bx">
+                    <img src="images/user4.png" alt="images">
+                    <div class="author_bx_txt">
+                      <h2>Williams Park <span class="author_tag"><img src="images/pin-buy.png" alt="images"> (Author Comment)</span></h2>
+                      <h3>2 mins ago</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="review_bx_txt">
+                  <p>Zwei flinke Boxer jagen die quirlige Eva und ihren Mops durch Sylt. Franz jagt im komplett verwahrlosten Taxi quer durch Bayern. Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich. Vogel Quax zwickt Johnys Pferd Bim. Sylvia wagt quick den Jux bei Pforzheim. Polyfon zwitschernd aßen Mäxchens Vögel Rüben, Joghurt und Quark. "Fix, Schwyz!" quäkt Jürgen blöd vom Paß. Victor jagt zwölf Boxkämpfer quer über den großen Sylter Deich. Falsches Üben von.</p>
+                </div>
+                <div class="tips_bx_social review_bx_btm">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <img src="images/tips-comment-icon.png" alt="images">
+                        21 Comments
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="images/tips-like-icon.png" alt="images">
+                        6 Likes
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Page Content Start -->
+<%- include partials/innerfooter %>
+
+<script type="text/javascript">
+var default_avatar = 'images/userIcon.png';
+
+
+function handleError(image) {
+    image.src = default_avatar;
+    return true;
+}
+
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  var LoggedInId = storageData.uid;
+
+  var tokens = storageData.tokendata;
+
+  var tipIds = "<%=tipsIds%>";
+
+
+  var formdata = {tipId: tipIds};
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tip/getAllTipFeatureDetailsByTipId',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+          // console.log(data);    
+
+            const dataResult = data;
+
+                // alert(dataResult.userPinStatus);
+
+                 if(dataResult.userPinStatus == true){
+
+                    // alert("true");
+
+                    document.getElementById("imgstatus").src = "/savetip.png";
+
+                  }else{
+
+                    // alert("false");
+                     
+                     document.getElementById("imgstatus").src = "images/tips-save-icon.png";
+                  }
+
+                  if(dataResult.userLikeStatus == true){
+
+                     document.getElementById("likeimgstatus").src = "/unnamed.png";
+
+                  }else{
+
+                    document.getElementById("likeimgstatus").src = "images/tips-like-icon.png";
+
+                  } 
+
+                  if(dataResult.tip.imageDetails != null){
+
+                     document.getElementById("tipImage").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByTipId?tipId="+dataResult.tip.id;      
+
+                  }else{
+
+                     document.getElementById("tipImage").src = "#"; 
+
+                     document.getElementById("tipImage").style.display = "none";
+     
+
+                  }    
+
+                  
+
+                 
+
+
+                  document.getElementById("MentorUser").textContent = dataResult.tip.appUser.userName;
+
+
+                  var date = new Date(dataResult.tip.modifiedOn);
+
+                 var options = {year: "numeric", month: "long", day: "numeric"};
+                 var newdate = date.toGMTString('en-US', options);  
+                 const stripped = newdate.replace(/GMT/g, 'EST');
+                 var newdate1 = stripped.toString(stripped);  
+                 var newdate2 = newdate1.split(/(\s+)/);
+                 newdate2.splice(11, 18);
+                 newdate2.splice(0, 2);
+                 newdate2.splice(3,3);
+                  //console.log(newdate2);
+                 function moveArrayItemToNewIndex(arr, old_index, new_index) {
+                 if (new_index >= arr.length) {
+                      var k = new_index - arr.length + 1;
+                      while (k--) {
+                          arr.push(undefined);
+                      }
+                  }
+                 arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+                 return arr;
+                 };
+
+                moveArrayItemToNewIndex(newdate2, 0, 2);
+                var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+                //console.log(result1);
+                result1.splice(1, 0, ' ');
+                var newdate3 = result1.toString(result1);
+                var result = newdate3.replace(/,/g, "");
+                //console.log(result);
+                x = result.substring(0, 6) + "," + result.substring(6, result.length);
+                //console.log(x);
+                function formatAMPM(date) {
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    minutes = minutes < 10 ? '0'+minutes : minutes;
+                    var strTime = hours + ':' + minutes + ' ' + ampm;
+                    return strTime;
+                  }
+
+                  var date1 = formatAMPM(date);
+                  //console.log(date1);
+                  //console.log(newdate2);
+                  const stripped1 = x.replace(newdate2[4], date1);
+                  document.getElementById("datee").textContent = stripped1;
+                  document.getElementById("MentorUserImage").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+dataResult.tip.appUser.id;
+                  document.getElementById("TipNumber").textContent = "$"+ parseFloat(dataResult.tip.createTipPrice).toFixed(2);
+                  document.getElementById("CompanySymbol").textContent = dataResult.tip.stockName;
+                  // document.getElementById("entrypoint").textContent = "$"+parseFloat(dataResult.tip.entryPoint).toFixed(2);
+                  // document.getElementById("stoppoint").textContent = "$"+parseFloat(dataResult.tip.stopPoint).toFixed(2);
+                  // document.getElementById("exitpoint").textContent = "$"+parseFloat(dataResult.tip.exitPoint).toFixed(2);
+                  document.getElementById("suggestion").textContent = dataResult.tip.stockSuggestion;
+                  // console.log(dataResult.commentCount);
+                  document.getElementById("commentcount").textContent = dataResult.commentCount +" Comments";
+                  document.getElementById("likecount").textContent = dataResult.likeCount +" Likes";
+
+                   document.getElementById("textvalLike").textContent = dataResult.likeCount;
+
+                  
+                  document.getElementById("commentDetail").textContent = dataResult.tip.comment;
+
+                   document.getElementById("myImguser").src = "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+LoggedInId;
+
+                  document.getElementById("StatusPin").textContent = dataResult.userPinStatus;
+
+                  document.getElementById("StatusLike").textContent = dataResult.userLikeStatus;
+
+                  // alert(dataResult.tip.stockSuggestion);
+
+                  if(dataResult.tip.stockSuggestion == "Buy" ){
+
+                    document.getElementById('idOfElement').className = 'trade_dtl_box tips_bx buy_bg';
+                    document.getElementById('suggestion').className = 'bs_btn buy_btn';
+
+                  }else{
+
+                    document.getElementById('idOfElement').className = 'trade_dtl_box tips_bx sell_bg';
+                    document.getElementById('suggestion').className = 'bs_btn sell_btn';
+
+                  }
+
+                 
+
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ dataResult.tip.stockName , function(d) {
+
+                          var count = Object.keys(d).length;
+                          Object.keys(d).map((keyName, key) => {
+                             $("#currentprice").text("$"+d[keyName].quote.latestPrice);
+                            $("#skComnyNames").text(d[keyName].quote.companyName);
+                            var latestPrice = d[keyName].quote.latestPrice;
+                            var createTipPrice = Number(dataResult.tip.createTipPrice);
+
+                            var changeprice = latestPrice - createTipPrice;
+
+                            var valuees = parseFloat(changeprice).toFixed(2);
+                            if(valuees > 0){
+                               // $("#changepoint").text(valuees);
+
+                              $("#changepoint").html('<span class="color_buy">' +valuees + '</span>');
+                               $("#changepoint").css("color" , "#09b598");
+
+                            }else{
+
+                              $("#changepoint").html('<span class="color_sell">' +valuees + '</span>');
+                               $("#changepoint").css("color" , "#dc3545");
+                            }
+                            // if(changeprice > 0){
+                            //   $("#changepoint").text(parseFloat(changeprice).toFixed(2));
+                            //   // $("#changepoint").css("color" , "#09b598");
+
+                            //   $("#changepoint").addClass("color_buy");
+
+
+                            //   // class="color_buy
+                            // }else{
+                            //   $("#changepoint").text(parseFloat(changeprice).toFixed(2));
+                            //   // $("#changepoint").css("color" , "#dc3545");
+
+                            //   $("#changepoint").addClass("color_sell");
+                            // }
+                            
+
+                             if((dataResult.tip.entryPoint).replace("$","") <= latestPrice &&  dataResult.tip.stockSuggestion == "Buy"){
+
+                               document.getElementById("entrypoint").textContent = "$"+parseFloat(dataResult.tip.entryPoint).toFixed(2);
+                                $("#entrypoint").css("color" , "#09b598");
+
+                                 
+                                  } else if((dataResult.tip.entryPoint).replace("$","") >= latestPrice && dataResult.tip.stockSuggestion == "Sell"){
+
+                                    document.getElementById("entrypoint").textContent = "$"+parseFloat(dataResult.tip.entryPoint).toFixed(2);
+                                     $("#entrypoint").css("color" , "#09b598");
+
+
+                                  }else{
+                                      
+                                    document.getElementById("entrypoint").textContent = "$"+parseFloat(dataResult.tip.entryPoint).toFixed(2);
+                                     $("#entrypoint").css("color" , "white");
+                                  }
+
+
+                                  /////////////////////////////////////////////////
+
+
+                                  if((dataResult.tip.entryPoint).replace("$","") <= latestPrice &&  dataResult.tip.stockSuggestion == "Buy"){
+
+
+                                   document.getElementById("exitpoint").textContent = "$"+parseFloat(dataResult.tip.exitPoint).toFixed(2);
+                                    $("#exitpoint").css("color" , "#09b598");
+
+                               
+                                } else if((dataResult.tip.entryPoint).replace("$","") >= latestPrice && dataResult.tip.stockSuggestion == "Sell"){
+
+
+                                     document.getElementById("exitpoint").textContent = "$"+parseFloat(dataResult.tip.exitPoint).toFixed(2);
+                                      $("#exitpoint").css("color" , "#09b598");
+
+                                }else{
+
+
+                                     document.getElementById("exitpoint").textContent = "$"+parseFloat(dataResult.tip.exitPoint).toFixed(2);
+                                      $("#exitpoint").css("color" , "white");
+
+                                }
+
+                                ///////////////////////////////////////////////
+
+
+
+                                  if(dataResult.tip.stockSuggestion == "Buy" && latestPrice < dataResult.tip.createTipPrice.replace("$","") && latestPrice <=  dataResult.tip.stopPoint.replace("$","")){
+
+
+                                   document.getElementById("stoppoint").textContent = "$"+parseFloat(dataResult.tip.stopPoint).toFixed(2);
+                                    $("#stoppoint").css("color" , "#dc3545");
+
+                               
+                                } else if(dataResult.tip.stockSuggestion == "Sell" && dataResult.tip.createTipPrice.replace("$","") < latestPrice && latestPrice.replace("$","") >=  dataResult.tip.stopPoint.replace("$","")){
+
+
+                                    document.getElementById("stoppoint").textContent = "$"+parseFloat(dataResult.tip.stopPoint).toFixed(2);
+                                     $("#stoppoint").css("color" , "white");
+
+                                }else{
+
+
+                                     document.getElementById("stoppoint").textContent = "$"+parseFloat(dataResult.tip.stopPoint).toFixed(2);
+                                      $("#stoppoint").css("color" , "white");
+
+                                }
+
+                                /////////////////////////////////////////////////////
+
+                          });
+                        });
+
+                    var formdata = {tipId: tipIds,offset: 0, limit: 100};
+                     $.ajax({
+                    type: 'POST',
+                    url: 'https://apistest.tradetipsapp.com/api/comment/getCommentsByTipIdPagination',
+                    headers: {
+                      Authorization: 'Bearer '+ tokens,
+                       },
+                    data: formdata,
+                    success: function(data) {
+                      var dataResult1 = data;
+                      //console.log(dataResult1);          
+                      //console.log(dataResult1.length);
+                      if(dataResult1.length != 0) {
+                        for(i=0;i<dataResult1.length;i++){
+
+                          // alert(JSON.stringify(dataResult1[i]));
+
+                            var text = '<div class="review_bx"><div class="review_bx_head"><div class="author_bx"><img onerror="handleError(this);" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+dataResult1[i].appUser.id+'" alt="images"><div class="author_bx_txt"><h2 style="display: inline-block";>'+dataResult1[i].appUser.userName+'</h2></div></div></div><div class="review_bx_txt"><span class="author_tag"><a javascript:void(0); onclick="return flagclick(\'' + dataResult1[i].id + '\',\'' + dataResult1[i].appUser.id + '\')"><i class="fas fa-flag" aria-hidden="true" style="color:white;"></i></a></span><p>'+dataResult1[i].commentDetails+'</p></div>';
+                            $("#commentdemo").append(text);
+                    }
+                       }
+                      // } else{
+                      //   document.getElementById('demo').style.display = 'none';
+
+
+                      // }  
+              
+                       
+                    }
+                  });
+                           
+                  
+
+
+
+                   // document.getElementById("description1").value = dataResult.descriptionOne;
+                  // // document.getElementById("description2").value = null;
+                  // document.getElementById("frequency").value = dataResult.frequency;
+                  // document.getElementById("price").value = dataResult.price;
+         
+               
+       }
+       
+  });
+
+//  function imgError(image) {
+//     image.onerror = "";
+//     image.src = "images/userIcon.png";
+//     return true;
+// }
+
+ $('#postbtn').on('click', function() {
+      var commentval = $('#test').val();
+      if(commentval!=""){
+          var formdata = new FormData();
+          formdata.append("tipId", tipIds);
+          formdata.append("commentDetails", commentval);
+          formdata.append("status", "Pending");
+          formdata.append("userid", LoggedInId);
+          var requestOptions = {
+            method: 'POST',
+            headers: {
+                    Authorization: 'Bearer '+ tokens
+                   },
+            body: formdata,
+            redirect: 'follow'};
+            fetch("https://apistest.tradetipsapp.com/api/comment/addCommentOnTip", requestOptions)
+           .then(response => response.json())
+           .then(result => {
+                //console.log("calling val" +result);
+                var datak = JSON.stringify(result);
+                //console.log(datak);
+                var dataResultp = JSON.parse(datak);
+                //console.log(dataResultp);
+                //console.log(tipIds);
+                var formdata = {tipId: tipIds,offset: 0, limit: 100};
+
+                $.ajax({
+                      type: 'POST',
+                      url: 'https://apistest.tradetipsapp.com/api/comment/getCommentsByTipIdPagination',
+                      headers: {
+                         Authorization: 'Bearer '+ tokens,
+                       },
+                      data: formdata,
+                      success: function(data) {
+                        // alert(data[0]);
+         
+                      var texts = '<div class="review_bx"><div class="review_bx_head"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[0].appUser.id+'" alt="images"><div class="author_bx_txt"><h2 style="display: inline-block";>'+data[0].appUser.userName+'</h2></div></div></div><div class="review_bx_txt"><input type="text" name="a" id="a" value="'+ data[0].appUser.userName +'"><span class="author_tag"><a javascript:void(0); onclick="return flagclick(\'' + data[0].id + '\',\'' + data[0].appUser.id + '\')"><i class="fas fa-flag" aria-hidden="true"  style="color:white;"></i></a></span><p>'+data[0].commentDetails+'</p></div>';
+                      $("#commentdemo").prepend(texts);
+                      }
+                    });
+
+                 var formdata = {tipId: tipIds};
+                  $.ajax({
+                        type: 'POST',
+                        url: 'https://apistest.tradetipsapp.com/api/tip/getAllTipFeatureDetailsByTipId',
+                        headers: {
+                          Authorization: 'Bearer '+ tokens,
+                           },
+                        data: formdata,
+                      success: function(data) {
+
+                            const dataResult = data;
+                            var comnt = (dataResult.commentCount);
+                            console.log(comnt);
+
+                            document.getElementById("commentcount").textContent = comnt+" Comments";
+                          }
+                        });
+               
+
+       })
+      .catch(error => console.log('error', error));
+      document.getElementById("test").value = "";
+
+
+
+     
+
+            }
+            else{
+              //alert('Please fill the field !');
+              $(".successmsg").html('<span>Please fill the field !</span>');
+            setTimeout(function(){$(".successmsg").empty()}, 3000);
+            }
+          });
+
+function flagclick(e ,f) {
+// alert(e);
+// alert(f);
+var formdata = new FormData();
+formdata.append("commentId", e);
+formdata.append("userId", f);
+formdata.append("isFlag", "true");
+formdata.append("flagReason", "");
+formdata.append("flagCreatedBy" ,userName);
+//console.log(formdata);
+// alert(formdata);
+var requestOptions = {
+  method: 'POST',
+  headers: {
+               Authorization: 'Bearer '+ tokens
+                },
+  body: formdata,
+  redirect: 'follow'
+};
+// console.log(requestOptions);
+fetch("https://apistest.tradetipsapp.com/api/tipCommentFlag/addCommentFlag", requestOptions)
+.then(response => response.json())
+.then(result => {
+// console.log("calling val" +result);
+                var datak = JSON.stringify(result);
+                alert(datak);
+                var dataResultp = JSON.parse(datak);
+                console.log(dataResultp);
+                var flagstatus = dataResultp.status;
+                //console.log(flagstatus);
+                if (flagstatus=="true"){
+                  //alert("Flag has been added for comment.");
+                   $(".successmsg").html('<span>Flag has been added for comment.</span>');
+                    setTimeout(function(){$(".successmsg").empty()}, 3000);
+                }
+                else{
+                  //alert("This user has already submitted flag for this comment !!!");
+                  $(".successmsg").html('<span>This user has already submitted flag for this comment !!!</span>');
+                    setTimeout(function(){$(".successmsg").empty()}, 3000);
+                }
+
+              })
+
+}
+
+function pinFunction(e) {
+
+  //alert(e);
+ 
+  var formdata = {tipId : e};
+
+  // var imgCount = $("#textval"+ e).text();
+
+  var userdataPin = $("#StatusPin").text();
+
+ // alert(userdataPin);
+
+  if(userdataPin == "true"){
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        // var valss = parseInt(imgCount) - 1;
+
+        // $("#textval").text(valss);
+
+        $("#StatusPin").text("false");
+
+        // $("#imgstatus").attr("src","show.jpeg");
+
+        document.getElementById("imgstatus").src="images/tips-save-icon.png";
+        $(".successmsg").html('<span>Unsaved!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+                
+
+
+        }
+
+      });
+
+  }else{
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+      
+        // var valss = parseInt(imgCount) + 1;
+
+        // $("#textval"+e).text(valss);
+
+        $("#StatusPin").text("true");
+
+
+        // $("#imgstatus").attr("src","savetip.png");
+
+
+        document.getElementById("imgstatus").src="savetip.png";
+           $(".successmsg").html('<span>Saved!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+
+
+
+        }
+
+      });
+  }
+
+
+
+}
+
+function likeFunction(e) {
+
+  // alert(e);
+ 
+  var formdata = {tipId : e};
+
+  var imgCount = $("#textvalLike").text();
+
+  // alert(imgCount);
+
+  var userdataPin = $("#StatusLike").text();
+
+  if(userdataPin == "true"){
+    // alert("equal true");
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        // var valss = parseInt(imgCount) - 1;
+
+        // $("textvalLike").text(valss);
+
+        // $("#likecount").text(valss + " Likes");
+
+        $("#StatusLike").text("false");
+
+        $("#likeimgstatus").attr("src","images/tips-like-icon.png");
+
+        $(".successmsg").html('<span>Unliked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+
+        //window.location.reload("/");
+
+
+        }
+
+      });
+
+  }else{
+    // alert("equal false");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+      
+        // var valss = parseInt(imgCount) + 1;
+
+        // $("textvalLike").text(valss);
+
+        // $("#likecount").text(valss + " Likes");
+
+        $("#StatusLike").text("true");
+
+
+        $("#likeimgstatus").attr("src","unnamed.png");
+
+        $(".successmsg").html('<span>Liked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+
+        // window.location.reload("/");
+
+
+        }
+
+      });
+  }
+
+
+}
+
+// function likeFunction(e) {
+
+//   //alert(e);
+ 
+//   var formdata = {tipId : e};
+
+//   // var imgCount = $("#textval"+ e).text();
+
+//   var userdataLike = $("#StatusLike").text();
+
+//  // alert(userdataPin);
+
+//   if(userdataLike == "true"){
+
+//     $.ajax({
+//         type: 'POST',
+//         url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnLikeForUser',
+//         headers: {
+//           Authorization: 'Bearer '+ tokens,
+//            },
+//         data: formdata,
+//       success: function(data) {
+     
+//         // var valss = parseInt(imgCount) - 1;
+
+//         // $("#textval").text(valss);
+
+//         $("#StatusLike").text("false");
+
+//         // $("#imgstatus").attr("src","show.jpeg");
+
+//         document.getElementById("likeimgstatus").src="images/tips-like-icon.png";
+
+
+//         }
+
+//       });
+
+//   }else{
+//     $.ajax({
+//         type: 'POST',
+//         url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipLikeForUser',
+//         headers: {
+//           Authorization: 'Bearer '+ tokens,
+//            },
+//         data: formdata,
+//       success: function(data) {
+      
+//         // var valss = parseInt(imgCount) + 1;
+
+//         // $("#textval"+e).text(valss);
+
+//         $("#StatusLike").text("true");
+
+
+//         // $("#imgstatus").attr("src","savetip.png");
+
+
+//         document.getElementById("likeimgstatus").src="unnamed.png";
+
+
+
+//         }
+
+//       });
+//   }
+
+
+
+// }
+
+
+
+  </script>
+

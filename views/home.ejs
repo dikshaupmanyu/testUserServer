@@ -1,0 +1,2200 @@
+<%- include partials/innerheader %>
+<style>
+.dashboard_wrapper_left
+{
+  /*overflow: scroll;
+  height: 118px;*/
+}
+.magicsearch-wrapper{
+  width: 75%!important;
+}
+.input_group button{
+  padding: 0px !important;
+}
+.input_group {
+  padding: 0px!important;
+}
+/*.multi-items {
+  float: left;
+ 
+}*/
+.avoid_btn {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
+}
+span.hclass.red{
+  color: #DC3545;
+}
+span.hclass.green{
+  color: #09B598;
+}
+ .multi-items {
+    position: absolute;
+    cursor: text;
+        float: left;
+}
+.multi-item{
+    float: left;
+    border: 1px solid #fff;
+    padding: 2px 2px 2px 2px;
+    background:#041c43;
+    margin-left: 5px;
+
+    border-radius: 3px;
+    font-size: 12px;
+    margin-top: 7px;
+}
+ul.search-list {
+    background: #041c43;
+    color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    width: 100%;
+    padding: 5px 0;
+    max-height: 180px;
+    padding: 10px 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    /* margin-top: 37px; */
+    margin-top: 0 !important;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%)
+}
+.search-list-input {
+    position: relative;
+}
+ul.search-list li {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+}
+ul.search-list li .ck_box_custom{
+    display: block;
+    padding: 9px 18px;
+}
+ul.search-list li label{
+    margin: 0;
+    display: block;
+    cursor: pointer;
+}
+ul.search-list li .ck_box_custom input[type="checkbox"]~label:before{
+    margin-bottom: -4px;
+}
+ul.search-list li a{
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    padding: 9px 18px;
+    background-color: transparent;
+    transition: .3s;
+}
+ul.search-list li a:hover{
+    background-color: rgb(0 0 0 / 21%);
+}
+.input_group button#stockadd{
+  padding: 6px 12px !important;
+}
+
+
+</style>
+      <div class="app_main">
+                 
+            <%- include partials/innersidebar %>
+
+        <div class="app_content">
+          <div class="dsbrd_container">
+            <div class="dashboard_wrapper row">
+
+              <div class="dashboard_wrapper_left col">
+                <div class="tip_list_head">
+                  <h2>Tips</h2>
+                  <!-- <div class="switch-field">
+                    <input type="radio" id="tips_all" name="Tips" checked/>
+                    <label for="tips_all">All</label>
+                    <input type="radio" id="tips_ai" name="Tips" onclick="AITip()" />
+                    <label for="tips_ai">AI Tips</label>
+                    <input type="radio" id="tips_mentor" name="Tips" />
+                    <label for="tips_mentor">Mentors</label>
+                  </div> -->
+                  <div class="switch-field">
+                    <input class="switch-field-radio" value="1" type="radio" id="tips_all" name="Tips" checked/>
+                    <label for="tips_all">All</label>
+                    <input class="switch-field-radio" value="2" type="radio" id="tips_ai" name="Tips" />
+                    <label for="tips_ai">AI Tips</label>
+                    <input class="switch-field-radio" value="3" type="radio" id="tips_mentor" name="Tips" />
+                    <label for="tips_mentor">Mentors</label>
+                  </div>
+                </div>
+
+<!-- <div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'All')">All</button>
+  <button class="tablinks" onclick="openCity(event, 'AI')">AI</button>
+  <button class="tablinks" onclick="openCity(event, 'MENTOR')">MENTOR</button>
+</div>
+<div id="All" class="tabcontent">
+  <div id="AIFilter"> </div>
+  <div id="MENTORFilter"> </div>
+</div>
+<div id="AI" class="tabcontent">
+  <div id="AIdemo"> </div>
+</div>
+<div id="MENTOR" class="tabcontent">
+ <div id="demo"> </div>
+</div> -->
+
+            <div class="scroller-dash-left scrollbar-css">
+       <div class="tips_boxes" id="bothdemo">
+           
+         </div>
+
+                <div class="tips_boxes" id="tipbothdemo">
+   
+                </div>
+                <div class="tips_boxes" id="AIdemo">
+   
+                </div>
+   
+                <div class="tips_boxes" id="demo">
+   
+                </div>
+
+              </div>
+
+              </div>
+              <div class="dashboard_wrapper_right col">
+
+                <!-- <div class="tips_wtlist_head"> -->
+                <div class="tip_list_head">
+                  <div class="btn-group select_dropdown">
+                    <h2>Stocks</h2>
+                    <!-- <a class="dropdown-toggle" data-toggle="dropdown">Stocks</a> -->
+                    <!-- <ul class="dropdown-menu select_dropdown_menu" id="menu">
+                      <li class="dropdown-item px-2"><a href="#">My Watchlist</a></li>
+                      <li class="dropdown-item px-2"><a href="#">Free AI tips</a></li>
+                    </ul> -->
+                  </div>
+<!--                   <span><a href="#">Manage</a></span>
+ -->            </div>
+        <!-- <div class="search-list-input">
+          <div class="input-group input_group">
+            <input type="text" class="form-control" id="basic" placeholder="Search over 1 million stocks &amp; tips">
+            <div class="input-group-append">
+              <button class="btn">Search</button>
+            </div>
+          </div>
+          <ul class="search-list" id="dataass">
+                 
+          </ul>
+        </div> -->
+
+
+                <!-- <div class="multi-items">
+                </div> -->
+                <div class="scroller-dash-right scrollbar-css">
+                <div class="search-list-input">
+                  <div class="input-group input_group">
+                    <input type="text" class="form-control"  id="search-stock" autocomplete="off" placeholder="Enter Symbol or Company Name" style="width: 80% !important;">
+                    <label class="multi-items" id="multi-items"></label>
+                    <input type="hidden" class="magicsearch-hidden" />
+                    <div class="input-group-append" id="input-group-append">
+                      <button  id="stockadd" class="btn">Add</button>
+                    </div>
+                  </div>
+                  <ul id="symbol-box" class="symbol-box search-list" style="background: #010E32;"></ul>
+               </div>
+               <!--  <div class="input-group input_group">
+                  <input type="text" class="form-control" placeholder="Search over 1 million stocks & tips" style="text-transform:uppercase" autocomplete="off" data-stocks="" id="search-stock">
+                  <label class="multi-items"></label>
+                 <div class="input-group-append">
+                  <input type="hidden" class="magicsearch-hidden" />
+                    <button id="stockadd" class="btn">Add</button>
+                  </div>
+                  </div>
+                  <ul id="symbol-box" class="symbol-box" style="background: #010E32;"></ul>
+                -->
+                <br>
+                <div class="tips_wtlist_items">
+                  <div class="head_of_tips_wtlist_items tips_wtlist_item">
+                   <div class="left_wti">Company Name</div>
+                   <div class="center_wti">Price</div>
+                   <div class="center_wti">Change</div>
+                   <!-- <div class="center_wti">Action</div> -->
+                  </div>
+                </div>
+                <div class="tips_wtlist_items" id="demos">
+               
+                  <!-- <div class="tips_wtlist_item">
+                    <div class="tips_wtlist_item_left">
+                      <h2>NIKE <span>NIKE INC</span></h2>
+                    </div>
+                    <div class="tips_wtlist_item_center">
+                      <h3>$28.05</h3>
+                      <h4><span class="round_tag buy_tag"><img src="images/t-logo.png" alt="images"></span> TradeTips AI Trend</h4>
+                    </div>
+                    <div class="tips_wtlist_item_right">
+                      <h3><span class="color_buy">3.3%</span></h3>
+                      <h4><span class="color_buy">Buy</span></h4>
+                    </div>
+                  </div> -->
+                 
+               
+                </div>
+              </div>
+              </div>
+
+                         <!-- Welcome modal Start -->
+               <!--  <div class="modal welcome_modal" tabindex="-1" id="welcomeModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="welcome_modal_top">
+                          <h2>This is How You Make Money With TradeTips!</h2>
+                         <img src="images/welcome-bird.png" alt="images">
+                        </div>
+                        <div class="welcome_modal_btm">
+                          <h3>Below is your "list of services" screen. Services are any methods that you use to sell your investing advice to others, (such as running a newsletter, posting subscriber only videos, holding virtual classes, etc.). Any investing advice service you have can be posted to the app here, which will then appear on TradeTips as your own storefront.You set your own prices, and you are in control of what your customers see and when.</h3>
+                          <p>1. Click on "Create New Service" & choose your service(s). 2 Enter details, subscription schedule, and price. 3. Choose an image for your service and publish</p>
+                          <p>Your published services storefront will appear on your TradeTips app profile for sharing and promoting what you do. </p>
+                          <p>We handle all the customer billing and make sure you get paid directly for your signups.</p>
+                          <button class="btn cmn_btn btn_primary" data-dismiss="modal">Lets get Started</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- Welcome modal End -->
+             </div>
+          </div>
+        </div>
+         
+           <%- include partials/innerfooter %>
+
+
+<script type="text/javascript">
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+ 
+  var tokens = storageData.tokendata;
+  //alert(tokens);
+ var myarrdata = new Array();
+   var myarr = new Array();
+   var mydeletedata = new Array();
+  var companies=new Array();
+  var deletecompanies=new Array();
+ 
+  $(function() {
+     $("#search-stock").keyup(function(){
+      clearTimeout(timers);
+       $('#symbol-box').css('display','none');
+    timers = setTimeout(() => {
+//           // alert("timeout");
+          // alert($(this).val());
+        $.ajax({
+        type: "POST",
+         url: "https://apistest.tradetipsapp.com/api/stocksearchdetails/searchStockSymbol",
+         data:'stockSymbol='+$(this).val(),
+         headers: { Authorization: 'Bearer '+ tokens},
+         beforeSend: function(){
+             // $("#search-box").css("background","");
+           //   $("#symbol-box").css("overflow-y", "none");
+             // $("#symbol-box").css("position", "absolute");
+              // $("#symbol-box").css("margin-top", "75px");
+              //$("#symbol-box").css("min-width", "300px");
+              // clearTimeout(timer);
+         },
+         success: function(data){
+             // alert(data);
+            var datak = JSON.stringify(data);
+            var dataResult = JSON.parse(datak);
+            var len = dataResult.length;
+         
+         
+     
+             // $("#suggesstion-box").show();
+             //  $("#symbol-box").css("overflow-y", "scroll");
+               //$("#symbol-box").css("height", "200px");
+             $("#symbol-box").empty();
+             $input=$("#search-stock");
+                  var search=document.getElementById('search-stock');
+                 
+                 
+                   clearTimeout(timers);
+/*
+                   $("input:checkbox[name=symbols]:checked").each(function(){
+                         yourArray.push($(this).val());
+                    });*/
+                   
+                   
+             
+                  for( var i = 0; i<len; i++){
+                     // alert(len);
+                     var id = dataResult[i]['id'];
+                     var symbol = dataResult[i]['stockSymbol'];
+                     var name = dataResult[i]['stockName'];
+                      // alert(name);
+                        // console.log(dataResult[i]);
+                        // console.log(id);
+                      clearTimeout(timers);  
+            $("#symbol-box").append("<li style='list-style: none;' value='"+symbol+"'><span class='ck_box_custom'><input id='checkbtn_"+id+"' type='checkbox' class='checkbtn' name='symbols[]' data-id='"+name+"'  value='"+symbol+"'><label for='checkbtn_"+id+"'>&nbsp;"+symbol+"</label></span></li>");
+                     clearTimeout(timers);
+                     $('.checkbtn').on('click',function(){
+                     
+                        var clicked = $(this);
+                        var myids ='';
+                        var compid='';
+                            myids=clicked.attr('id');
+                            myname=clicked.attr('data-id');
+                              myids  =myids.split('_');
+                              compid=myids[1];
+                           if($(this).is(':checked') && !myarr.includes(clicked.val()))
+                           {
+                             myarr.push(clicked.val());
+                       
+                         
+                          //clicked.attr('data-id');
+                          companies.push(compid);
+                     
+                       //myarrdata.push({id:myids[1],stockSymbol:clicked.val(),stockImage:null,stockDetail:null});
+                       //myarrdata.push({stockSymbol:clicked.val(),stockName:myids[1]});
+                       $('.multi-items').append('<div class="multi-item" id="MY_'+compid+'" data-symbol="'+myname+'" title="'+clicked.val()+'" ><span style="color:#fff;">'+clicked.val()+'</span><span class="multi-item-close" id="'+compid+'"  onclick="remove_element(this.id,this.title)" style="top: 13px;color:#fff;cursor:pointer;padding-left:2px;"><b>x</b></span></div>&nbsp;');
+                         if(!adjustinput(compid,'plus')){
+                            remove_element(myids[1],clicked.val());
+                         }
+                       
+                       // alert(myarr);
+                      }else if(!$(this).is(':checked') && myarr.includes(clicked.val()))
+                      {
+                        //alert(clicked.val());
+                         valindex=   myarr.indexOf(clicked.val());
+                          //alert(clicked.val());
+                          myarr.splice(valindex, 1);
+                          style="top: 13px;color:#fff;cursor:pointer;padding-left:2px;"
+                        //  myarrdata.splice(valindex,1);
+                       
+                         
+                        //  myarr.filter(function arritem() {return clicked.val() } );
+                                //  alert(myarr);
+                           
+                        // removeItem(clicked.val(), myarr);
+                            remove_element(myids[1],clicked.val());
+                      }
+                         // console.log(myarr);
+                         //console.log(myarrdata);
+                       $(".magicsearch-hidden").val(companies);
+                       $("#search-stock").val('');
+                      // $("#search-stock").attr('data-stocks',myarrdata);
+                         //$(this).parent('li').addClass('selected').siblings().removeClass('selected');
+                     });  
+                 }
+                    $('#symbol-box').css('display','block');
+                             
+        }
+        });
+          }  , 1000 );
+    });
+  });
+  var timers;
+ 
+$(document).ready(function(){
+ $("#stockadd").click(function(){
+            //alert(myarr);
+           
+          var allIDS=$('.magicsearch-hidden').val();
+           allIDS  =allIDS.split(',');
+           // console.log(allIDS);
+           // alert(allIDS);
+           // alert(myarr.length);
+             for (var i = 0; i < allIDS.length; i++) {
+                  // console.log(allIDS[i]);              
+                   objct=$('#MY_'+allIDS[i]);
+                  myarrdata.push({stockSymbol:objct.attr('title'),stockName:objct.attr('data-symbol')});
+               
+             }
+             // console.log(myarrdata);
+             // return false;
+         //mystck=$('#search-stock');//data-stocks
+         //testvar=mystck.attr('data-stocks');
+           var cars = {"stocks":myarrdata};
+         var raw = JSON.stringify({"stocks":myarrdata});
+         // console.log(raw);
+      $.ajax({
+        type: "POST",
+         url: "https://apistest.tradetipsapp.com/api/stockDetail/addMultipleStock",
+        // body: raw,
+         data: JSON.stringify(cars),
+        'contentType': 'application/json',
+        // data:JSON.stringify('{"stocks":[{"stockSymbol":"NMFCL","stockName":"New Mountain Finance Corp."},{"stockSymbol":"NARI","stockName":"Inari Medical"}]}'),//JSON.stringify({"stocks":myarrdata}),
+         headers: { Authorization: 'Bearer '+ tokens},
+         success: function(data){
+           //$('#basic').trigger('clear');
+          // console.log(data);
+              for( var i=0;i<data.length; i++){
+                 
+                 mydeletedata.push(data[i].id);
+              }
+          $('#symbol-box').css('display','none');
+         // $('.magicsearch').val('');
+            // return false;
+             var texts = "" ;
+             $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ myarr , function(r) {
+                  // alert('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ myarr);
+              // console.log(r);
+                   for (k= 0; k< myarr.length; k ++) {
+                   texts += '<div class="tips_wtlist_item"  id="item-'+ mydeletedata[k] +'"><div class="tips_wtlist_item_left"><h2>'+ r[myarr[k]].quote.symbol +'<span>'+ r[myarr[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[myarr[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[myarr[k]].quote.change > 0 ? ' </div><div class="tips_wtlist_item_right"><h3><span class="color_buy">'+ parseFloat(r[myarr[k]].quote.change).toFixed(2) +'</span></h3>':'</div><div class="tips_wtlist_item_right"><h3><span class="color_sell">'+ parseFloat(r[myarr[k]].quote.change).toFixed(2) +'</span></h3>')+'</div><div class="tips_wtlist_item_right"><span class="delete_stck"  style="color: white;" onclick="delete_stck(this.id)" id="'+ mydeletedata[k] +' '+ r[myarr[k]].quote.symbol +'"><i class="fa fa-trash"></i></span></div></div>';
+                     // texts += '<div class="tips_wtlist_item" id="item-'+ mydeletedata[k] +'"><div class="tips_wtlist_item_left"><h2>'+ r[myarr[k]].quote.symbol +'<span>'+ r[myarr[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[myarr[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[myarr[k]].quote.change > 0 ? ' </div><div class="tips_wtlist_item_right"><h3><span class="color_buy">'+ parseFloat(r[myarr[k]].quote.change).toFixed(2) +'</span></h3>':'</div><div class="tips_wtlist_item_right"><h3><span class="color_sell">'+ parseFloat(r[myarr[k]].quote.change).toFixed(2) +'</span></h3>')+'</div><div class="tips_wtlist_item_right"><span class="delete_stck" style="    color: white;" onclick="delete_stck(this.id)" id="'+ mydeletedata[k] +'"><i class="fa fa-trash"></i></span></div></div>';
+                   }
+   
+                   //$("#demos").append(texts);  
+                   $("#demos").prepend(texts);
+                   $('.magicsearch-hidden').val('');
+                   myarr.splice(0, myarr.length);
+                   myarrdata.splice(0, myarrdata.length);
+                   companies.splice(0, companies.length);
+                   $('.multi-items').html('');
+                   $(".successmsg").html('<span>Company Added Successfully</span>');
+                     setTimeout(function(){$(".successmsg").empty()}, 3000);
+                });
+         }
+       
+      });
+     });
+});
+function delete_stck(ID)
+{
+ var r = confirm("Are you sure to delete this company ?");
+ //stockname=stockname.toUpperCase();
+ ID=ID.split(' ');
+ if (r == true) {
+     $.ajax({
+       type: "POST",
+        url: "https://apistest.tradetipsapp.com/api/stockDetail/deleteStock",
+        data:'stockId='+ID[0],
+        headers: { Authorization: 'Bearer '+ tokens},
+        success: function(data){
+           // alert(ID[1]);
+           $('#mystocks-'+ID[1]).remove();
+           // alert("calling hide div");
+           $("#item-"+ID[0]).css('display','none');
+            $(".successmsg").html('<span>Company Delete Successfully</span>');
+            setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+       });
+   }
+  }
+ 
+/////////////////////////////////dashborad HTML changes/////////////////////////////////
+/////////////////////////////////css changes/////////////////////////////
+  var newData;
+  $("form#data").submit(function(e) {
+    e.preventDefault();    
+    // alert(JSON.stringify(e));
+     var multi = $("#stockName").val();
+     
+    });     
+         
+      var userName = storageData.uname;
+       var formdata = {  offset: 0, limit: 1000000};
+        
+        var xt = 1;
+          var myoffset=0;
+         var  mylimit=50;
+         //alert(myoffset);  
+                // alert(mylimit);
+          loaddemodata(myoffset,mylimit);
+         loadAi(myoffset,mylimit);
+
+        /* $(window).scroll(function() {
+   if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+       $(window).unbind('scroll');
+       alert("near bottom!");
+   }
+});*/
+
+
+   /*      $(window).on("scroll", function() {
+  var scrollHeight = $(document).height();
+  var scrollPosition = $(window).height() + $(window).scrollTop();
+  if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+
+     if(mylimit<10000)
+           {
+                
+                xt+= 1;
+                if(xt!=0)
+                {
+
+                  myoffset= mylimit+1;
+                  mylimit=xt*10;
+
+                  console.log(myoffset);
+                   console.log(mylimit);
+                   console.log(xt);
+                  // alert(myoffset);  
+                    //   alert(mylimit);
+                loaddemodata(myoffset,mylimit);
+                  loadAi(myoffset,mylimit);
+                 // return false ;
+                }
+                 
+                
+              
+           }
+       console.log("scrolling");
+  }
+});*/
+
+      
+ 
+/*
+           var ScrollDebounce = true;
+           window.onscroll = function() {
+            ScrollDebounce = false;
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+
+      if(mylimit<10000)
+           {
+                
+                xt+= 1;
+                if(xt!=0)
+                {
+
+                  myoffset= mylimit+1;
+                  mylimit=xt*50;
+
+                  console.log(myoffset);
+                   console.log(mylimit);
+                   console.log(xt);
+                  // alert(myoffset);  
+                    //   alert(mylimit);
+                loaddemodata(myoffset,mylimit);
+                  loadAi(myoffset,mylimit);
+                }
+                 
+                
+              
+           }
+        alert("bottom");
+    }
+};*/
+   
+
+$(".scroller-dash-left").scroll(function() {
+    if($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+
+       if(mylimit<10000)
+     {
+
+          xt+= 1;
+          if(xt!=0)
+          {
+            myoffset= mylimit+1;
+            mylimit=xt*50;
+
+            console.log(myoffset);
+             console.log(mylimit);
+             console.log(xt);
+            // alert(myoffset);  
+              //   alert(mylimit);
+            loaddemodata(myoffset,mylimit);
+            loadAi(myoffset,mylimit);
+          }
+           
+          
+        
+     }
+       //alert("bottom");    
+    } 
+    
+});
+/*
+        $(".scroller-dash-left").on("scroll",function() {
+              
+            
+          var winsc=$(".scroller-dash-left").scrollTop();
+          var winsch=$(".scroller-dash-left").height();
+          var doch=$(document).height();
+             if(winsc + winsch >  doch- 100)
+             { 
+            
+       console.log(xt);
+       
+    
+     if(mylimit<10000)
+     {
+
+          xt+= 1;
+          if(xt!=0)
+          {
+            myoffset= mylimit+1;
+            mylimit=xt*50;
+
+            console.log(myoffset);
+             console.log(mylimit);
+             console.log(xt);
+            // alert(myoffset);  
+              //   alert(mylimit);
+            loaddemodata(myoffset,mylimit);
+            loadAi(myoffset,mylimit);
+          }
+           
+          
+        
+     }
+    // formdata={  offset: myoffset, limit: mylimit};
+  
+
+
+                 console.log('downscroll code');
+             } 
+
+
+            
+          });*/
+      
+               $(window).on('unload', function() {
+               $(window).scrollTop(0);
+              });
+               window.onunload = function(){ window.scrollTo(0,0); }
+
+       function loaddemodata(offset,limit)
+       {
+
+           formdata={  offset: offset, limit: limit};
+
+  $.ajax({
+
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tip/getAllTipFeaturePaginationForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+           async:false,
+        data: {  offset: offset, limit: limit},
+      success: function(data) {
+        var datak = JSON.stringify(data);
+       var dataResult = JSON.parse(datak);
+       // console.log(dataResult);
+       var text = "" ;
+       var textboth = "" ;
+       var len = dataResult.length;
+       // console.log(len);
+       var stockVal = [];
+       var tipId = [];
+       var tipPrice = [];
+       var stockdataa = [];
+       var usernames = [];
+       var initial=0;
+       var arrfinal=[]; 
+
+       if(offset==0)
+       {
+        initial=offset;
+       }else{
+        initial=offset-1;
+       }
+       for (i= initial; i<=limit; i ++) {
+
+                    if(dataResult[i]!=undefined){
+                stockVal.push(dataResult[i].tip.stockName);  
+                stockdataa.push(dataResult[i].tip.stockName);
+                tipId.push(dataResult[i].tip.id);  
+                tipPrice.push(dataResult[i].tip.createTipPrice);
+                usernames.push(dataResult[i].tip.appUser.userName);
+
+
+              // console.log(dataResult[i].tip.stockName);  
+
+             var date = new Date(dataResult[i].tip.modifiedOn);
+             var options = {year: "numeric", month: "long", day: "numeric"};
+
+             var newdate = date.toGMTString('en-US', options);  
+
+
+             const stripped = newdate.replace(/GMT/g, 'EST');
+                var newdate1 = stripped.toString(stripped);  
+                 var newdate2 = newdate1.split(/(\s+)/);
+                 newdate2.splice(11, 18);
+                 newdate2.splice(0, 2);
+                 newdate2.splice(3,3);
+                  //console.log(newdate2);
+                 function moveArrayItemToNewIndex(arr, old_index, new_index) {
+                 if (new_index >= arr.length) {
+                      var k = new_index - arr.length + 1;
+                      while (k--) {
+                          arr.push(undefined);
+                      }
+                  }
+                 arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+                 return arr;
+                 };
+
+                moveArrayItemToNewIndex(newdate2, 0, 2);
+                var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+                //console.log(result1);
+                result1.splice(1, 0, ' ');
+                var newdate3 = result1.toString(result1);
+                var result = newdate3.replace(/,/g, "");
+                //console.log(result);
+                x = result.substring(0, 6) + "," + result.substring(6, result.length);
+                //console.log(x);
+                function formatAMPM(date) {
+                    var hours = date.getHours();
+                    var minutes = date.getMinutes();
+                    var ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    minutes = minutes < 10 ? '0'+minutes : minutes;
+                    var strTime = hours + ':' + minutes + ' ' + ampm;
+                    return strTime;
+                  }
+
+                  var date1 = formatAMPM(date);
+                  //console.log(date1);
+                  //console.log(newdate2);
+                  const stripped1 = x.replace(newdate2[4], date1);
+
+         
+             if(dataResult[i].tip.stockSuggestion == "Buy"){
+
+               text += '<div class="tips_bx buy_bg" data-switch-field="3"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + dataResult[i].tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+ dataResult[i].tip.appUser.id+'" alt="images"><div class="tips_bx_cmpny_name" id=""><h2><em class="only_id_use">' + dataResult[i].tip.appUser.userName + '</em> <span>'+ stripped1 +'</span></h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrice' + dataResult[i].tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockkTipPrice' + dataResult[i].tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + dataResult[i].tip.id + '">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span id="exitdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + dataResult[i].tip.id + '">' + dataResult[i].commentCount + ' Comments</a></li><li><a onclick="pinFunction(this.id)" id="' + dataResult[i].tip.id + '" style="color: #000;"><p id="StatusPin' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p><img id="imgstatus' + dataResult[i].tip.id + '" alt="images"><a href="#">Save</a> </li><li><img id="imgLikestatus' + dataResult[i].tip.id + '" alt="images"><a onclick="likeFunction(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><a href="mentorDetails?id=' + dataResult[i].tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+dataResult[i].tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +dataResult[i].tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li><li><a onclick="newhandleRemoveTipResultData(this.id)" id="' + dataResult[i].tip.id + '"><span><i class="fas fa-trash"></i></span> Remove Tip</a></li></ul></div></div></li></ul></div></div>';
+
+               textboth += '<div class="tips_bx buy_bg mytipboth '+i+'" data-switch-field="1" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx" ><img onerror="imgError1(this);" id="imgcall1' + dataResult[i].tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+ dataResult[i].tip.appUser.id+'" alt="images"><div class="tips_bx_cmpny_name" id=""><h2><em class="only_id_use">' + dataResult[i].tip.appUser.userName + '</em> <span>'+ stripped1 +'</span></h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrice1' + dataResult[i].tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockkTipPrice1' + dataResult[i].tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion1' + dataResult[i].tip.id + '">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames1'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span id="exitdata1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + dataResult[i].tip.id + '">' + dataResult[i].commentCount + ' Comments</a></li><li><a onclick="pinFunction1(this.id)" id="' + dataResult[i].tip.id + '" style="color: #000;"><p id="StatusPin1' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p><img id="imgstatus1' + dataResult[i].tip.id + '" alt="images"><a href="#">Save</a> </li><li><img id="imgLikestatus1' + dataResult[i].tip.id + '" alt="images"><a onclick="likeFunction1(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike1' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike1' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><a href="mentorDetails?id=' + dataResult[i].tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard1(this.id)" id="'+dataResult[i].tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard1' +dataResult[i].tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li><li><a onclick="newhandleRemoveTipResultData(this.id)" id="' + dataResult[i].tip.id + '"><span><i class="fas fa-trash"></i></span> Remove Tip</a></li></ul></div></div></li></ul></div></div>';
+
+             } else if(dataResult[i].tip.stockSuggestion == "Sell") {
+
+                text += '<div class="tips_bx sell_bg" data-switch-field="3"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=' + dataResult[i].tip.appUser.id + '" alt="images"><div class="tips_bx_cmpny_name" id=""><h2><em class="only_id_use">' + dataResult[i].tip.appUser.userName + '</em> <span>'+ stripped1 +'</span></h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrices' + dataResult[i].tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockkTipPrice' + dataResult[i].tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + dataResult[i].tip.id + '">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span id="exitdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + dataResult[i].tip.id + '">' + dataResult[i].commentCount + ' Comments</a></li> <li><img id="imgstatus' + dataResult[i].tip.id + '" alt="images"><a onclick="pinFunction(this.id)" id="' + dataResult[i].tip.id + '" style="color: #fff;"><p id="StatusPin' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p>Save</a> </li><li><img id="imgLikestatus' + dataResult[i].tip.id + '" alt="images"><a onclick="likeFunction(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><a href="mentorDetails?id=' + dataResult[i].tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+dataResult[i].tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +dataResult[i].tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li><li><a onclick="newhandleRemoveTipResultData(this.id)" id="' + dataResult[i].tip.id + '"><span><i class="fas fa-trash"></i></span> Remove Tip</a></li></ul></div></div></li></ul></div></div>';
+
+                 textboth += '<div class="tips_bx sell_bg mytipboth '+i+'" data-switch-field="1" style="display:block;"><div class="tips_bx_head" style="display:block;"><div class="tips_bx_author author_bx"><img onerror="imgError1(this);" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=' + dataResult[i].tip.appUser.id + '" alt="images"><div class="tips_bx_cmpny_name" id=""><h2><em class="only_id_use">' + dataResult[i].tip.appUser.userName + '</em> <span>'+ stripped1 +'</span></h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrices1' + dataResult[i].tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockkTipPrice1' + dataResult[i].tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion1' + dataResult[i].tip.id + '">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames1'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span id="exitdata1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + dataResult[i].tip.id + '">' + dataResult[i].commentCount + ' Comments</a></li> <li><img id="imgstatus1' + dataResult[i].tip.id + '" alt="images"><a onclick="pinFunction1(this.id)" id="' + dataResult[i].tip.id + '" style="color: #fff;"><p id="StatusPin1' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p>Save</a> </li><li><img id="imgLikestatus1' + dataResult[i].tip.id + '" alt="images"><a onclick="likeFunction1(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike1' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike1' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><a href="mentorDetails?id=' + dataResult[i].tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard1(this.id)" id="'+dataResult[i].tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard1' +dataResult[i].tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li><li><a onclick="newhandleRemoveTipResultData(this.id)" id="' + dataResult[i].tip.id + '"><span><i class="fas fa-trash"></i></span> Remove Tip</a></li></ul></div></div></li></ul></div></div>';
+
+
+             } else {
+
+                  text += '<div class="tips_bx avoid_bg" data-switch-field="3"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=' + dataResult[i].tip.appUser.id + '" alt="images"><div class="tips_bx_cmpny_name" id=""><h2><em class="only_id_use">' + dataResult[i].tip.appUser.userName + '</em> <span>'+ stripped1 +'</span></h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrices' + dataResult[i].tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockkTipPrice' + dataResult[i].tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn avoid_btn suggestion' + dataResult[i].tip.id + '">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span id="exitdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + dataResult[i].tip.id + '">' + dataResult[i].commentCount + ' Comments</a></li> <li><img id="imgstatus' + dataResult[i].tip.id + '" alt="images"><a onclick="pinFunction(this.id)" id="' + dataResult[i].tip.id + '" style="color: #fff;"><p id="StatusPin' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p>Save</a> </li><li><img id="imgLikestatus' + dataResult[i].tip.id + '" alt="images"><a onclick="likeFunction(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><a href="mentorDetails?id=' + dataResult[i].tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+dataResult[i].tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +dataResult[i].tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li><li><a onclick="newhandleRemoveTipResultData(this.id)" id="' + dataResult[i].tip.id + '"><span><i class="fas fa-trash"></i></span> Remove Tip</a></li></ul></div></div></li></ul></div></div>';
+
+                 textboth += '<div class="tips_bx avoid_bg mytipboth '+i+'" data-switch-field="1" style="display:block;"><div class="tips_bx_head" style="display:block;"><div class="tips_bx_author author_bx"><img onerror="imgError1(this);" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=' + dataResult[i].tip.appUser.id + '" alt="images"><div class="author_bx_txt"><h2>' + dataResult[i].tip.appUser.userName + '</h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrices1' + dataResult[i].tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockkTipPrice1' + dataResult[i].tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn avoid_btn suggestion1' + dataResult[i].tip.id + '">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames1'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span id="exitdata1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata1' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + dataResult[i].tip.id + '">' + dataResult[i].commentCount + ' Comments</a></li> <li><img id="imgstatus1' + dataResult[i].tip.id + '" alt="images"><a onclick="pinFunction1(this.id)" id="' + dataResult[i].tip.id + '" style="color: #fff;"><p id="StatusPin1' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p>Save</a> </li><li><img id="imgLikestatus1' + dataResult[i].tip.id + '" alt="images"><a onclick="likeFunction1(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike1' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike1' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><a href="mentorDetails?id=' + dataResult[i].tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard1(this.id)" id="'+dataResult[i].tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard1' +dataResult[i].tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li><li><a onclick="newhandleRemoveTipResultData(this.id)" id="' + dataResult[i].tip.id + '"><span><i class="fas fa-trash"></i></span> Remove Tip</a></li></ul></div></div></li></ul></div></div>';
+
+             }
+           }
+                 
+        }           
+
+                    if(stockdataa.length>0){
+               $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdataa , function(d) {
+                      // console.log('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdataa);
+                      // console.log(d);
+
+                       // var newstcokdata = [];
+
+
+                     for (k= 0; k< stockdataa.length; k ++) {
+                       
+
+                       
+
+                          if(d[stockdataa[k]] != undefined){
+
+                              // $("#skComnyName"+tipId[k]).text(d[stockdataa[k]].quote.companyName);
+                              $("#skComnyNames"+tipId[k]).text(d[stockdataa[k]].quote.companyName);
+                              $("#flatestPrice"+tipId[k]).text("$"+d[stockdataa[k]].quote.latestPrice);
+
+                              $("#flatestPrices"+tipId[k]).text("$"+d[stockdataa[k]].quote.latestPrice);
+
+
+                              // $("#skComnyName1"+tipId[k]).text(d[stockdataa[k]].quote.companyName);
+                              $("#skComnyNames1"+tipId[k]).text(d[stockdataa[k]].quote.companyName);
+                              $("#flatestPrice1"+tipId[k]).text("$"+d[stockdataa[k]].quote.latestPrice);
+
+                              $("#flatestPrices1"+tipId[k]).text("$"+d[stockdataa[k]].quote.latestPrice);
+
+
+                               
+
+                                // var stockkkentry = $("#entrydata"+ tipId[k]).text();
+                                // var stockkkentry1 = $("#entrydata1"+ tipId[k]).text();
+                                // alert(stockkkentry);
+                                var stockkkentrys = $("#entrydatas"+ tipId[k]).text();
+                                // alert(stockkkentrys);
+                                var stockkkentrys1 = $("#entrydatas1"+ tipId[k]).text();
+
+                                var stockkkexit = $("#exitdata"+ tipId[k]).text();
+                                var stockkkexit1 = $("#exitdata1"+ tipId[k]).text();
+                                //alert(stockkkexit);
+                                var stockkkstop = $("#stopdata"+ tipId[k]).text();
+                                var stockkkstop1 = $("#stopdata1"+ tipId[k]).text();
+                                //alert(stockkkstop);
+                                var stockkkPricess= $("#stockkTipPrice"+ tipId[k]).text();
+                                var stockkkPricess1= $("#stockkTipPrice1"+ tipId[k]).text();
+                                // alert(stockkkPricess);
+                                // alert(stockkkPricess.replace("$",""));
+                               
+                                var newwdata = $("#flatestPrice"+ tipId[k]).text();
+                                var newwdata1 = $("#flatestPrice1"+ tipId[k]).text();
+
+                                var newwdatas = $("#flatestPrices"+ tipId[k]).text();
+                                var newwdatas1 = $("#flatestPrices1"+ tipId[k]).text();
+                                // alert(newwdata);
+                                // alert(newwdata.replace("$",""));
+
+                                var suggestionslist = $(".suggestion"+ tipId[k]).text();
+                                // alert(suggestionslist);
+                                var suggestionslist1 = $(".suggestion1"+ tipId[k]).text();
+                               
+
+                                //////////////////////////////////////////////////////////////
+
+                                $("#divClipboard"+tipId[k]).val(d[stockdataa[k]].quote.companyName+' Current price:$'+d[stockdataa[k]].quote.latestPrice+' Suggested entry: '+stockkkentrys+' exit: '+stockkkexit+' stop: '+stockkkstop+' Stock tip by '+usernames[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                                $("#divClipboard1"+tipId[k]).val(d[stockdataa[k]].quote.companyName+' Current price:$'+d[stockdataa[k]].quote.latestPrice+' Suggested entry: '+stockkkentrys1+' exit: '+stockkkexit1+' stop: '+stockkkstop1+' Stock tip by '+usernames[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                                var userdataPin = $("#StatusPin"+ tipId[k]).text();
+                                var userdataPin1 = $("#StatusPin1"+ tipId[k]).text();                        
+                                // alert(userdataPin);
+                               
+                                if(userdataPin == "true"){
+                                        // alert("true");
+                                        $("#imgstatus"+ tipId[k]).attr("src","savetip.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgstatus"+ tipId[k]).attr("src","images/tips-save-icon.png");
+
+                                   }
+
+                               
+                                if(userdataPin1 == "true"){
+                                        // alert("true");
+                                        $("#imgstatus1"+ tipId[k]).attr("src","savetip.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgstatus1"+ tipId[k]).attr("src","images/tips-save-icon.png");
+
+                                   }
+
+                                   ////////////////////////////////////////////////////////////////////
+
+                                   var userdataLike = $("#StatusLike"+ tipId[k]).text();
+                                 
+                             
+                                  if(userdataLike == "true"){
+                                       // alert("true");
+                                        $("#imgLikestatus"+ tipId[k]).attr("src","unnamed.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgLikestatus"+ tipId[k]).attr("src","images/tips-like-icon.png");
+
+                                   }
+
+                                  var userdataLike1 = $("#StatusLike1"+ tipId[k]).text();
+                                  // alert(userdataLike1);
+
+                                  if(userdataLike1 == true){
+                                       // alert("true");
+                                        $("#imgLikestatus1"+ tipId[k]).attr("src","unnamed.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgLikestatus1"+ tipId[k]).attr("src","images/tips-like-icon.png");
+
+                                   }
+
+                                //////////////////////////change value////////////////////////////
+                                 // var newwdatak = $("#flatestPrice"+ tipId[k]).text();
+
+                                 const minusValues = newwdata.replace("$","") - stockkkPricess.replace("$","");
+                                 const values = Number(minusValues).toFixed(2);
+                                 // alert(values);
+
+                                 if(values > 0){
+                                  // alert("home");
+                                  $("#changeVals"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +values + '</b></span>');
+
+                                 }else{
+                                  // alert("calling home");
+                                  $("#changeVals"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;<span class="hclass red"><b>' +values + '</b></span>');
+
+                                 }
+
+                                 const minusValues1 = newwdata1.replace("$","") - stockkkPricess1.replace("$","");
+                                 const values1 = Number(minusValues1).toFixed(2);
+                                 // alert(values);
+                                 if(values1 > 0){
+                                  // alert("home");
+
+                                  $("#changeVals1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp;<span class="hclass green"><b>' +values1 + '</b></span>');
+
+                                 }else{                                
+                                 // alert("calling home");
+
+                                  $("#changeVals1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +values1 + '</b></span>');
+
+                                 }
+
+
+                                 //////////////////////////////////////////////////////
+
+                                 const minusValuesNew = newwdatas.replace("$","") - stockkkPricess.replace("$","");
+                                 const valuesk = Number(minusValuesNew).toFixed(2);
+                                 // alert(values);
+                                 if(valuesk > 0){
+                                  // alert("home");
+
+                                  $("#changeValsfront"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +valuesk + '</b></span>');
+
+                                 }else{
+                                  // alert("calling home");
+
+                                  $("#changeValsfront"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +valuesk + '</b></span>');
+
+                                 }
+
+                                 const minusValuesNew1 = newwdatas1.replace("$","") - stockkkPricess1.replace("$","");
+                                 const valuesk1 = Number(minusValuesNew1).toFixed(2);
+                                 // alert(values);
+                                 if(valuesk1 > 0){
+                                  // alert("home");
+
+                                  $("#changeValsfront1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +valuesk1 + '</b></span>');
+
+                                 }else{
+                                  // alert("calling home");
+
+                                  $("#changeValsfront1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +valuesk1 + '</b></span>');
+
+                                 }                                
+
+                                 /////////////////////////entry data/////////////////////////
+
+                                // alert(newwdata);
+                                // alert(stockkkentrys);
+
+                                 
+                 
+                                // alert(suggestionslist);
+
+                                if(stockkkentrys.replace("$","") <= newwdata.replace("$","") &&  suggestionslist == "Buy"){
+
+                                  // alert("buy Diksha");
+
+
+                                  // $("#entrydata"+ tipId[k]).css("color" , "#09b598");
+                                  $("#entrydatas"+ tipId[k]).css("color" , "#09b598");
+                                  $("#entrydatas1"+ tipId[k]).css("color" , "#09b598");
+
+                               
+                                } else if(stockkkentrys.replace("$","") >= newwdata.replace("$","") && suggestionslist == "Sell"){
+
+                                   // alert("sell Diksha");
+
+                                    // $("#entrydata"+ tipId[k]).css("color" , "#09b598");
+                                    $("#entrydatas"+ tipId[k]).css("color" , "#09b598");
+                                    $("#entrydatas1"+ tipId[k]).css("color" , "#09b598");
+
+                                }else{
+                                    // alert("avoid Diksha");
+
+                                     // $("#entrydata"+ tipId[k]).css("color" , "white");
+                                     $("#entrydatas"+ tipId[k]).css("color" , "white");
+                                     $("#entrydatas1"+ tipId[k]).css("color" , "white");
+
+                                }
+
+                                // if(stockkkentrys1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist1 == "Buy"){
+
+                                //    alert("buy upmanyu");
+
+                                //   // $("#entrydata1"+ tipId[k]).css("color" , "#09b598");
+                                //   $("#entrydatas1"+ tipId[k]).css("color" , "#09b598");
+
+                               
+                                // } else if(stockkkentrys1.replace("$","") >= newwdata1.replace("$","") && suggestionslist1 == "Sell"){
+
+                                //    alert("sell upmanyu");
+
+                                //     // $("#entrydata1"+ tipId[k]).css("color" , "#09b598");
+                                //     $("#entrydatas1"+ tipId[k]).css("color" , "#09b598");
+
+                                // }else{
+
+                                //    alert("avoid upmanyu");
+
+                                //      // $("#entrydata1"+ tipId[k]).css("color" , "white");
+                                //      $("#entrydatas1"+ tipId[k]).css("color" , "black");
+
+                                // }                                
+
+
+                                //////////////////exit data/////////////////////////////////////////
+
+
+                                 
+                                  if(stockkkentrys.replace("$","") <= newwdata.replace("$","") &&  suggestionslist == "Buy"){
+
+
+                                  $("#exitdata"+ tipId[k]).css("color" , "#09b598");
+                                  $("#exitdata1"+ tipId[k]).css("color" , "#09b598");
+
+                               
+                                } else if(stockkkentrys.replace("$","") >= newwdata.replace("$","") && suggestionslist == "Sell"){
+
+
+                                    $("#exitdata"+ tipId[k]).css("color" , "#09b598");
+                                    $("#exitdata1"+ tipId[k]).css("color" , "#09b598");
+
+                                }else{
+
+
+                                     $("#exitdata"+ tipId[k]).css("color" , "white");
+                                     $("#exitdata1"+ tipId[k]).css("color" , "white");
+
+                                }
+
+                                //  if(stockkkentrys1.replace("$","") <= newwdata1.replace("$","") &&  suggestionslist1 == "Buy"){
+
+
+                                //   $("#exitdata1"+ tipId[k]).css("color" , "#09b598");
+                                //   // $("#exitdatas1"+ tipId[k]).css("color" , "#09b598");
+
+                               
+                                // } else if(stockkkentrys1.replace("$","") >= newwdata1.replace("$","") && suggestionslist1 == "Sell"){
+
+
+                                //     $("#exitdata1"+ tipId[k]).css("color" , "#09b598");
+                                //     // $("#exitdatas1"+ tipId[k]).css("color" , "#09b598");
+
+                                // }else{
+
+
+                                //      $("#exitdata1"+ tipId[k]).css("color" , "black");
+                                //      // $("#exitdatas1"+ tipId[k]).css("color" , "black");
+
+                                // }
+
+
+                                /////////////////////stop data//////////////////////////////  
+     
+
+                                 if(suggestionslist == "Buy" && newwdata.replace("$","") < stockkkPricess.replace("$","") && newwdata.replace("$","") <=  stockkkstop.replace("$","")){
+
+
+                                  $("#stopdata"+ tipId[k]).css("color" , "#d93545");
+                                  $("#stopdata1"+ tipId[k]).css("color" , "#d93545");
+
+                               
+                                } else if(suggestionslist == "Sell" && stockkkPricess.replace("$","") < newwdata.replace("$","") && newwdata.replace("$","") >=  stockkkstop.replace("$","")){
+
+
+                                    $("#stopdata"+ tipId[k]).css("color" , "white");
+                                    $("#stopdata1"+ tipId[k]).css("color" , "white");
+
+                                }else{
+
+
+                                     $("#stopdata"+ tipId[k]).css("color" , "white");
+                                     $("#stopdata1"+ tipId[k]).css("color" , "white");
+
+                                }
+
+
+                                //  if(suggestionslist1 == "Buy" && newwdata1.replace("$","") < stockkkPricess1.replace("$","") && newwdata1.replace("$","") <=  stockkkstop1.replace("$","")){
+
+
+                                //   $("#stopdata1"+ tipId[k]).css("color" , "red");
+                                //   // $("#stopdatas1"+ tipId[k]).css("color" , "red");
+
+                               
+                                // } else if(suggestionslist1 == "Sell" && stockkkPricess1.replace("$","") < newwdata1.replace("$","") && newwdata1.replace("$","") >=  stockkkstop1.replace("$","")){
+
+
+                                //     $("#stopdata1"+ tipId[k]).css("color" , "black");
+                                //     // $("#stopdatas1"+ tipId[k]).css("color" , "white");
+
+                                // }else{
+
+
+                                //      $("#stopdata1"+ tipId[k]).css("color" , "black");
+                                //      // $("#stopdatas1"+ tipId[k]).css("color" , "white");
+
+                                // }
+
+                             // console.log(stockdataa[k]);  
+
+                          } else {
+
+
+
+                             
+                                var stockkkentrys = $("#entrydatas"+ tipId[k]).text();
+                                // alert(stockkkentrys);
+                                var stockkkentrys1 = $("#entrydatas1"+ tipId[k]).text();
+
+                                var stockkkexit = $("#exitdata"+ tipId[k]).text();
+                                var stockkkexit1 = $("#exitdata1"+ tipId[k]).text();
+                                //alert(stockkkexit);
+                                var stockkkstop = $("#stopdata"+ tipId[k]).text();
+                                var stockkkstop1 = $("#stopdata1"+ tipId[k]).text();
+                                //alert(stockkkstop);
+                                var stockkkPricess= $("#stockkTipPrice"+ tipId[k]).text();
+                                var stockkkPricess1= $("#stockkTipPrice1"+ tipId[k]).text();
+                                // alert(stockkkPricess);
+                                // alert(stockkkPricess.replace("$",""));
+                               
+                                var newwdata = $("#flatestPrice"+ tipId[k]).text();
+                                var newwdata1 = $("#flatestPrice1"+ tipId[k]).text();
+
+                                var newwdatas = $("#flatestPrices"+ tipId[k]).text();
+                                var newwdatas1 = $("#flatestPrices1"+ tipId[k]).text();
+                                // alert(newwdata);
+                                // alert(newwdata.replace("$",""));
+
+                                var suggestionslist = $(".suggestion"+ tipId[k]).text();
+                                // alert(suggestionslist);
+                                var suggestionslist1 = $(".suggestion1"+ tipId[k]).text();
+                               
+
+                                //////////////////////////////////////////////////////////////
+
+                                // $("#divClipboard"+tipId[k]).val(d[stockdataa[k]].quote.companyName+' Current price:$'+d[stockdataa[k]].quote.latestPrice+' Suggested entry: '+stockkkentrys+' exit: '+stockkkexit+' stop: '+stockkkstop+' Stock tip by '+usernames[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                                // $("#divClipboard1"+tipId[k]).val(d[stockdataa[k]].quote.companyName+' Current price:$'+d[stockdataa[k]].quote.latestPrice+' Suggested entry: '+stockkkentrys1+' exit: '+stockkkexit1+' stop: '+stockkkstop1+' Stock tip by '+usernames[k]+' on TradeTips. Download at TradeTipsApp.com');
+
+                                var userdataPin = $("#StatusPin"+ tipId[k]).text();
+                                var userdataPin1 = $("#StatusPin1"+ tipId[k]).text();                        
+                                // alert(userdataPin);
+                               
+                                if(userdataPin == "true"){
+                                        // alert("true");
+                                        $("#imgstatus"+ tipId[k]).attr("src","savetip.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgstatus"+ tipId[k]).attr("src","images/tips-save-icon.png");
+
+                                   }
+
+                               
+                                if(userdataPin1 == "true"){
+                                        // alert("true");
+                                        $("#imgstatus1"+ tipId[k]).attr("src","savetip.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgstatus1"+ tipId[k]).attr("src","images/tips-save-icon.png");
+
+                                   }
+
+                                   ////////////////////////////////////////////////////////////////////
+
+                                   var userdataLike = $("#StatusLike"+ tipId[k]).text();
+                                 
+                             
+                                  if(userdataLike == "true"){
+                                       // alert("true");
+                                        $("#imgLikestatus"+ tipId[k]).attr("src","unnamed.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgLikestatus"+ tipId[k]).attr("src","images/tips-like-icon.png");
+
+                                   }
+
+                                  var userdataLike1 = $("#StatusLike1"+ tipId[k]).text();
+                                  // alert(userdataLike1);
+
+                                  if(userdataLike1 == true){
+                                       // alert("true");
+                                        $("#imgLikestatus1"+ tipId[k]).attr("src","unnamed.png");
+
+                                   }else{
+                                      // alert("false");
+                                        $("#imgLikestatus1"+ tipId[k]).attr("src","images/tips-like-icon.png");
+
+                                   }
+
+                                //////////////////////////change value////////////////////////////
+                                 // var newwdatak = $("#flatestPrice"+ tipId[k]).text();
+
+                                 const minusValues = newwdata.replace("$","") - stockkkPricess.replace("$","");
+                                 const values = Number(minusValues).toFixed(2);
+                                 // alert(values);
+
+                                 if(values > 0){
+                                  // alert("home");
+                                  $("#changeVals"+ tipId[k]).html(' <p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +values + '</b></span>');
+
+                                 }else{
+                                  // alert("calling home");
+                                  $("#changeVals"+ tipId[k]).html(' <p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +values + '</b></span>');
+
+                                 }
+
+                                 const minusValues1 = newwdata1.replace("$","") - stockkkPricess1.replace("$","");
+                                 const values1 = Number(minusValues1).toFixed(2);
+                                 // alert(values);
+                                 if(values1 > 0){
+                                  // alert("home");
+
+                                  $("#changeVals1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +values1 + '</b></span>');
+
+                                 }else{                                
+                                 // alert("calling home");
+
+                                  $("#changeVals1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +values1 + '</b></span>');
+
+                                 }
+
+
+                                 //////////////////////////////////////////////////////
+
+                                 const minusValuesNew = newwdatas.replace("$","") - stockkkPricess.replace("$","");
+                                 const valuesk = Number(minusValuesNew).toFixed(2);
+                                 // alert(values);
+                                 if(valuesk > 0){
+                                  // alert("home");
+
+                                  $("#changeValsfront"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +valuesk + '</b></span>');
+
+                                 }else{
+                                  // alert("calling home");
+
+                                  $("#changeValsfront"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +valuesk + '</b></span>');
+
+                                 }
+
+                                 const minusValuesNew1 = newwdatas1.replace("$","") - stockkkPricess1.replace("$","");
+                                 const valuesk1 = Number(minusValuesNew1).toFixed(2);
+                                 // alert(values);
+                                 if(valuesk1 > 0){
+                                  // alert("home");
+
+                                  $("#changeValsfront1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass green"><b>' +valuesk1 + '</b></span>');
+
+                                 }else{
+                                  // alert("calling home");
+
+                                  $("#changeValsfront1"+ tipId[k]).html('<p style="font-size:25px; display: inline-block;">&nbsp;|&nbsp;</p><p style="display: inline-block;"></p> Change &nbsp;:&nbsp; <span class="hclass red"><b>' +valuesk1 + '</b></span>');
+
+                                 }                                
+
+                                 /////////////////////////entry data/////////////////////////
+
+                                // alert(newwdata);
+                                // alert(stockkkentrys);
+
+                                 
+                 
+                                // alert(suggestionslist);
+
+                                if(stockkkentrys.replace("$","") <= newwdata.replace("$","") &&  suggestionslist == "Buy"){
+
+                                  // alert("buy Diksha");
+
+
+                                  // $("#entrydata"+ tipId[k]).css("color" , "#09b598");
+                                  $("#entrydatas"+ tipId[k]).css("color" , "#09b598");
+                                  $("#entrydatas1"+ tipId[k]).css("color" , "#09b598");
+
+                               
+                                } else if(stockkkentrys.replace("$","") >= newwdata.replace("$","") && suggestionslist == "Sell"){
+
+                                   // alert("sell Diksha");
+
+                                    // $("#entrydata"+ tipId[k]).css("color" , "#09b598");
+                                    $("#entrydatas"+ tipId[k]).css("color" , "#09b598");
+                                    $("#entrydatas1"+ tipId[k]).css("color" , "#09b598");
+
+                                }else{
+                                    // alert("avoid Diksha");
+
+                                     // $("#entrydata"+ tipId[k]).css("color" , "white");
+                                     $("#entrydatas"+ tipId[k]).css("color" , "white");
+                                     $("#entrydatas1"+ tipId[k]).css("color" , "white");
+
+                                }
+
+                             
+
+                                //////////////////exit data/////////////////////////////////////////
+
+
+                                 
+                                  if(stockkkentrys.replace("$","") <= newwdata.replace("$","") &&  suggestionslist == "Buy"){
+
+
+                                  $("#exitdata"+ tipId[k]).css("color" , "#09b598");
+                                  $("#exitdata1"+ tipId[k]).css("color" , "#09b598");
+
+                               
+                                } else if(stockkkentrys.replace("$","") >= newwdata.replace("$","") && suggestionslist == "Sell"){
+
+
+                                    $("#exitdata"+ tipId[k]).css("color" , "#09b598");
+                                    $("#exitdata1"+ tipId[k]).css("color" , "#09b598");
+
+                                }else{
+
+
+                                     $("#exitdata"+ tipId[k]).css("color" , "white");
+                                     $("#exitdata1"+ tipId[k]).css("color" , "white");
+
+                                }
+
+                         
+
+                                /////////////////////stop data//////////////////////////////  
+     
+
+                                 if(suggestionslist == "Buy" && newwdata.replace("$","") < stockkkPricess.replace("$","") && newwdata.replace("$","") <=  stockkkstop.replace("$","")){
+
+
+                                  $("#stopdata"+ tipId[k]).css("color" , "#d93545");
+                                  $("#stopdata1"+ tipId[k]).css("color" , "#d93545");
+
+                               
+                                } else if(suggestionslist == "Sell" && stockkkPricess.replace("$","") < newwdata.replace("$","") && newwdata.replace("$","") >=  stockkkstop.replace("$","")){
+
+
+                                    $("#stopdata"+ tipId[k]).css("color" , "white");
+                                    $("#stopdata1"+ tipId[k]).css("color" , "white");
+
+                                }else{
+
+
+                                     $("#stopdata"+ tipId[k]).css("color" , "white");
+                                     $("#stopdata1"+ tipId[k]).css("color" , "white");
+
+                                }
+
+
+                             
+                                 
+                 
+                                // alert(suggestionslist);
+
+                               
+                           // console.log('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdataa[k]);
+                              // console.log(stockdataa.length);
+                         //     newstcokdata.push(stockdataa[k]);
+                         //    console.log(newstcokdata);
+
+                          // var filtered = stockdataa.filter(function (el) {
+                          // return el.status != undefined;
+                          // });
+
+
+                         //  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ stockdataa[k] , function(h) {
+
+
+                         //    console.log(h);
+
+
+                         // });
+
+
+
+                          }
+
+                         
+                                   
+                     }
+
+                 });
+
+               }
+              // $(".loading-data").remove();
+              $("#demo").append(text);
+              $("#tipbothdemo").append(textboth);
+              //$("#demo").append(textboth);
+               
+       
+      }
+       
+  
+  });
+
+}
+
+ $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/stockDetail/getAllStockOfUserByUserName?userName='+ userName,
+        headers: {
+          Authorization: 'Bearer '+ tokens ,
+        },
+        data: formdata,
+      success: function(datas) {
+       var dataks = JSON.stringify(datas);
+       var dataResults = JSON.parse(dataks);
+       // console.log(dataResults);
+       var texts = "" ;
+       
+       var lens = dataResults.length;
+          if(dataResults.length > 0){
+               let deletdata= [];
+                let users = [];
+                for(var i= dataResults.length - 1; i >= 0 ; i--){
+                    users.push(dataResults[i].stockSymbol);
+                    deletdata.push(dataResults[i].id);                  
+                }
+                $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ users , function(r) {
+               
+                   for (k= 0; k< users.length; k ++) {
+                 
+                    texts += '<div class="tips_wtlist_item" id="item-'+ deletdata[k] +'"><div class="tips_wtlist_item_left"><h2>'+ r[users[k]].quote.symbol +'<span>'+ r[users[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[users[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[users[k]].quote.change > 0 ? ' </div><div class="tips_wtlist_item_right"><h3><span class="color_buy">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>':'</div><div class="tips_wtlist_item_right"><h3><span class="color_sell">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>')+'</div><div class="tips_wtlist_item_right"><span class="delete_stck" style="    color: white;" onclick="delete_stck(this.id)" id="'+ deletdata[k] +' '+ r[users[k]].quote.symbol +'""><i class="fa fa-trash"></i></span></div></div>';
+                   }
+   
+                   $("#demos").append(texts);  
+                });
+                 
+              }
+           
+           
+         
+     
+       }
+       
+  });
+//////////////////////////////////////////////////////////////////////////////////////////////
+function loadAi(offset,limit){
+
+   formdata={  offset: offset, limit: limit};
+ $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/stockDetail/getAllStockOfUserByUserName?userName='+ userName,
+        headers: {
+          Authorization: 'Bearer '+ tokens ,
+        },
+        data: formdata,
+      success: function(datas) {
+       // console.log(datas);
+       var dataks = JSON.stringify(datas);
+       var dataResults = JSON.parse(dataks);
+       // console.log(dataResults);
+       var texts = "" ;
+       var textsboth = "";
+       
+       var lens = dataResults.length;
+       // alert(lens);
+         var stocklistdataF = [];
+          if(dataResults.length > 0){
+               let deletdata = [];
+                let users = [];
+                 let stckusers = [];
+                 let stckdata = [];
+                for(var i= dataResults.length - 1; i >= 0 ; i--){
+                    users.push(dataResults[i].stockSymbol);
+                    deletdata.push(dataResults[i].id);                  
+                }
+                let resultSet = [];
+                for (i=0; i < users.length; i++){
+                  var symbol = users[i];
+                  // console.log(symbol);
+                  // var formdata = {"stockSymbol" : symbol};
+                 
+                  $.ajax({
+                      type: 'POST',
+                      url: 'https://apistest.tradetipsapp.com/api/sectorNewsSentiment/getSentimentandSMAByStockSymbolResultSet?stockSymbol='+symbol,
+                      headers: {
+                        Authorization: 'Bearer '+ tokens ,
+                      },
+                      // data: formdata,
+                      processData: false,
+                    success: function(data, textStatus, jqXHR) {
+                        // console.log(textStatus + ": " + jqXHR.status);
+                       if(jqXHR.status == 500){
+                       }else{
+                         var filtered = data.filter(function (el) {
+                          return el.status != 500;
+                        });
+                       }
+                        if(filtered.length > 0){
+                       // console.log(filtered);  
+                       var dataks = JSON.stringify(filtered);
+                       var array = JSON.parse(dataks);
+                       $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ array[0].stock_name , function(d) {
+                          var date = array[0].sma_generation_date;
+                          const stripped = date.replace(/EST-0500/g, 'EST');
+                          //console.log(stripped);
+                          var newdate2 = stripped .split(/(\s+)/);
+                          //console.log(newdate2);
+                          newdate2.splice(3,3);
+                          //console.log(newdate2);
+              
+                          var newdate3 = newdate2.toString(newdate2);
+                          var result = newdate3.replace(/,/g, "");
+                          //console.log(result);
+                          SMA_date = result.substring(0, 6) + ", " + result.substring(6, result.length);
+                          //console.log(SMA_date);
+            
+                          
+
+                         if(array[0].rsiResult == "buy"){
+                             texts = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx buy_bg" data-switch-field="2" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">TradeTips AI</em> <span>'+ SMA_date +'</span></h2></div></div><div class="tips_bx_amount"><h2>$'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h2><p>Change &nbsp;:&nbsp;'+ (d[array[0].stock_name].quote.change > 0 ? '<span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>':'<span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>') +'</p></div></div> <div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn">' + array[0].rsiResult + '</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></div></a>';
+                            } else if(array[0].rsiResult == "sell"){
+            //                    
+                               texts = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx sell_bg" data-switch-field="2" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">TradeTips AI</em> <span>'+ SMA_date +'</span></h2></div></div><div class="tips_bx_amount"><h2>$'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h2><p>Change &nbsp;:&nbsp;  '+ (d[array[0].stock_name].quote.change > 0 ? '<span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>':'<span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>') +'</p></div></div> <div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn">' + array[0].rsiResult + '</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></div></a>';
+                               
+                            }
+                            else {
+                              texts = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx avoid_bg" data-switch-field="2" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">TradeTips AI</em> <span>'+ SMA_date +'</span></h2></div></div><div class="tips_bx_amount"><h2>$'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h2><p>Change &nbsp;:&nbsp;'+ (d[array[0].stock_name].quote.change > 0 ? '<span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>':'<span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>') +'</p></div></div> <div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn avoid_btn">AVOID</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days!='--' ?(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg10days+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days!='--' ?(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg50days+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days!='--' ?(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg200days+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></div></a>';
+                               
+                            }
+                             // console.log(d[keyName].quote.companyName);
+                             // console.log(d[keyName].quote.latestPrice);
+                              $("#AIdemo").append(texts);
+                         if(array[0].rsiResult == "buy"){
+                               textsboth = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx buy_bg" data-switch-field="1" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">TradeTips AI</em> <span>'+ SMA_date +'</span></h2></div></div><div class="tips_bx_amount"><h2>$'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h2><p>Change &nbsp;:&nbsp;'+ (d[array[0].stock_name].quote.change > 0 ? '<span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>':'<span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>') +'</p></div></div> <div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn">' + array[0].rsiResult + '</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></div></a>';
+                            } else if(array[0].rsiResult == "sell") {
+                               textsboth = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx sell_bg" data-switch-field="1" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">TradeTips AI</em> <span>'+ SMA_date +'</span></h2></div></div><div class="tips_bx_amount"><h2>$'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h2><p>Change &nbsp;:&nbsp; '+ (d[array[0].stock_name].quote.change > 0 ? '<span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>':'<span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>') +'</p></div></div> <div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn">' + array[0].rsiResult + '</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></div></a>';
+                               
+                            } else {
+                                 textsboth = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx avoid_bg" data-switch-field="1" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">TradeTips AI</em> <span>'+ SMA_date +'</span></h2></div></div><div class="tips_bx_amount"><h2>$'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h2><p>Change &nbsp;:&nbsp;'+ (d[array[0].stock_name].quote.change > 0 ? '<span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>':'<span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span>') +'</p></div></div> <div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn avoid_btn">AVOID</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days!='--' ? (array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>') :'<h4 style="color:white;"><span>'+ array[0].avg10days+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days!='--' ?(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days> parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>') : '<h4 style="color:white;"><span>'+ array[0].avg50days+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days!='--' ?(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg200days+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></div></a>';
+                               
+                            }
+                              $("#bothdemo").append(textsboth);
+                        });
+                     // console.log(array);
+   
+                     
+                   }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                      // console.log(textStatus + ": " + jqXHR.status + " " + errorThrown);
+                    }
+                    });
+     
+           
+                   }
+                 
+       }
+     }
+       
+    });
+  }
+////////////////////////////////////////////////////////////////////////////////////////////
+function copyClipboard(e){
+  var copyText = document.getElementById("divClipboard"+ e);
+  // alert(copyText);
+ 
+  copyText.select();
+  // copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  // document.body.removeChild(copyText);
+  //alert("Copied the text: " + copyText.value);
+  $(".successmsg").html('<span>Text Copied!!!</span>');
+ setTimeout(function(){$(".successmsg").empty()}, 3000);
+                                 
+                                 
+}
+function copyClipboard1(e){
+  var copyText = document.getElementById("divClipboard1"+ e);
+  // alert(copyText);
+ 
+  copyText.select();
+  // copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  // document.body.removeChild(copyText);
+  //alert("Copied the text: " + copyText.value);
+  $(".successmsg").html('<span>Text Copied!!!</span>');
+ setTimeout(function(){$(".successmsg").empty()}, 3000);
+                                 
+                                 
+}
+// function deleteTip(e) {
+//   // alert(e);
+ 
+//   var formdata = {tipId : e};
+//   $.ajax({
+//         type: 'POST',
+//         url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipHideForUser',
+//         headers: {
+//           Authorization: 'Bearer '+ tokens,
+//            },
+//         data: formdata,
+//       success: function(data) {
+//            $("#tipDetailDivPart"+e).css("display" , "none");
+//            $("#tipDetailDate"+ e).css("display" , "none");
+//         }
+//       });
+// }
+ function imgError(image) {
+    image.onerror = "";
+    image.src = "images/userIcon.png";
+    return true;
+}
+ function imgError1(image) {
+    image.onerror = "";
+    image.src = "images/userIcon.png";
+    return true;
+}
+function pinFunction(e) {
+ 
+  var formdata = {tipId : e};
+  //var imgCount = $("#textval"+ e).text();
+  var userdataPin = $("#StatusPin"+ e).text();
+  if(userdataPin == "true"){
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        //var valss = parseInt(imgCount) - 1;
+        //$("#textval"+e).text(valss);
+        $("#StatusPin"+ e).text("false");
+        $("#imgstatus"+e).attr("src","images/tips-save-icon.png");
+        //alert("Unaved!!");
+        $(".successmsg").html('<span>Unsaved !!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }else{
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        //var valss = parseInt(imgCount) + 1;
+        //$("#textval"+e).text(valss);
+        $("#StatusPin"+ e).text("true");
+        $("#imgstatus"+e).attr("src","savetip.png");
+        //alert("Saved!!");
+        $(".successmsg").html('<span>Saved!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }
+}
+function pinFunction1(e) {
+ 
+  var formdata = {tipId : e};
+  //var imgCount = $("#textval1"+ e).text();
+  var userdataPin = $("#StatusPin1"+ e).text();
+  if(userdataPin == "true"){
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        //var valss = parseInt(imgCount) - 1;
+        //$("#textval1"+e).text(valss);
+        $("#StatusPin1"+ e).text("false");
+        $("#imgstatus1"+e).attr("src","images/tips-save-icon.png");//show.jpeg
+        $(".successmsg").html('<span>Unaved!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }else{
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipPinForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        //var valss = parseInt(imgCount) + 1;
+        //$("#textval1"+e).text(valss);
+        $("#StatusPin1"+ e).text("true");
+        $("#imgstatus1"+e).attr("src","savetip.png");
+        $(".successmsg").html('<span>Saved!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }
+}
+function likeFunction(e) {
+  // alert(e);
+ 
+  var formdata = {tipId : e};
+  var imgCount = $("#textvalLike"+ e).text();
+  var userdataPin = $("#StatusLike"+ e).text();
+  if(userdataPin == "true"){
+    // alert("equal true");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        var valss = parseInt(imgCount) - 1;
+        $("#textvalLike"+e).text(valss);
+        $("#StatusLike"+ e).text("false");
+        $("#imgLikestatus"+e).attr("src","images/tips-like-icon.png");
+        $(".successmsg").html('<span>Unliked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }else{
+    // alert("equal false");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        var valss = parseInt(imgCount) + 1;
+        $("#textvalLike"+e).text(valss);
+        $("#StatusLike"+ e).text("true");
+        $("#imgLikestatus"+e).attr("src","unnamed.png");
+        $(".successmsg").html('<span>Liked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }
+}
+function likeFunction1(e) {
+  // alert(e);
+ 
+  var formdata = {tipId : e};
+  var imgCount = $("#textvalLike1"+ e).text();
+  var userdataPin = $("#StatusLike1"+ e).text();
+  if(userdataPin == "true"){
+    // alert("equal true");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipUnLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        var valss = parseInt(imgCount) - 1;
+        $("#textvalLike1"+e).text(valss);
+        $("#StatusLike1"+ e).text("false");
+        $("#imgLikestatus1"+e).attr("src","images/tips-like-icon.png");
+        $(".successmsg").html('<span>Unliked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }else{
+    // alert("equal false");
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/tipFeature/tipLikeForUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        var valss = parseInt(imgCount) + 1;
+        $("#textvalLike1"+e).text(valss);
+        $("#StatusLike1"+ e).text("true");
+        $("#imgLikestatus1"+e).attr("src","unnamed.png");
+       
+        $(".successmsg").html('<span>Liked!!!</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 3000);
+        }
+      });
+  }
+}
+////////////////////////////////Filter tIP //////////////////////////////////////////////////
+  // $.ajax({
+  //       type: 'POST',
+  //       url: 'https://apistest.tradetipsapp.com/api/stockDetail/getAllStockOfUserByUserName?userName='+ userName,
+  //       headers: {
+  //         Authorization: 'Bearer '+ tokens ,
+  //       },
+  //       data: formdata,
+  //     success: function(datas) {
+  //      var dataks = JSON.stringify(datas);
+  //      var dataResults = JSON.parse(dataks);
+  //      // console.log(dataResults);
+  //      var texts = "" ;
+       
+  //      var lens = dataResults.length;
+  //      // alert(lens);
+  //        var stocklistdataF = [];
+  //         if(dataResults.length > 0){
+  //              let deletdata = [];
+  //               let users = [];
+  //                let stckusers = [];
+  //                let stckdata = [];
+  //               for(var i= dataResults.length - 1; i >= 0 ; i--){
+  //                   users.push(dataResults[i].stockSymbol);
+  //                   deletdata.push(dataResults[i].id);                  
+  //               }
+  //               let resultSet = [];
+  //               for (i=0; i < users.length; i++){
+  //                 var symbol = users[i];
+  //                 // console.log(symbol);
+  //                 // var formdata = {"stockSymbol" : symbol};
+                 
+  //                 $.ajax({
+  //                     type: 'POST',
+  //                     url: 'https://apistest.tradetipsapp.com/api/sectorNewsSentiment/getSentimentandSMAByStockSymbolResultSet?stockSymbol='+symbol,
+  //                     headers: {
+  //                       Authorization: 'Bearer '+ tokens ,
+  //                     },
+  //                     // data: formdata,
+  //                     processData: false,
+  //                   success: function(datas) {
+  //                    var dataks = JSON.stringify(datas);
+  //                    var array = JSON.parse(dataks);
+  //                      $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ array[0].stock_name , function(d) {
+  //                         // console.log(d[array[0].stock_name].quote.latestPrice);
+  //                          // var count = Object.keys(d).length;
+  //                          // console.log(array[0]);
+  //                           // console.log(array[0]);
+  //                         // if(array[0].news_sector_sentiment == "Positive"){
+  //                         //   $('#sectorData'+array[0].id).html('<p style="color:#09b598;">'+array[0].news_sector_sentiment+'</p>');
+  //                         // } else if(array[0].news_sector_sentiment == "Very Positive"){
+  //                         //   $('#sectorData'+array[0].id).html('<p style="color:#09b598;">'+array[0].news_sector_sentiment+'</p>');
+  //                         // }else if(array[0].news_sector_sentiment == "Negative"){
+  //                         //   $('#sectorData'+array[0].id).html('<p style="color:red;">'+array[0].news_sector_sentiment+'</p>');
+  //                         // }else if(array[0].news_sector_sentiment == "Very Negative"){
+  //                         //   $('#sectorData'+array[0].id).html('<p style="color:red;">'+array[0].news_sector_sentiment+'</p>');
+  //                         // }else{
+  //                         //     $('#sectorData'+array[0].id).html('<p style="color:white;">'+array[0].news_sector_sentiment+'</p>');
+  //                         // }
+  //                        if(array[0].rsiResult == "buy"){
+  //                            texts = '<div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images"><div class="author_bx_txt" style="color:white;"><h2>TradeTips AI  (' + array[0].stock_name + ')</h2>'+ d[array[0].stock_name].quote.companyName +'</div></div><div class="tips_bx_amount"></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn">' + array[0].rsiResult + '</span></div></div></div><div class="tips_bx_cmpny_states"><ul><li><h3>Avg 10days</h3><h4><span>$</span>'+ parseFloat(array[0].avg10days).toFixed(2) +'</h4></li><li><h3>Avg 50days</h3><h4><span class="color_buy""><span>$</span>'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4></li><li><h3>Avg 200days</h3><h4><span>$</span>'+ parseFloat(array[0].avg200days).toFixed(2) +'</h4></li><li><h3>Current Price</h3><h4><span>$</span>'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h4></li><li><h3>Change</h3>'+ (d[array[0].stock_name].quote.change > 0 ? '<h3><span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span></h3>':'<h3><span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span></h3>') +'</h4></li></ul></div><div class="tips_bx_txt"> <p>'+ array[0].news_summary +'</p></div><div class="tips_bx_txt"> <p style="color:white;">'+ array[0].sector_name +' News <span>'+array[0].news_sector_sentiment+'</span> </p></div><div class="tips_bx_cmpny_states"><ul><li><h3>'+ array[0].news_source_name +'</h3><h4><span>$</span>'+ array[0].news_title +'</h4></li></ul><ul><li><h3>'+ array[1].news_source_name +'</h3><h4><span>$</span>'+ array[1].news_title +'</h4></li></ul><ul><li><h3>'+ array[2].news_source_name +'</h3><h4><span>$</span>'+ array[2].news_title +'</h4></li></ul></div></div></div></div>';
+  //                           } else {
+  //                              texts = '<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img src="images/ailogo.png" alt="images"><div class="author_bx_txt" style="color:white;"><h2>TradeTips AI  (' + array[0].stock_name + ')</h2>'+ d[array[0].stock_name].quote.companyName +'</div></div><div class="tips_bx_amount"></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn">' + array[0].rsiResult + '</span></div></div></div><div class="tips_bx_cmpny_states"><ul><li><h3>Avg 10days</h3><h4><span>$</span>'+ parseFloat(array[0].avg10days).toFixed(2) +'</h4></li><li><h3>Avg 50days</h3><h4><span class="color_sell""><span>$</span>'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4></li><li><h3>Avg 200days</h3><h4><span>$</span>'+ parseFloat(array[0].avg200days).toFixed(2) +'</h4></li><li><h3>Current Price</h3><h4><span>$</span>'+ parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) +'</h4></li><li><h3>Change</h3>'+ (d[array[0].stock_name].quote.change > 0 ? '<h3><span class="color_buy">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span></h3>':'<h3><span class="color_sell">'+ parseFloat(d[array[0].stock_name].quote.change).toFixed(2) +'</span></h3>') +'</h4></li></ul></div><div class="tips_bx_txt"> <p>'+ array[0].news_summary +'</p></div><div class="tips_bx_txt"> <p style="color:white;">'+ array[0].sector_name +' News <span>'+array[0].news_sector_sentiment+'</span> </p></div><div class="tips_bx_cmpny_states"><ul><li><h3>'+ array[0].news_source_name +'</h3><h4><span>$</span>'+ array[0].news_title +'</h4></li></ul><ul><li><h3>'+ array[1].news_source_name +'</h3><h4><span>$</span>'+ array[1].news_title +'</h4></li></ul><ul><li><h3>'+ array[2].news_source_name +'</h3><h4><span>$</span>'+ array[2].news_title +'</h4></li></ul></div></div></div></div>';
+  //                           }
+  //                            // console.log(d[keyName].quote.companyName);
+  //                            // console.log(d[keyName].quote.latestPrice);
+  //                             $("#AIFilter").append(texts);
+  //                       });
+  //                    // console.log(array);
+   
+                     
+  //                   }
+  //                   });
+     
+           
+  //                  }
+                 
+  //      }
+  //    }
+       
+  // });
+/////////////////////////////////////////////////////////////////////////////////////////
+  // $.ajax({
+  //       type: 'POST',
+  //       url: 'https://apistest.tradetipsapp.com/api/tip/getAllTipFeaturePaginationForUser',
+  //       headers: {
+  //         Authorization: 'Bearer '+ tokens,
+  //          },
+  //       data: formdata,
+  //     success: function(data) {
+  //      var datak = JSON.stringify(data);
+  //      var dataResult = JSON.parse(datak);
+  //      // console.log(dataResult);
+  //      var text = "" ;
+  //      var len = dataResult.length;
+  //      // console.log(len);
+  //      var stockVal = [];
+  //      var tipId = [];
+  //      var tipPrice = [];
+  //      for (i= 0; i< len; i ++) {
+  //               stockVal.push(dataResult[i].tip.stockName);  
+  //               tipId.push(dataResult[i].tip.id);  
+  //               tipPrice.push(dataResult[i].tip.createTipPrice);
+  //            var date = new Date(dataResult[i].tip.modifiedOn);
+  //            var options = {year: "numeric", month: "long", day: "numeric"};
+  //            var newdate = date.toGMTString('en-US', options);  
+  //            const stripped = newdate.replace(/GMT/g, 'NYT');
+         
+  //            if(dataResult[i].tip.stockSuggestion == "Buy"){
+  //              text += '<div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + dataResult[i].tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+ dataResult[i].tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>' + dataResult[i].tip.appUser.userName + '</h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrice' + dataResult[i].tip.id + '"><span>$</span></h2><p>AT TIME OF TIP : <span class="hclass" id="stockkTipPrice' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</span><span id="changeVals' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span class="color_buy" id="exitdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="#">' + dataResult[i].commentCount + ' Comments</a></li><li><a onclick="pinFunction(this.id)" id="' + dataResult[i].tip.id + '" style="color: #000;"><p id="StatusPin' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p><img src="images/tips-save-icon.png" alt="images"><a href="#">Save</a> </li><li><img src="images/tips-like-icon.png" alt="images"><a href="#" onclick="likeFunction(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><span><i class="fas fa-folder-open"></i></span> Archive all</li><li><span><i class="fas fa-check-double"></i></span> Mark all as read</li></ul></div></div></li></ul></div></div>';
+  //            } else {
+  //               text += '<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=' + dataResult[i].tip.appUser.id + '" alt="images"><div class="author_bx_txt"><h2>' + dataResult[i].tip.appUser.userName + '</h2></div></div><div class="tips_bx_amount"> <h2 class="hclass" id="flatestPrices' + dataResult[i].tip.id + '"><span>$</span></h2><p>AT TIME OF TIP : <span class="hclass" id="stockkTipPrice' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.createTipPrice).toFixed(2) +'</span><span id="changeValsfront' + dataResult[i].tip.id + '"></span></span></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn">' + dataResult[i].tip.stockSuggestion + '</span><h2>' + dataResult[i].tip.stockName + ' <span id="skComnyNames'+ dataResult[i].tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydatas' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.entryPoint).toFixed(2) +'</h4></li><li><h3>Exit</h3><h4><span class="color_sell" id="exitdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.exitPoint).toFixed(2) +'</span></h4></li><li><h3>Stop</h3><h4 id="stopdata' + dataResult[i].tip.id + '"><span>$</span>'+ parseFloat(dataResult[i].tip.stopPoint).toFixed(2) +'</h4></li></ul></div></div><div class="tips_bx_txt"> <p>'+ dataResult[i].tip.comment +'</p></div><div class="tips_bx_social"><ul> <li><img src="images/tips-comment-icon.png" alt="images"><a href="#">' + dataResult[i].commentCount + ' Comments</a></li> <li> <img src="images/tips-save-icon.png" alt="images"><a onclick="pinFunction(this.id)" id="' + dataResult[i].tip.id + '" style="color: #fff;"><p id="StatusPin' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userPinStatus + '</p>Save</a> </li><li><img src="images/tips-like-icon.png" alt="images"><a href="#" onclick="likeFunction(this.id)" id="' + dataResult[i].tip.id + '"><span id="textvalLike' + dataResult[i].tip.id + '">' + dataResult[i].likeCount + '</span> Likes</a><p id="StatusLike' + dataResult[i].tip.id + '" style="display:none;">' + dataResult[i].userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"> <ul><li><span><i class="fas fa-folder-open"></i></span> Archive all</li><li><span><i class="fas fa-check-double"></i></span> Mark all as read</li></ul></div></div></li></ul></div></div>';
+  //            }
+           
+  //               myTacos(dataResult[i].tip.id);
+  //              function myTacos(primaryKey){
+  //               $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ dataResult[i].tip.stockName , function(d) {
+  //                         var count = Object.keys(d).length;
+  //                         Object.keys(d).map((keyName, key) => {
+                         
+  //                             $("#skComnyName"+primaryKey).text(d[keyName].quote.companyName);
+  //                             $("#skComnyNames"+primaryKey).text(d[keyName].quote.companyName);
+  //                             $("#flatestPrice"+primaryKey).text("$"+d[keyName].quote.latestPrice);
+  //                             $("#flatestPrices"+primaryKey).text("$"+d[keyName].quote.latestPrice);
+                             
+  //                           var stockkkentry = $("#entrydata"+ primaryKey).text();
+  //                           // alert(stockkkentry);
+  //                           var stockkkexit = $("#exitdata"+ primaryKey).text();
+  //                           //alert(stockkkexit);
+  //                           var stockkkstop = $("#stopdata"+ primaryKey).text();
+  //                           //alert(stockkkstop);
+  //                           var stockkkPricess= $("#stockkTipPrice"+ primaryKey).text();
+  //                           // alert(stockkkPricess);
+  //                           // alert(stockkkPricess.replace("$",""));
+                           
+  //                           var newwdata = $("#flatestPrice"+ primaryKey).text();
+  //                           var newwdatas = $("#flatestPrices"+ primaryKey).text();
+  //                           // alert(newwdata);
+  //                           // alert(newwdata.replace("$",""));
+  //                           var suggestionslist = $(".suggestion"+ primaryKey).text();
+  //                           // alert(suggestionslist);
+  //                           /////////////////////////////////////////////////////////////////
+  //                           var userdataPin = $("#StatusPin"+ primaryKey).text();
+                           
+  //                             if(userdataPin == "true"){
+  //                                  // alert("true");
+  //                                   $("#imgstatus"+ primaryKey).attr("src","savetip.png");
+  //                              }else{
+  //                                 // alert("false");
+  //                                   $("#imgstatus"+ primaryKey).attr("src","show.jpeg");
+  //                              }
+  //                              ////////////////////////////////////////////////////////////////////
+  //                              var userdataLike = $("#StatusLike"+ primaryKey).text();
+                           
+  //                             if(userdataLike == "true"){
+  //                                  // alert("true");
+  //                                   $("#imgLikestatus"+ primaryKey).attr("src","unnamed.png");
+  //                              }else{
+  //                                 // alert("false");
+  //                                   $("#imgLikestatus"+ primaryKey).attr("src","like.jpeg");
+  //                              }
+  //                           //////////////////////////change value////////////////////////////
+  //                            // var newwdatak = $("#flatestPrice"+ primaryKey).text();
+  //                            const minusValues = newwdata.replace("$","") - stockkkPricess.replace("$","");
+  //                            const values = Number(minusValues).toFixed(2);
+  //                            // alert(values);
+  //                            if(values > 0){
+  //                             // alert("home");
+  //                             $("#changeVals"+ primaryKey).html(' | Change : <span class="hclass #09b598"><span>$</span>' +values + '</span>');
+  //                            }else{
+  //                             // alert("calling home");
+  //                             $("#changeVals"+ primaryKey).html(' | Change : <span class="hclass red"><span>$</span>' +values + '</span>');
+  //                            }
+  //                            //////////////////////////////////////////////////////
+  //                            const minusValuesNew = newwdatas.replace("$","") - stockkkPricess.replace("$","");
+  //                            const valuesk = Number(minusValuesNew).toFixed(2);
+  //                            // alert(values);
+  //                            if(valuesk > 0){
+  //                             // alert("home");
+  //                             $("#changeValsfront"+ primaryKey).html(' | Change : <span class="hclass #09b598"><span>$</span>' +valuesk + '</span>');
+  //                            }else{
+  //                             // alert("calling home");
+  //                             $("#changeValsfront"+ primaryKey).html(' | Change : <span class="hclass red"><span>$</span>' +valuesk + '</span>');
+  //                            }
+  //                            /////////////////////////entry data/////////////////////////
+  //                           if(stockkkentry.replace("$","") <= newwdata.replace("$","") &&  suggestionslist == "BUY"){
+  //                             $("#entrydata"+ primaryKey).css("color" , "#09b598");
+  //                             $("#entrydatas"+ primaryKey).css("color" , "#09b598");
+                           
+  //                           } else if(stockkkentry.replace("$","") >= newwdata.replace("$","") && suggestionslist == "SELL"){
+  //                               $("#entrydata"+ primaryKey).css("color" , "#09b598");
+  //                               $("#entrydatas"+ primaryKey).css("color" , "#09b598");
+  //                           }else{
+  //                                $("#entrydata"+ primaryKey).css("color" , "white");
+  //                                $("#entrydatas"+ primaryKey).css("color" , "white");
+  //                           }
+  //                           //////////////////exit data/////////////////////////////////////////
+                             
+  //                             if(stockkkentry.replace("$","") <= newwdata.replace("$","") &&  suggestionslist == "BUY"){
+  //                             $("#exitdata"+ primaryKey).css("color" , "#09b598");
+  //                             $("#exitdatas"+ primaryKey).css("color" , "#09b598");
+                           
+  //                           } else if(stockkkentry.replace("$","") >= newwdata.replace("$","") && suggestionslist == "SELL"){
+  //                               $("#exitdata"+ primaryKey).css("color" , "#09b598");
+  //                               $("#exitdatas"+ primaryKey).css("color" , "#09b598");
+  //                           }else{
+  //                                $("#exitdata"+ primaryKey).css("color" , "black");
+  //                                $("#exitdatas"+ primaryKey).css("color" , "black");
+  //                           }
+  //                           /////////////////////stop data//////////////////////////////  
+  //                            if(suggestionslist == "BUY" && newwdata.replace("$","") < stockkkPricess.replace("$","") && newwdata.replace("$","") <=  stockkkstop.replace("$","")){
+  //                             $("#stopdata"+ primaryKey).css("color" , "red");
+  //                             $("#stopdatas"+ primaryKey).css("color" , "red");
+                           
+  //                           } else if(suggestionslist == "SELL" && stockkkPricess.replace("$","") < newwdata.replace("$","") && newwdata.replace("$","") >=  stockkkstop.replace("$","")){
+  //                               $("#stopdata"+ primaryKey).css("color" , "white");
+  //                               $("#stopdatas"+ primaryKey).css("color" , "white");
+  //                           }else{
+  //                                $("#stopdata"+ primaryKey).css("color" , "white");
+  //                                $("#stopdatas"+ primaryKey).css("color" , "white");
+  //                           }
+  // ////////////////////////////////////////////////////////////////////////////////////
+  //                          $.ajax({
+  //                             type: 'POST',
+  //                             url: 'https://apistest.tradetipsapp.com/api/comment/getCommentsByTipIdPagination',
+  //                             headers: {
+  //                               Authorization: 'Bearer '+ tokens,
+  //                                },
+  //                             data: {
+  //                                 tipId: primaryKey,
+  //                                 limit: 100,
+  //                                 offset: 0,
+  //                               },
+  //                           success: function(data) {
+  //                              const dataResult = data;
+  //                                 let newtip = [];
+  //                                 for(var i=0; i< dataResult.length; i++){
+                                   
+  //                                 newtip += '<li class="list-group-item"><div class="row"><div class="col-xs-2 col-md-2"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=' + dataResult[i].appUser.id + '" alt="pic" width="50" height="50" class="rounded-circle"></div><div class="col-xs-9 col-md-9"><div style="color: blue;">' + dataResult[i].appUser.userName + '</div><div class="comment-text" style="color: black;">' + dataResult[i].commentDetails + '</div></div><div class="col-xs-1 col-md-1"><input type="hidden" name="secondId" id="secondId" value="3fe22d6e-6fbf-4e18-8e99-2866d2814925"><input type="hidden" name="fristid" id="fristid" value="1d277791-653c-4886-8e45-7a6870127ca2"><a><img src="flag.png" width="20" height="20"></a></div></div></li>';
+  //                                  // newtip.push(dataResult[i]);
+  //                                 }
+  //                                  $("#tiploaded"+primaryKey).append(newtip);
+                                 
+  //                             }
+  //                           });
+  //                         });
+                           
+                         
+                 
+  //                  });
+         
+               
+  //               }
+             
+         
+  //       }
+             
+  //              $("#MENTORFilter").append(text);
+               
+  //                // console.log(stockVal);
+  //              //console.log(tipId);
+               
+  //      }
+       
+  // });
+  function newhandleRemoveTipResultData(e){
+        var myHeaders = new Headers();
+        myHeaders.append("Authorization", `Bearer ${tokens}`);
+        var formdata = new FormData();
+        formdata.append("tipId", e);
+        var requestOptionsf = {
+          method: 'POST',
+          headers: myHeaders,
+          body: formdata,
+          redirect: 'follow'
+        };
+      fetch("https://apistest.tradetipsapp.com/api/tipFeature/tipHideForUser", requestOptionsf)
+        .then(response => response.json())
+          .then(result => {
+          window.location.reload();
+      });
+  }
+  function remove_element(ID,tit)
+{
+  console.log(tit);
+  adjustinput(ID,'minus');
+  $('#MY_'+ID).remove();
+  comindex=companies.indexOf(ID);
+  $("#checkbtn_"+ID).prop("checked", false);
+  companies.splice(comindex, 1);
+  valindex=   myarr.indexOf(tit);
+   myarr.splice(valindex, 1);
+  $('.magicsearch-hidden').val(companies);
+}
+ function adjustinput(comp,action)
+ {
+     $input=$("#search-stock");
+    var search=document.getElementById('search-stock');
+    var addbutton=document.getElementById('input-group-append').offsetWidth;
+    var lineno=1;
+    mywidth=search.offsetWidth-addbutton;
+    myheight=search.offsetHeight;
+    var newheight='0px;';
+    var multiheight=document.getElementById('multi-items').offsetHeight
+    var multiwidth=document.getElementById('multi-items').offsetWidth
+    mypadding=window.getComputedStyle(search, null).getPropertyValue('padding-left');
+    mypadding=mypadding.split('px');
+    var padt='0';
+    var symbolpadding=37;
+    //alert(document.getElementById('MY_'+comp).offsetWidth);
+    //alert(addbutton);
+    //alert(mywidth);
+    if(action=='plus')
+    {
+     //  elem=parseInt(mypadding[0],10)+document.getElementById('MY_'+comp).offsetWidth;
+       //elem=parseInt(mypadding[0],10)+document.getElementById('MY_'+comp).offsetWidth;
+     }else{
+       //elem=parseInt(mypadding[0],10)-document.getElementById('MY_'+comp).offsetWidth+2;
+       //elem=parseInt(mypadding[0],10)-document.getElementById('MY_'+comp).offsetWidth+2;
+     }
+    elem= multiwidth;
+        // alert(multiwidth);
+         document.getElementById('multi-items').innerHTML.replace(/&nbsp;/g,'');
+    if(elem>mywidth)
+    {
+      //alert('not');
+       document.getElementById("search-stock").blur();
+        return false;
+        if(lineno==1)
+        {
+               elem=0+document.getElementById('MY_'+comp).offsetWidth;
+        }else{
+              elem=parseInt(mypadding[0],10)+document.getElementById('MY_'+comp).offsetWidth;
+        }  
+        lineno++;
+    }
+
+         /*if(300<elem)
+         {
+            newheight=parseInt(myheight,10)+document.getElementById('MY_'+comp).offsetHeight;
+            padt=document.getElementById('MY_'+comp).offsetHeight;
+               lineno++;
+                symbolpadding= (parseInt(padt,10)+symbolpadding);
+
+              
+         }*/
+
+          /*if(elem>300)
+         {
+              elem=0;
+              padt=document.getElementById('MY_'+comp).offsetHeight;
+         }*/
+         
+       
+     //search-list-input
+     //input_group
+     //search-stock
+    $input.css('box-sizing','border-box');
+     $(".search-list").css('margin-top',multiheight+'px');
+    $input.css('padding-left',elem+'px');
+    //$input.css('padding-top',multiheight+'px');
+    $input.css('height',newheight+'px');
+    $(".search-list-input").css('height',newheight+'px');
+    
+    document.getElementById("search-stock").focus();
+    $input.removeAttr('placeholder');
+      return true;
+
+ }
+
+</script>
+
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>

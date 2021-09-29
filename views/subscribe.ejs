@@ -1,0 +1,468 @@
+  <%- include partials/innerheader %>
+
+<!--   <link rel="stylesheet" href="dist/sample.index.css">
+
+
+ -->
+<!--   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+ -->
+
+  <div class="app_main">
+                  
+            <%- include partials/innersidebar %>
+        <div class="app_content">
+          <div class="dsbrd_container">
+
+             <div class="tip_list_head" style="text-align: center !important;display: block;font-size: 20px;margin: 0px 0px 0px">
+                  <h2>Become a Trade Tips Member</h2>
+             </div>  
+
+              <div class="post_new_tips_wrapper" style="background: none;margin: 0px 0px 0px">        
+                <h5 style="text-align: center !important;display: block;font-size: 15px;"> <i class="fas fa-dot-circle"></i> Full access to all stock forecasting tools.   <i class="fas fa-dot-circle"></i> Private group and mentor chat rooms.    <i class="fas fa-dot-circle"></i> Unlocked exclusive offers and more.</h5>         
+              </div> 
+   <table class="table table-striped" style="color: white;text-align: center;">
+  <thead>
+    <tr>
+      <th scope="col">$<span style="font-size: 30px;">30</span></th>
+      <th scope="col">$<span style="font-size: 30px;">100</span></th>
+      <th scope="col">$<span style="font-size: 30px;">500</span></th>
+      <th scope="col">$<span style="font-size: 30px;">1000</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">. Per Week</th>
+      <td>. Per Month</td>
+      <td>. 6-Months</td>
+      <td>. Per Year</td>
+    </tr>
+    
+  </tbody>
+</table>
+
+         <div class="tip_list_head d-block">
+      <!--     <h2 class="mb-4">Payment</h2>
+          <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</p>
+ -->
+          <form action="/charge" method="POST" class="flex flex-col w-1/3">
+          <div class="payment-card">
+            <div class="row align-items-center">
+                 <input class="form-control" type="text" id="names" name="name" placeholder="Name" style="display: none;">
+                 <input type="text" class="form-control" id="emails" name="email" placeholder="Email" style="display: none;">
+              <div class="col">
+                <div class="form-group">
+                  <label>Subscription Plan</label>
+                  <label class="float-right"><b class="mr-2">Discount Price:</b> <span id="demo">$0</span></label>
+                   <select id="userFull" name="plan" onchange="test(this);" class="form-control" placeholder="Choose User" style="color: black;" required="required"><option value="">Select Subscription Plan</option></select>
+                </div>
+              </div>
+
+                <input class="form-control" type="text" name="subscriptionPlan" id="planId" readonly="readonly" style="display: none;">
+
+                <input class="form-control" type="text" name="planName" id="planName" readonly="readonly" style="display: none;">
+              <!-- <div class="col-12">
+                <div class="text-white">
+                  <b class="mr-2">Price:</b> <span>$12345</span>
+                </div>
+              </div> -->
+
+            </div>
+
+           
+
+             
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Subscription Price</label>
+                   <input class="form-control" type="text" name="amount" id="amountSubscription" placeholder="Subscription Price" readonly="readonly">
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <label>Card Number</label>
+                   <input type='text' class="form-control" name="cardNumber" id="cardNumber" placeholder="1234 1234 1234 1234" required="required">
+                </div>
+              </div>
+            </div>
+<script>
+function cc_format(value) {
+  var v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+  var matches = v.match(/\d{4,16}/g);
+  var match = matches && matches[0] || ''
+  var parts = []
+  for (i=0, len=match.length; i<len; i+=4) {
+    parts.push(match.substring(i, i+4))
+  }
+  if (parts.length) {
+    return parts.join(' ')
+  } else {
+    return value
+  }
+}
+
+onload = function() {
+  document.getElementById('cardNumber').oninput = function() {
+    this.value = cc_format(this.value)
+  }
+}
+</script>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-6 pr-0">
+                    <div class="form-group">
+                      <label>Month</label>
+                      <select class="form-control" id="month" name="month" required="required">
+                        <option>Select Month</option>
+                        <option value="1">January</option>
+                        <option value="2">February </option>
+                        <option value="3">March</option>
+                        <option value="4">April</option>
+                        <option value="5">May</option>
+                        <option value="6">June</option>
+                        <option value="7">July</option>
+                        <option value="8">August</option>
+                        <option value="9">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="col-6 pl-0">
+                    <div class="form-group">
+                      <label>Year</label>
+                        <select class="form-control" id="year" name="year" required="required">
+                            <option>Select Year</option>
+                          <% for (i = 2020; i < 2035 ; i++) { %>
+                            <option value="<%= i %>"><%= i %></option>
+                          <% } %>
+                        </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>CVV</label>
+                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required="required" maxlength="3">                    
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group">
+                    <label>Pin Code</label>
+                    <input type="text" class="form-control" placeholder="Pin Code" required="required" maxlength="5">
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label>Coupon Code</label>
+                     <input type="text" name="text1" class="form-control" placeholder="Enter Coupon Code">
+                    <!--  <input type="button" value="Validate Coupon" class="form-control" name="Submit" onclick="validate(document.getElementsByName('text1')[0].value)"> -->
+
+                </div>
+                 <label><b class="mr-2">Discount Price:</b> <span id="demos">$0</span></label>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                
+                    <!--  <input type="text" name="text1" class="form-control" placeholder="Enter Coupon Code"> -->
+                     <!-- <input type="button" value="Validate Coupon" class="btn -btn-default form-control" name="Submit" onclick="validate(document.getElementsByName('text1')[0].value)" style="margin-top: 8px;"> -->
+                      <button class="btn cmn_btn btn_primary px-sm-5" onclick="validate(document.getElementsByName('text1')[0].value)">Validate Coupon</button>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <button class="btn cmn_btn btn_primary px-sm-5">Make Payment</button>
+            </div>
+          </div>
+          </form>
+         </div>
+            <!--  <div class="flex justify-center">
+              <form action="/charge" method="POST" class="flex flex-col w-1/3">
+                <input class="form-control" type="text" id="names" name="name" placeholder="Name" style="display: none;">
+                <br>
+                <input type="text" class="form-control" id="emails" name="email" placeholder="Email" style="display: none;">
+                <br>
+                <select id="userFull" name="plan" onchange="test(this);" class="form-control" placeholder="Choose User" style="color: black;"><option value="">Select Subscription Plan</option></select>
+                <br>
+                <input class="form-control" type="text" name="subscriptionPlan" id="planId" readonly="readonly" style="display: none;">
+
+                <input class="form-control" type="text" name="planName" id="planName" readonly="readonly" style="display: none;">
+
+                <input type="text" name="text1" class="form-control" placeholder="Enter Coupon Code">
+                <input type="button" value="Validate Coupon" class="form-control" name="Submit" onclick="validate(document.getElementsByName('text1')[0].value)">
+
+                <input class="form-control" type="text" name="amount" id="amountSubscription" placeholder="Amount" readonly="readonly">
+                <br>
+                <input type='text' class="form-control" name="cardNumber" id="cardNumber" placeholder="Card Number">
+                <br>
+                <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV">
+                <br>              
+                <select class="form-control" id="month" name="month">
+                    <option>Select Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February </option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <br>
+                <select class="form-control" id="year" name="year">
+                    <option>Select Year</option>
+                  <% for (i = 2020; i < 2035 ; i++) { %>
+                    <option value="<%= i %>"><%= i %></option>
+                  <% } %>
+                </select>           
+                <br>
+            
+                <div class="text-center mt-3">
+                  <button class="btn cmn_btn btn_primary px-sm-5">Make Payment</button>
+                </div>
+              </form>
+            </div>
+          -->
+          </div>
+        </div>
+
+  </div>
+<script src="https://js.stripe.com/v3/"></script>
+<!-- <script src="/js/card.js"></script>
+ -->     <%- include partials/innerfooter %>
+
+
+    <script type="text/javascript">
+
+   window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+     function test()
+        {
+            var selectedValue = document.getElementById("userFull").value;
+            // alert(selectedValue);
+            document.getElementById("amountSubscription").value = selectedValue;
+
+            var e = document.getElementById("userFull");
+            var ns = e.options[e.selectedIndex].id;
+            
+            // alert(textns);
+
+            document.getElementById("planId").value = ns;
+
+            var dataans = e.options[e.selectedIndex].text;
+
+            document.getElementById("planName").value = dataans;
+
+            // alert(ns);
+        }
+        test();
+
+  var sData = localStorage.getItem('allTokenData');
+   var storageData= JSON.parse(sData);
+ 
+   var tokens = storageData.tokendata;
+   //alert(tokens);
+  
+  var userName = storageData.uname;
+ // alert(userName);
+   document.getElementById("names").value = userName;
+
+   var emails = storageData.email;
+  //alert(emails);
+  document.getElementById("emails").value = emails;
+
+  var requestOptions = {
+    method: 'POST',
+    headers: {
+          Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6InBhbmthanRlamF3YXRAZ21haWwuY29tIiwic3ViIjoiZDlhY2VkMjMtN2I4OS00YWJjLWJkNzEtNTUyM2FiODNhOThhIiwiaWF0IjoxNjIxMzM0NzgxLCJleHAiOjE2MjE5Mzk1ODF9.BZjyKnKAwAq4sG7zatPdCp-TkpD4jcRybjxHjRO8rkbjER0ogKcSGYxk3t7XkEW-vIrqiAwpy6dOZD4_1IpVzw',
+        },
+    redirect: 'follow'
+  };
+
+  fetch("https://apistest.tradetipsapp.com/api/subscriptionPlan/getAllSubscriptionPlan", requestOptions)
+  .then(resp => resp.json())
+    .then(function(data) {
+      // console.log(data);
+      for( var i = 0; i< data.length; i++){
+          var userid = data[i]['id'];
+          var subscriptionType = data[i]['subscriptionType'];
+          var subscriptionPrice = data[i]['subscriptionPrice'];
+          $("#userFull").append("<option value='"+subscriptionPrice+"' id='"+userid+"'>"+subscriptionType+"</option>");
+           // var e = document.getElementById("userFull");
+           // var ids=e.selectElement.options[e.selectedIndex].id;
+           // alert(ids);
+          // var text=e.options[e.selectedIndex].text;//get the selected option text
+          }       
+  });
+
+
+
+  function validate(coupon) {
+
+  // alert(coupon);
+
+       $.ajax({
+            type: 'POST',
+            url: 'https://apistest.tradetipsapp.com/api/stripe/validateCoupon?couponId='+coupon,
+            headers: {
+              Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6InBhbmthanRlamF3YXRAZ21haWwuY29tIiwic3ViIjoiZDlhY2VkMjMtN2I4OS00YWJjLWJkNzEtNTUyM2FiODNhOThhIiwiaWF0IjoxNjIxMzM0NzgxLCJleHAiOjE2MjE5Mzk1ODF9.BZjyKnKAwAq4sG7zatPdCp-TkpD4jcRybjxHjRO8rkbjER0ogKcSGYxk3t7XkEW-vIrqiAwpy6dOZD4_1IpVzw" ,
+            },
+            // async:false,
+            // data: formdata,
+            processData: false,
+            success: function(data, textStatus, jqXHR) {
+            // console.log(data);
+            // console.log(data.id);
+            // console.log(data.percent_off);
+            var finalpvals = data.percent_off;
+            // alert(finalpvals);
+            var pricess = $('#amountSubscription').val();
+            // alert(pricess);
+            var fdiscount = pricess * finalpvals / 100 ;
+            // alert(fdiscount);
+            document.getElementById('demo').innerHTML = "$" + fdiscount;
+            document.getElementById('demos').innerHTML = "$" + fdiscount;
+            window.alert("Coupon Code Accepted! Click the Order button!");
+           },
+           error: function(errMsg) {
+                window.alert("Sorry, The Coupon Code you entered is invalid. Please check and try again!");
+            }
+
+         });
+
+       }
+
+
+//     $("#formid").submit(function(event){
+
+//     alert(event);
+
+//    //  var userNamee = userName;
+//    // // alert(userName);
+//    //  var email = emails;
+//    // // alert(emails);
+//    //  var price = $('#amountSubscription').val(); 
+//    //  var cardNumber = $('#cardNumber').val();
+//    //  var cvv = $('#cvv').val();
+//    //  var month = $('#month').val();
+//    //  var year = $('#year').val();
+
+//     // const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
+//     // const paymentMethod = stripe.paymentMethods.create({
+//     //   type: 'card',
+//     //   card: {
+//     //     number: '4242424242424242',
+//     //     exp_month: 5,
+//     //     exp_year: 2022,
+//     //     cvc: '314',
+//     //   },
+//     // });
+
+//     // alert(paymentMethod);
+
+//         var request = require("request");
+
+// var options = { method: 'POST',
+//   url: 'https://api.stripe.com/v1/payment_methods',
+//   headers : {
+//     Authorization : 'Bearer sk_test_4eC39HqLyjWDarjtT1zdp7dc'
+//   }
+//   // headers: 
+//   //  { 'postman-token': '7263ef9f-dced-bb3b-fb1c-c102ce80d9d9',
+//   //    'cache-control': 'no-cache',
+//   //    'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' },
+//   // formData: {} 
+// };
+
+// request(options, function (error, response, body) {
+
+//   const stripe = require('stripe');
+
+//   const paymentMethod = stripe.paymentMethods.create({
+//     type: 'card',
+//     card: {
+//       number: '4242424242424242',
+//       exp_month: 5,
+//       exp_year: 2022,
+//       cvc: '314',
+//     },
+//   });
+
+//   console.log(paymentMethod);
+
+//   if (error) throw new Error(error);
+
+//   console.log(body);
+// });
+
+
+    // var formdata = new FormData();
+    // formdata.append("tipComment", tipComment);
+    // formdata.append("entryPoint", entryPoint);
+    // formdata.append("exitPoint", exitPoint);
+    // formdata.append("stopPoint", stopPoint);
+    // formdata.append("stockName", stockName);
+    // formdata.append("status", "Approved");
+    
+    // formdata.append("timeFrame", "15 days");
+    // formdata.append("createTipPrice", createTipPrice);
+    // formdata.append("userId", userids);
+
+    // // alert("tip add");
+
+    // var requestOptions = {
+    //   method: 'POST',
+    //   headers: {
+    //           Authorization: 'Bearer '+ tokens
+    //         },
+    //   body: formdata,
+    //   redirect: 'follow'
+    // };
+
+    // // alert("neww");
+
+    // fetch("https://apistest.tradetipsapp.com/api/tip/addTip", requestOptions)
+    //   .then(response => response.json())
+    //   .then(result => {
+
+    //             var datak = JSON.stringify(result);
+    //             // alert(datak);
+    //             var dataResultp = JSON.parse(datak);
+    //             // alert(dataResultp.stockName);
+    //             //alert("Your tip for "+dataResultp.stockName+" was submitted successfully");
+    //             $(".successmsg").html('<span>"Your tip for '+dataResultp.stockName+' was submitted successfully."</span>');
+    //         setTimeout(function(){$(".successmsg").empty()}, 3000);
+    //           setTimeout(function(){
+    //            // window.location.reload(1);
+    //            window.location.href = "/tip"; 
+    //            }, 2000);
+
+    //    })
+    //   .catch(error => console.log('error', error));
+
+
+  //});
+
+
+ </script>
+

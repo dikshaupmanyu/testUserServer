@@ -1,0 +1,465 @@
+<%- include partials/innerheader %>
+<!-- Page Content Start -->
+<script src="js/canvasjs.min.js"></script>
+<style type="text/css">
+  .avoid_btn {
+    background: #000;
+    border-color: #fff;
+    color: #fff;
+}
+
+a.canvasjs-chart-credit{
+  display: none!important;
+}
+.canvas.canvasjs-chart-canvas{
+  width: 100%!important;
+}
+
+.canvasjs-chart-canvas {
+  width: 100%!important;
+}
+
+.highcharts-credits {
+  display: none!important;
+}
+credits{
+  enabled:false;
+}
+
+.input-color {
+    position: relative;
+}
+.input-color input {
+    padding-left: 20px;
+}
+.input-color .color-box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #ccc;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+</style>
+<div class="app_main">
+  <%- include partials/innersidebar %>
+<div class="app_content">
+   <div class="dsbrd_container">
+    <div class="ai_dtl_head">
+      <div class="ai_dtl_head_left">
+        <a href="dashboard"><button class="btn back_btn"><i class="fas fa-arrow-left"></i></button></a>&nbsp;
+        <div class="tips_bx_cmpny_name">
+          <span id="resultSet"></span>
+          <h2><em class="only_id_use" id="CompanySymbol"></em> <span id="skComnyNames"></span></h2>
+        </div>
+      </div>
+      <div class="ai_dtl_head_right">
+         
+        <div class="ai_dtl_head_right_bx">
+          <h4 class="border_secondary">Today’s High</h4>
+          <h3 id="highval"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx">
+          <h4 class="border_danger">Today’s Low</h4>
+          <h3 id="lowval"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx tips_wtlist_item_right">
+          <h4 class="border_primary">Change</h4>
+          <h3 id="changepoint"></h3>
+        </div>
+        <div class="ai_dtl_head_right_bx text-right">
+          <h2 id="currentprice"></h2>
+          <h5 id="DateVals"></h5>
+        </div>
+      </div>
+    </div> 
+    <div class="dashboard_wrapper row">
+      <div class="dashboard_wrapper_left">
+        <div class="" style="overflow-y: none;">
+         <div id="chartContainer" style="height: 300px; width: 100%!important;"></div>  
+        </div>
+      </div>
+      <div class="dashboard_wrapper_right">       
+        <div class="scroller-dash-right scrollbar-css">
+          <div class="tips_boxes" id="AIdemo">
+          </div>
+          <p>5-Day Prediction Models :</p>
+          <ul>
+            <li>
+                <div class="input-color">
+                    <input type="text" value="News Model" />
+                    <div class="color-box" style="background-color: #FF850A;"></div>
+                    <!-- Replace "#FF850A" to change the color -->
+                </div>
+            </li>
+            <li>
+                <div class="input-color">
+                    <input type="text" value="VXX Model" />
+                    <div class="color-box" style="background-color: navy;"></div>
+                    <!-- Replace "navy" to change the color -->
+                </div>
+            </li>
+             <li>
+                <div class="input-color">
+                    <input type="text" value="Technical Model" />
+                    <div class="color-box" style="background-color: green;"></div>
+                    <!-- Replace "navy" to change the color -->
+                </div>
+            </li>
+        </ul>
+       </div>
+      </div>
+  </div>
+  </div>
+  
+ 
+</div>
+<!-- Page Content Start -->
+<%- include partials/innerfooter %>
+<script type="text/javascript">
+
+var sData = localStorage.getItem('allTokenData');
+   var storageData= JSON.parse(sData);
+ 
+   var tokens = storageData.tokendata;
+  // alert(tokens);
+  
+  var userName = storageData.uname;
+
+
+  var LoggedInId = storageData.uid;
+
+  var symbol = "<%=stockSymbol%>";
+
+
+  // var stockid = "<%=tipsIds%>";
+
+ // var newftd = "1621232672661" ;
+var date = new Date();
+
+var usaTime = date.toLocaleString("en-US", {timeZone: "America/New_York"});
+//alert(usaTime);
+
+var resusaTime = usaTime.substr(10, 15);
+
+
+$("#DateVals").text("NY "+resusaTime);
+
+  // var startTime = 0, endTime = 0;
+  // var CanvasJSChart = CanvasJSReact.CanvasJSChart;
+
+
+const a = null
+
+  function filter_array(test_array) {
+    var index = -1,
+        arr_length = test_array ? test_array.length : 0,
+        resIndex = -1,
+        result = [];
+
+    while (++index < arr_length) {
+        var value = test_array[index];
+
+        if (value) {
+            result[++resIndex] = value;
+        }
+    }
+
+    return result;
+ }
+
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/GraphParameter/getNormalPriceBySubscription?stockName='+symbol,
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        // data: formdata,
+      success: function(data) {
+     
+            const dataResult = data;
+
+            // alert(dataResult.status);
+           
+
+            if(dataResult.status == false){
+               alert(dataResult.message);
+
+               window.location.replace('/dashboard');
+
+            }else{
+
+               document.getElementById("CompanySymbol").textContent = dataResult.object[0].stockName;
+
+
+                  $.get('https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols='+ dataResult.object[0].stockName , function(d) {
+
+                      console.log(d);
+
+                          var count = Object.keys(d).length;
+                          Object.keys(d).map((keyName, key) => {
+                            // console.log(d[keyName].quote);
+                             $("#currentprice").text("$"+d[keyName].quote.latestPrice);
+                            $("#skComnyNames").text(d[keyName].quote.companyName);
+                             $("#highval").text("$"+d[keyName].quote.high);
+                              $("#lowval").text("$"+d[keyName].quote.low);
+                        
+                                var valuees = parseFloat(d[keyName].quote.change).toFixed(2);
+                                if(valuees > 0){
+                                   // $("#changepoint").text(valuees);
+
+                                  $("#changepoint").html('<span class="color_buy">' +valuees + '</span>');
+                                   $("#changepoint").css("color" , "#09b598");
+
+                                }else{
+
+                                  $("#changepoint").html('<span class="color_sell">' +valuees + '</span>');
+                                   $("#changepoint").css("color" , "#dc3545");
+                                }
+
+                  
+                      });
+
+                   }); 
+
+                  var data = [];
+                  var data1 = [];
+                  var data2 = [];
+                  var data3 = [];
+                  var totalreslt = dataResult.object.length;
+                  // alert(totalreslt);
+
+                  // console.log(dataResult.object[41].stockName);
+
+                  var finalshowingAffected = (dataResult.object[totalreslt-1].vxxaffected).slice(6);
+                  // console.log(finalshowingAffected);
+                  var temp = new Array();
+                  temp = finalshowingAffected.split(",");
+                  // alert(temp);
+
+                  // console.log(temp);
+                  var finalshowingDates =  (dataResult.object[totalreslt-1].dates).slice(11);
+                  var temp1 = new Array();
+                  temp1 = finalshowingDates.split(",");
+                  // alert(temp1);
+
+                  var finalshowingnewsAffect = (dataResult.object[totalreslt-1].newsAffected).slice(6);
+                  // console.log(finalshowingAffected);
+                  var temp2 = new Array();
+                  temp2 = finalshowingnewsAffect.split(",");
+                  // alert(temp2)
+
+                  var finalshowingNormalizedPrice = (dataResult.object[totalreslt-1].normalizedPrice).slice(6);
+                  // console.log(finalshowingAffected);
+                  var temp3 = new Array();
+                  temp3 = finalshowingNormalizedPrice.split(",");
+                  // alert(temp3);
+
+                      temp1.forEach((num1, i) => {
+                        // console.log(i);
+                        const num2 = temp[i];
+                        // console.log(num1);
+                        // console.log(num2);
+                        
+                        var str = num2;
+
+                        var datasss = str.replace(/\'/g, '"');
+                        // alert(datasss);
+                        var fparse = JSON.parse(datasss);
+                        // alert(fparse);
+                        const num3 = temp2[i];
+
+
+                        var str3 = num3;
+                        
+                        var datasss3 = str3.replace(/\'/g, '"');
+                        // alert(datasss);
+                        var fparse3 = JSON.parse(datasss3);
+                        // alert(fparse);
+
+                        const num4 = temp3[i];
+
+
+                        var str4 = num4;
+                        
+                        var datasss4 = str4.replace(/\'/g, '"');
+                        // alert(datasss);
+                        var fparse4 = JSON.parse(datasss4);
+                        // alert(fparse);
+
+                        var fparse5 = "";
+
+                       
+                        data.push({
+                            x:i,
+                            y: fparse,
+                            label : "VXX Affected<br>" + num1,
+
+                          });
+
+                         data1.push({
+                            x:i,
+                            y: fparse3,
+                            label : "News Affected<br>" + num1,
+
+                          });
+
+                         data2.push({
+                            x:i,
+                            y: fparse4,
+                            label : "Technical Model<br>" + num1,
+
+                          });
+
+                          data3.push({
+                            x:i,
+                            y: fparse5,
+                            label : num1,
+
+                          });
+
+                      });
+
+                      // console.log(data);
+                      // console.log(data1);
+
+
+
+                     var chart = new CanvasJS.Chart("chartContainer", {
+                        width:600,
+                        height:300,
+                        zoomEnabled: true,
+                        animationEnabled: true,
+                        title :{
+                          text: symbol
+                        },
+                        showScale: false,
+                         axisX:{
+                          crosshair: {
+                            enabled: true,
+                            snapToDataPoint: true,
+                            valueFormatString: "MMM YYYY"
+                          }
+                        },
+                        axisY: {
+                          crosshair: {
+                            enabled: true,
+                            snapToDataPoint: true,
+                            includeZero: false
+                          },
+                           gridThickness: 0,
+                           stripLines: [
+                              {
+                                value: 0,
+                                showOnTop: true,
+                                color: "gray",
+                                thickness: 2
+                              }
+                            ]
+                        }, 
+                        data: [{                         
+                          type: "line",
+                          markerType : "none",
+                          color : "navy blue",
+                          dataPoints: data
+                        },{
+                         
+                          type: "line",
+                          markerType : "none",
+                          color : "orange",
+                          dataPoints: data1
+                        },{
+                         
+                          type: "line",
+                          markerType : "none",
+                          color: "green",
+                          dataPoints: data2
+                        },
+                        {
+                          type: "line",
+                          markerType : "none",
+                          color: "green",
+                          dataPoints: data3
+                        }],
+                      });
+
+                      chart.render();
+               
+      
+           }  
+
+
+                        loaddata();
+                        async function loaddata(){
+
+                             var myHeaders1 = new Headers();
+                              myHeaders1.append("Authorization", `Bearer ${tokens}`);    
+
+                              var formdata = new FormData();
+                              formdata.append("stockSymbol", symbol);
+
+                              var requestOp = {
+                                method: 'POST',
+                                headers: myHeaders1,
+                                body: formdata,
+                                redirect: 'follow'
+                              };
+
+                              const responseone = await fetch(`https://apistest.tradetipsapp.com/api/sectorNewsSentiment/getSentimentandSMAByStockSymbolResultSet`, requestOp);
+
+                              const array = await responseone.json();
+                              // alert(array[0].stock_name)
+
+                               const response = await fetch(`https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols=${array[0].stock_name}`);
+                                const d = await response.json()
+                                    // return datas;
+
+                                console.log(d[array[0].stock_name]);
+
+                              
+                              var date = array[0].sma_generation_date;
+                              const stripped = date.replace(/EST-0500/g, 'EST');
+                              //console.log(stripped);
+                              var newdate2 = stripped .split(/(\s+)/);
+                              //console.log(newdate2);
+                              newdate2.splice(3,3);
+                              //console.log(newdate2);
+                  
+                              var newdate3 = newdate2.toString(newdate2);
+                              var resultk = newdate3.replace(/,/g, "");
+                              //console.log(result);
+                              SMA_date = resultk.substring(0, 6) + ", " + resultk.substring(6, resultk.length);
+                              // console.log(SMA_date);
+
+                              if(array[0].rsiResult == "buy"){
+                              texts = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx buy_bg" data-switch-field="2" style="display:block;"><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></a>';
+                              } else if(array[0].rsiResult == "sell"){
+                              //                    
+                              texts = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx sell_bg" data-switch-field="2" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></a>';
+
+                              }
+                              else {
+                              texts = '<a href="aiDetails?id=' + array[0].id + '&stockName=' + array[0].stock_name + '"  id="mystocks-' + array[0].stock_name +'" target="_blank"><div class="tips_bx avoid_bg" data-switch-field="2" style="display:block;"><div class="tips_bx_head"><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn avoid_btn">AVOID</span> <h2><em class="only_id_use">' + array[0].stock_name + '</em> <span>'+ d[array[0].stock_name].quote.companyName +'</span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>10 Days</h3>'+(array[0].avg10days!='--' ?(array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg10days+'</span></h4>')+'</li><li><h3>50 Days</h3>  '+(array[0].avg50days!='--' ?(array[0].avg50days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg50days).toFixed(2) +'</span></h4>' : array[0].avg50days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg50days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg50days+'</span></h4>')+'</li> <li><h3>200 Days</h3>  '+(array[0].avg200days!='--' ?(array[0].avg200days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg200days).toFixed(2) +'</span></h4>' : array[0].avg200days > parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg200days).toFixed(2)+'</span></h4>'):'<h4 style="color:white;"><span>'+ array[0].avg200days+'</span></h4>')+'</li></ul></div></div><div class="tips_bx_txt"><p>'+ array[0].news_summary +'</p></div></div></div></a>';
+
+                              }
+                          
+                          $("#AIdemo").append(texts);
+                     }
+
+
+
+                
+                 
+
+             }
+
+            // console.log(dataResult.object);
+            // console.log(dataResult.object[0].stockName);
+
+
+                   
+       });
+
+    
+  </script>

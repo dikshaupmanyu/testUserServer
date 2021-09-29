@@ -1,0 +1,574 @@
+  <%- include partials/innerheader %>
+<!-- Page Content Start -->
+<div class="app_main">
+                  
+   <%- include partials/innersidebar %>
+ <!-- <style type="text/css">
+   .pckg_item {
+    background: none !important;
+   }
+ </style> -->
+
+ <style type="text/css">
+   .package_items_flex .pckg_item {
+        display: inline-flex;
+   }
+
+   .newwcss {
+    background: #06264D;
+    border-radius: 10px;
+    padding: 18px 18px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 0px 15px;
+   }
+
+   /*.tips_wtlist_item{
+    padding: 0px;
+   }*/
+ </style>
+
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="package_wrapper">
+      <div class="package_head">
+        <h2>My Services</h2>
+      
+        </div>
+      </div>
+      <!-- <div class="package_boxes">
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="pckg_bx">
+              <h2>15 <span>Total Services</span></h2>
+              <img src="images/package1.png" alt="images">
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="pckg_bx">
+              <h2>565 <span>Total Subscribers</span></h2>
+              <img src="images/package2.png" alt="images">
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+            <div class="pckg_bx">
+              <h2>$4,000 <span>Upcoming Renewal</span></h2>
+              <img src="images/package3.png" alt="images">
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="package_items_area package_items_flex">
+        <p id="serviceMeans"></p><br>
+
+               <div class="tips_wtlist_items">
+                  <div class="head_of_tips_wtlist_items tips_wtlist_item">
+                   <div class="left_wti">Service Name</div>
+                   <div class="left_wti">Image</div>
+                   <div class="left_wti">Title</div>
+                   <div class="left_wti" style="text-align: center;">Description</div>
+                   <div class="left_wti" style="text-align: center;">Price</div>
+                   <!-- <div class="left_wti">Action</div> -->
+                  </div>
+                </div>
+                <div class="tips_wtlist_items" id="newsletterServices">
+                </div>
+       <!--  <div class="package_items_in" id="newsletterServices">
+          <div class="table-responsive">
+                <table class="table table-borderless" id="dataTables" width="100%" cellspacing="0" style="color: white;">
+                  <thead>
+                    <tr>
+                     <th>S.No</th>
+                      <th>Service Name</th>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      
+                      <th>Price</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="package_items_in" id="newsletterServices">
+                    
+                  </tbody> 
+                </table>
+              </div>
+        </div> -->
+        <!-- <div class="package_items_in" id="1-1chatservcie">
+          <h2>1-on-1 Chat Session</h2>
+        </div>
+        <div class="package_items_in" id="videoServices">
+          <h2>Video Channel Subscription</h2>
+        </div>
+        <div class="package_items_in" id="livechatservice">
+          <h2>Live Chat</h2>
+        </div>
+        <div class="package_items_in" id="mentorPhoneServices">
+          <h2>Call-in Phone Group</h2>
+        </div>
+        <div class="package_items_in" id="webinarServices">
+          <h2>Webinar</h2>
+        </div>
+        <div class="package_items_in" id="bookServices">
+          <h2>Book Sale</h2>
+        </div>
+        <div class="package_items_in" id="classServices">
+          <h2>Investing Class</h2>
+        </div> -->
+      </div>
+
+     <!--    <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-borderless" id="dataTables" width="100%" cellspacing="0" style="color: white;">
+                  <thead>
+                    <tr>
+                     
+                      <th>Service Name</th>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      
+                      <th>Price</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody class="package_items_in" id="newsletterServices">
+                    
+                  </tbody> 
+                </table>
+              </div>
+            </div> -->
+
+               <div class="modal welcome_modal" tabindex="-1" id="welcomeModal">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="welcome_modal_top">
+                          <h2>This is how you make money with TradeTips!</h2>
+                         <!--  <img src="images/welcome-bird.png" alt="images"> -->
+                        </div>
+                        <div class="welcome_modal_btm">
+                         <!--  <h3>Below is your "list of services" screen. Services are any methods that you use to sell your investing advice to others, (such as running a newsletter, posting subscriber only videos, holding virtual classes, etc.). Any investing advice service you have can be posted to the app here, which will then appear on TradeTips as your own storefront.You set your own prices, and you are in control of what your customers see and when.</h3> -->
+                          <h3>1. Click on "Create New Service" & choose your service.</h3> 
+                          <h3>2 Enter details, subscription schedule, and price.</h3>
+                          <h3>3. Choose an image for your service and publish.</h3>
+                          <p>Publishing a service opens your personal storefront on the TradeTips app where users pay you to help them invest.</p>
+                          <p>The first step is to let them know what services or products you provide, and TradeTips will handle all the billing for you.</p>
+                          <button class="btn cmn_btn btn_primary" data-dismiss="modal">Lets get Started</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<!-- Page Content Start -->
+
+  <%- include partials/innerfooter %>
+ <script src="datatables/jquery.dataTables.min.js"></script>
+  <script src="datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/datatables-demo.js"></script>
+  <script type="text/javascript">
+
+  $(function(){
+  $("input[name='onlynumbers']").on('input', function (e) {
+      $(this).val($(this).val().replace(/[^0-9]/g, ''));
+    });
+  });
+
+  var sData = localStorage.getItem('allTokenData');
+
+  var storageData= JSON.parse(sData);
+ 
+  var tokens = storageData.tokendata;
+  
+  var userids = storageData.uid;
+
+   $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+               data: {
+                  mentorId: userids,
+                },   
+            success: function(data) {
+
+               const dataResult = data;
+                 // alert(dataResult.length);
+                 if(dataResult.length == 0){
+                  $('#welcomeModal').modal('show');
+                  document.getElementById('serviceMeans').innerHTML="You currently have no Services created. <a data-toggle='modal' data-target='#welcomeModal' style='color:#007bff;'>What is a Service?</a>";
+                 } else {
+                   // alert(dataResult.length);
+                    document.getElementById('serviceMeans').innerHTML='You have ' + dataResult.length +  ' Services created.  <a data-toggle="modal" data-target="#welcomeModal" style="color:#007bff;">What is a Service?</a>';
+                 }
+
+              }
+
+            });
+    
+
+            $.ajax({
+              type: 'POST',
+              url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+              headers: {
+                Authorization: 'Bearer '+ tokens,
+                 },
+              data: {
+                  mentorId: userids,
+                },
+               success: function(data) {
+       
+                 var datak = JSON.stringify(data);
+                 var dataResult = JSON.parse(datak); 
+                 // console.log(dataResult);
+                  var len = dataResult.length;
+
+                  
+
+                   //   $('#dataTables').dataTable( {
+                   //    "aaData": data,   
+                   //    "lengthMenu": [ 500, 1000, 2000, 3000, 4000, 5000 ],
+                   //    "pageLength": 500,
+                   //    // "aaSorting": [[ 4, "desc" ]],
+                   //    // "columnDefs": [ {
+                   //    // "targets": 4,
+                   //    "orderable": false,
+                   //    // } 
+                   //    // ],
+                   //    "columns": [
+                   //        { "data": "title" },
+                   //        { "data": "price" },
+                   //        { "data": "title" },
+                   //        { "data": "price" }
+                   //    ]
+                   // });
+               
+
+               // const dataResult = data;
+               if(dataResult.length == 0){
+                
+                  document.getElementById('newsletterServices').innerHTML="<br><p>You currently have no Services created.</p>";
+                  $("#newsletterServices").css("text-align", "center");
+                  $("#newsletterServices").css("color", "white");
+
+               } else {
+
+                // (array[0].avg10days < parseFloat(d[array[0].stock_name].quote.latestPrice).toFixed(2) ? '<h4 style="color:#09b598;"><span>>$'+ parseFloat(array[0].avg10days).toFixed(2) +'</span></h4>' : array[0].avg10days > parseFloat(array[0].avg10days).toFixed(2) ?'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>':'<h4 style="color:#dc3545;"><span><$'+parseFloat(array[0].avg10days).toFixed(2)+'</span></h4>')
+
+
+
+                let newtip = [];
+                  for(var i=0; i< dataResult.length; i++) {  
+
+                  newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div><div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price +'</h2></div></div>';                 
+                   
+                  // newtip += '<tr class="newwcss"><td><div class="pckg_item_desc"><p>'+ (dataResult[i].serviceTypeMaster.title)
+                  //  // + (dataResult[i].serviceTypeId == "b5d735b0-92ef-45d3-8f6e-e7adc7d9a8a8" ? ' 1-1 Chat Service ' : '' ) + (dataResult[i].serviceTypeId == "b9259b4f-4529-4aaa-b223-95d711ecb969" ? ' Video Channel Subscription ' : '' ) + (dataResult[i].serviceTypeId == "668b8486-64dd-43b7-9d24-563944009ebe" ? ' Live Chat Service ' : '' ) + (dataResult[i].serviceTypeId == "0f27f77e-1277-426d-83fa-192ae12165ba" ? ' Mentor Phone Group Service ' : '' ) + (dataResult[i].serviceTypeId == "6faa1011-33a7-4b71-b001-e20cebdaed22" ? ' Webinar Service ' : '' ) + (dataResult[i].serviceTypeId == "b098c61a-e451-4df7-a5d5-6ad88e096c3b" ? ' Books Sale ' : '' ) + (dataResult[i].serviceTypeId == "479a3b69-ed95-43c9-984a-593f1e519dc0" ? ' Investing Class Service ' : '' )
+                  //   + '</p></div></td><td><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></td><td><div class="pckg_item_txt" style="padding-left:0px;"><p>'+ dataResult[i].title +'</p></div></td><td><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></td><td><div class="pckg_item"><ul><li><h5> <span>$'+ dataResult[i].price +'</span></h5></li></ul><td><ul><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=Newsletter">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span><a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div></td></tr><br>';
+
+               
+
+                  }
+                   $("#newsletterServices").append(newtip);
+
+                }
+
+                  
+                 
+
+              }
+
+            });
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////
+
+            // $.ajax({
+            //   type: 'POST',
+            //   url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+            //   headers: {
+            //     Authorization: 'Bearer '+ tokens,
+            //      },
+            //   data: {
+            //       mentorId: userids,
+            //     },
+            // success: function(data) {
+
+            //    const dataResult = data;
+            //    if(dataResult.length == 0){
+            //     $("#1-1chatservcie").css("display", "none");
+            //    } else {
+            //       let newtip = [];
+            //       for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "b5d735b0-92ef-45d3-8f6e-e7adc7d9a8a8"){
+
+            //       // alert(dataResult[i].serviceTypeId);
+                   
+            //       newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img  src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=1-1Chat">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+            //        // newtip.push(dataResult[i]);
+            //       }
+            //        $("#1-1chatservcie").append(newtip);
+
+                
+            //     } 
+
+            //   }
+
+            // });
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+            // $.ajax({
+            //   type: 'POST',
+            //   url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+            //   headers: {
+            //     Authorization: 'Bearer '+ tokens,
+            //      },
+            //   data: {
+            //       mentorId: userids,
+            //     },
+            // success: function(data) {
+
+            //    const dataResult = data;
+            //    if(dataResult.length == 0){
+            //     $("#videoServices").css("display", "none");
+            //    } else {
+            //       let newtip = [];
+            //       for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "b9259b4f-4529-4aaa-b223-95d711ecb969"){
+
+            //       // alert(dataResult[i].serviceTypeId);
+                   
+            //       newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img  src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=VideoSubscription">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+            //        // newtip.push(dataResult[i]);
+            //       }
+            //        $("#videoServices").append(newtip);
+            //    }  
+
+            //   }
+
+            // });
+
+   //////////////////////////////////////////////////////////////////////////////////////////
+
+
+           // $.ajax({
+           //    type: 'POST',
+           //    url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+           //    headers: {
+           //      Authorization: 'Bearer '+ tokens,
+           //       },
+           //    data: {
+           //        mentorId: userids,
+           //      },
+           //  success: function(data) {
+
+           //     const dataResult = data;
+           //     if(dataResult.length == 0){
+           //      $("#livechatservice").css("display", "none");
+           //     } else {
+           //        let newtip = [];
+           //        for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "668b8486-64dd-43b7-9d24-563944009ebe"){
+
+           //        // alert(dataResult[i].serviceTypeId);
+                   
+           //        newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=LiveChat">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+           //         // newtip.push(dataResult[i]);
+           //        }
+           //         $("#livechatservice").append(newtip);
+                 
+           //      }   
+           //    }
+
+           //  });
+
+ //////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // $.ajax({
+  //             type: 'POST',
+  //             url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+  //             headers: {
+  //               Authorization: 'Bearer '+ tokens,
+  //                },
+  //             data: {
+  //                 mentorId: userids,
+  //               },
+  //           success: function(data) {
+
+  //              const dataResult = data;
+  //              if(dataResult.length == 0){
+  //               $("#mentorPhoneServices").css("display", "none");
+  //              } else {
+  //                 let newtip = [];
+  //                 for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "0f27f77e-1277-426d-83fa-192ae12165ba"){
+
+  //                 // alert(dataResult[i].serviceTypeId);
+                   
+  //                 newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=MentorPhoneGroup">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+  //                  // newtip.push(dataResult[i]);
+  //                 }
+  //                  $("#mentorPhoneServices").append(newtip);
+  //             }   
+
+  //             }
+
+  //           });
+
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+   // $.ajax({
+   //            type: 'POST',
+   //            url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+   //            headers: {
+   //              Authorization: 'Bearer '+ tokens,
+   //               },
+   //            data: {
+   //                mentorId: userids,
+   //              },
+   //          success: function(data) {
+
+   //             const dataResult = data;
+   //             if(dataResult.length == 0){
+   //              $("#webinarServices").css("display", "none");
+   //             } else {
+   //                let newtip = [];
+   //                for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "6faa1011-33a7-4b71-b001-e20cebdaed22"){
+
+   //                // alert(dataResult[i].serviceTypeId);
+                   
+   //                newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=Webinar">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+   //                 // newtip.push(dataResult[i]);
+   //                }
+   //                 $("#webinarServices").append(newtip);
+   //              } 
+
+   //            }
+
+   //          });
+
+   /////////////////////////////////////////////////////////////////////////////////////////////
+
+    // $.ajax({
+    //           type: 'POST',
+    //           url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+    //           headers: {
+    //             Authorization: 'Bearer '+ tokens,
+    //              },
+    //           data: {
+    //               mentorId: userids,
+    //             },
+    //         success: function(data) {
+
+    //            const dataResult = data;
+    //            if(dataResult.length == 0){
+    //             $("#bookServices").css("display", "none");
+    //            } else {
+    //               let newtip = [];
+    //               for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "b098c61a-e451-4df7-a5d5-6ad88e096c3b"){
+
+    //               // alert(dataResult[i].serviceTypeId);
+                   
+    //               newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=Books">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+    //                // newtip.push(dataResult[i]);
+    //               }
+    //                $("#bookServices").append(newtip);
+    //              }
+
+    //           }
+
+    //         });
+
+
+   /////////////////////////////////////////////////////////////////////////////////////////////
+
+    // $.ajax({
+    //           type: 'POST',
+    //           url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllServiceSubscriptionPlanForMentor',
+    //           headers: {
+    //             Authorization: 'Bearer '+ tokens,
+    //              },
+    //           data: {
+    //               mentorId: userids,
+    //             },
+    //         success: function(data) {
+
+    //            const dataResult = data;
+    //            if(dataResult.length == 0){
+    //             $("#classServices").css("display", "none");
+    //            } else {
+    //               let newtip = [];
+    //               for(var i=0; i< dataResult.length; i++) if(dataResult[i].serviceTypeId == "479a3b69-ed95-43c9-984a-593f1e519dc0"){
+
+    //               // alert(dataResult[i].serviceTypeId);
+                   
+    //               newtip += '<div class="pckg_item"><div class="pckg_item_left"><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div><div class="pckg_item_txt"><p>'+ dataResult[i].title +'</p></div><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></div><div class="pckg_item_right"><ul><li><h3><small>Price</small> <span>$'+ dataResult[i].price +'</span></h3></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=Class">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span> <a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div>';
+
+    //                // newtip.push(dataResult[i]);
+    //               }
+    //                $("#classServices").append(newtip);
+    //             } 
+
+    //           }
+
+    //         });
+
+
+function DeleteService(e) {
+ 
+  var formdata = {serviceSubscriptionPlanId : e};
+
+  var result = confirm("Are you sure you want to Delete?");
+  
+  if(result){
+
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/deleteServiceSubscriptionPlanById',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+
+        //alert("Delete data Sucessfully !!");
+        $(".successmsg").html('<span>"Delete data Sucessfully !!"</span>');
+        setTimeout(function(){$(".successmsg").empty()}, 2000);
+        //window.location.reload();
+        setTimeout(function(){
+            window.location.reload(1);
+               }, 2000);
+
+        }
+
+      });
+
+  } else {
+
+       window.location.reload();
+
+    }
+
+
+  }
+
+    
+  </script>
+
+      

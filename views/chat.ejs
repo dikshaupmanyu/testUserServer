@@ -1,0 +1,134 @@
+  <%- include partials/header %>
+
+  <script type="text/javascript">
+
+
+  var sData = localStorage.getItem('allTokenData');
+  //alert(sData);
+
+  var storageData= JSON.parse(sData);
+ 
+  var LoggedInUsernames = storageData.userIds;
+  //alert(LoggedInUsernames);
+
+   $('#loginChat').html(LoggedInUsernames + " " + "Blog");
+
+       
+ </script>
+
+
+  <link rel="stylesheet" href="dist/sample.main.css">
+
+<style type="text/css">
+  .chat-body {
+    max-height: 700px;
+  }
+  .chat-input>.input-text {
+    border: 1px solid #212529 !important;
+  }
+  .chat-input>.input-file {
+    border: 1px solid #212529 !important;
+  }
+ /* .chat-message>.message-content>.message-nickname{
+    display: none;
+  }*/
+
+  .message-nickname{
+    font-weight: bold;
+  }
+
+  .chat-input>.input-file , .chat-input>.input-file:hover, .chat-input>.input-file:focus{
+    border: 1px solid #2C2D30;
+    background-image: url(https://dxstmhyqfqr1o.cloudfront.net/web-basic/icon-attach-file.png);
+    background-position: center center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+  }
+ /* .modal-root{
+    display: none;
+  }*/
+  /*.modal-root>.modal-body{
+    display: none;
+  }*/
+</style>
+
+<div class="container-fluid">
+  <div class="row content">
+
+   <div class="col-sm-3 sidenav">
+        <br>
+        <a href="#"><img src="images/logo.png" alt="images"></a>
+        <br>
+        <h4 id="loginChat"></h4>
+        <ul class="nav nav-pills flex-column">
+          <li><a href="/home">Dashboard</a></li>
+          <li><a href="/tip">Make a Tip</a></li>
+          <li class="active"><a href="/room">Chat</a></li>
+          <li><a href="#" onclick="myFunction()">Logout</a></li>
+        </ul><br>
+        
+   </div>
+
+   <div class="col-sm-9" style="height: 800px;">
+      <div class="body" style="height: 600px;min-width: 100%;">
+        <div class="body-left" style="height: auto;">
+         
+          <div class="body-left-list" style="height: auto;">
+            <div class="chat-type">
+              <div class="chat-type-title" id="open_chat">OPEN CHAT</div>
+              <div>
+                <div class="icon-create-chat" id="open_chat_add"></div>
+              </div>
+            </div>
+            <div id="open_list" class="chat-list">
+              <div id="default_item_open" class="default-item">Start by selecting or creating a channel.</div>
+            </div>
+            <div class="chat-type" style="height: auto;">
+              <div>
+                <div class="icon-create-chat" id="group_chat_add"></div>
+              </div>
+            </div>
+            <div id="group_list" class="chat-list chat-list-group">
+              
+            </div>
+          </div>
+          <div class="body-left-bottom" id="user_info">
+            <div class="bottom-profile">
+            
+            </div>
+            <div class="bottom-nickname">
+              <div class="nickname-title">username</div>
+              <div class="nickname-content"></div>
+            </div>
+          </div>
+        </div>
+        <div class="body-center" style="height: auto;min-width: 100%;"></div>
+      </div>
+   </div>
+
+  </div>
+
+</div>
+
+
+   <script src="dist/sample.main.js"></script>
+    <script type="text/javascript" src="js/jquery-3.5.1.slim.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+<!--     <script type="text/javascript" src="js/fontawesome-all.min.js"></script>
+ -->    
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+     <script type="text/javascript">
+
+   window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+       
+ </script>
+
+</body>
+
+</html>

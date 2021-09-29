@@ -1,0 +1,213 @@
+  <%- include partials/innerheader %>
+
+  <div class="app_main">
+                  
+            <%- include partials/innersidebar %>
+        <div class="app_content">
+          <div class="dsbrd_container">
+
+             <div class="tip_list_head">
+                  <h2>Notification</h2>
+             </div> 
+             <a onclick="deleteAllnotification();" style="cursor:pointer;"><button type="button" class="btn cmn_btn btn_small btn_primary" id="login-button">Delete All Notification</button></a>
+             <br>
+             <div class="post_new_tips_wrapper" style="background: none;width: 80%;">
+              <ul style="list-style: none;" id="notifyList">
+                <!-- <li><h5>1. We believe in personal rights and freedom.</h5> </li>
+                <br>
+                <li><h5>2. This space is for sharing winning trades and investing strategies.</h5> </li>
+                <br>
+                <li><h5>3. The app is here to help anyone make money in the market ... so come on in.</h5> </li> -->
+              </ul>
+
+             <!--  <a href="/chatWindow">
+           
+              <button type="button" class="btn cmn_btn btn_small btn_primary" id="login-button">Enter Room</button>
+              </a> -->
+            </div>
+          </div>
+        </div>
+
+  </div>
+
+     <%- include partials/innerfooter %>
+
+
+    <script type="text/javascript">
+
+
+  window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+
+window.addEventListener("load", function() {
+
+ 
+ var url_string = window.location.href; 
+  var urls = new URL(url_string);
+ 
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData.uid);
+ 
+   var LoggedInUsername = storageData.uname;
+   var LoggedInEmail = storageData.email;
+   var LoggedInId = storageData.uid;
+   // var tokens = storageData.tokens;
+
+   var tokens = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Im1haGVzaHdhcmkwNmdvdmluZEBnbWFpbC5jb20iLCJzdWIiOiJmMTQ4NmIzMy03YTM0LTQ1MDYtYWFhMS1kM2Y0YmYzOGQzNjYiLCJpYXQiOjE2MjYwODUxMjUsImV4cCI6MTYyNjY4OTkyNX0.m7wG3BhTp4sG4_PO0rAUtpO-Lc79jtryf78swvw8zdRz8lNj-z3Mm6G1HlGzgZuUbfYcawigT5tc9SREGNh6JA';
+
+$(document).ready(function(){  
+
+   var notificationVals = "" ;
+    $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/getAllNotificationActivityDetailsWithPagination',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+         data: {limit : 100000 , offset : 0},
+      success: function(data) {
+
+       var datak = JSON.stringify(data);
+       var dataResult = JSON.parse(datak);
+
+      
+       // var len = dataResult.length;
+
+       for(i = 0; i < dataResult.length; i ++){
+        // alert(dataResult[i].notificationId);
+
+        notificationVals += '<li style="color:white;"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>'+dataResult[i].notificationText+'</h2></div>&nbsp;&nbsp;<a onclick="deletenotification(this.id)" id="' + dataResult[i].notificationId + '" style="cursor:pointer;"><i class="fa fa-trash"></i></a></div></div></li>'; 
+
+         readnotification(dataResult[i].notificationId);       
+         
+       }    
+          // window.location.reload();
+
+          $("#notifyList").append(notificationVals);  
+     
+     }
+
+   });
+
+
+
+});
+
+
+});
+
+  function readnotification(e) {
+  // alert(e);
+
+  var url_string = window.location.href; 
+  var urls = new URL(url_string);
+ 
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData.uid);
+ 
+   var LoggedInUsername = storageData.uname;
+   var LoggedInEmail = storageData.email;
+   var LoggedInId = storageData.uid;
+   // var tokens = storageData.tokens;
+
+   var tokens = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Im1haGVzaHdhcmkwNmdvdmluZEBnbWFpbC5jb20iLCJzdWIiOiJmMTQ4NmIzMy03YTM0LTQ1MDYtYWFhMS1kM2Y0YmYzOGQzNjYiLCJpYXQiOjE2MjYwODUxMjUsImV4cCI6MTYyNjY4OTkyNX0.m7wG3BhTp4sG4_PO0rAUtpO-Lc79jtryf78swvw8zdRz8lNj-z3Mm6G1HlGzgZuUbfYcawigT5tc9SREGNh6JA';
+ 
+  var formdata = {notificationId : e};
+   $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/createNotificationAsReadByNotificationId',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+     
+        }
+      });
+
+}
+
+function deletenotification(e) {
+  // alert(e);
+  var s = confirm("Are you sure to delete this Notification ?");
+  if (s == true) {
+
+   var url_string = window.location.href; 
+  var urls = new URL(url_string);
+ 
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData.uid);
+ 
+   var LoggedInUsername = storageData.uname;
+   var LoggedInEmail = storageData.email;
+   var LoggedInId = storageData.uid;
+   var tokens = storageData.tokens;
+ 
+  var formdata = {notificationId : e};
+   $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/deleteNotificationDetailsById',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+        data: formdata,
+      success: function(data) {
+        alert("Notification Deleted Successfully!!!");
+        window.location.reload();
+        }
+      });
+
+} else {
+   alert("Notification not deleted !!!");
+   window.location.reload();
+}
+}
+
+function deleteAllnotification() {
+
+  var r = confirm("Are you sure to delete all Notification ?");
+  if (r == true) {
+  var url_string = window.location.href; 
+  var urls = new URL(url_string);
+ 
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData.uid);
+ 
+   var LoggedInUsername = storageData.uname;
+   var LoggedInEmail = storageData.email;
+   var LoggedInId = storageData.uid;
+   var tokens = storageData.tokens;
+  $.ajax({
+        type: 'POST',
+        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/deleteAllNotificationForLoginUser',
+        headers: {
+          Authorization: 'Bearer '+ tokens,
+           },
+      success: function(data) {
+
+      alert("All Notification deleted Successfully !!!");
+      window.location.reload();
+     
+     }
+
+   });
+
+} else {
+   alert("Notification not deleted !!!");
+   window.location.reload();
+}
+}
+
+
+
+
+</script>
+
+

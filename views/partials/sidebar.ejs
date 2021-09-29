@@ -1,0 +1,41 @@
+ <div class="col-sm-3 sidenav">
+      <br>
+      <a href="#"><img src="images/logo.png" alt="images"></a>
+      <br>
+      <h4 id="loginvals"></h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="/home">Dashboard</a></li>
+        <li><a href="/tip">Make a Tip</a></li>
+        <li><a href="#section3">Chat</a></li>
+        <li><a href="/logout">Logout</a></li>
+      </ul><br>
+      
+  </div>
+
+    <script type="text/javascript">
+  window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+window.addEventListener("load", function() {
+
+  var url_string = window.location.href; 
+  var urls = new URL(url_string);
+  // var tokens = urls.searchParams.get("tokendata");
+  // alert(tokens);
+
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData);
+  // alert(storageData.tokendata);
+  // alert(storageData.uname);
+  // alert(storageData.uid);
+  var tokens = storageData.tokendata;
+   var LoggedInUsername = storageData.uname;
+
+   $('#loginvals').html(LoggedInUsername + "  " + "Blog");
+
+
+});
+
+</script>

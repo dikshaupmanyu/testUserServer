@@ -1,0 +1,404 @@
+/*large-laptop-screen-start*/
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+    .body_flyer1 {
+        width: 550px;
+    }
+    .body_flyer2 {
+        width: 630px;
+        top: 26%;
+        left: -30%;
+    }
+}
+/*large-laptop-screen-end*/
+
+
+/*laptop-screen-start*/
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+    .body_flyer1 {
+        width: 460px;
+        top: -37%;
+    }
+    .body_flyer2 {
+        width: 530px;
+        top: 30%;
+        left: -29%;
+    }
+    .account_bx {
+        width: 590px;
+        padding: 40px 85px;
+    }
+    .account_bx_head {
+        margin: 0px 0px 30px;
+    }
+    .account_bx_txt h2 {
+        font-size: 22px;
+        margin: 0px 0px 12px;
+    }
+    .account_bx_frm input.form-control {
+        font-size: 18px;
+        height: 52px;
+        margin: 0px 0px 25px;
+    }
+    .otp_input input.form-control {
+        margin: 0;
+    }
+    .otp_input span a {
+        padding: 0px 30px 0px 25px;
+    }
+    .rmbr_frgt {
+        margin: 0px 0px 25px;
+    }
+    .cmn_btn {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+    .account_bx_btm {
+        margin: 30px 0px 0px;
+        padding: 30px 0px 0px;
+    }
+    .account_bx_btm::before {
+        left: -40px;
+        width: 40px;
+    }
+    .account_bx_btm::after {
+        right: -40px;
+        width: 40px;
+    }
+    .terms_modal .modal-dialog {
+        max-width: 800px;
+    }
+    .my_modal .modal-header {
+        padding: 15px 15px 25px;
+    }
+    .my_modal .modal-body {
+        padding: 25px 15px 15px;
+    }
+    .terms_modal .modal-content {
+        padding: 15px 20px;
+    }
+    .terms_modal .modal-header img {
+        width: 160px;
+    }
+    .terms_modal .modal-title {
+        font-size: 23px;
+        margin-right: 100px;
+    }
+    .my_modal .modal-content {
+        border-radius: 25px;
+    }
+}
+/*laptop-screen-end*/
+
+
+/*mini-laptop-screen-start*/
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .body_flyer1 {
+        width: 400px;
+        top: -36%;
+    }
+    .body_flyer2 {
+        width: 500px;
+        top: 31%;
+        left: -34%;
+    }
+    .account_bx {
+        width: 590px;
+        padding: 35px 65px;
+    }
+    .account_bx_head {
+        margin: 0px 0px 25px;
+    }
+    .account_bx_head img {
+        width: 190px;
+    }
+    .account_bx_txt h2 {
+        font-size: 22px;
+        margin: 0px 0px 12px;
+    }
+    .account_bx_frm input.form-control {
+        font-size: 17px;
+        height: 52px;
+        margin: 0px 0px 25px;
+    }
+    .otp_input input.form-control {
+        margin: 0;
+    }
+    .otp_input span a {
+        padding: 0px 30px 0px 25px;
+    }
+    .rmbr_frgt {
+        margin: 0px 0px 25px;
+    }
+    .cmn_btn {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+    .account_bx_btm {
+        margin: 30px 0px 0px;
+        padding: 30px 0px 0px;
+    }
+    .account_bx_btm::before {
+        left: -30px;
+        width: 30px;
+    }
+    .account_bx_btm::after {
+        right: -30px;
+        width: 30px;
+    }
+    .terms_modal .modal-dialog {
+        max-width: 780px;
+    }
+    .my_modal .modal-header {
+        padding: 10px 10px 20px;
+    }
+    .my_modal .modal-body {
+        padding: 20px 10px 10px;
+    }
+    .terms_modal .modal-content {
+        padding: 10px 15px;
+    }
+    .terms_modal .modal-body p {
+        font-size: 17px;
+        padding: 0px 0px 8px;
+        line-height: 24px;
+    }
+    .terms_modal .modal-header img {
+        width: 160px;
+    }
+    .terms_modal .modal-title {
+        font-size: 23px;
+        margin-right: 100px;
+    }
+    .my_modal .modal-content {
+        border-radius: 20px;
+    }
+}
+/*mini-laptop-screen*/
+
+
+/*tablet-start*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .body_flyer1 {
+        width: 300px;
+        top: -27%;
+    }
+    .body_flyer2 {
+        width: 420px;
+        top: 30%;
+        left: -36%;
+    }
+    .account_bx {
+        width: 540px;
+        padding: 35px 60px;
+    }
+    .account_bx_head {
+        margin: 0px 0px 20px;
+    }
+    .account_bx_head img {
+        width: 175px;
+    }
+    .account_bx_txt {
+        padding: 0px 0px 10px;
+    }
+    .account_bx_txt h2 {
+        font-size: 22px;
+        margin: 0px 0px 12px;
+    }
+    .account_bx_frm input.form-control {
+        font-size: 17px;
+        height: 50px;
+        margin: 0px 0px 22px;
+    }
+    .otp_input input.form-control {
+        margin: 0;
+    }
+    .otp_input span a {
+        padding: 0px 30px 0px 25px;
+    }
+    .rmbr_frgt {
+        margin: 0px 0px 22px;
+    }
+    .rmbr_frgt label,
+    .rmbr_frgt h4,
+    .account_bx_btm h4 {
+        font-size: 17px;
+    }
+    .cmn_btn {
+        font-size: 17px;
+        padding: 11px 18px;
+    }
+    .account_bx_btm {
+        margin: 25px 0px 0px;
+        padding: 25px 0px 0px;
+    }
+    .account_bx_btm::before {
+        left: -20px;
+        width: 20px;
+    }
+    .account_bx_btm::after {
+        right: -20px;
+        width: 20px;
+    }
+    .terms_modal .modal-dialog {
+        max-width: 640px;
+    }
+    .my_modal .modal-header {
+        padding: 15px 15px 15px;
+    }
+    .my_modal .modal-body {
+        padding: 15px 15px 15px;
+    }
+    .terms_modal .modal-content {
+        padding: 10px 15px;
+    }
+    .terms_modal .modal-body p {
+        font-size: 17px;
+        padding: 0px 0px 8px;
+        line-height: 22px;
+    }
+    .terms_modal .modal-header img {
+        width: 160px;
+    }
+    .terms_modal .modal-title {
+        font-size: 20px;
+        margin-right: 100px;
+    }
+    .my_modal .modal-content {
+        border-radius: 15px;
+    }
+}
+/*tablet-end*/
+
+
+/*mobile-screen-start*/
+@media only screen and (min-width: 300px) and (max-width: 767px) {
+    .body_flyer1 {
+        width: 300px;
+        top: -27%;
+        display: none;
+    }
+    .body_flyer2 {
+        width: 420px;
+        top: 30%;
+        left: -36%;
+        display: none;
+    }
+    .onboard_wrapper {
+        /*align-items: flex-start;*/
+    }
+    .account_bx {
+        width: 100%;
+        /*padding: 40px 20px 0px;*/
+        padding: 30px 20px;
+        /*height: 100%;*/
+        /*border-radius: 0;*/
+    }
+    .account_bx_head {
+        margin: 0px 0px 20px;
+    }
+    .account_bx_head img {
+        width: 180px;
+    }
+    .account_bx_txt {
+        padding: 0px 0px 10px;
+        text-align: center;
+    }
+    .account_bx_txt h2 {
+        font-size: 20px;
+        margin: 0px 0px 10px;
+    }
+    .account_bx_frm input.form-control {
+        font-size: 17px;
+        height: 50px;
+        margin: 0px 0px 20px;
+    }
+    .otp_input input.form-control {
+        margin: 0;
+    }
+    .otp_input span a {
+        padding: 0px 20px 0px 15px;
+    }
+    .rmbr_frgt {
+        margin: 0px 0px 20px;
+        justify-content: center;
+        display: block;
+        text-align: center;
+    }
+    .rmbr_frgt label {
+        justify-content: center;
+    }
+    .rmbr_frgt h4 {
+        margin-top: 10px;
+    }
+    .rmbr_frgt label,
+    .rmbr_frgt h4,
+    .account_bx_btm h4 {
+        font-size: 17px;
+    }
+    .cmn_btn {
+        font-size: 17px;
+        padding: 11px 18px;
+    }
+    .account_bx_btm {
+        margin: 25px 0px 0px;
+        padding: 25px 0px 0px;
+        display: block;
+        text-align: center;
+    }
+    .account_bx_btm::before {
+        left: 0px;
+        width: 0px;
+        display: none;
+    }
+    .account_bx_btm::after {
+        right: -0px;
+        width: 0px;
+        display: none;
+    }
+    .account_bx_btm h4 {
+        font-size: 17px;
+        margin-bottom: 15px;
+    }
+    .account_bx_btm button {
+        width: 100%;
+    }
+    .terms_modal .modal-dialog {
+        max-width: 640px;
+    }
+    .my_modal .modal-header {
+        padding: 15px 15px 15px;
+    }
+    .terms_modal .modal-header {
+        display: block;
+        text-align: center;
+        position: relative;
+    }
+    .my_modal .modal-body {
+        padding: 15px 15px 15px;
+    }
+    .terms_modal .modal-content {
+        padding: 0px 0px;
+    }
+    .terms_modal .modal-body p {
+        font-size: 17px;
+        padding: 0px 0px 8px;
+        line-height: 22px;
+    }
+    .terms_modal .modal-header img {
+        width: 160px;
+        margin: 0px 0px 10px;
+    }
+    .terms_modal .modal-header .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .terms_modal .modal-title {
+        font-size: 20px;
+        margin-right: auto;
+    }
+    .my_modal .modal-content {
+        border-radius: 15px;
+    }
+}
+/*mobile-screen-end*/
