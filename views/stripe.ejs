@@ -26,7 +26,7 @@
       <th scope="col">$<span style="font-size: 30px;">30</span></th>
       <th scope="col">$<span style="font-size: 30px;">100</span></th>
       <th scope="col">$<span style="font-size: 30px;">500</span></th>
-      <th scope="col">$<span style="font-size: 30px;">1000</span></th>
+      <th scope="col">$<span style="font-size: 30px;">900</span></th>
     </tr>
   </thead>
   <tbody>
@@ -283,12 +283,12 @@ onload = function() {
   var requestOptions = {
     method: 'POST',
     headers: {
-          Authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6InBhbmthanRlamF3YXRAZ21haWwuY29tIiwic3ViIjoiZDlhY2VkMjMtN2I4OS00YWJjLWJkNzEtNTUyM2FiODNhOThhIiwiaWF0IjoxNjIwNDU4Mzc4LCJleHAiOjE2MjEwNjMxNzh9.K3om8lJ3Kl2A2mlV5Q_G4quJ70z7yZke3EeH6yFlz2W223KLe5VmR01KjEsjHEWGgPaYtXq4ZVV8pC6ABw8N8Q',
+          Authorization: 'Bearer '+tokens,
         },
     redirect: 'follow'
   };
 
-  fetch("https://apistest.tradetipsapp.com/api/subscriptionPlan/getAllSubscriptionPlan", requestOptions)
+  fetch("https://apis.tradetipsapp.com/api/subscriptionPlan/getAllSubscriptionPlan", requestOptions)
   .then(resp => resp.json())
     .then(function(data) {
       // console.log(data);
@@ -314,7 +314,7 @@ onload = function() {
             type: 'POST',
             url: 'https://apistest.tradetipsapp.com/api/stripe/validateCoupon?couponId='+coupon,
             headers: {
-              Authorization: "Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6InBhbmthanRlamF3YXRAZ21haWwuY29tIiwic3ViIjoiZDlhY2VkMjMtN2I4OS00YWJjLWJkNzEtNTUyM2FiODNhOThhIiwiaWF0IjoxNjIwNDU5Nzc5LCJleHAiOjE2MjEwNjQ1Nzl9.t3r3wSU-RSPSRLmPx1IcjAhj23yOizh_TOCaiL2669rJTxcB9YEKjANOoDoTUL-p2LesahYCu4Cs_zsS7aybzw" ,
+              Authorization: "Bearer " +tokens ,
             },
             // async:false,
             // data: formdata,
