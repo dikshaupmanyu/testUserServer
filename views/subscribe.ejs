@@ -22,19 +22,16 @@
               </div> 
    <table class="table table-striped" style="color: white;text-align: center;">
   <thead>
-    <tr>
-      <th scope="col">$<span style="font-size: 30px;">30</span></th>
+    <tr id="newplanprice">
+      <!-- <th scope="col">$<span style="font-size: 30px;">30</span></th>
       <th scope="col">$<span style="font-size: 30px;">100</span></th>
       <th scope="col">$<span style="font-size: 30px;">500</span></th>
-      <th scope="col">$<span style="font-size: 30px;">900</span></th>
+      <th scope="col">$<span style="font-size: 30px;">900</span></th> -->
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">. Per Week</th>
-      <td>. Per Month</td>
-      <td>. 6-Months</td>
-      <td>. Per Year</td>
+    <tr id="newplantype">
+      
     </tr>
     
   </tbody>
@@ -52,7 +49,7 @@
               <div class="col">
                 <div class="form-group">
                   <label style="color: #fff;">Subscription Plan</label>
-                  <label class="float-right"><b class="mr-2">Discount Price:</b> <span id="demo">$0</span></label>
+                  <label class="float-right" style="color: #fff;"><b class="mr-2">Discount Price:</b> <span id="demo">$0</span></label>
                    <select id="userFull" name="plan" onchange="test(this);" class="form-control" placeholder="Choose User" style="color: black;" required="required"><option value="">Select Subscription Plan</option></select>
                 </div>
               </div>
@@ -138,7 +135,7 @@ onload = function() {
                       <label style="color: #fff;">Year</label>
                         <select class="form-control" id="year" name="year" required="required">
                             <option>Select Year</option>
-                          <% for (i = 2020; i < 2035 ; i++) { %>
+                          <% for (i = 2021; i < 2035 ; i++) { %>
                             <option value="<%= i %>"><%= i %></option>
                           <% } %>
                         </select>
@@ -293,12 +290,12 @@ onload = function() {
   var requestOptions = {
     method: 'POST',
     headers: {
-          Authorization: 'Bearer ' + tokens,
+          Authorization: 'Bearer '+ tokens,
         },
     redirect: 'follow'
   };
 
-  fetch("https://apistest.tradetipsapp.com/api/subscriptionPlan/getAllSubscriptionPlan", requestOptions)
+  fetch("https://apistest.tradetipsapp.com/api/subscriptionPlan/getAllNewSubscriptionPlan", requestOptions)
   .then(resp => resp.json())
     .then(function(data) {
       // console.log(data);
@@ -307,6 +304,9 @@ onload = function() {
           var subscriptionType = data[i]['subscriptionType'];
           var subscriptionPrice = data[i]['subscriptionPrice'];
           $("#userFull").append("<option value='"+subscriptionPrice+"' id='"+userid+"'>"+subscriptionType+"</option>");
+          $("#newplanprice").append("<th scope='col'>$<span style='font-size: 30px;'>"+subscriptionPrice+"</span></th>");
+          $("#newplantype").append("<td>"+subscriptionType+"</td>");
+                // $("#newplan").append("<thead><tr><td scope='col'>$<span style='font-size: 30px;''>"+subscriptionPrice+"</span></td></tr></thead><tbody><tr><td scope='row'>"+subscriptionType+"</td></tr></tbody>");
            // var e = document.getElementById("userFull");
            // var ids=e.selectElement.options[e.selectedIndex].id;
            // alert(ids);
@@ -441,7 +441,7 @@ onload = function() {
 
     // // alert("neww");
 
-    // fetch("https://apistest.tradetipsapp.com/api/tip/addTip", requestOptions)
+    // fetch("https://apis.tradetipsapp.com/api/tip/addTip", requestOptions)
     //   .then(response => response.json())
     //   .then(result => {
 
