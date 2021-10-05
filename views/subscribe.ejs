@@ -51,7 +51,7 @@
                  <input type="text" class="form-control" id="emails" name="email" placeholder="Email" style="display: none;">
               <div class="col">
                 <div class="form-group">
-                  <label>Subscription Plan</label>
+                  <label style="color: #fff;">Subscription Plan</label>
                   <label class="float-right"><b class="mr-2">Discount Price:</b> <span id="demo">$0</span></label>
                    <select id="userFull" name="plan" onchange="test(this);" class="form-control" placeholder="Choose User" style="color: black;" required="required"><option value="">Select Subscription Plan</option></select>
                 </div>
@@ -74,7 +74,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label>Subscription Price</label>
+                  <label style="color: #fff;">Subscription Price</label>
                    <input class="form-control" type="text" name="amount" id="amountSubscription" placeholder="Subscription Price" readonly="readonly">
                 </div>
               </div>
@@ -83,7 +83,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <label>Card Number</label>
+                  <label style="color: #fff;">Card Number</label>
                    <input type='text' class="form-control" name="cardNumber" id="cardNumber" placeholder="1234 1234 1234 1234" required="required">
                 </div>
               </div>
@@ -115,7 +115,7 @@ onload = function() {
                 <div class="row">
                   <div class="col-6 pr-0">
                     <div class="form-group">
-                      <label>Month</label>
+                      <label style="color: #fff;">Month</label>
                       <select class="form-control" id="month" name="month" required="required">
                         <option>Select Month</option>
                         <option value="1">January</option>
@@ -135,7 +135,7 @@ onload = function() {
                   </div>
                   <div class="col-6 pl-0">
                     <div class="form-group">
-                      <label>Year</label>
+                      <label style="color: #fff;">Year</label>
                         <select class="form-control" id="year" name="year" required="required">
                             <option>Select Year</option>
                           <% for (i = 2020; i < 2035 ; i++) { %>
@@ -150,13 +150,13 @@ onload = function() {
                 <div class="row">
                 <div class="col-12">
                   <div class="form-group">
-                    <label>CVV</label>
+                    <label style="color: #fff;">CVV</label>
                     <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required="required" maxlength="3">                    
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-group">
-                    <label>Pin Code</label>
+                    <label style="color: #fff;">Pin Code</label>
                     <input type="text" class="form-control" placeholder="Pin Code" required="required" maxlength="5">
                   </div>
                 </div>
@@ -166,12 +166,12 @@ onload = function() {
             <div class="row">
               <div class="col-6">
                 <div class="form-group">
-                  <label>Coupon Code</label>
+                  <label style="color: #fff;">Coupon Code</label>
                      <input type="text" name="text1" class="form-control" placeholder="Enter Coupon Code">
                     <!--  <input type="button" value="Validate Coupon" class="form-control" name="Submit" onclick="validate(document.getElementsByName('text1')[0].value)"> -->
 
                 </div>
-                 <label><b class="mr-2">Discount Price:</b> <span id="demos">$0</span></label>
+                 <label style="color: #fff;"><b class="mr-2">Discount Price:</b> <span id="demos">$0</span></label>
               </div>
               <div class="col-6">
                 <div class="form-group">
