@@ -69,6 +69,7 @@
                    <div class="left_wti">Title</div>
                    <div class="left_wti" style="text-align: center;">Description</div>
                    <div class="left_wti" style="text-align: center;">Price</div>
+                   <div class="left_wti" style="text-align: center;">Url</div>
                    <!-- <div class="left_wti">Action</div> -->
                   </div>
                 </div>
@@ -269,7 +270,7 @@
                 let newtip = [];
                   for(var i=0; i< dataResult.length; i++) {  
 
-                  newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div><div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div></div>';                 
+                  newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div><div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
                    
                   // newtip += '<tr class="newwcss"><td><div class="pckg_item_desc"><p>'+ (dataResult[i].serviceTypeMaster.title)
                   //  // + (dataResult[i].serviceTypeId == "b5d735b0-92ef-45d3-8f6e-e7adc7d9a8a8" ? ' 1-1 Chat Service ' : '' ) + (dataResult[i].serviceTypeId == "b9259b4f-4529-4aaa-b223-95d711ecb969" ? ' Video Channel Subscription ' : '' ) + (dataResult[i].serviceTypeId == "668b8486-64dd-43b7-9d24-563944009ebe" ? ' Live Chat Service ' : '' ) + (dataResult[i].serviceTypeId == "0f27f77e-1277-426d-83fa-192ae12165ba" ? ' Mentor Phone Group Service ' : '' ) + (dataResult[i].serviceTypeId == "6faa1011-33a7-4b71-b001-e20cebdaed22" ? ' Webinar Service ' : '' ) + (dataResult[i].serviceTypeId == "b098c61a-e451-4df7-a5d5-6ad88e096c3b" ? ' Books Sale ' : '' ) + (dataResult[i].serviceTypeId == "479a3b69-ed95-43c9-984a-593f1e519dc0" ? ' Investing Class Service ' : '' )
