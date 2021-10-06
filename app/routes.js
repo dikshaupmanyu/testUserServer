@@ -84,7 +84,7 @@ module.exports = function(app) {
 
     var request = require("request");
 
-    console.log(req.body);
+    // console.log(req.body.token);
     // console.log(res);
     var email = req.body.email;
     var uname = req.body.name;
@@ -92,6 +92,7 @@ module.exports = function(app) {
     var price = req.body.amount * 100;
     var subscriptionPlanId = req.body.subscriptionPlan;
     var couponId = req.body.text1;
+    var tokens = req.body.token;
 
 
 
@@ -120,7 +121,8 @@ module.exports = function(app) {
             headers: 
              { 'postman-token': 'a1f3bad2-8aab-6d21-7162-d82350e953af',
                'cache-control': 'no-cache',
-               authorization: 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6InBhbmthanRlamF3YXRAZ21haWwuY29tIiwic3ViIjoiZDlhY2VkMjMtN2I4OS00YWJjLWJkNzEtNTUyM2FiODNhOThhIiwiaWF0IjoxNjIwNDU4Mzc4LCJleHAiOjE2MjEwNjMxNzh9.K3om8lJ3Kl2A2mlV5Q_G4quJ70z7yZke3EeH6yFlz2W223KLe5VmR01KjEsjHEWGgPaYtXq4ZVV8pC6ABw8N8Q' },     formData: { userName: req.body.name,
+               authorization: 'Bearer '+tokens },     
+               formData: { userName: req.body.name,
                paymentId: paymentMethod.id,
                subscriptionPlanId: req.body.subscriptionPlan,
                couponId : req.body.text1 } };
@@ -133,7 +135,7 @@ module.exports = function(app) {
             // }
             // throw new Error(error);
 
-            console.log(response);
+            // console.log(response);
             // console.log(error);
             // console.log(body);
             res.render('complete.ejs');

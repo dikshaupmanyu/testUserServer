@@ -50,6 +50,7 @@
     "path": "^0.12.7",
     "redis": "^3.0.2",
     "response-time": "^2.3.2",
-    "sendbird": "^3.0.111"
+    "sendbird": "^3.0.111",
+    "stripe": "^8.178.0"
   }
 }

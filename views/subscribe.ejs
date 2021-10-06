@@ -46,6 +46,7 @@
             <div class="row align-items-center">
                  <input class="form-control" type="text" id="names" name="name" placeholder="Name" style="display: none;">
                  <input type="text" class="form-control" id="emails" name="email" placeholder="Email" style="display: none;">
+                  <input type="text" class="form-control" id="tokensdata" name="token" placeholder="Email" style="display: none;">
               <div class="col">
                 <div class="form-group">
                   <label style="color: #fff;">Subscription Plan</label>
@@ -81,7 +82,8 @@
               <div class="col-12">
                 <div class="form-group">
                   <label style="color: #fff;">Card Number</label>
-                   <input type='text' class="form-control" name="cardNumber" id="cardNumber" placeholder="1234 1234 1234 1234" required="required">
+                   <input type='text' class="form-control" name="cardNumber" id="cardNumber" placeholder="1234 1234 1234 1234" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;" required="required">
+                     <span id="error" style="color: Red; display: none">* Input digits (0 - 9)</span>  
                 </div>
               </div>
             </div>
@@ -106,6 +108,30 @@ onload = function() {
     this.value = cc_format(this.value)
   }
 }
+
+var specialKeys = new Array();  
+        specialKeys.push(8);  
+        function IsNumeric(e) 
+        {  
+            var keyCode = e.which ? e.which : e.keyCode  
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);  
+            document.getElementById("error").style.display = ret ? "none" : "inline";  
+            return ret;  
+        }  
+         function IsNumerics(e) 
+        {  
+            var keyCode = e.which ? e.which : e.keyCode  
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);  
+            document.getElementById("errors").style.display = ret ? "none" : "inline";
+            return ret;  
+        }  
+         function IsNumericpincode(e) 
+        {  
+            var keyCode = e.which ? e.which : e.keyCode  
+            var ret = ((keyCode >= 48 && keyCode <= 57) || specialKeys.indexOf(keyCode) != -1);  
+            document.getElementById("errorpincode").style.display = ret ? "none" : "inline";
+            return ret;  
+        }  
 </script>
             <div class="row">
               <div class="col-sm-12">
@@ -148,13 +174,16 @@ onload = function() {
                 <div class="col-12">
                   <div class="form-group">
                     <label style="color: #fff;">CVV</label>
-                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required="required" maxlength="3">                    
+                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="CVV" required="required" maxlength="3"  onkeypress="return IsNumerics(event);" ondrop="return false;" onpaste="return false;">    
+                     <span id="errors" style="color: Red; display: none">* Input digits (0 - 9)</span>                  
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="form-group">
                     <label style="color: #fff;">Pin Code</label>
-                    <input type="text" class="form-control" placeholder="Pin Code" required="required" maxlength="5">
+                    <input type="text" class="form-control" placeholder="Pin Code" required="required" maxlength="5"  onkeypress="return IsNumericpincode(event);" ondrop="return false;" onpaste="return false;">
+                    <span id="errorpincode" style="color: Red; display: none">* Input digits (0 - 9)</span>                  
+
                   </div>
                 </div>
                 </div>
@@ -286,6 +315,8 @@ onload = function() {
    var emails = storageData.email;
   //alert(emails);
   document.getElementById("emails").value = emails;
+
+  document.getElementById("tokensdata").value = tokens;
 
   var requestOptions = {
     method: 'POST',
