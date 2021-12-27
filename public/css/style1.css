@@ -1664,6 +1664,7 @@ button:focus {
     display: flex;
     align-items: center;
     padding-right: 10px;
+    min-width: 0;
 }
 .bs_btn {
     display: block;
@@ -1716,12 +1717,16 @@ button:focus {
 .tips_bx_cmpny_name h2{
     font-size: 22px;
     font-family: 'SF UI Display Bold';
+    min-width: 0;
 }
 .tips_bx_cmpny_name h2 span{
     font-size: 14px;
     display: block;
     font-family: 'SF UI Display Light';
     margin: 4px 0px 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .tips_bx_txt{
     padding: 0px 0px 10px;

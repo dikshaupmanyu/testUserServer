@@ -29,6 +29,114 @@ module.exports = function(app) {
     res.render('notification.ejs');
   });
 
+     /////////////////////////////////////////////////////////////////////////
+
+
+ app.post('/imageUser', function(req, res) {
+
+
+  const request = require('request');
+  const fs = require('fs');
+  var html2canvas = require('html2canvas');
+  console.log(req.body);
+  async function download(url, dest) {
+
+    /* Create an empty file where we can save data */
+    const file = fs.createWriteStream(dest);
+
+    /* Using Promises so that we can use the ASYNC AWAIT syntax */
+    await new Promise((resolve, reject) => {
+      request({
+        /* Here you should specify the exact link to the file you are trying to download */
+        uri: req.body.imageUrl,
+        gzip: true,
+      })
+          .pipe(file)
+          .on('finish', async () => {
+            console.log(`The file is finished downloading.`);
+            resolve();
+          })
+          .on('error', (error) => {
+            reject(error);
+          });
+      })
+        .catch((error) => {
+          console.log(`Something happened: ${error}`);
+        });
+   }
+
+  // example
+
+  (async () => {
+    var filepath = 'public/images/uploadimage/'+req.body.imageName+'.jpg';
+      const data = await download(req.body.imageurl, filepath);
+      // console.log(data); // The file is finished downloading.
+  })();
+
+});
+
+
+ //////////////////////////////////////////////////////////////////////////////
+   app.post('/imagetweet', function(req, res) {
+
+  
+
+   const imageDataURI = require('image-data-uri');
+  var html2canvas = require('html2canvas');
+
+    const fs = require('fs');
+    const path = require('path');
+    const config = require('../config');
+
+    const apiClient = config.newClient();
+    const uploadClient = config.newClient('upload');
+
+
+   let dataURI = req.body.dataUrl;
+
+   var url = req.body.objecturls;
+
+   const last = url.split("/")
+   const lastItem = last[last.length-1];
+     let filePath = 'images/uploadscreenshot/'+lastItem;
+  imageDataURI.outputFile(dataURI, filePath)
+    .then(function(resk){
+      console.log(resk);
+      const mediaFile = fs.readFileSync(resk);
+      fs.unlink(resk, (err) => {
+        if (err) {
+            console.log("failed to delete local image:"+err);
+        } else {
+            console.log('successfully deleted local image');                                
+        }
+
+        });
+    const base64image = Buffer.from(mediaFile).toString('base64');
+
+    uploadClient.post('media/upload', { media_data: base64image }).then(media => {
+    console.log('You successfully uploaded media');
+
+    var media_id = media.media_id_string;
+    console.log(media_id);
+
+    apiClient.post('statuses/update', { status: '', media_ids: media_id }).then(tweet => {
+      res.send(tweet);
+      // console.log(tweet);
+      console.log("https://twitter.com/intent/tweet?text="+tweet.text);
+       
+        console.log('Your image tweet is posted successfully');
+    }).catch(console.error);
+
+    }).catch(console.error);
+
+    });
+
+
+
+});
+
+   /////////////////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -153,6 +261,9 @@ module.exports = function(app) {
 });
 
   app.get('/dashboard', function(req, res) {
+
+      var html2canvas = require('html2canvas');
+
 
     // var request = require("request");
 

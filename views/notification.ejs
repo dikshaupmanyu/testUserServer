@@ -55,16 +55,14 @@ window.addEventListener("load", function() {
    var LoggedInUsername = storageData.uname;
    var LoggedInEmail = storageData.email;
    var LoggedInId = storageData.uid;
-   // var tokens = storageData.tokens;
-
-   var tokens = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Im1haGVzaHdhcmkwNmdvdmluZEBnbWFpbC5jb20iLCJzdWIiOiJmMTQ4NmIzMy03YTM0LTQ1MDYtYWFhMS1kM2Y0YmYzOGQzNjYiLCJpYXQiOjE2MjYwODUxMjUsImV4cCI6MTYyNjY4OTkyNX0.m7wG3BhTp4sG4_PO0rAUtpO-Lc79jtryf78swvw8zdRz8lNj-z3Mm6G1HlGzgZuUbfYcawigT5tc9SREGNh6JA';
+   var tokens = storageData.tokens;
 
 $(document).ready(function(){  
 
    var notificationVals = "" ;
     $.ajax({
         type: 'POST',
-        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/getAllNotificationActivityDetailsWithPagination',
+        url: 'https://apistest.tradetipsapp.com/api/notificationActivity/getAllUnreadBundleNotificationActivityMessage',
         headers: {
           Authorization: 'Bearer '+ tokens,
            },
@@ -113,10 +111,9 @@ $(document).ready(function(){
    var LoggedInUsername = storageData.uname;
    var LoggedInEmail = storageData.email;
    var LoggedInId = storageData.uid;
-   // var tokens = storageData.tokens;
+   var tokens = storageData.tokens;
 
-   var tokens = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Im1haGVzaHdhcmkwNmdvdmluZEBnbWFpbC5jb20iLCJzdWIiOiJmMTQ4NmIzMy03YTM0LTQ1MDYtYWFhMS1kM2Y0YmYzOGQzNjYiLCJpYXQiOjE2MjYwODUxMjUsImV4cCI6MTYyNjY4OTkyNX0.m7wG3BhTp4sG4_PO0rAUtpO-Lc79jtryf78swvw8zdRz8lNj-z3Mm6G1HlGzgZuUbfYcawigT5tc9SREGNh6JA';
- 
+   
   var formdata = {notificationId : e};
    $.ajax({
         type: 'POST',
