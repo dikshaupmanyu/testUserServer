@@ -404,8 +404,21 @@ function handleError(image) {
                   // document.getElementById("exitpoint").textContent = "$"+parseFloat(dataResult.tip.exitPoint).toFixed(2);
                   document.getElementById("suggestion").textContent = dataResult.tip.stockSuggestion;
                   // console.log(dataResult.commentCount);
-                  document.getElementById("commentcount").textContent = dataResult.commentCount +" Comments";
-                  document.getElementById("likecount").textContent = dataResult.likeCount +" Likes";
+                  if(dataResult.commentCount == 1){
+
+                    document.getElementById("commentcount").textContent = dataResult.commentCount +" Comment";
+                  }else{
+                    document.getElementById("commentcount").textContent = dataResult.commentCount +" Comments";
+
+                  }
+
+                  if(dataResult.likeCount == 1){
+
+                    document.getElementById("likecount").textContent = dataResult.likeCount +" Like";
+                  }else{
+
+                    document.getElementById("likecount").textContent = dataResult.likeCount +" Likes";
+                  }
 
                    document.getElementById("textvalLike").textContent = dataResult.likeCount;
 
