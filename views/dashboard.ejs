@@ -334,11 +334,11 @@ ul.search-list-loader {
                 <div class="scroller-dash-right scrollbar-css">
                 <div class="search-list-input">
                   <div class="input-group input_group">
-                    <input type="text" class="form-control"  id="search-stock" autocomplete="off" placeholder="Enter Symbol or Company Name" style="text-transform: uppercase; box-sizing: border-box; width: 350px;">
+                    <input type="text" class="form-control"  onkeyup="manage(this)" id="search-stock" autocomplete="off" placeholder="Enter Symbol or Company Name" style="text-transform: uppercase; box-sizing: border-box; width: 350px;">
                     <label class="multi-items" id="multi-items" style="inset: 8px;"></label>
                     <input type="hidden" class="magicsearch-hidden" />
                     <div class="input-group-append" id="input-group-append">
-                      <button  id="stockadd" class="btn">Add</button>
+                      <button  id="stockadd" class="btn" disabled>Add</button>
                     </div>
                   </div>
  <ul class="load-wrapp" style="display: none;">
@@ -435,6 +435,19 @@ ul.search-list-loader {
     
 });
   </script>
+
+<script>
+	function manage(txt) {
+        var bt = document.getElementById('stockadd');
+        if (txt.value != '') {
+            bt.disabled = false;
+        }
+        if (txt.value == '') {
+          bt.disabled = true;
+        }
+      }
+
+</script>
 
 <script type="text/javascript">
    var sData = localStorage.getItem('allTokenData');
@@ -609,6 +622,10 @@ ul.search-list-loader {
                                        
                   }
                   });
+
+                  document.getElementById('stockadd').onclick = function() {
+                    this.disabled = true;
+                  }
              }  , 1000 );
         });
       });
