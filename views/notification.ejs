@@ -50,28 +50,28 @@ window.addEventListener("load", function() {
  
   var sData = localStorage.getItem('allTokenData');
   var storageData= JSON.parse(sData);
-  // alert(storageData.uid);
+  // alert(JSON.stringify(storageData));
  
    var LoggedInUsername = storageData.uname;
    var LoggedInEmail = storageData.email;
    var LoggedInId = storageData.uid;
-   var tokens = storageData.tokens;
+   var tokens = storageData.tokendata;
 
 
 $(document).ready(function(){  
-  alert("yes")
+  // alert("yes")
 
    var notificationVals = "" ;
     $.ajax({
       type: 'POST',
-      url: 'https://https://apistest.tradetipsapp.com/api/notificationActivity/getAllUnreadBundleNotificationActivityMessage',
+      url: 'https://apistest.tradetipsapp.com/api/notificationActivity/getAllUnreadBundleNotificationActivityMessage',
       headers: {
         Authorization: 'Bearer '+ tokens,
       },
       //  data: {limit : 100000 , offset : 0},
       data: {uname : LoggedInUsername},
       success: function(data) {
-        alert("ok")
+        // alert("ok")
         
        var datak = JSON.stringify(data);
        var dataResult = JSON.parse(datak);
@@ -151,7 +151,9 @@ $(document).ready(function(){
    var LoggedInUsername = storageData.uname;
    var LoggedInEmail = storageData.email;
    var LoggedInId = storageData.uid;
-   var tokens = storageData.tokens;
+      var tokens = storageData.tokendata;
+
+   // alert(tokens);
 
    
   var formdata = {notificationId : e};
@@ -184,7 +186,8 @@ function deletenotification(e) {
    var LoggedInUsername = storageData.uname;
    var LoggedInEmail = storageData.email;
    var LoggedInId = storageData.uid;
-   var tokens = storageData.tokens;
+   var tokens = storageData.tokendata;
+
  
   var formdata = {notificationId : e};
    $.ajax({
@@ -224,7 +227,7 @@ function deleteAllnotification() {
    var LoggedInUsername = storageData.uname;
    var LoggedInEmail = storageData.email;
    var LoggedInId = storageData.uid;
-   var tokens = storageData.tokens;
+   var tokens = storageData.tokendata;
   $.ajax({
         type: 'POST',
         url: 'https://apistest.tradetipsapp.com/api/notificationActivity/deleteAllNotificationForLoginUser',

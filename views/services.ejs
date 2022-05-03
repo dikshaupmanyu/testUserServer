@@ -151,11 +151,10 @@
                         </div>
                         <div class="welcome_modal_btm">
                          <!--  <h3>Below is your "list of services" screen. Services are any methods that you use to sell your investing advice to others, (such as running a newsletter, posting subscriber only videos, holding virtual classes, etc.). Any investing advice service you have can be posted to the app here, which will then appear on TradeTips as your own storefront.You set your own prices, and you are in control of what your customers see and when.</h3> -->
-                          <h3>1. Click on "Create New Service" & choose your service.</h3> 
-                          <h3>2 Enter details, subscription schedule, and price.</h3>
-                          <h3>3. Choose an image for your service and publish.</h3>
-                          <p>Publishing a service opens your personal storefront on the TradeTips app where users pay you to help them invest.</p>
-                          <p>The first step is to let them know what services or products you provide, and TradeTips will handle all the billing for you.</p>
+                          <h3>What is a Service?</h3> 
+                          <h3>Services are special deals and offers from TradeTips that help you become a better investor.</h3>
+                          <h3>Services give you access to exclusive stock market newsletters, classes, videos and much, much more.</h3>
+                          <p>Don't delay, make better trades today!</p>
                           <button class="btn cmn_btn btn_primary" data-dismiss="modal">Lets get Started</button>
                         </div>
                       </div>
@@ -206,7 +205,7 @@
                  // alert(dataResult.length);
                  if(dataResult.length == 0){
                   $('#welcomeModal').modal('show');
-                  document.getElementById('serviceMeans').innerHTML="You currently have no Services created. <a data-toggle='modal' data-target='#welcomeModal' style='color:#007bff;'>What is a Service?</a>";
+                  document.getElementById('serviceMeans').innerHTML="<a data-toggle='modal' data-target='#welcomeModal' style='color:#007bff;'>What is a Service?</a>";
                  } else {
                    // alert(dataResult.length);
                     document.getElementById('serviceMeans').innerHTML='You have ' + dataResult.length +  ' Services created.  <a data-toggle="modal" data-target="#welcomeModal" style="color:#007bff;">What is a Service?</a>';
@@ -257,7 +256,7 @@
                // const dataResult = data;
                if(dataResult.length == 0){
                 
-                  document.getElementById('newsletterServices').innerHTML="<br><p>You currently have no Services created.</p>";
+                  document.getElementById('newsletterServices').innerHTML="<br><p>You don't have any purchased services.</p>";
                   $("#newsletterServices").css("text-align", "center");
                   $("#newsletterServices").css("color", "white");
 
