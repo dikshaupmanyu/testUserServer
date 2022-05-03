@@ -4,13 +4,16 @@
 
 
  -->
+ <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 
   <div class="app_main">
                   
             <%- include partials/innersidebar %>
         <div class="app_content">
           <div class="dsbrd_container">
-
+            <input type="hidden" id="nickdatavalue">
              <div class="tip_list_head">
                   <h2>Demo Room One</h2>
              </div> 
@@ -27,48 +30,57 @@
 
               <a href="/firebase">
            
-              <button type="button" class="nav-link btn btn-primary" id="login-button">Enter Demo Room</button>
+              <button type="button" class="btn cmn_btn btn_small btn_primary" id="login-button">Enter Strategy Room</button>
               </a>
+
+              <a id="notmodalcalling">
+           
+                <button type="button" class="btn cmn_btn btn_small btn_primary" id="room-button-2">Enter @basilnsage Room</button>
+                </a>
+
+    
+                  <div class="modal fade" id="exampleModalCenterpin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                      <div class="modal-content">
+                        <div>
+                          <h5 class="header-flag" id="exampleModalLongTitle">Enter Room Code</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+    
+                         <div class="pincode">
+                            <div class="reasonFlag">
+                              <form id="formoid" enctype="multipart/form-data" onsubmit="return false">
+                              <input type="password" id="pcode" class="pin" placeholder="Enter Code Here"/>
+                              <br>
+                             <button type="submit" class="Btn btn btn-primary" id="Btn">Submit</button>
+                             </form>
+                            </div>
+                        </div>
+                      
+                      </div>
+                    </div>
+                  </div>
             </div>
           </div>
         </div>
 
   </div>
 
-     <%- include partials/innerfooter %>
+
+  <script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-app.js"></script>
+
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+
+<script  src="https://www.gstatic.com/firebasejs/8.2.2/firebase-database.js"></script>
+<script  src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
 
 
-
-     <!--  <div class="col-sm-9"  style="height:800px;color: white;">
-
-
-            <br>
-              <h2>
-                <b>Chat Room One</b>
-              </h2>
-              <br>
-              <ul style="list-style: none;">
-                <li><h5><b>1. We believe</b> in personal rights and freedom.</h5> </li>
-                <br>
-                <li><h5><b>2. This space</b> is for sharing winning trades and investing strategies, and yes to speak your mind.</h5> </li>
-                <br>
-                <li><h5><b>3. The app</b> was designed to help anyone make money and beat the market. So, as long as you don’t stand in the way of that ... we are good to go.</h5> </li>
-              </ul>
-              <br>
-              <a href="/chat">
-              <input type="hidden" id="user_id">
-              <input type="hidden" id="user_nickname">
-              <button type="button" class="nav-link" id="login-button">Enter Room</button>
-              </a><br>    
-
-              <a href="/firebase">
-           
-              <button type="button" class="nav-link" id="login-button">Enter Firesbase Chat</button>
-              </a><br>          
-      </div> -->
-
-
-  
+     <%- include partials/innerfooter %> 
 
 <!--     <script src="dist/sample.index.js"></script>
  -->  
@@ -82,4 +94,262 @@
 
        
  </script>
+
+<script type="text/javascript">
+
+  window.history.forward(); 
+       function noBack() { 
+           window.history.forward(); 
+       } 
+
+        window.addEventListener("load", function() {
+
+          var sData = localStorage.getItem('allTokenData');
+            var storageData= JSON.parse(sData);
+            // alert(JSON.stringify(storageData));
+            $("#user_nickname").val(storageData.uname);
+            $('#user_id').val(storageData.uid);
+            $('#user_fcm_token').val(storageData.fcmToken);
+          
+
+
+
+          // document.getElementById("modalcalling").style.display = "block";
+        
+
+         var config = {
+ apiKey: "AIzaSyA0o46jRmw6OghL2fcpdIcNWDeG1EQ5upQ",
+ authDomain: "tradetips-9baa3.firebaseapp.com",
+ databaseURL: "https://tradetips-9baa3.firebaseio.com",
+ projectId: "tradetips-9baa3",
+ type: "service_account",
+ project_id: "tradetips-9baa3",
+ storageBucket: "tradetips-9baa3.appspot.com",
+ messagingSenderId: "592114858590",
+ appId: "1:592114858590:web:2e2f77237953b570fb52cf",
+ measurementId: "G-B3RPK4JXG3",
+ private_key_id: "9efaa0e3e7bf1fac231c69b552514e210442b223",
+ private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDoxICupYmqJ8yY\nmWkKk8lWp3dKzdAfOkAuyb8yrD9WWYOSUsAMIBY+irMBy74uFeJry8hfHicsBWSW\nuzL04S2S6dlJfeuBFI7GmgNIUG3GDfBROKeUS/XUzY2qg0+dNvgYgFbzoBNc0sMH\nxf4Ezarp/3CDqroWQRD0hvn2zUjNOnWqMP4NcZZfhyNJJcrFyvEWcMs8gWR0r+fQ\nijbGVgqf1n9T+HpGBXkXi9X3tZHe3HW4P6n0gjLU1eU8kOr6V6LDDAngp6ESsuQJ\nAyN81Sz9Axi4hygyWl7Oq7zpitVQxjHwzdMuWMGb/GbnHsleJRYHErk85qaHAvp1\nuS416baJAgMBAAECggEACe+VZJ8ZVMOVJrBpvPNZBVNpsq49Y4/bfIPNHw8eNwPk\nK2NP4lSeTnYiNQHq8NGrVBmjSHgjiOwEArEj+DMCfIJx7YKsAlsLyyt412XjgbBH\noVfvQ1PIvxg1I2GujNHzXixgSc779Jrki1jmwnK7CHkIZv5rKhcF78IxOllB8cyn\nsDdEOkYPAvYeVpIG1j3JQD4Yeo5xyT/MEhzZKqvNeg+uKkDS9R3P5jz94gRTbAtv\n3sKuS6Hrx2tn+BmqhpG1YFlKGMeTpAN42Jf96HJZQQvzho1AmTJh1Ep3fCgMOYhW\n0IJa1JnfVlHlZrL2NmLJ7ac+7yCIBPCXGtkihaHmzwKBgQD4g3si7vB2PBFTXxX5\nTJ0LubY/zyMp0sja/Rp2JYVVHh2WNHa6/TKyxksCG2OlMHbHV99QTrBuIyVYPWbN\njGPeQQAwd+y31RhHyePG99gwxvY8rRSzrEoPev6/6LHM5MdPqNzyujY0w0kUp5UR\nUyANKnCVeOll4IEmApBNfT3UhwKBgQDvx5buPbqdGA4mPKmEq/TLUy4OXVCnd1e3\nOe95qQIcbChCCAkSVeJ3nSvE5d0eBGJNlhaWeTA3DP/963o4frkRmaQJK9BsXdnb\nVj5iG3QRRKCYpamH1kY1AHc/G7P7a4hBPJ+4yblpGBiC7EayG9uBhgDA2sdLOPWW\nF1pZ20TwbwKBgAjz66a5hu4rgdBIF6mQigPXH+qykqi6EERbY+2nsmL7n8M+hpx7\n7KymGiOsSu2zjkPmNYRWIWMGXx0LsT1sdliWbORSHbQNuD811b/gQ+iV8l8DOUCz\nz0M5gh31yxn/j/KducAA110VP/e/hc5G+VugEMhBv97MtLpi00IHZgfXAoGBAIBq\nmWfQwY/+4R0TYgp++aSnUMQ6r8ZwwRaNPbcfj9TfDBSJLyqVuqsrDtTt8qVv3aIF\n3uUJ1Iu3N6arJZL6M228pkCPKZnQDaxNnS133IqfAY+fMZNha8pZDIRM9vCRH7Eo\nobYau2UQlZgQqLAdAUt2FBM1WITt5YFT0nzLVTmbAoGBAO/p5zqkeQ3Yjt7qIs8g\nbQTByK/9TsDRdiK9RfsEKuq70BHLuyYoW6jt9yR4AlbQHEFjGek9mWw4k45aZB5P\n2vjISHPiQoAAGVE9eowmvcckYn+IFFkNIs9s3UBX1d2RBzOgy3XMYE897DWGmKc+\n7F3mTXJtUyyjUqERXKBTYxN0\n-----END PRIVATE KEY-----\n",
+ client_email: "firebase-adminsdk-olv1b@tradetips-9baa3.iam.gserviceaccount.com",
+ client_id: "112955508654296836542",
+ auth_uri: "https://accounts.google.com/o/oauth2/auth",
+ token_uri: "https://oauth2.googleapis.com/token",
+ auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+ client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zgd2j%40chatdemo-96e4f.iam.gserviceaccount.com",
+ vapidKey: 'BN2e4vqb2-OY-QX6Z0531oQ1pSiiEUNQU2SEcSaEiMvJFcy8unSAW6gPrFJQeHz0VQyPu2JLqVuaFDnfeDmpy3o'
+
+};
+
+
+firebase.initializeApp(config);
+// alert("ok")
+
+var db = firebase.firestore();
+// $("#user_nickname").val(storageData.uname);
+            // $('#user_id').val(storageData.uid);
+var loggedInName = storageData.uname
+    //  alert(loggedInName);
+           
+           var loggedInVal = $('#user_id').val(storageData.uid);
+           // alert(LoggedInId);
+ var nummers = db.collection("/basilPrivateGroup/Test/groupMembersInfo/").where('userName', '==', loggedInName);
+nummers.get().then(function (querySnapshot) {
+  if(querySnapshot){
+    console.log("okkk")
+    querySnapshot.forEach(function (doc) {
+       console.log(doc.id, ' => ', doc.data());
+       document.getElementById("notmodalcalling").href = "/chatWindowAdminUser";
+   });
+  }
+
+  if(querySnapshot.empty){
+   console.log("not available");
+     document.getElementById("notmodalcalling").setAttribute("data-target", "#exampleModalCenterpin");
+          document.getElementById("notmodalcalling").setAttribute("data-toggle", "modal");
+  }
+  
+});
+ // const docRefUserList = db.collection("/basilPrivateGroup/Test/groupMembersInfo/");
+
+ //  docRefUserList.onSnapshot(function(snapshot) {
+      
+ //       // alert(snapshot.docChanges().length);
+ //       let text = document.getElementById("nickdatavalue");
+ //     snapshot.docChanges().forEach(function(change) {
+            
+ //       var taskDataVal = change.doc.data();
+
+ //       alert(JSON.stringify(taskDataVal));
+
+   
+ //         if(text.value == change.doc.data().userName){
+ //           // alert(change.doc.data());
+ //           // alert("true");
+
+ //           // window.location.href="/chatWindowAdminUser";
+ //            // $('#exampleModalCenterpin').modal('show');
+ //            document.getElementById("notmodalcalling").href = "/chatWindowAdminUser";
+ //            // document.getElementById("modalcalling").style.display = "none";
+
+
+ //         }
+ //         // else{
+ //         //   // alert("false");
+ //         //    // $('#exampleModalCenterpin').modal('show');
+ //         //   // alert("You enter Wrong code !!");
+ //         //   document.getElementById("modalcalling").style.display = "block";
+ //         //   document.getElementById("notmodalcalling").style.display = "none";
+
+ //         // }
+
+ //     });
+
+ //    });
+
+  function getGroupDetail() {
+    
+      var monthlies = db.collection("/basilPrivateGroup").doc("Test").get();
+      monthlies.then((res) => {
+        // document.getElementById('room-button-2').innerText = "Enter " + res.data().groupTitle + " Room";
+        
+         console.log(res.data().groupTitle);
+
+      });
+
+
+}
+
+getGroupDetail();
+
+//    function getGroupDetails() {
+    
+//        var monthlies = db.collection("/basilPrivateGroup").doc("Test").get();
+//        monthlies.then((res) => {
+//         // console.log(res.data().groupCode);
+//         document.getElementById('room-Button-2').innerText = "Enter " + res.data().groupTitle + " Room";
+
+//        });
+
+
+// }
+
+//  getGroupDetails();
+
+function getGroupDetailroomOne() {
+
+      var monthlies = db.collection("/openGroups").doc("demoOpenGroup1").get();
+      monthlies.then((res) => {
+        // document.getElementById('room-button-1').innerText = "Enter " + res.data().groupTitle + " Room";
+        console.log(res.data().groupTitle);
+
+      });
+
+
+}
+
+getGroupDetailroomOne();
+
+
+
+getGroupDetailroomOne();
+
+// alert("done")
+
+$("#formoid").submit(function(event){
+//  alert("hiii");
+ event.preventDefault();
+
+   var monthlies = db.collection("/basilPrivateGroup").doc("Test").get();
+      monthlies.then((res) => {
+       // console.log(res.data().groupCode);
+         var enterCode    = document.getElementById('pcode');
+         if(enterCode.value == res.data().groupCode){
+           var loggedInName = storageData.uname
+          //  var loggedInName = $("#user_nickname").val(storageData.uname);
+           // alert(userName);
+           
+        var loggedInVal= storageData.uid
+          //  var loggedInVal = $('#user_id').val(storageData.uid);
+           // alert(LoggedInId);
+
+  const docRef = db.collection("/basilPrivateGroup/Test/groupMembersInfo/");
+
+   let task = {
+   userName: loggedInName,
+   userId : loggedInVal,
+   id : loggedInVal + "_"+  Date.now(),
+   createdDate :  Date.now(),
+   profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
+   messageSource : "Web"
+   // status: "incomplete"
+   };
+
+   return docRef
+     .add(task)
+     .then((ref) => {
+       // alert(ref.id);
+       task.id = ref.id;
+
+    window.location.href="/chatWindowAdminUser";
+
+      
+     });
+
+   }else{
+     console.log("false");
+     alert("You enter Wrong code !!");
+     $(".successmsg").html('<span>You enter Wrong Code !!</span>');
+         setTimeout(function(){$(".successmsg").empty()}, 5000); 
+   }
+
+ });
+
+
+});
+
+         
+          var url_string = window.location.href; 
+            var urls = new URL(url_string);
+            var sData = localStorage.getItem('allTokenData');
+            var storageData= JSON.parse(sData);
+            // alert(JSON.stringify(storageData));
+            $("#user_nickname").val(storageData.uname);
+            $('#user_id').val(storageData.uid);
+            $('#user_fcm_token').val(storageData.fcmToken);
+
+            
+            
+            document.getElementById("nickdatavalue").setAttribute('value',loggedInName);
+            
+            var fcmToken = document.getElementById('user_fcm_token').value;
+           // $("#nickdatavalue").val(userName);
+           // var today = new Date();
+           // // alert(today);
+           // var str = today.toDateString().split(' ').slice(1).join(' ') + " at " + 
+           // today.toLocaleTimeString() + " GMT+5:30";
+           // // alert(str);
+           // $('#dateval').val(str);
+
+
+         firebase.auth().signInWithCustomToken(fcmToken)
+           .then((userCredential) => {
+             // Signed in
+             // console.log(userCredential);
+             var user = userCredential.user;
+             // var ids = userCredential.uid;
+             console.log(user.uid);
+             // ...
+           })
+           .catch((error) => {
+             console.log("error is" + error);
+             var errorCode = error.code;
+             var errorMessage = error.message;
+             // ...
+           });
+   });
+
+
+   // /////////////////////////////////////
+
+</script>
 

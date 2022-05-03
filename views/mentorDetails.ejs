@@ -647,7 +647,7 @@ function handleError(image) {
                       success: function(data) {
                         // alert(data[0]);
          
-                      var texts = '<div class="review_bx"><div class="review_bx_head"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[0].appUser.id+'" alt="images"><div class="author_bx_txt"><h2 style="display: inline-block";>'+data[0].appUser.userName+'</h2></div></div></div><div class="review_bx_txt"><input type="text" name="a" id="a" value="'+ data[0].appUser.userName +'"><span class="author_tag"><a javascript:void(0); onclick="return flagclick(\'' + data[0].id + '\',\'' + data[0].appUser.id + '\')"><i class="fas fa-flag" aria-hidden="true"  style="color:white;"></i></a></span><p>'+data[0].commentDetails+'</p></div>';
+                      var texts = '<div class="review_bx"><div class="review_bx_head"><div class="author_bx"><img src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[0].appUser.id+'" alt="images"><div class="author_bx_txt"><h2 style="display: inline-block";>'+data[0].appUser.userName+'</h2></div></div></div><div class="review_bx_txt"><input type="hidden" name="a" id="a" value="'+ data[0].appUser.userName +'"><span class="author_tag"><a javascript:void(0); onclick="return flagclick(\'' + data[0].id + '\',\'' + data[0].appUser.id + '\')"><i class="fas fa-flag" aria-hidden="true"  style="color:white;"></i></a></span><p>'+data[0].commentDetails+'</p></div>';
                       $("#commentdemo").prepend(texts);
                       }
                     });

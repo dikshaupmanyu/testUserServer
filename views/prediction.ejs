@@ -232,7 +232,7 @@ const a = null
 
                   // console.log(dataResult.object[41].stockName);
 
-                  var finalshowingAffected = (dataResult.object[totalreslt-1].vxxaffected).slice(6);
+                  var finalshowingAffected = (dataResult.object[totalreslt-1].vxxaffected).slice(7);
                   // console.log(finalshowingAffected);
                   var temp = new Array();
                   temp = finalshowingAffected.split(",");
@@ -244,13 +244,13 @@ const a = null
                   temp1 = finalshowingDates.split(",");
                   // alert(temp1);
 
-                  var finalshowingnewsAffect = (dataResult.object[totalreslt-1].newsAffected).slice(6);
+                  var finalshowingnewsAffect = (dataResult.object[totalreslt-1].newsAffected).slice(7);
                   // console.log(finalshowingAffected);
                   var temp2 = new Array();
                   temp2 = finalshowingnewsAffect.split(",");
                   // alert(temp2)
 
-                  var finalshowingNormalizedPrice = (dataResult.object[totalreslt-1].normalizedPrice).slice(6);
+                  var finalshowingNormalizedPrice = (dataResult.object[totalreslt-1].normalizedPrice).slice(7);
                   // console.log(finalshowingAffected);
                   var temp3 = new Array();
                   temp3 = finalshowingNormalizedPrice.split(",");

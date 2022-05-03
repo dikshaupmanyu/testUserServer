@@ -218,6 +218,9 @@ ul.search-list-loader {
     box-shadow: 0 0 10px rgb(0 0 0 / 20%)
 }
 
+.tip_list_head {
+margin: 0px 0px 10px;
+}
 
 @keyframes loadingD {
   0 {
@@ -307,7 +310,7 @@ ul.search-list-loader {
                 <!-- <div class="tips_wtlist_head"> -->
                 <div class="tip_list_head">
                   <div class="btn-group select_dropdown">
-                    <h2>Stocks</h2>
+                    <h2>Watchlist</h2>
                     <!-- <a class="dropdown-toggle" data-toggle="dropdown">Stocks</a> -->
                     <!-- <ul class="dropdown-menu select_dropdown_menu" id="menu">
                       <li class="dropdown-item px-2"><a href="#">My Watchlist</a></li>
@@ -334,11 +337,11 @@ ul.search-list-loader {
                 <div class="scroller-dash-right scrollbar-css">
                 <div class="search-list-input">
                   <div class="input-group input_group">
-                    <input type="text" class="form-control"  onkeyup="manage(this)" id="search-stock" autocomplete="off" placeholder="Enter Symbol or Company Name" style="text-transform: uppercase; box-sizing: border-box; width: 350px;">
+                    <input type="text" class="form-control"  onkeyup="manage(this)" id="search-stock" autocomplete="off" placeholder="Enter Symbol or Company Name" style=" box-sizing: border-box; width: 350px;">
                     <label class="multi-items" id="multi-items" style="inset: 8px;"></label>
                     <input type="hidden" class="magicsearch-hidden" />
                     <div class="input-group-append" id="input-group-append">
-                      <button  id="stockadd" class="btn" disabled>Add</button>
+                      <button  id="stockadd" class="btn" disabled><i class="fas fa-search"></i>  Search</button>
                     </div>
                   </div>
  <ul class="load-wrapp" style="display: none;">
@@ -448,6 +451,16 @@ ul.search-list-loader {
       }
 
 </script>
+
+<script>
+
+  $(document).ready(function(){
+      $( ".scroller-dash-left" ).scroll(function() {
+         $(".dropdown-menu").removeClass("show");
+      });
+  });
+  
+   </script>
 
 <script type="text/javascript">
    var sData = localStorage.getItem('allTokenData');
@@ -1588,8 +1601,8 @@ $(".scroller-dash-left").scroll(function() {
                    for (k= 0; k< users.length; k ++) {
                     //console.log(users[k]);
                      if(r[users[k]] != undefined){
-                    // texts += '<a href="stockChart?stockName='+ r[users[k]].quote.symbol +'&id='+ deletdata[k] +'"><div class="tips_wtlist_item" id="item-'+ deletdata[k] +'"><div class="tips_wtlist_item_left"><h2>'+ r[users[k]].quote.symbol +'<span>'+ r[users[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[users[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[users[k]].quote.change > 0 ? '<h3><span class="color_buy">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>':'<h3><span class="color_sell">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>')+'</div><div class="tips_wtlist_item_right"><span class="delete_stck" style="    color: white;" onclick="delete_stck(this.id)" id="'+ deletdata[k] +' '+ r[users[k]].quote.symbol +'""><img src="X.png" class="img-responsive" style="height:30px;width:30px;"></span></div></div></a>';
-                    texts += '<a><div class="tips_wtlist_item" id="item-'+ deletdata[k] +'"><div class="tips_wtlist_item_left"><h2>'+ r[users[k]].quote.symbol +'<span>'+ r[users[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[users[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[users[k]].quote.change > 0 ? '<h3><span class="color_buy">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>':'<h3><span class="color_sell">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>')+'</div><div class="tips_wtlist_item_right"><span class="delete_stck" style="    color: white;" onclick="delete_stck(this.id)" id="'+ deletdata[k] +' '+ r[users[k]].quote.symbol +'""><img src="X.png" class="img-responsive" style="height:30px;width:30px;"></span></div></div></a>';
+                    texts += '<div class="tips_wtlist_item" id="item-'+ deletdata[k] +'"><a href="stockChart?stockName='+ r[users[k]].quote.symbol +'&id='+ deletdata[k] +'" style="display:contents"><div class="tips_wtlist_item_left"><h2>'+ r[users[k]].quote.symbol +'<span>'+ r[users[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[users[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[users[k]].quote.change > 0 ? '<h3><span class="color_buy">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>':'<h3><span class="color_sell">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>')+'</div></a><div class="tips_wtlist_item_right"><span class="delete_stck" style="    color: white; cursor:pointer" onclick="delete_stck(this.id)" id="'+ deletdata[k] +' '+ r[users[k]].quote.symbol +'""><img src="X.png" class="img-responsive" style="height:30px;width:30px;"></span></div></div></a>';
+                    // texts += '<a><div class="tips_wtlist_item" id="item-'+ deletdata[k] +'"><div class="tips_wtlist_item_left"><h2>'+ r[users[k]].quote.symbol +'<span>'+ r[users[k]].quote.companyName +'</span></h2></div><div class="tips_wtlist_item_center"><h3>$ '+ parseFloat(r[users[k]].quote.latestPrice).toFixed(2) +'</h3> '+ (r[users[k]].quote.change > 0 ? '<h3><span class="color_buy">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>':'<h3><span class="color_sell">'+ parseFloat(r[users[k]].quote.change).toFixed(2) +'</span></h3>')+'</div><div class="tips_wtlist_item_right"><span class="delete_stck" style="    color: white;" onclick="delete_stck(this.id)" id="'+ deletdata[k] +' '+ r[users[k]].quote.symbol +'""><img src="X.png" class="img-responsive" style="height:30px;width:30px;"></span></div></div></a>';
                    }
                  }
                        $(".load-wrapp-list").css('display','none');
@@ -1655,7 +1668,7 @@ $(".scroller-dash-left").scroll(function() {
                           const d = await response.json()
                               // return datas;
 
-                          console.log(d[array[0].stock_name]);
+                          // console.log(d[array[0].stock_name]);
 
                         
                         var date = array[0].sma_generation_date;
