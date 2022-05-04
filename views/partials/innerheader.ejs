@@ -186,19 +186,21 @@ window.addEventListener("load", function() {
         // data: formdata,
        success: function(data) {
 
+        document.getElementById("badgecount").textContent =data.unReadCount;
+
             // alert(data);
 
-            if(data.unReadCount > 0){
+            // if(data.unReadCount > 0){
 
-              // alert(data.unReadCount);
+            //   // alert(data.unReadCount);
 
-               document.getElementById("badgecount").textContent = data.unReadCount;
+            //    document.getElementById("badgecount").textContent = data.unReadCount;
 
-            }else {
+            // }else {
 
-               document.getElementById("badgecount").textContent = "0";
-              // alert("no count");
-            }
+            //    document.getElementById("badgecount").textContent = "0";
+            //   // alert("no count");
+            // }
 
          },error: function(error){
            document.getElementById("badgecount").textContent = "0";

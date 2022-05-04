@@ -9,7 +9,7 @@
              <div class="tip_list_head">
                   <h2>Notification</h2>
              </div> 
-             <a onclick="deleteAllnotification();" style="cursor:pointer; display: none;"><button type="button" class="btn cmn_btn btn_small btn_primary" id="login-button">Delete All Notification</button></a>
+             <a onclick="deleteAllnotification();" style="cursor:pointer"><button type="button" class="btn cmn_btn btn_small btn_primary" id="login-button" style="display:none">Delete All Notification</button></a>
              <br>
              <div class="post_new_tips_wrapper" style="background: none;width: 80%;">
               <ul style="list-style: none;" id="notifyList">
@@ -91,9 +91,11 @@ $(document).ready(function(){
 
       //     $("#notifyList").append(notificationVals);  
 
+      // alert(dataResult.length)
 
       if(dataResult.length > 0){
           //  alert("button is visible Successfully")
+           
            document.getElementById('login-button').style.display = "block";
 
            for(i = 0; i < dataResult.length; i ++){

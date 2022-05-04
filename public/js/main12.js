@@ -1,41 +1,44 @@
 var config = {
-    apiKey: "AIzaSyA0o46jRmw6OghL2fcpdIcNWDeG1EQ5upQ",
-    authDomain: "tradetips-9baa3.firebaseapp.com",
-    databaseURL: "https://tradetips-9baa3.firebaseio.com",
-    projectId: "tradetips-9baa3",
-    type: "service_account",
-    project_id: "tradetips-9baa3",
-    storageBucket: "tradetips-9baa3.appspot.com",
-    messagingSenderId: "592114858590",
-    appId: "1:592114858590:web:2e2f77237953b570fb52cf",
-    measurementId: "G-B3RPK4JXG3",
-    private_key_id: "9efaa0e3e7bf1fac231c69b552514e210442b223",
-    private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDoxICupYmqJ8yY\nmWkKk8lWp3dKzdAfOkAuyb8yrD9WWYOSUsAMIBY+irMBy74uFeJry8hfHicsBWSW\nuzL04S2S6dlJfeuBFI7GmgNIUG3GDfBROKeUS/XUzY2qg0+dNvgYgFbzoBNc0sMH\nxf4Ezarp/3CDqroWQRD0hvn2zUjNOnWqMP4NcZZfhyNJJcrFyvEWcMs8gWR0r+fQ\nijbGVgqf1n9T+HpGBXkXi9X3tZHe3HW4P6n0gjLU1eU8kOr6V6LDDAngp6ESsuQJ\nAyN81Sz9Axi4hygyWl7Oq7zpitVQxjHwzdMuWMGb/GbnHsleJRYHErk85qaHAvp1\nuS416baJAgMBAAECggEACe+VZJ8ZVMOVJrBpvPNZBVNpsq49Y4/bfIPNHw8eNwPk\nK2NP4lSeTnYiNQHq8NGrVBmjSHgjiOwEArEj+DMCfIJx7YKsAlsLyyt412XjgbBH\noVfvQ1PIvxg1I2GujNHzXixgSc779Jrki1jmwnK7CHkIZv5rKhcF78IxOllB8cyn\nsDdEOkYPAvYeVpIG1j3JQD4Yeo5xyT/MEhzZKqvNeg+uKkDS9R3P5jz94gRTbAtv\n3sKuS6Hrx2tn+BmqhpG1YFlKGMeTpAN42Jf96HJZQQvzho1AmTJh1Ep3fCgMOYhW\n0IJa1JnfVlHlZrL2NmLJ7ac+7yCIBPCXGtkihaHmzwKBgQD4g3si7vB2PBFTXxX5\nTJ0LubY/zyMp0sja/Rp2JYVVHh2WNHa6/TKyxksCG2OlMHbHV99QTrBuIyVYPWbN\njGPeQQAwd+y31RhHyePG99gwxvY8rRSzrEoPev6/6LHM5MdPqNzyujY0w0kUp5UR\nUyANKnCVeOll4IEmApBNfT3UhwKBgQDvx5buPbqdGA4mPKmEq/TLUy4OXVCnd1e3\nOe95qQIcbChCCAkSVeJ3nSvE5d0eBGJNlhaWeTA3DP/963o4frkRmaQJK9BsXdnb\nVj5iG3QRRKCYpamH1kY1AHc/G7P7a4hBPJ+4yblpGBiC7EayG9uBhgDA2sdLOPWW\nF1pZ20TwbwKBgAjz66a5hu4rgdBIF6mQigPXH+qykqi6EERbY+2nsmL7n8M+hpx7\n7KymGiOsSu2zjkPmNYRWIWMGXx0LsT1sdliWbORSHbQNuD811b/gQ+iV8l8DOUCz\nz0M5gh31yxn/j/KducAA110VP/e/hc5G+VugEMhBv97MtLpi00IHZgfXAoGBAIBq\nmWfQwY/+4R0TYgp++aSnUMQ6r8ZwwRaNPbcfj9TfDBSJLyqVuqsrDtTt8qVv3aIF\n3uUJ1Iu3N6arJZL6M228pkCPKZnQDaxNnS133IqfAY+fMZNha8pZDIRM9vCRH7Eo\nobYau2UQlZgQqLAdAUt2FBM1WITt5YFT0nzLVTmbAoGBAO/p5zqkeQ3Yjt7qIs8g\nbQTByK/9TsDRdiK9RfsEKuq70BHLuyYoW6jt9yR4AlbQHEFjGek9mWw4k45aZB5P\n2vjISHPiQoAAGVE9eowmvcckYn+IFFkNIs9s3UBX1d2RBzOgy3XMYE897DWGmKc+\n7F3mTXJtUyyjUqERXKBTYxN0\n-----END PRIVATE KEY-----\n",
-    client_email: "firebase-adminsdk-olv1b@tradetips-9baa3.iam.gserviceaccount.com",
-    client_id: "112955508654296836542",
-    auth_uri: "https://accounts.google.com/o/oauth2/auth",
-    token_uri: "https://oauth2.googleapis.com/token",
-    auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-    client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zgd2j%40chatdemo-96e4f.iam.gserviceaccount.com",
-    vapidKey: 'BN2e4vqb2-OY-QX6Z0531oQ1pSiiEUNQU2SEcSaEiMvJFcy8unSAW6gPrFJQeHz0VQyPu2JLqVuaFDnfeDmpy3o'
-    // apiKey: "AIzaSyA89MvmT1QzbvnCGfZ8B7yaJRuE3DwaOPE",
-    // authDomain: "chatdemo-96e4f.firebaseapp.com",
-    // databaseURL: "https://chatdemo-96e4f.firebaseio.com",
-    // projectId: "chatdemo-96e4f",
-    // type: "service_account",
-    // project_id: "chatdemo-96e4f",
-    // storageBucket: "chatdemo-96e4f.appspot.com",
-    // messagingSenderId: "993956240122",
-    // appId: "1:993956240122:web:cb9941a3090a8d029cc743",
-    // private_key_id: "9efaa0e3e7bf1fac231c69b552514e210442b223",
-    // private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDoxICupYmqJ8yY\nmWkKk8lWp3dKzdAfOkAuyb8yrD9WWYOSUsAMIBY+irMBy74uFeJry8hfHicsBWSW\nuzL04S2S6dlJfeuBFI7GmgNIUG3GDfBROKeUS/XUzY2qg0+dNvgYgFbzoBNc0sMH\nxf4Ezarp/3CDqroWQRD0hvn2zUjNOnWqMP4NcZZfhyNJJcrFyvEWcMs8gWR0r+fQ\nijbGVgqf1n9T+HpGBXkXi9X3tZHe3HW4P6n0gjLU1eU8kOr6V6LDDAngp6ESsuQJ\nAyN81Sz9Axi4hygyWl7Oq7zpitVQxjHwzdMuWMGb/GbnHsleJRYHErk85qaHAvp1\nuS416baJAgMBAAECggEACe+VZJ8ZVMOVJrBpvPNZBVNpsq49Y4/bfIPNHw8eNwPk\nK2NP4lSeTnYiNQHq8NGrVBmjSHgjiOwEArEj+DMCfIJx7YKsAlsLyyt412XjgbBH\noVfvQ1PIvxg1I2GujNHzXixgSc779Jrki1jmwnK7CHkIZv5rKhcF78IxOllB8cyn\nsDdEOkYPAvYeVpIG1j3JQD4Yeo5xyT/MEhzZKqvNeg+uKkDS9R3P5jz94gRTbAtv\n3sKuS6Hrx2tn+BmqhpG1YFlKGMeTpAN42Jf96HJZQQvzho1AmTJh1Ep3fCgMOYhW\n0IJa1JnfVlHlZrL2NmLJ7ac+7yCIBPCXGtkihaHmzwKBgQD4g3si7vB2PBFTXxX5\nTJ0LubY/zyMp0sja/Rp2JYVVHh2WNHa6/TKyxksCG2OlMHbHV99QTrBuIyVYPWbN\njGPeQQAwd+y31RhHyePG99gwxvY8rRSzrEoPev6/6LHM5MdPqNzyujY0w0kUp5UR\nUyANKnCVeOll4IEmApBNfT3UhwKBgQDvx5buPbqdGA4mPKmEq/TLUy4OXVCnd1e3\nOe95qQIcbChCCAkSVeJ3nSvE5d0eBGJNlhaWeTA3DP/963o4frkRmaQJK9BsXdnb\nVj5iG3QRRKCYpamH1kY1AHc/G7P7a4hBPJ+4yblpGBiC7EayG9uBhgDA2sdLOPWW\nF1pZ20TwbwKBgAjz66a5hu4rgdBIF6mQigPXH+qykqi6EERbY+2nsmL7n8M+hpx7\n7KymGiOsSu2zjkPmNYRWIWMGXx0LsT1sdliWbORSHbQNuD811b/gQ+iV8l8DOUCz\nz0M5gh31yxn/j/KducAA110VP/e/hc5G+VugEMhBv97MtLpi00IHZgfXAoGBAIBq\nmWfQwY/+4R0TYgp++aSnUMQ6r8ZwwRaNPbcfj9TfDBSJLyqVuqsrDtTt8qVv3aIF\n3uUJ1Iu3N6arJZL6M228pkCPKZnQDaxNnS133IqfAY+fMZNha8pZDIRM9vCRH7Eo\nobYau2UQlZgQqLAdAUt2FBM1WITt5YFT0nzLVTmbAoGBAO/p5zqkeQ3Yjt7qIs8g\nbQTByK/9TsDRdiK9RfsEKuq70BHLuyYoW6jt9yR4AlbQHEFjGek9mWw4k45aZB5P\n2vjISHPiQoAAGVE9eowmvcckYn+IFFkNIs9s3UBX1d2RBzOgy3XMYE897DWGmKc+\n7F3mTXJtUyyjUqERXKBTYxN0\n-----END PRIVATE KEY-----\n",
-    // client_email: "firebase-adminsdk-zgd2j@chatdemo-96e4f.iam.gserviceaccount.com",
-    // client_id: "112955508654296836542",
-    // auth_uri: "https://accounts.google.com/o/oauth2/auth",
-    // token_uri: "https://oauth2.googleapis.com/token",
-    // auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
-    // client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zgd2j%40chatdemo-96e4f.iam.gserviceaccount.com"
-
+  apiKey: "AIzaSyA0o46jRmw6OghL2fcpdIcNWDeG1EQ5upQ",
+  authDomain: "tradetips-9baa3.firebaseapp.com",
+  databaseURL: "https://tradetips-9baa3.firebaseio.com",
+  projectId: "tradetips-9baa3",
+  type: "service_account",
+  project_id: "tradetips-9baa3",
+  storageBucket: "tradetips-9baa3.appspot.com",
+  messagingSenderId: "592114858590",
+  appId: "1:592114858590:web:2e2f77237953b570fb52cf",
+  measurementId: "G-B3RPK4JXG3",
+  private_key_id: "9efaa0e3e7bf1fac231c69b552514e210442b223",
+  private_key:
+    "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDoxICupYmqJ8yY\nmWkKk8lWp3dKzdAfOkAuyb8yrD9WWYOSUsAMIBY+irMBy74uFeJry8hfHicsBWSW\nuzL04S2S6dlJfeuBFI7GmgNIUG3GDfBROKeUS/XUzY2qg0+dNvgYgFbzoBNc0sMH\nxf4Ezarp/3CDqroWQRD0hvn2zUjNOnWqMP4NcZZfhyNJJcrFyvEWcMs8gWR0r+fQ\nijbGVgqf1n9T+HpGBXkXi9X3tZHe3HW4P6n0gjLU1eU8kOr6V6LDDAngp6ESsuQJ\nAyN81Sz9Axi4hygyWl7Oq7zpitVQxjHwzdMuWMGb/GbnHsleJRYHErk85qaHAvp1\nuS416baJAgMBAAECggEACe+VZJ8ZVMOVJrBpvPNZBVNpsq49Y4/bfIPNHw8eNwPk\nK2NP4lSeTnYiNQHq8NGrVBmjSHgjiOwEArEj+DMCfIJx7YKsAlsLyyt412XjgbBH\noVfvQ1PIvxg1I2GujNHzXixgSc779Jrki1jmwnK7CHkIZv5rKhcF78IxOllB8cyn\nsDdEOkYPAvYeVpIG1j3JQD4Yeo5xyT/MEhzZKqvNeg+uKkDS9R3P5jz94gRTbAtv\n3sKuS6Hrx2tn+BmqhpG1YFlKGMeTpAN42Jf96HJZQQvzho1AmTJh1Ep3fCgMOYhW\n0IJa1JnfVlHlZrL2NmLJ7ac+7yCIBPCXGtkihaHmzwKBgQD4g3si7vB2PBFTXxX5\nTJ0LubY/zyMp0sja/Rp2JYVVHh2WNHa6/TKyxksCG2OlMHbHV99QTrBuIyVYPWbN\njGPeQQAwd+y31RhHyePG99gwxvY8rRSzrEoPev6/6LHM5MdPqNzyujY0w0kUp5UR\nUyANKnCVeOll4IEmApBNfT3UhwKBgQDvx5buPbqdGA4mPKmEq/TLUy4OXVCnd1e3\nOe95qQIcbChCCAkSVeJ3nSvE5d0eBGJNlhaWeTA3DP/963o4frkRmaQJK9BsXdnb\nVj5iG3QRRKCYpamH1kY1AHc/G7P7a4hBPJ+4yblpGBiC7EayG9uBhgDA2sdLOPWW\nF1pZ20TwbwKBgAjz66a5hu4rgdBIF6mQigPXH+qykqi6EERbY+2nsmL7n8M+hpx7\n7KymGiOsSu2zjkPmNYRWIWMGXx0LsT1sdliWbORSHbQNuD811b/gQ+iV8l8DOUCz\nz0M5gh31yxn/j/KducAA110VP/e/hc5G+VugEMhBv97MtLpi00IHZgfXAoGBAIBq\nmWfQwY/+4R0TYgp++aSnUMQ6r8ZwwRaNPbcfj9TfDBSJLyqVuqsrDtTt8qVv3aIF\n3uUJ1Iu3N6arJZL6M228pkCPKZnQDaxNnS133IqfAY+fMZNha8pZDIRM9vCRH7Eo\nobYau2UQlZgQqLAdAUt2FBM1WITt5YFT0nzLVTmbAoGBAO/p5zqkeQ3Yjt7qIs8g\nbQTByK/9TsDRdiK9RfsEKuq70BHLuyYoW6jt9yR4AlbQHEFjGek9mWw4k45aZB5P\n2vjISHPiQoAAGVE9eowmvcckYn+IFFkNIs9s3UBX1d2RBzOgy3XMYE897DWGmKc+\n7F3mTXJtUyyjUqERXKBTYxN0\n-----END PRIVATE KEY-----\n",
+  client_email:
+    "firebase-adminsdk-olv1b@tradetips-9baa3.iam.gserviceaccount.com",
+  client_id: "112955508654296836542",
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url:
+    "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zgd2j%40chatdemo-96e4f.iam.gserviceaccount.com",
+  vapidKey:
+    "BN2e4vqb2-OY-QX6Z0531oQ1pSiiEUNQU2SEcSaEiMvJFcy8unSAW6gPrFJQeHz0VQyPu2JLqVuaFDnfeDmpy3o",
+  // apiKey: "AIzaSyA89MvmT1QzbvnCGfZ8B7yaJRuE3DwaOPE",
+  // authDomain: "chatdemo-96e4f.firebaseapp.com",
+  // databaseURL: "https://chatdemo-96e4f.firebaseio.com",
+  // projectId: "chatdemo-96e4f",
+  // type: "service_account",
+  // project_id: "chatdemo-96e4f",
+  // storageBucket: "chatdemo-96e4f.appspot.com",
+  // messagingSenderId: "993956240122",
+  // appId: "1:993956240122:web:cb9941a3090a8d029cc743",
+  // private_key_id: "9efaa0e3e7bf1fac231c69b552514e210442b223",
+  // private_key: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDoxICupYmqJ8yY\nmWkKk8lWp3dKzdAfOkAuyb8yrD9WWYOSUsAMIBY+irMBy74uFeJry8hfHicsBWSW\nuzL04S2S6dlJfeuBFI7GmgNIUG3GDfBROKeUS/XUzY2qg0+dNvgYgFbzoBNc0sMH\nxf4Ezarp/3CDqroWQRD0hvn2zUjNOnWqMP4NcZZfhyNJJcrFyvEWcMs8gWR0r+fQ\nijbGVgqf1n9T+HpGBXkXi9X3tZHe3HW4P6n0gjLU1eU8kOr6V6LDDAngp6ESsuQJ\nAyN81Sz9Axi4hygyWl7Oq7zpitVQxjHwzdMuWMGb/GbnHsleJRYHErk85qaHAvp1\nuS416baJAgMBAAECggEACe+VZJ8ZVMOVJrBpvPNZBVNpsq49Y4/bfIPNHw8eNwPk\nK2NP4lSeTnYiNQHq8NGrVBmjSHgjiOwEArEj+DMCfIJx7YKsAlsLyyt412XjgbBH\noVfvQ1PIvxg1I2GujNHzXixgSc779Jrki1jmwnK7CHkIZv5rKhcF78IxOllB8cyn\nsDdEOkYPAvYeVpIG1j3JQD4Yeo5xyT/MEhzZKqvNeg+uKkDS9R3P5jz94gRTbAtv\n3sKuS6Hrx2tn+BmqhpG1YFlKGMeTpAN42Jf96HJZQQvzho1AmTJh1Ep3fCgMOYhW\n0IJa1JnfVlHlZrL2NmLJ7ac+7yCIBPCXGtkihaHmzwKBgQD4g3si7vB2PBFTXxX5\nTJ0LubY/zyMp0sja/Rp2JYVVHh2WNHa6/TKyxksCG2OlMHbHV99QTrBuIyVYPWbN\njGPeQQAwd+y31RhHyePG99gwxvY8rRSzrEoPev6/6LHM5MdPqNzyujY0w0kUp5UR\nUyANKnCVeOll4IEmApBNfT3UhwKBgQDvx5buPbqdGA4mPKmEq/TLUy4OXVCnd1e3\nOe95qQIcbChCCAkSVeJ3nSvE5d0eBGJNlhaWeTA3DP/963o4frkRmaQJK9BsXdnb\nVj5iG3QRRKCYpamH1kY1AHc/G7P7a4hBPJ+4yblpGBiC7EayG9uBhgDA2sdLOPWW\nF1pZ20TwbwKBgAjz66a5hu4rgdBIF6mQigPXH+qykqi6EERbY+2nsmL7n8M+hpx7\n7KymGiOsSu2zjkPmNYRWIWMGXx0LsT1sdliWbORSHbQNuD811b/gQ+iV8l8DOUCz\nz0M5gh31yxn/j/KducAA110VP/e/hc5G+VugEMhBv97MtLpi00IHZgfXAoGBAIBq\nmWfQwY/+4R0TYgp++aSnUMQ6r8ZwwRaNPbcfj9TfDBSJLyqVuqsrDtTt8qVv3aIF\n3uUJ1Iu3N6arJZL6M228pkCPKZnQDaxNnS133IqfAY+fMZNha8pZDIRM9vCRH7Eo\nobYau2UQlZgQqLAdAUt2FBM1WITt5YFT0nzLVTmbAoGBAO/p5zqkeQ3Yjt7qIs8g\nbQTByK/9TsDRdiK9RfsEKuq70BHLuyYoW6jt9yR4AlbQHEFjGek9mWw4k45aZB5P\n2vjISHPiQoAAGVE9eowmvcckYn+IFFkNIs9s3UBX1d2RBzOgy3XMYE897DWGmKc+\n7F3mTXJtUyyjUqERXKBTYxN0\n-----END PRIVATE KEY-----\n",
+  // client_email: "firebase-adminsdk-zgd2j@chatdemo-96e4f.iam.gserviceaccount.com",
+  // client_id: "112955508654296836542",
+  // auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  // token_uri: "https://oauth2.googleapis.com/token",
+  // auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  // client_x509_cert_url: "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-zgd2j%40chatdemo-96e4f.iam.gserviceaccount.com"
 };
 
 firebase.initializeApp(config);
@@ -49,44 +52,44 @@ var db = firebase.firestore();
 // alert(loggedInVal);
 
 function getGroupDetails() {
-  
-  var monthlies = db.collection("/basilPrivateGroup").doc("Test").get();
+  var monthlies = db
+    .collection("/basilPrivateGroup")
+    .doc("Test")
+    .get();
   monthlies.then((res) => {
-   // console.log(res.data().groupCode);
-   document.getElementById('room-Button-2').innerText = "Enter " + res.data().groupTitle + " Room";
-
+    // console.log(res.data().groupCode);
+    document.getElementById("room-Button-2").innerText =
+      "Enter " + res.data().groupTitle + " Room";
   });
-
-
 }
 
 getGroupDetails();
 
 function getGroupDetailroomOne() {
-
-  var monthlies = db.collection("/openGroups").doc("demoOpenGroup1").get();
+  var monthlies = db
+    .collection("/openGroups")
+    .doc("demoOpenGroup1")
+    .get();
   monthlies.then((res) => {
-    document.getElementById('room-Button-1').innerText = "Enter " + res.data().groupTitle + " Room";
+    document.getElementById("room-Button-1").innerText =
+      "Enter " + res.data().groupTitle + " Room";
     console.log(res.data().groupTitle);
-
   });
-
-
 }
 
 getGroupDetailroomOne();
-       
+
 const docRef = db.collection("/openGroups/demoOpenGroup1/messages/");
 const tasksDOM = document.getElementById("tasks");
-var fullName   = document.getElementById('user_nickname');
-var message    = document.getElementById('btn-input');
-var userId     = document.getElementById('user_id');
+var fullName = document.getElementById("user_nickname");
+var message = document.getElementById("btn-input");
+var userId = document.getElementById("user_id");
 // var hiddenId   = document.getElementById('hiddenId');
-var date = document.getElementById('dateval');
+var date = document.getElementById("dateval");
 // utility functions
 function cleanData(snapshots) {
   let data = [];
-  snapshots.forEach(function (doc) {
+  snapshots.forEach(function(doc) {
     data.push({ id: doc.id, ...doc.data() });
   });
   return data;
@@ -95,214 +98,222 @@ function cleanData(snapshots) {
 // form functions
 function handleCreate(event) {
   event.preventDefault();
-   // alert(JSON.stringify(event));
+  // alert(JSON.stringify(event));
 
   // var sData = localStorage.getItem('allTokenData');
   // var storageData= JSON.parse(sData);
   // var loggedInVal = storageData.uid;
   // var loggedInName = storageData.uname;
 
-  var loggedInVal = document.getElementById('user_id').value;
-  var loggedInName = document.getElementById('user_nickname').value;
+  var loggedInVal = document.getElementById("user_id").value;
+  var loggedInName = document.getElementById("user_nickname").value;
 
-   if(message.value != ""){
-
+  if (message.value != "") {
     let task = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: message.value,
-    messageId : loggedInVal + "_"+  Date.now(),
-    messageType : "text",
-    createdDate :  Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    messageSource : "Web"
-    // status: "incomplete"
-  };
-  return docRef
-    .add(task)
-    .then((ref) => {
+      userName: loggedInName,
+      userId: loggedInVal,
+      message: message.value,
+      messageId: loggedInVal + "_" + Date.now(),
+      messageType: "text",
+      createdDate: Date.now(),
+      profileImageUrl:
+        "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+        loggedInVal,
+      messageSource: "Web",
+      // status: "incomplete"
+    };
+    return docRef.add(task).then((ref) => {
       task.id = ref.id;
       // fullName.value = '';
-      message.value  = '';
+      message.value = "";
       // date.value = '';
       // return createTask(task);
     });
-
-   }
+  }
   //  else{
   //   alert("Message not empty");
-  //  }    
- 
+  //  }
 }
-
 
 // Get Output
 
-
-function getoutput(event,id) {
-
-  if (!event || !event.target || !event.target.files || event.target.files.length === 0) {
+function getoutput(event, id) {
+  if (
+    !event ||
+    !event.target ||
+    !event.target.files ||
+    event.target.files.length === 0
+  ) {
     return;
   }
 
   const name = event.target.files[0].name;
-  const lastDot = name.lastIndexOf('.');
+  const lastDot = name.lastIndexOf(".");
   const fileName = name.substring(0, lastDot);
   const ext = name.substring(lastDot + 1);
   const type = event.target.files[0].type;
   var loggedInVal = user_id.value;
-   var loggedInName = user_nickname.value;
+  var loggedInName = user_nickname.value;
 
   const file = event.target.files[0];
 
-  const docRefreply = db.collection("/openGroups/demoOpenGroup1/messages/"+id+"/replies/");
+  const docRefreply = db.collection(
+    "/openGroups/demoOpenGroup1/messages/" + id + "/replies/"
+  );
 
-
-
- 
   // if(file.type == "video/mp4" || "video/mov" || "video/wmv" || "video/avi" || "video/avchd" || "video/webm" || "video/mkv"){
-   
-   if(type == "video/mp4" || type == "video/webm" || type == "video/mov" || type == "video/wmv"|| type == "video/mkv"){
 
-    firebase.storage().ref('message_storage_test_env/').child("photo_message_"+loggedInVal+"_"+"_"+Date.now()).put(file).then(function(snapshot) {
-      return snapshot.ref.getDownloadURL()
-   }).then(url => {
-     console.log("Firebase storage image uploaded : ", url);
-       
-       
-  let taskreplys = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: url,
-    messageId : loggedInVal + "_"+ Date.now(),
-    messageType : "video",
-    createdDate : Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    // status: "incomplete"
-    messageSource : "Web"
-  };
-  return docRefreply
-    .add(taskreplys)
-    .then((ref) => {
-      console.log(ref.id);
+  if (
+    type == "video/mp4" ||
+    type == "video/webm" ||
+    type == "video/mov" ||
+    type == "video/wmv" ||
+    type == "video/mkv"
+  ) {
+    firebase
+      .storage()
+      .ref("message_storage_test_env/")
+      .child("photo_message_" + loggedInVal + "_" + "_" + Date.now())
+      .put(file)
+      .then(function(snapshot) {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log("Firebase storage image uploaded : ", url);
 
-      // $("div#exampleModalCenter"+id).css("display", "none");
+        let taskreplys = {
+          userName: loggedInName,
+          userId: loggedInVal,
+          message: url,
+          messageId: loggedInVal + "_" + Date.now(),
+          messageType: "video",
+          createdDate: Date.now(),
+          profileImageUrl:
+            "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+            loggedInVal,
+          // status: "incomplete"
+          messageSource: "Web",
+        };
+        return docRefreply.add(taskreplys).then((ref) => {
+          console.log(ref.id);
 
-      taskreplys.id = ref.id;
-      // fullName.value = '';
-      message.value  = '';
-      // date.value = '';
-      // return createTask(task);
-    });
+          // $("div#exampleModalCenter"+id).css("display", "none");
 
+          taskreplys.id = ref.id;
+          // fullName.value = '';
+          message.value = "";
+          // date.value = '';
+          // return createTask(task);
+        });
+      });
+  } else if (
+    type == "image/jpeg" ||
+    type == "image/png" ||
+    type == "image/gif" ||
+    type == "image/jpg" ||
+    type == "image/webp"
+  ) {
+    firebase
+      .storage()
+      .ref("message_storage_test_env/")
+      .child("photo_message_" + loggedInVal + "_" + "_" + Date.now())
+      .put(file)
+      .then(function(snapshot) {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log("Firebase storage image uploaded : ", url);
 
-    });
+        let taskreplys = {
+          userName: loggedInName,
+          userId: loggedInVal,
+          message: url,
+          messageId: loggedInVal + "_" + Date.now(),
+          messageType: "photo",
+          createdDate: Date.now(),
+          profileImageUrl:
+            "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+            loggedInVal,
+          // status: "incomplete"
+          messageSource: "Web",
+        };
+        return docRefreply.add(taskreplys).then((ref) => {
+          console.log(ref.id);
+          // $("div#exampleModalCenter"+id).css("display", "none");
 
-   }
-  else if (type == "image/jpeg"|| type == "image/png" || type == "image/gif" || type == "image/jpg" || type == "image/webp") {
+          taskreplys.id = ref.id;
+          // fullName.value = '';
+          message.value = "";
+          // date.value = '';
+          // return createTask(task);
+        });
+      });
+  } else {
+    firebase
+      .storage()
+      .ref("message_storage_test_env/")
+      .child(file.name + "_" + Date.now())
+      .put(file)
+      .then(function(snapshot) {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log("Firebase storage image uploaded : ", url);
 
+        let taskreplys = {
+          userName: loggedInName,
+          userId: loggedInVal,
+          message: url,
+          messageId: loggedInVal + "_" + Date.now(),
+          messageType: "audio",
+          createdDate: Date.now(),
+          profileImageUrl:
+            "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+            loggedInVal,
+          // status: "incomplete"
+          messageSource: "Web",
+        };
+        return docRefreply.add(taskreplys).then((ref) => {
+          console.log(ref.id);
 
-    firebase.storage().ref('message_storage_test_env/').child("photo_message_"+loggedInVal+"_"+"_"+Date.now()).put(file).then(function(snapshot) {
-      return snapshot.ref.getDownloadURL()
-   }).then(url => {
-     console.log("Firebase storage image uploaded : ", url);
-       
-   
-  let taskreplys  = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: url,
-    messageId : loggedInVal + "_"+ Date.now(),
-    messageType : "photo",
-    createdDate : Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    // status: "incomplete"
-    messageSource : "Web"
-  };
-  return docRefreply
-    .add(taskreplys)
-    .then((ref) => {
-      console.log(ref.id);
-           // $("div#exampleModalCenter"+id).css("display", "none");
+          // $("div#exampleModalCenter"+uniqueDocId).css("display", "none");
 
-      taskreplys.id = ref.id;
-      // fullName.value = '';
-      message.value  = '';
-      // date.value = '';
-      // return createTask(task);
-    });
-
-
-    });
+          taskreplys.id = ref.id;
+          // fullName.value = '';
+          message.value = "";
+          // date.value = '';
+          // return createTask(task);
+        });
+      });
   }
-else{
-
-
-  firebase.storage().ref('message_storage_test_env/').child(file.name+"_"+Date.now()).put(file).then(function(snapshot) {
-    return snapshot.ref.getDownloadURL()
- }).then(url => {
-   console.log("Firebase storage image uploaded : ", url);
-     
-     
-  let taskreplys  = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: url,
-    messageId : loggedInVal + "_"+ Date.now(),
-    messageType : "audio",
-    createdDate : Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    // status: "incomplete"
-    messageSource : "Web"
-  };
-  return docRefreply
-    .add(taskreplys)
-    .then((ref) => {
-      console.log(ref.id);
-
-      // $("div#exampleModalCenter"+uniqueDocId).css("display", "none");
-
-      taskreplys.id = ref.id;
-      // fullName.value = '';
-      message.value  = '';
-      // date.value = '';
-      // return createTask(task);
-    });
-
-
-  });
-
-  
-  }
-  $(".successmsg").html('<span>Uploading File....</span>');
-  setTimeout(function(){$(".successmsg").empty()}, 8000);
+  $(".successmsg").html("<span>Uploading File....</span>");
+  setTimeout(function() {
+    $(".successmsg").empty();
+  }, 8000);
 }
 
-
-
-// popup Create 
+// popup Create
 
 function popupCreate(event) {
   // alert("calling " + JSON.stringify(event));
-    
-   $('ul#tasksreply'+event).show();
 
-  var docId     = document.getElementById('btn-input-replyId'+event).value;
+  $("ul#tasksreply" + event).show();
+
+  var docId = document.getElementById("btn-input-replyId" + event).value;
   // alert(docId);
   // var ids = docId.value;
   // docRef.doc(ids).get().then(function(doc) {
- 
+
   //     console.log(doc.id, " => ", doc.data());
 
   //      });
-  var fullName   = document.getElementById('user_nickname');
- // alert(fullName.value);
-  var message    = document.getElementById('btn-input-replymsg'+event);
+  var fullName = document.getElementById("user_nickname");
+  // alert(fullName.value);
+  var message = document.getElementById("btn-input-replymsg" + event);
   // alert(message.value);
-  var userId     = document.getElementById('user_id');
+  var userId = document.getElementById("user_id");
   // alert(userId.value);
-  
-   
+
   var loggedInVal = userId.value;
   // alert(loggedInVal);
   var loggedInName = fullName.value;
@@ -310,70 +321,68 @@ function popupCreate(event) {
   var uniqueDocId = docId;
   // alert(uniqueDocId);
 
-  const docReply = db.collection("/openGroups/demoOpenGroup1/messages/"+uniqueDocId+"/replies/"); 
+  const docReply = db.collection(
+    "/openGroups/demoOpenGroup1/messages/" + uniqueDocId + "/replies/"
+  );
   // alert(docReply);
 
+  if (message.value != "") {
+    // alert("message")
 
- if(message.value != ""){
-   // alert("message")
+    let taskR = {
+      userName: loggedInName,
+      userId: loggedInVal,
+      message: message.value,
+      messageId: loggedInVal + "_" + Date.now(),
+      messageType: "text",
+      createdDate: Date.now(),
+      profileImageUrl:
+        "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+        loggedInVal,
+      messageSource: "Web",
+      // status: "incomplete"
+    };
 
-   let taskR = {
-   userName: loggedInName,
-   userId : loggedInVal,
-   message: message.value,
-   messageId : loggedInVal + "_"+  Date.now(),
-   messageType : "text",
-   createdDate :  Date.now(),
-   profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-   messageSource : "Web"
-   // status: "incomplete"
-   };
-
-   return docReply
-     .add(taskR)
-     .then((ref) => {
-     // alert(ref);
+    return docReply.add(taskR).then((ref) => {
+      // alert(ref);
       // alert(ref.id);
-    // console.log("div#exampleModalCenter"+uniqueDocId);
+      // console.log("div#exampleModalCenter"+uniqueDocId);
 
-    // $("div#exampleModalCenter"+uniqueDocId).css("display", "none");
+      // $("div#exampleModalCenter"+uniqueDocId).css("display", "none");
 
-       taskR.id = ref.id;
-       // fullName.value = '';
-       message.value  = '';
-       // alert("")
-       // date.value = '';
+      taskR.id = ref.id;
+      // fullName.value = '';
+      message.value = "";
+      // alert("")
+      // date.value = '';
       return fetchTasksReply(taskR.id);
-     });
-
- 
+    });
   }
- //  if(message.value == "") {
- //     // alert("empty")
- //   $(".successmsg").html('<span>Message not empty.</span>');
- //   setTimeout(function(){$(".successmsg").empty()}, 5000);
- //  }    
+  //  if(message.value == "") {
+  //     // alert("empty")
+  //   $(".successmsg").html('<span>Message not empty.</span>');
+  //   setTimeout(function(){$(".successmsg").empty()}, 5000);
+  //  }
 
- 
-
- //  event.preventDefault();
-
+  //  event.preventDefault();
 }
 
-$('i.fa.fa-paperclip.attachment.btn.btn-primary').click(function () {
+$("i.fa.fa-paperclip.attachment.btn.btn-primary").click(function() {
   // alert("calll");
-  $("#imageUploaddata").trigger('click');
+  $("#imageUploaddata").trigger("click");
   // alert("data");
 });
 
-$("#imageUploaddata").on('change', function(e) {
-   // alert("hii");
+$("#imageUploaddata").on("change", function(e) {
+  // alert("hii");
   var val = $(this).val();
   // alert(val);
   // $(this).siblings('span').text(val);
   // $('#btn-input').text(val);
 
-  $(this).siblings('input#btn-input').text(val);
+  $(this)
+    .siblings("input#btn-input")
+    .text(val);
 
   const file = e.target.files[0];
   console.log(file);
@@ -384,153 +393,162 @@ $("#imageUploaddata").on('change', function(e) {
   // var loggedInVal = storageData.uid;
   // var loggedInName = storageData.uname;
 
-  
   var loggedInVal = user_id.value;
   var loggedInName = user_nickname.value;
 
-  if(file.type == "video/mp4" || file.type == "video/webm" || file.type == "video/mov" || file.type == "video/wmv"|| file.type == "video/mkv"){
+  if (
+    file.type == "video/mp4" ||
+    file.type == "video/webm" ||
+    file.type == "video/mov" ||
+    file.type == "video/wmv" ||
+    file.type == "video/mkv"
+  ) {
+    firebase
+      .storage()
+      .ref("message_storage_test_env/")
+      .child("photo_message_" + loggedInVal + "_" + "_" + Date.now())
+      .put(file)
+      .then(function(snapshot) {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log("Firebase storage image uploaded : ", url);
 
-    firebase.storage().ref('message_storage_test_env/').child("photo_message_"+loggedInVal+"_"+"_"+Date.now()).put(file).then(function(snapshot) {
-      return snapshot.ref.getDownloadURL()
-      }).then(url => {
-     console.log("Firebase storage image uploaded : ", url);
-       
-       
-  let task = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: url,
-    messageId : loggedInVal + "_"+ Date.now(),
-    messageType : "video",
-    createdDate : Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    // status: "incomplete"
-    messageSource : "Web"
-  };
-  return docRef
-    .add(task)
-    .then((ref) => {
-      console.log(ref.id);
-      task.id = ref.id;
-      // fullName.value = '';
-      message.value  = '';
-      // date.value = '';
-      // return createTask(task);
-    });
+        let task = {
+          userName: loggedInName,
+          userId: loggedInVal,
+          message: url,
+          messageId: loggedInVal + "_" + Date.now(),
+          messageType: "video",
+          createdDate: Date.now(),
+          profileImageUrl:
+            "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+            loggedInVal,
+          // status: "incomplete"
+          messageSource: "Web",
+        };
+        return docRef.add(task).then((ref) => {
+          console.log(ref.id);
+          task.id = ref.id;
+          // fullName.value = '';
+          message.value = "";
+          // date.value = '';
+          // return createTask(task);
+        });
+      });
+  } else if (
+    file.type == "image/jpeg" ||
+    file.type == "image/png" ||
+    file.type == "image/gif" ||
+    file.type == "image/jpg" ||
+    file.type == "image/webp"
+  ) {
+    firebase
+      .storage()
+      .ref("message_storage_test_env/")
+      .child("photo_message_" + loggedInVal + "_" + "_" + Date.now())
+      .put(file)
+      .then(function(snapshot) {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log("Firebase storage image uploaded : ", url);
 
-
-    }); 
-
-  } else if (file.type == "image/jpeg"|| file.type == "image/png" || file.type == "image/gif" || file.type == "image/jpg" || file.type == "image/webp") {
-
-
-    firebase.storage().ref('message_storage_test_env/').child("photo_message_"+loggedInVal+"_"+"_"+Date.now()).put(file).then(function(snapshot) {
-      return snapshot.ref.getDownloadURL()
-   }).then(url => {
-     console.log("Firebase storage image uploaded : ", url);
-       
-       
-  let task = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: url,
-    messageId : loggedInVal + "_"+ Date.now(),
-    messageType : "audio",
-    createdDate : Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    // status: "incomplete"
-    messageSource : "Web"
-  };
-  return docRef
-    .add(task)
-    .then((ref) => {
-      console.log(ref.id);
-      task.id = ref.id;
-      // fullName.value = '';
-      message.value  = '';
-      // date.value = '';
-      // return createTask(task);
-    });
-
-
-    }); 
-
+        let task = {
+          userName: loggedInName,
+          userId: loggedInVal,
+          message: url,
+          messageId: loggedInVal + "_" + Date.now(),
+          messageType: "audio",
+          createdDate: Date.now(),
+          profileImageUrl:
+            "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+            loggedInVal,
+          // status: "incomplete"
+          messageSource: "Web",
+        };
+        return docRef.add(task).then((ref) => {
+          console.log(ref.id);
+          task.id = ref.id;
+          // fullName.value = '';
+          message.value = "";
+          // date.value = '';
+          // return createTask(task);
+        });
+      });
   } else {
+    firebase
+      .storage()
+      .ref("message_storage_test_env/")
+      .child(file.name + "_" + Date.now())
+      .put(file)
+      .then(function(snapshot) {
+        return snapshot.ref.getDownloadURL();
+      })
+      .then((url) => {
+        console.log("Firebase storage image uploaded : ", url);
 
-
-    firebase.storage().ref('message_storage_test_env/').child(file.name+"_"+Date.now()).put(file).then(function(snapshot) {
-      return snapshot.ref.getDownloadURL()
-   }).then(url => {
-     console.log("Firebase storage image uploaded : ", url);
-       
-       
-  let task = {
-    userName: loggedInName,
-    userId : loggedInVal,
-    message: url,
-    messageId : loggedInVal + "_"+ Date.now(),
-    messageType : "photo",
-    createdDate : Date.now(),
-    profileImageUrl : "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId="+loggedInVal,
-    // status: "incomplete"
-    messageSource : "Web"
-  };
-  return docRef
-    .add(task)
-    .then((ref) => {
-      console.log(ref.id);
-      task.id = ref.id;
-      // fullName.value = '';
-      message.value  = '';
-      // date.value = '';
-      // return createTask(task);
-    });
-
-
-    }); 
-
+        let task = {
+          userName: loggedInName,
+          userId: loggedInVal,
+          message: url,
+          messageId: loggedInVal + "_" + Date.now(),
+          messageType: "photo",
+          createdDate: Date.now(),
+          profileImageUrl:
+            "https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId=" +
+            loggedInVal,
+          // status: "incomplete"
+          messageSource: "Web",
+        };
+        return docRef.add(task).then((ref) => {
+          console.log(ref.id);
+          task.id = ref.id;
+          // fullName.value = '';
+          message.value = "";
+          // date.value = '';
+          // return createTask(task);
+        });
+      });
   }
 
   $(".successmsg").html('<span style="left:-999em">Uploading File....</span>');
-  setTimeout(function(){$(".successmsg").empty()}, 5000);
-  
+  setTimeout(function() {
+    $(".successmsg").empty();
+  }, 5000);
 });
 
 function handleDelete(id) {
   var txt;
-        if (confirm("Are you sure you want to delete this chat ?")) {
-           return docRef
-          .doc(id)
-          .delete()
-          .then(() => document.getElementById(id).remove());
-        } else {
-          txt = "You pressed Cancel!";
-        }
-
+  if (confirm("Are you sure you want to delete this chat ?")) {
+    return docRef
+      .doc(id)
+      .delete()
+      .then(() => document.getElementById(id).remove());
+  } else {
+    txt = "You pressed Cancel!";
+  }
 }
 
-function handleDeleteReply(obj1,obj2) {
-
-  const docRefreply = db.collection("/openGroups/demoOpenGroup1/messages/"+obj2+"/replies/");
+function handleDeleteReply(obj1, obj2) {
+  const docRefreply = db.collection(
+    "/openGroups/demoOpenGroup1/messages/" + obj2 + "/replies/"
+  );
   var txt;
-        if (confirm("Are you sure you want to delete this chat ?")) {
-           return docRefreply
-          .doc(obj1)
-          .delete()
-          .then(() => document.getElementById(obj1).remove());
-        } else {
-          txt = "You pressed Cancel!";
-        }
-
+  if (confirm("Are you sure you want to delete this chat ?")) {
+    return docRefreply
+      .doc(obj1)
+      .delete()
+      .then(() => document.getElementById(obj1).remove());
+  } else {
+    txt = "You pressed Cancel!";
+  }
 }
-
 
 function replypopup(id) {
   // closepopup(id);
   // alert("reply value");
   fetchTasksReply(id);
- 
-
 }
 
 // dom functions
@@ -539,7 +557,7 @@ function createTask(task) {
   // var sData = localStorage.getItem('allTokenData');
   // var storageData= JSON.parse(sData);
   var loggedInVal = storageData.uid;
-   var loggedInName = storageData.uname;
+  var loggedInName = storageData.uname;
   // alert(loggedInName)
   const elem = document.createElement("li");
   // elem.id = task.id;
@@ -551,55 +569,103 @@ function createTask(task) {
   // alert(task.createdDate);
 
   if (task.userId === loggedInVal) {
-
     // taskElem = document.createElement("li");
     elem.setAttribute("class", "admin clearfix");
 
-      if(task.messageType === "photo"){
-
-        elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message"><img src="'+ task.message +'" class="img-responsive" style="width:100%;"/></p></div>'
-
-
-      } else if(task.messageType === "audio"){
-
-        elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><audio controls><source src="' + task.message +'" type="audio/mpeg"></audio></div>'
-
-      } else if(task.messageType === "video"){
-
-        elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><video controls style="width:100%;"><source src="' + task.message +'" type="video/mp4"></video></div>'
-
-      } else {
-
-        elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message">' + task.message +'</p></div>'
-
-      }
-
+    if (task.messageType === "photo") {
+      elem.innerHTML =
+        '<span class="chat-img right clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="right primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><p class="message"><img src="' +
+        task.message +
+        '" class="img-responsive" style="width:100%;"/></p></div>';
+    } else if (task.messageType === "audio") {
+      elem.innerHTML =
+        '<span class="chat-img right clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="right primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><audio controls><source src="' +
+        task.message +
+        '" type="audio/mpeg"></audio></div>';
+    } else if (task.messageType === "video") {
+      elem.innerHTML =
+        '<span class="chat-img right clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="right primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><video controls style="width:100%;"><source src="' +
+        task.message +
+        '" type="video/mp4"></video></div>';
+    } else {
+      elem.innerHTML =
+        '<span class="chat-img right clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="right primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><p class="message">' +
+        task.message +
+        "</p></div>";
+    }
   } else {
     // taskElem = document.createElement("li");
     elem.setAttribute("class", "agent clearfix");
 
-      if(task.messageType === "photo"){
-
-          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message"><img src="'+ task.message +'" class="img-responsive" style="width:100%;"/></p></div>'
-
-
-      } else if(task.messageType === "audio"){
-
-         elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><audio controls><source src="' + task.message +'" type="audio/mpeg"></audio></div>'
-
-        
-      } else if(task.messageType === "video"){
-
-         elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><video controls style="width:100%;"><source src="' + task.message +'" type="video/mp4"></video></div>'
-
-        
-      } else{
-
-         elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message">' + task.message +'</p></div>'
-
-        
-      }
-
+    if (task.messageType === "photo") {
+      elem.innerHTML =
+        '<span class="chat-img left clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><p class="message"><img src="' +
+        task.message +
+        '" class="img-responsive" style="width:100%;"/></p></div>';
+    } else if (task.messageType === "audio") {
+      elem.innerHTML =
+        '<span class="chat-img left clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><audio controls><source src="' +
+        task.message +
+        '" type="audio/mpeg"></audio></div>';
+    } else if (task.messageType === "video") {
+      elem.innerHTML =
+        '<span class="chat-img left clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><video controls style="width:100%;"><source src="' +
+        task.message +
+        '" type="video/mp4"></video></div>';
+    } else {
+      elem.innerHTML =
+        '<span class="chat-img left clearfix mx-2"><img src="' +
+        task.profileImageUrl +
+        '" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' +
+        task.createdDate +
+        '</small><strong class="primary-font" class="fullName">' +
+        task.userName +
+        '</strong></div><p class="message">' +
+        task.message +
+        "</p></div>";
+    }
   }
   tasksDOM.append(elem);
 
@@ -626,244 +692,236 @@ function createTask(task) {
   // tasksDOM.append(elem);
 }
 
-
 // Firebase functions
 function fetchTasks() {
-
   // alert("fetch data");
   // return docRef
   //   .get()
   //   .then((snapshots) => cleanData(snapshots));
-    // .then((tasks) => tasks.map((task) => createTask(task)));
+  // .then((tasks) => tasks.map((task) => createTask(task)));
 
-    docRef.orderBy("createdDate", "desc").limit(100).onSnapshot(function(snapshot) {
-      snapshot.docChanges().reverse().forEach(function(change) {
+  docRef
+    .orderBy("createdDate", "desc")
+    .limit(100)
+    .onSnapshot(function(snapshot) {
+      snapshot
+        .docChanges()
+        .reverse()
+        .forEach(function(change) {
+          const docRefreply = db.collection(
+            "/openGroups/demoOpenGroup1/messages/" + change.doc.id + "/replies/"
+          );
 
-       const docRefreply = db.collection("/openGroups/demoOpenGroup1/messages/"+change.doc.id+"/replies/");
+          docRefreply
+            .orderBy("createdDate", "asc")
+            .onSnapshot(function(snapshots) {
+              $("#sizedata" + change.doc.id).html(snapshots.size);
+              $("#sizedatan" + change.doc.id).html(snapshots.size);
 
-       docRefreply.orderBy("createdDate", "asc").onSnapshot(function(snapshots) {
+              if (snapshots.size == 0) {
+                // $("#finalVal"+change.doc.id).css("display", "block");
+                $("#finalValn" + change.doc.id).css("display", "none");
+              } else {
+                $("#finalValn" + change.doc.id).css("display", "block");
+                // $("#finalVal"+change.doc.id).css("display", "none");
+              }
+            });
 
-        $("#sizedata"+change.doc.id).html(snapshots.size);
-        $("#sizedatan"+change.doc.id).html(snapshots.size);
+          // snapshot.docChanges().forEach(function(change) {
 
-        if(snapshots.size == 0){
-          // $("#finalVal"+change.doc.id).css("display", "block");
-          $("#finalValn"+change.doc.id).css("display", "none");
-        }else{
-          $("#finalValn"+change.doc.id).css("display", "block");
-          // $("#finalVal"+change.doc.id).css("display", "none");
-        }
-        
-     });
+          if (change.type === "added") {
+            var task = change.doc.data();
 
+            var userIdcs = document.getElementById("user_id");
+            // console.log(userIdcs.value);
+            var userNamescs = document.getElementById("user_nickname");
+            // console.log(userNamecss.value);
+            var loggedInVal = userIdcs.value;
+            // console.log(loggedInVal);
+            var loggedInName = userNamescs.value;
 
-        // snapshot.docChanges().forEach(function(change) {
-
-         
-
-            if (change.type === "added") {
-
-                var task = change.doc.data();
-
-                var userIdcs     = document.getElementById('user_id');
-                // console.log(userIdcs.value);
-                var userNamescs = document.getElementById("user_nickname");
-               // console.log(userNamecss.value);
-                var loggedInVal = userIdcs.value;
-                // console.log(loggedInVal);
-               var loggedInName = userNamescs.value;
-
-                 var taskId = change.doc.id;
-                // alert(loggedInName)
-                if(task.flag){
-                  const result = task.flag.some(obj => obj.messageFlagedUserId === loggedInVal);
-                   console.log("checking flag result  " + result);
-                   if(result == true){
-                     const elem = document.createElement("li");
-                     elem.id = change.doc.id;
-                     elem.innerHTML = "";
-                     tasksDOM.append(elem);
-
-                   }else{
-                       // var countReply = countReplyss;
-                       const elem = document.createElement("li");
-                       elem.id = change.doc.id;
-                       elem.innerHTML = reviewTemplate(task,loggedInVal,loggedInName,taskId);
-                       tasksDOM.append(elem);
-                   }
-                 }else{
-                       // var countReply = countReplyss;
-                       const elem = document.createElement("li");
-                       elem.id = change.doc.id;
-                       elem.innerHTML = reviewTemplate(task,loggedInVal,loggedInName,taskId);
-                       tasksDOM.append(elem);
-                 }
-
-                 $('.card-body').scrollTop($('.card-body')[0].scrollHeight);
-
-                // $('#tasks').scrollTop($('#tasks')[0].scrollHeight);
-              //   elem.setAttribute("id", task.messageId);
-              //   // elem.setAttribute("class", "admin clearfix");
-              //   let taskElem;
-
-              //   if (task.userId === loggedInVal) {
-
-              //     // taskElem = document.createElement("li");
-              //     elem.setAttribute("class", "admin clearfix");
-
-              //       if(task.messageType === "photo"){
-
-              //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message"><img src="'+ task.message +'" class="img-responsive" style="width:100%;"/></p></div>'
-
-
-              //       } else if(task.messageType === "audio"){
-
-              //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><audio controls><source src="' + task.message +'" type="audio/mpeg"></audio></div>'
-
-              //       } else if(task.messageType === "video"){
-
-              //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><video controls style="width:100%;"><source src="' + task.message +'" type="video/mp4"></video></div>'
-
-              //       } else {
-
-              //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message">' + task.message +'</p></div>'
-
-              //       }
-
-              //   } else {
-              //     // taskElem = document.createElement("li");
-              //     elem.setAttribute("class", "agent clearfix");
-
-              //       if(task.messageType === "photo"){
-
-              //           elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message"><img src="'+ task.message +'" class="img-responsive" style="width:100%;"/></p></div>'
-
-
-              //       } else if(task.messageType === "audio"){
-
-              //          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><audio controls><source src="' + task.message +'" type="audio/mpeg"></audio></div>'
-
-                      
-              //       } else if(task.messageType === "video"){
-
-              //          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><video controls style="width:100%;"><source src="' + task.message +'" type="video/mp4"></video></div>'
-
-                      
-              //       } else{
-
-              //          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message">' + task.message +'</p></div>'
-
-                      
-              //       }
-
-              //   }
-               // elem.append(taskElem);
-
-              // const deleteBtn = document.createElement("button");
-              // deleteBtn.setAttribute("class", "btn btn-danger col-2 text-white");
-              // deleteBtn.innerHTML =
-              //   '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>';
-              // deleteBtn.addEventListener("click", function () {
-              //   return handleDelete(task.messageId);
-              // });
-              // elem.append(deleteBtn);
-
-              // tasksDOM.append(elem);
-            }
-            if (change.type === "modified") {
-                // console.log("Modified city: ", change.doc.data());
-            }
-            if (change.type === "removed") {
-                // console.log("Removed city: ", change.doc.data());
+            var taskId = change.doc.id;
+            // alert(loggedInName)
+            if (task.flag) {
+              const result = task.flag.some(
+                (obj) => obj.messageFlagedUserId === loggedInVal
+              );
+              console.log("checking flag result  " + result);
+              if (result == true) {
+                const elem = document.createElement("li");
+                elem.id = change.doc.id;
+                elem.innerHTML = "";
+                tasksDOM.append(elem);
+              } else {
+                // var countReply = countReplyss;
+                const elem = document.createElement("li");
+                elem.id = change.doc.id;
+                elem.innerHTML = reviewTemplate(
+                  task,
+                  loggedInVal,
+                  loggedInName,
+                  taskId
+                );
+                tasksDOM.append(elem);
+              }
+            } else {
+              // var countReply = countReplyss;
+              const elem = document.createElement("li");
+              elem.id = change.doc.id;
+              elem.innerHTML = reviewTemplate(
+                task,
+                loggedInVal,
+                loggedInName,
+                taskId
+              );
+              tasksDOM.append(elem);
             }
 
+            $(".card-body").scrollTop($(".card-body")[0].scrollHeight);
+
+            // $('#tasks').scrollTop($('#tasks')[0].scrollHeight);
+            //   elem.setAttribute("id", task.messageId);
+            //   // elem.setAttribute("class", "admin clearfix");
+            //   let taskElem;
+
+            //   if (task.userId === loggedInVal) {
+
+            //     // taskElem = document.createElement("li");
+            //     elem.setAttribute("class", "admin clearfix");
+
+            //       if(task.messageType === "photo"){
+
+            //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message"><img src="'+ task.message +'" class="img-responsive" style="width:100%;"/></p></div>'
+
+            //       } else if(task.messageType === "audio"){
+
+            //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><audio controls><source src="' + task.message +'" type="audio/mpeg"></audio></div>'
+
+            //       } else if(task.messageType === "video"){
+
+            //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><video controls style="width:100%;"><source src="' + task.message +'" type="video/mp4"></video></div>'
+
+            //       } else {
+
+            //         elem.innerHTML = '<span class="chat-img right clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="left text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="right primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message">' + task.message +'</p></div>'
+
+            //       }
+
+            //   } else {
+            //     // taskElem = document.createElement("li");
+            //     elem.setAttribute("class", "agent clearfix");
+
+            //       if(task.messageType === "photo"){
+
+            //           elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message"><img src="'+ task.message +'" class="img-responsive" style="width:100%;"/></p></div>'
+
+            //       } else if(task.messageType === "audio"){
+
+            //          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><audio controls><source src="' + task.message +'" type="audio/mpeg"></audio></div>'
+
+            //       } else if(task.messageType === "video"){
+
+            //          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><video controls style="width:100%;"><source src="' + task.message +'" type="video/mp4"></video></div>'
+
+            //       } else{
+
+            //          elem.innerHTML = '<span class="chat-img left clearfix mx-2"><img src="'+ task.profileImageUrl +'" alt="Admin" class="img-circle" style="width: 100%;"/></span><div class="chat-body clearfix"><div class="header clearfix"><small class="right text-muted"><span class="glyphicon glyphicon-time"></span>' + task.createdDate + '</small><strong class="primary-font" class="fullName">'+ task.userName +'</strong></div><p class="message">' + task.message +'</p></div>'
+
+            //       }
+
+            //   }
+            // elem.append(taskElem);
+
+            // const deleteBtn = document.createElement("button");
+            // deleteBtn.setAttribute("class", "btn btn-danger col-2 text-white");
+            // deleteBtn.innerHTML =
+            //   '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>';
+            // deleteBtn.addEventListener("click", function () {
+            //   return handleDelete(task.messageId);
+            // });
+            // elem.append(deleteBtn);
+
+            // tasksDOM.append(elem);
+          }
+          if (change.type === "modified") {
+            // console.log("Modified city: ", change.doc.data());
+          }
+          if (change.type === "removed") {
+            // console.log("Removed city: ", change.doc.data());
+          }
         });
     });
-
-
 }
 
- fetchTasks();
+fetchTasks();
 
- function fetchTasksReply(id) {
+function fetchTasksReply(id) {
   // $('ul#tasksreply'+id).reset();
-   var docId     = id;
-     const docRefreply = db.collection("/openGroups/demoOpenGroup1/messages/"+docId+"/replies/");
-   
-    docRefreply.orderBy("createdDate", "asc").onSnapshot(function(snapshots) {
-     // alert(snapshots.size);
-         const tasksDOMReply = document.getElementById("tasksreply"+docId);
-              
-      if(snapshots.size == 0){
+  var docId = id;
+  const docRefreply = db.collection(
+    "/openGroups/demoOpenGroup1/messages/" + docId + "/replies/"
+  );
 
-        if($('li#testingIds').size() > 0){
-                 $('li#testingIds').remove();
-               }    
+  docRefreply.orderBy("createdDate", "asc").onSnapshot(function(snapshots) {
+    // alert(snapshots.size);
+    const tasksDOMReply = document.getElementById("tasksreply" + docId);
 
-         const elemreplys = document.createElement("li");
-             // console.log(elemreplys);
-              elemreplys.id = "testingIds";
-             //  alert(elemreplys)
-               elemreplys.innerHTML = "<img src='/images/noreply.png' style='display:block;margin:0 auto; overflow:auto; width:22.5%'><h3 class='text-center'><b>No Replies Yet</b></h3><br><p class='text-center'>Enter your messages here.</p>";
-               // alert(elemreplys);
-               tasksDOMReply.append(elemreplys);
-               $('ul#tasksreply'+id).show();       
-              
-     }
-     else{
-         // $('li#testingIds').empty();
-          if($('li#testingIds').size() > 0){
-                 $('li#testingIds').remove();
-               }    
+    if (snapshots.size == 0) {
+      if ($("li#testingIds").size() > 0) {
+        $("li#testingIds").remove();
+      }
 
-       snapshots.docChanges().forEach(function(changes) {
-            // alert(snapshots.size);
-         
-          const tasksDOMReplys = document.getElementById("tasksreply"+docId);
-               var taskreply = changes.doc.data();
-               var taskId = changes.doc.id;
+      const elemreplys = document.createElement("li");
+      // console.log(elemreplys);
+      elemreplys.id = "testingIds";
+      //  alert(elemreplys)
+      elemreplys.innerHTML =
+        "<img src='/images/noreply.png' style='display:block;margin:0 auto; overflow:auto; width:22.5%'><h3 class='text-center'><b>No Replies Yet</b></h3><br><p class='text-center'>Enter your messages here.</p>";
+      // alert(elemreplys);
+      tasksDOMReply.append(elemreplys);
+      $("ul#tasksreply" + id).show();
+    } else {
+      // $('li#testingIds').empty();
+      if ($("li#testingIds").size() > 0) {
+        $("li#testingIds").remove();
+      }
 
+      snapshots.docChanges().forEach(function(changes) {
+        // alert(snapshots.size);
 
-           if (changes.type === "added") {
-               var userIdcs     = document.getElementById('user_id');
-                   // console.log("userIdcs"+userIdcs.value);
-                   var userNamescs = document.getElementById("user_nickname");
-                 // console.log("userName "+userNamecs/.value);
-                   var loggedInVal = userIdcs.value;
-                   // console.log("loggedVal"+loggedInVal);
-                  var loggedInName = userNamescs.value;
-                 // $('ul#tasksreply'+id).show();     
-               if($("li#"+taskId).size() > 0){
-                 $("li#"+taskId).remove();
-               }    
-               // alert($("li#"+taskId).size());
-               const elemreplys = document.createElement("li");
-               elemreplys.id = changes.doc.id;
-               elemreplys.innerHTML = reviewTemplateReply(taskreply,loggedInVal,loggedInName,taskId,docId);
-               tasksDOMReplys.append(elemreplys);
-               
-               
-            
+        const tasksDOMReplys = document.getElementById("tasksreply" + docId);
+        var taskreply = changes.doc.data();
+        var taskId = changes.doc.id;
 
-             }
-             
-             
-             
-           });
-           
-         }
-         // window.scrollTo(0, document.querySelector("#modal-body").scrollHeight);
-         
-
-        
-         
-       });
-
+        if (changes.type === "added") {
+          var userIdcs = document.getElementById("user_id");
+          // console.log("userIdcs"+userIdcs.value);
+          var userNamescs = document.getElementById("user_nickname");
+          // console.log("userName "+userNamecs/.value);
+          var loggedInVal = userIdcs.value;
+          // console.log("loggedVal"+loggedInVal);
+          var loggedInName = userNamescs.value;
+          // $('ul#tasksreply'+id).show();
+          if ($("li#" + taskId).size() > 0) {
+            $("li#" + taskId).remove();
+          }
+          // alert($("li#"+taskId).size());
+          const elemreplys = document.createElement("li");
+          elemreplys.id = changes.doc.id;
+          elemreplys.innerHTML = reviewTemplateReply(
+            taskreply,
+            loggedInVal,
+            loggedInName,
+            taskId,
+            docId
+          );
+          tasksDOMReplys.append(elemreplys);
+        }
+      });
+    }
+    // window.scrollTo(0, document.querySelector("#modal-body").scrollHeight);
+  });
 }
-
-
-
-
 
 // var reviewForm = document.getElementById('reviewForm');
 // // var fullName   = document.getElementById('user_nickname');
@@ -895,8 +953,6 @@ function fetchTasks() {
 
 // //     });
 
- 
-
 // //     fullName.value = '';
 // //     message.value  = '';
 // //     hiddenId.value = '';
@@ -906,15 +962,11 @@ function fetchTasks() {
 
 // // // READ REVEIWS
 
-
-
- 
-
 // // var reviews = document.getElementById('reviews');
 // // var reviewsRef = db.ref("/reviews");
 // // var reviewsRef = db.collection('openGroups').doc('demoOpenGroup1').collection('messages');
 // // var reviewsRef = db.collection("/openGroups/demoOpenGroup1/messages").get().then((querySnapshot) => {
-     
+
 // //     // querySnapshot.forEach((doc) => {
 // //         // alert(`${doc.id} => ${doc.data()}`);
 // //          // sub_array.push(doc.data());
@@ -923,19 +975,17 @@ function fetchTasks() {
 // //   // li.id = doc.id;
 // //   // li.innerHTML = reviewTemplate(doc.data())
 // //   // reviews.appendChild(li);
-       
-          
+
 // //     // });
 
 // //   });
-
 
 // // var reviewsRef =
 
 //  // db.collection("/openGroups/demoOpenGroup1/messages").get().then((querySnapshot) => {
 
 //  //        var sub_array = [];
-     
+
 //  //    querySnapshot.forEach((doc) => {
 //  //        // alert(`${doc.id} => ${doc.data()}`);
 //  //         // sub_array.push(doc.data());
@@ -944,8 +994,7 @@ function fetchTasks() {
 //  //  li.id = doc.id;
 //  //  li.innerHTML = reviewTemplate(doc.data())
 //  //  reviews.appendChild(li);
-       
-          
+
 //  //    });
 
 //  //  });
@@ -957,7 +1006,6 @@ function fetchTasks() {
 // //   li.innerHTML = reviewTemplate(data.val())
 // //   reviews.appendChild(li);
 // // });
-
 
 // // reviewsRef.on('child_changed', (data) => {
 // //   alert("change" + data);
@@ -988,8 +1036,12 @@ function fetchTasks() {
 // //   }
 // // });
 
-function reviewTemplate({profileImageUrl,userName,userId, message,createdDate,messageType},loggedInName,loggedInVal,taskId) {
-
+function reviewTemplate(
+  { profileImageUrl, userName, userId, message, createdDate, messageType },
+  loggedInName,
+  loggedInVal,
+  taskId
+) {
   // alert(profileImageUrl);
   // fetch(profileImageUrl, { method: 'HEAD' })
   //   .then(res => {
@@ -999,8 +1051,8 @@ function reviewTemplate({profileImageUrl,userName,userId, message,createdDate,me
   //           alert('Image does not exist.');
   //       }
   //   }).catch(err => alert('Error:', err));
-  var sData = localStorage.getItem('allTokenData');
-  var storageData= JSON.parse(sData);
+  var sData = localStorage.getItem("allTokenData");
+  var storageData = JSON.parse(sData);
   var loggedInVal = storageData.uid;
   // alert(loggedInVal);
   // alert(userId);
@@ -1012,48 +1064,48 @@ function reviewTemplate({profileImageUrl,userName,userId, message,createdDate,me
 
   const date = new Date(createdDate); //new Date(createdDate).toDateString();
   //console.log(date);
-var options = {year: "numeric", month: "long", day: "numeric"};
-var newdate = date.toGMTString('en-US', options);  
-// console.log(newdate);
-// const stripped = newdate.replace(/GMT/g, 'EST');
-const stripped = newdate.replace(/GMT/g, '');
-// console.log(stripped);
+  var options = { year: "numeric", month: "long", day: "numeric" };
+  var newdate = date.toGMTString("en-US", options);
+  // console.log(newdate);
+  // const stripped = newdate.replace(/GMT/g, 'EST');
+  const stripped = newdate.replace(/GMT/g, "");
+  // console.log(stripped);
   // alert(date);
-var newdate1 = stripped.toString(stripped);  
-// console.log(newdate1);
-var newdate2 = newdate1.split(/(\s+)/);
- newdate2.splice(11, 18);
- newdate2.splice(0, 2);
- newdate2.splice(3,3);
-// console.log(newdate2);
- function moveArrayItemToNewIndex(arr, old_index, new_index) {
- if (new_index >= arr.length) {
+  var newdate1 = stripped.toString(stripped);
+  // console.log(newdate1);
+  var newdate2 = newdate1.split(/(\s+)/);
+  newdate2.splice(11, 18);
+  newdate2.splice(0, 2);
+  newdate2.splice(3, 3);
+  // console.log(newdate2);
+  function moveArrayItemToNewIndex(arr, old_index, new_index) {
+    if (new_index >= arr.length) {
       var k = new_index - arr.length + 1;
       while (k--) {
-          arr.push(undefined);
+        arr.push(undefined);
       }
+    }
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr;
   }
- arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
- return arr;
- };
 
-moveArrayItemToNewIndex(newdate2, 0, 2);
-var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
-//console.log(result1);
-result1.splice(1, 0, ' ');
-var newdate3 = result1.toString(result1);
-var result = newdate3.replace(/,/g, "");
-//console.log(result);
-x = result.substring(0, 6) + "," + result.substring(6, result.length);
-// console.log(x);
-function formatAMPM(date) {
+  moveArrayItemToNewIndex(newdate2, 0, 2);
+  var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
+  //console.log(result1);
+  result1.splice(1, 0, " ");
+  var newdate3 = result1.toString(result1);
+  var result = newdate3.replace(/,/g, "");
+  //console.log(result);
+  x = result.substring(0, 6) + "," + result.substring(6, result.length);
+  // console.log(x);
+  function formatAMPM(date) {
     var hours = date.getHours();
     var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'PM' : 'AM';
+    var ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12; // the hour '0' should be '12'
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    var strTime = hours + ':' + minutes + ' ' + ampm;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    var strTime = hours + ":" + minutes + " " + ampm;
     return strTime;
   }
 
@@ -1062,18 +1114,15 @@ function formatAMPM(date) {
   //console.log(newdate2);
   const stripped1 = x.replace(newdate2[4], date1);
   // console.log(stripped1);
-  
-  var fileName = message.substring(message.lastIndexOf('%') + 3);
-  // console.log(fileName)
-var fName = fileName.substring(0, fileName.indexOf("?"));
 
+  var fileName = message.substring(message.lastIndexOf("%") + 3);
+  // console.log(fileName)
+  var fName = fileName.substring(0, fileName.indexOf("?"));
 
   // alert(date);
-   
-   if(loggedInVal == userId){
 
-    if(messageType == "text"){
-
+  if (loggedInVal == userId) {
+    if (messageType == "text") {
       return `
 
        <li class="admin clearfix">
@@ -1149,12 +1198,8 @@ var fName = fileName.substring(0, fileName.indexOf("?"));
              </form>
              </div>
            </div>
-     `
-
-
-
-   }else if(messageType == "photo"){
-
+     `;
+    } else if (messageType == "photo") {
       return `
 
        <li class="admin clearfix">
@@ -1221,11 +1266,9 @@ var fName = fileName.substring(0, fileName.indexOf("?"));
              </form>
              </div>
            </div>
-     `
-
-   }else if(messageType == "video"){
-
-     return `
+     `;
+    } else if (messageType == "video") {
+      return `
 
        <li class="admin clearfix">
          <span class="chat-img right clearfix mx-2">
@@ -1290,11 +1333,9 @@ var fName = fileName.substring(0, fileName.indexOf("?"));
              </form>
              </div>
            </div>
-     `
-   
-   }else if(messageType == "document"){
-
-     return `
+     `;
+    } else if (messageType == "document") {
+      return `
 
        <li class="admin clearfix">
          <span class="chat-img right clearfix mx-2">
@@ -1363,10 +1404,9 @@ var fName = fileName.substring(0, fileName.indexOf("?"));
              </form>
              </div>
            </div>
-     `
-   } else {
-
-     return `
+     `;
+    } else {
+      return `
 
        <li class="admin clearfix">
          <span class="chat-img right clearfix mx-2">
@@ -1435,19 +1475,11 @@ var fName = fileName.substring(0, fileName.indexOf("?"));
              </form>
              </div>
            </div>
-     `
-
-   }
-
-}else{
-
-
-
-
-if(messageType == "text"){
-
-
-    return `
+     `;
+    }
+  } else {
+    if (messageType == "text") {
+      return `
 
    <li class="agent clearfix">
      <span class="chat-img left clearfix mx-2">
@@ -1540,10 +1572,9 @@ if(messageType == "text"){
              </div>
            </div>
 
- `
-} else if(messageType == "video"){
-
-    return `
+ `;
+    } else if (messageType == "video") {
+      return `
 
    <li class="agent clearfix">
      <span class="chat-img left clearfix mx-2">
@@ -1629,10 +1660,9 @@ if(messageType == "text"){
                </div>
              </div>
            </div>
- `
-}else if(messageType == "photo"){
-
-    return `
+ `;
+    } else if (messageType == "photo") {
+      return `
 
    <li class="agent clearfix">
      <span class="chat-img left clearfix mx-2">
@@ -1716,10 +1746,9 @@ if(messageType == "text"){
                </div>
              </div>
            </div>
- `
-}else if(messageType == "document"){
-
-    return `
+ `;
+    } else if (messageType == "document") {
+      return `
 
    <li class="agent clearfix">
      <span class="chat-img left clearfix mx-2">
@@ -1804,10 +1833,9 @@ if(messageType == "text"){
                </div>
              </div>
            </div> 
- `
-}else{
-
-    return `
+ `;
+    } else {
+      return `
 
    <li class="agent clearfix">
      <span class="chat-img left clearfix mx-2">
@@ -1894,78 +1922,87 @@ if(messageType == "text"){
                </div>
              </div>
            </div>
- `
-     }
+ `;
+    }
+  }
+}
 
-   }
-
- 
-};
-
-function reviewTemplateReply({profileImageUrl,userName,userId, message,createdDate,messageType,messageId},loggedInVal,loggedInName,docId,mainId) {
-
+function reviewTemplateReply(
+  {
+    profileImageUrl,
+    userName,
+    userId,
+    message,
+    createdDate,
+    messageType,
+    messageId,
+  },
+  loggedInVal,
+  loggedInName,
+  docId,
+  mainId
+) {
   // alert(mainId);
 
   const date = new Date(createdDate); //new Date(createdDate).toDateString();
-    //console.log(date);
-  var options = {year: "numeric", month: "long", day: "numeric"};
-  var newdate = date.toGMTString('en-US', options);  
-    //console.log(newdate);
+  //console.log(date);
+  var options = { year: "numeric", month: "long", day: "numeric" };
+  var newdate = date.toGMTString("en-US", options);
+  //console.log(newdate);
   // const stripped = newdate.replace(/GMT/g,"EST" );
-   const stripped = newdate.replace(/GMT/g,"" );
+  const stripped = newdate.replace(/GMT/g, "");
 
-    //console.log(stripped);
-    // alert(date);
-  var newdate1 = stripped.toString(stripped);  
+  //console.log(stripped);
+  // alert(date);
+  var newdate1 = stripped.toString(stripped);
   var newdate2 = newdate1.split(/(\s+)/);
-   newdate2.splice(11, 18);
-   newdate2.splice(0, 2);
-   newdate2.splice(3,3);
-    //console.log(newdate2);
-   function moveArrayItemToNewIndex(arr, old_index, new_index) {
-   if (new_index >= arr.length) {
-        var k = new_index - arr.length + 1;
-        while (k--) {
-            arr.push(undefined);
-        }
+  newdate2.splice(11, 18);
+  newdate2.splice(0, 2);
+  newdate2.splice(3, 3);
+  //console.log(newdate2);
+  function moveArrayItemToNewIndex(arr, old_index, new_index) {
+    if (new_index >= arr.length) {
+      var k = new_index - arr.length + 1;
+      while (k--) {
+        arr.push(undefined);
+      }
     }
-   arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-   return arr;
-   };
+    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+    return arr;
+  }
 
   moveArrayItemToNewIndex(newdate2, 0, 2);
   var result1 = moveArrayItemToNewIndex(newdate2, 0, 2);
   //console.log(result1);
-  result1.splice(1, 0, ' ');
+  result1.splice(1, 0, " ");
   var newdate3 = result1.toString(result1);
   var result = newdate3.replace(/,/g, "");
   //console.log(result);
   x = result.substring(0, 6) + "," + result.substring(6, result.length);
   //console.log(x);
   function formatAMPM(date) {
-      var hours = date.getHours();
-      var minutes = date.getMinutes();
-      var ampm = hours >= 12 ? 'PM' : 'AM';
-      hours = hours % 12;
-      hours = hours ? hours : 12; // the hour '0' should be '12'
-      minutes = minutes < 10 ? '0'+minutes : minutes;
-      var strTime = hours + ':' + minutes + ' ' + ampm;
-      return strTime;
-    }
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    var strTime = hours + ":" + minutes + " " + ampm;
+    return strTime;
+  }
 
-    var date1 = formatAMPM(date);
-    //console.log(date1);
-    //console.log(newdate2);
-    const stripped1 = x.replace(newdate2[4], date1);
-    //console.log(stripped1);
-    var fileName = message.substring(message.lastIndexOf('%') + 3);
-    // console.log(fileName)
-var fName = fileName.substring(0, fileName.indexOf("?"));
+  var date1 = formatAMPM(date);
+  //console.log(date1);
+  //console.log(newdate2);
+  const stripped1 = x.replace(newdate2[4], date1);
+  //console.log(stripped1);
+  var fileName = message.substring(message.lastIndexOf("%") + 3);
+  // console.log(fileName)
+  var fName = fileName.substring(0, fileName.indexOf("?"));
 
-if(loggedInVal == userId){
-if(messageType == "text"){
-
-return `
+  if (loggedInVal == userId) {
+    if (messageType == "text") {
+      return `
 
 <li class="admin clearfix">
 <span class="chat-img right clearfix mx-2">
@@ -1995,11 +2032,9 @@ return `
     </p>
 </div>
 </li>
-`
-
-}else if(messageType == "photo"){
-
-return `
+`;
+    } else if (messageType == "photo") {
+      return `
 
 <li class="admin clearfix">
 <span class="chat-img right clearfix mx-2">
@@ -2027,11 +2062,9 @@ return `
       <p class='message'><img src="${message}" class="img-responsive" style="width:200px;"/></p>
 </div>
 </li>
-`
-
-}else if(messageType == "video"){
-
-return `
+`;
+    } else if (messageType == "video") {
+      return `
 
 <li class="admin clearfix">
 <span class="chat-img right clearfix mx-2">
@@ -2059,10 +2092,9 @@ return `
    <p class='message'><video controls style="width:100%;"><source src="${message}" type="video/mp4"></video></p>
 </div>
 </li>
-`
-} else if(messageType == "document"){
-
-return `
+`;
+    } else if (messageType == "document") {
+      return `
 
 <li class="admin clearfix">
 <span class="chat-img right clearfix mx-2">
@@ -2095,11 +2127,9 @@ return `
      ${fName}</a></p>
 </div>
 </li>
-`
-} 
-else {
-
-return `
+`;
+    } else {
+      return `
 
 <li class="admin clearfix">
 <span class="chat-img right clearfix mx-2">
@@ -2131,16 +2161,11 @@ return `
     style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#ecf0f1"><path d="M44.79167,14.33333c-8.89025,0 -16.125,7.23475 -16.125,16.125v111.08333c0,8.89025 7.23475,16.125 16.125,16.125h82.41667c8.89025,0 16.125,-7.23475 16.125,-16.125v-69.875h-41.20833c-8.89025,0 -16.125,-7.23475 -16.125,-16.125v-41.20833zM96.75,17.48275v38.05892c0,2.96342 2.41158,5.375 5.375,5.375h38.05892z"></path></g></g></svg>
      ${fName}</a></p>
 </li>
-`
-
-}
-
-}else{
-
-if(messageType == "text"){
-
-
-return `
+`;
+    }
+  } else {
+    if (messageType == "text") {
+      return `
 
 <li class="agent clearfix">
 <span class="chat-img left clearfix mx-2">
@@ -2156,10 +2181,9 @@ return `
     </p>
 </div>
 </li>
-`
-} else if(messageType == "video"){
-
-return `
+`;
+    } else if (messageType == "video") {
+      return `
 
 <li class="agent clearfix">
 <span class="chat-img left clearfix mx-2">
@@ -2176,10 +2200,9 @@ return `
 
 </div>
 </li>
-`
-}else if(messageType == "photo"){
-
-return `
+`;
+    } else if (messageType == "photo") {
+      return `
 
 <li class="agent clearfix">
 <span class="chat-img left clearfix mx-2">
@@ -2194,10 +2217,9 @@ return `
 
 </div>
 </li>
-`
-}else if(messageType == "document"){
-
-return `
+`;
+    } else if (messageType == "document") {
+      return `
 
 <li class="admin clearfix">
 <span class="chat-img right clearfix mx-2">
@@ -2216,10 +2238,9 @@ return `
      ${fName}</a></p>
 </div>
 </li>
-`
-} else{
-
-return `
+`;
+    } else {
+      return `
 
 <li class="agent clearfix">
 <span class="chat-img left clearfix mx-2">
@@ -2240,178 +2261,172 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 
 </div>
 </li>
-`
+`;
+    }
+  }
 }
-
-}
-
-
-};
-
 
 function togglePopup(e) {
-  $("#popup"+e).toggle()
+  $("#popup" + e).toggle();
 }
 
 function TogglePopup(e) {
-  $("#Popup"+e).toggle()
+  $("#Popup" + e).toggle();
 }
-
 
 // to close popup outside
-$(document).mouseup(function (e) {
-  if ($(e.target).closest(".content").length
-              === 0) {
-      $(".content").hide();
-    }
+$(document).mouseup(function(e) {
+  if ($(e.target).closest(".content").length === 0) {
+    $(".content").hide();
+  }
 });
 
-$(document).mouseup(function (e) {
-  if ($(e.target).closest(".content-2").length
-              === 0) {
-      $(".content-2").hide();
-    }
+$(document).mouseup(function(e) {
+  if ($(e.target).closest(".content-2").length === 0) {
+    $(".content-2").hide();
+  }
 });
 
-
-$(document).mouseup(function (e) {
-  if ($(e.target).closest(".Content").length
-              === 0) {
-      $(".Content").hide();
-    }
+$(document).mouseup(function(e) {
+  if ($(e.target).closest(".Content").length === 0) {
+    $(".Content").hide();
+  }
 });
 
-$(document).mouseup(function (e) {
-  if ($(e.target).closest(".Content-2").length
-              === 0) {
-      $(".Content-2").hide();
-    }
+$(document).mouseup(function(e) {
+  if ($(e.target).closest(".Content-2").length === 0) {
+    $(".Content-2").hide();
+  }
 });
 
-function copyClipboard(e){
-  var copyText = document.getElementById("textMessage"+e).innerText;
+function copyClipboard(e) {
+  var copyText = document.getElementById("textMessage" + e).innerText;
   // alert(copyText);
-   var elem = document.createElement("textarea");
-    document.body.appendChild(elem);
-    elem.value = copyText;
-    elem.select();
-    document.execCommand("copy");
-    document.body.removeChild(elem);
-    $(".successmsg").html('<span>Message has been copied to clipboard..</span>');
-      setTimeout(function(){$(".successmsg").empty()}, 5000);
-    // alert("Message has been copied to clipboard..");                             
-
+  var elem = document.createElement("textarea");
+  document.body.appendChild(elem);
+  elem.value = copyText;
+  elem.select();
+  document.execCommand("copy");
+  document.body.removeChild(elem);
+  $(".successmsg").html("<span>Message has been copied to clipboard..</span>");
+  setTimeout(function() {
+    $(".successmsg").empty();
+  }, 5000);
+  // alert("Message has been copied to clipboard..");
 }
 
-$(document).keypress(function (e) {
-  
+$(document).keypress(function(e) {
   if (e.which == 13) {
-   e.preventDefault();
-   $('.Btn').click();
-  //  alert('Click button was trigger');
+    e.preventDefault();
+    $(".Btn").click();
+    //  alert('Click button was trigger');
   }
- });
+});
 
- function closepopup(id){
+function closepopup(id) {
   // alert(id);
-    $('ul#tasksreply'+id).empty();
-      $('li#testingIds').empty();
-   // alert('exampleModalCenter'+id);
-   // alert('exampleModalCenteraJWnlbLqkTu8K5P7Dtf8');
-   // var finaldataval = '#exampleModalCenter'+id;
- //   $('#exampleModalCenter'+id).on('hidden.bs.modal', function() {
-     // $(this).find('form#'+id).trigger('reset');
-     // alert('hidden event fired!');
- 
- //      $(this).removeData();
- 
- // });
- }
+  $("ul#tasksreply" + id).empty();
+  $("li#testingIds").empty();
+  // alert('exampleModalCenter'+id);
+  // alert('exampleModalCenteraJWnlbLqkTu8K5P7Dtf8');
+  // var finaldataval = '#exampleModalCenter'+id;
+  //   $('#exampleModalCenter'+id).on('hidden.bs.modal', function() {
+  // $(this).find('form#'+id).trigger('reset');
+  // alert('hidden event fired!');
 
+  //      $(this).removeData();
+
+  // });
+}
 
 function imgError(image) {
-    image.onerror = "";
-    image.src = "images/userIcon.png";
-    return true;
+  image.onerror = "";
+  image.src = "images/userIcon.png";
+  return true;
 }
 
-// Emoji Function 
+// Emoji Function
 
-function emojifunction(e) 
-{
- //  alert(e);
- //  alert("hii");
-    new EmojiPicker({
-       trigger: [
-           {
-               selector: '#emoji-buttons'+e,
-               insertInto: ['#btn-input-replymsg'+e] // '.selector' can be used without array
-           }
-       ],
-       closeButton: false,
-       //specialButtons: green
-   });
+function emojifunction(e) {
+  //  alert(e);
+  //  alert("hii");
+  new EmojiPicker({
+    trigger: [
+      {
+        selector: "#emoji-buttons" + e,
+        insertInto: ["#btn-input-replymsg" + e], // '.selector' can be used without array
+      },
+    ],
+    closeButton: false,
+    //specialButtons: green
+  });
 }
 
+// Flag Data
 
-// Flag Data 
-
-
-function flagData(e,f){
+function flagData(e, f) {
   // alert(e);
   // alert(f);
-  var userIds     = document.getElementById('user_id');
+  var userIds = document.getElementById("user_id");
   // console.log(userIds.value);
   var userNamess = document.getElementById("user_nickname");
- // console.log(userNamess.value);
-  var id=e;
-     var loggedInValss = userIds.value;
-     console.log("id  " + loggedInValss);
-     var loggedInNamess = userNamess.value;
-     console.log("usernames   " + loggedInNamess);
+  // console.log(userNamess.value);
+  var id = e;
+  var loggedInValss = userIds.value;
+  console.log("id  " + loggedInValss);
+  var loggedInNamess = userNamess.value;
+  console.log("usernames   " + loggedInNamess);
 
+  docRef
+    .doc(id)
+    .get()
+    .then(function(doc) {
+      console.log(doc.id, " => ", doc.data());
 
- 
+      var id = doc.id;
 
+      var fulldata = doc.data();
 
-    docRef.doc(id).get().then(function(doc) {
-  
-       console.log(doc.id, " => ", doc.data());
+      const cityRef = docRef.doc(id);
 
-        var id = doc.id;
+      console.log(doc.data().flag);
 
-        var fulldata = doc.data();
+      var txt;
+      if (
+        confirm(
+          "This comment has been sent for review to the chat room moderator. Thank you."
+        )
+      ) {
+        if (doc.data().flag == undefined) {
+          const res = cityRef.update({
+            flag: [
+              {
+                messageFlag: true,
+                messageFlagMsg: f,
+                messageFlagedUserId: loggedInValss,
+                messageFlagedUserName: loggedInNamess,
+              },
+            ],
+          });
+          console.log("if value " + res);
+          $("li#" + id).css("display", "none");
+        } else {
+          const fruits = doc.data().flag;
+          fruits.push({
+            messageFlag: true,
+            messageFlagMsg: f,
+            messageFlagedUserId: loggedInValss,
+            messageFlagedUserName: loggedInNamess,
+          });
+          console.log("else value " + JSON.stringify(fruits));
+          const res = cityRef.update({ flag: fruits });
 
-        const cityRef = docRef.doc(id);
-
-        console.log(doc.data().flag);
-
-         var txt;
-          if (confirm("This comment has been sent for review to the chat room moderator. Thank you.")) {
-              if(doc.data().flag == undefined){
-
-                  const res = cityRef.update({flag: [{messageFlag : true, messageFlagMsg : f, messageFlagedUserId : loggedInValss, messageFlagedUserName : loggedInNamess}]});
-                  console.log("if value " + res);
-                  $("li#"+id).css("display","none");
-
-                }else{
-
-                  const fruits = doc.data().flag;
-                  fruits.push({messageFlag : true, messageFlagMsg : f, messageFlagedUserId : loggedInValss, messageFlagedUserName : loggedInNamess});
-                    console.log("else value " + JSON.stringify(fruits));
-                  const res = cityRef.update({flag: fruits});
-
-                   console.log("else value update " + res);
-                   $("li#"+id).css("display","none");
-
-                }
-          } else {
-            txt = "You pressed Cancel!";
-          }
-
-      
-
-
+          console.log("else value update " + res);
+          $("li#" + id).css("display", "none");
+        }
+      } else {
+        txt = "You pressed Cancel!";
+      }
 
       // if(doc.data().flag.messageFlagedUserId == loggedInValss && doc.data().flag.messageFlagedUserName == loggedInNamess){
 
@@ -2424,7 +2439,5 @@ function flagData(e,f){
       //   console.log("else value " + res);
 
       // }
-
     });
-                     
- }
+}
