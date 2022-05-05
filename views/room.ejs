@@ -151,7 +151,7 @@ var loggedInName = storageData.uname
     //  alert(loggedInName);
            
 var loggedInVal = $('#user_id').val(storageData.uid);
-alert(loggedInVal);
+// alert(loggedInVal);
  var nummers = db.collection("/basilPrivateGroup/Test/groupMembersInfo/").where('userName', '==', loggedInName);
 nummers.get().then(function (querySnapshot) {
   if(querySnapshot){
@@ -312,7 +312,7 @@ $("#formoid").submit(function(event){
             var urls = new URL(url_string);
             var sData = localStorage.getItem('allTokenData');
             var storageData= JSON.parse(sData);
-            alert(storageData.fcmToken);
+            // alert(storageData.fcmToken);
             $("#user_nickname").val(storageData.uname);
             $('#user_id').val(storageData.uid);
             $('#user_fcm_token').val(storageData.fcmToken);
@@ -322,7 +322,7 @@ $("#formoid").submit(function(event){
             document.getElementById("nickdatavalue").setAttribute('value',loggedInName);
             
             var fcmToken = storageData.fcmToken;
-            alert(fcmToken);
+            // alert(fcmToken);
            // $("#nickdatavalue").val(userName);
            // var today = new Date();
            // // alert(today);

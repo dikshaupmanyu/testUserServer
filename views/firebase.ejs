@@ -1,17 +1,21 @@
   <%- include partials/innerheader %>
 
    
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-   <link rel="stylesheet" href="css/emoji.css">
-   <link rel="stylesheet" href="css/chatWindow.css">
+<!--     <link rel="stylesheet" href="css/style.css">
+ -->   
+  
+<!--     <link rel="stylesheet" href="css/style.css">
+ -->    <link rel="stylesheet" href="css/emoji.css">
+    <link rel="stylesheet" href="css/chatWindow.css">
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.css" integrity="sha512-0Nyh7Nf4sn+T48aTb6VFkhJe0FzzcOlqqZMahy/rhZ8Ii5Q9ZXG/1CbunUuEbfgxqsQfWXjnErKZosDSHVKQhQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css" integrity="sha512-vEia6TQGr3FqC6h55/NdU3QSM5XR6HSl5fW71QTKrgeER98LIMGwymBVM867C1XHIkYD9nMTfWK2A0xcodKHNA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
     <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-
-
     <script>
         window.addEventListener("load", function() {
 
@@ -153,7 +157,16 @@
         $('#messages').scrollTop($('#messages')[0].scrollHeight);
     </script> -->
 
-
+                 <div id="fountainG">
+                    <div id="fountainG_1" class="fountainG"></div>
+                    <div id="fountainG_2" class="fountainG"></div>
+                    <div id="fountainG_3" class="fountainG"></div>
+                    <div id="fountainG_4" class="fountainG"></div>
+                    <div id="fountainG_5" class="fountainG"></div>
+                    <div id="fountainG_6" class="fountainG"></div>
+                    <div id="fountainG_7" class="fountainG"></div>
+                    <div id="fountainG_8" class="fountainG"></div>
+                  </div>
                 <div class="card-body chat-care">
                     <ul class="chat" id="tasks">
                     </ul>
@@ -236,13 +249,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <script src='js/inputEmoji.js'></script>
-  <script>
+   <script>
+    
+    
+    $("#tasksuserlisttotal").on("click", function () {
+      $("body").addClass("open__sidebar");
+    });
+    $(".app_header").on("click", function () {
+      $("body").removeClass("open__sidebar");
+    });
+ 
     $(function () {
       $('#btn-input').emoji({place: 'after'});
 
       $('.emoji-button').on("click", function(e){
         if($('.emojis').is(":visible")){
-          console.log('click')
+            // alert('click');
+             e.preventDefault();
+
         }
       })
 
@@ -254,11 +278,22 @@
        })
 
     })
-  </script>
 
-  
-<script src="js/vanillaEmojiPicker.js"></script>
-  <script>
+
+    
+  </script>
+<br>
+<script>
+      var preloader = document.getElementById("fountainG");
+
+      window.addEventListener("load", function(){
+        preloader.style.display ="none"
+      })
+    </script>
+
+
+<script src="js/vanillaEmojipicker.js"></script>
+<script>
 
 $(document).keypress(function (e) {
   
