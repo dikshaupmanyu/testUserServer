@@ -150,8 +150,8 @@ var db = firebase.firestore();
 var loggedInName = storageData.uname
     //  alert(loggedInName);
            
-           var loggedInVal = $('#user_id').val(storageData.uid);
-           // alert(LoggedInId);
+var loggedInVal = $('#user_id').val(storageData.uid);
+alert(loggedInVal);
  var nummers = db.collection("/basilPrivateGroup/Test/groupMembersInfo/").where('userName', '==', loggedInName);
 nummers.get().then(function (querySnapshot) {
   if(querySnapshot){
@@ -312,7 +312,7 @@ $("#formoid").submit(function(event){
             var urls = new URL(url_string);
             var sData = localStorage.getItem('allTokenData');
             var storageData= JSON.parse(sData);
-            // alert(JSON.stringify(storageData));
+            alert(storageData.fcmToken);
             $("#user_nickname").val(storageData.uname);
             $('#user_id').val(storageData.uid);
             $('#user_fcm_token').val(storageData.fcmToken);
@@ -321,7 +321,8 @@ $("#formoid").submit(function(event){
             
             document.getElementById("nickdatavalue").setAttribute('value',loggedInName);
             
-            var fcmToken = document.getElementById('user_fcm_token').value;
+            var fcmToken = storageData.fcmToken;
+            alert(fcmToken);
            // $("#nickdatavalue").val(userName);
            // var today = new Date();
            // // alert(today);
