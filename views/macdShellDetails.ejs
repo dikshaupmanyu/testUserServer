@@ -1,0 +1,136 @@
+<%- include partials/innerheader %>
+ <!-- Page Content Start -->
+<style type="text/css">
+  .tips_bx_amount span span.color_sell::after {
+    display: inline-block;
+    margin-left: .390em;
+    vertical-align: 0.100em;
+    content: "";
+    border-top: .4em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+/*img[src="#"] {
+    display: none;
+}*/
+</style>
+<div class="modal" id="myModalMACD">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" style="color: #000;">What Is Moving Average Convergence Divergence (MACD)?</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p style="color: #000;">MACD is a mathematical indicator for stock investors that uses the average closing prices of a stock in 2 timeframes, a short-term (past 9 days) and a longer-term (past 26 days)</p>
+          <p style="color: #000;">When the short-term average closing prices (called a moving average) crosses over the longer-term moving average from below heading up, that is a sign to investors to buy the stock.</p>
+          <p style="color: #000;">The reverse is true when the short-term moving average crosses the longer-term moving average from above heading down. That is a sign to sell the stock.</p>
+          <p style="color: #000;">TradeTips makes knowing when a MACD signal happens by just sending you the list all SP500 and Nasdaq100 stocks that just had a buy or sell crossover event the day before.</p>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<div class="app_main">
+  <%- include partials/innersidebar %>
+<div class="app_content">
+  <div class="dsbrd_container">
+    <div class="trade_dtl_wrapper dsbrd_center_wrapper">
+      <div class="trade_dtl_head">
+        <a href="/dashboard"><button class="btn back_btn"><i class="fas fa-arrow-left"></i></button></a>
+       <!--  <button class="btn cmn_btn btn_small btn_primary">View AI Trend</button> -->
+      </div>
+      <div class="trade_dtl_box tips_bx sell_bg" id="MACDdemo">
+        </div>    
+        <div class="trade_dtl_box tips_bx sell_bg">
+        <table class="table" style="color: #fff;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Company</th>
+            <th scope="col">Closing</th>
+          </tr>
+        </thead>
+        <tbody id="stockDeatilss">
+          
+        </tbody>
+        </table>
+        </div>   
+          <img src="#" id="imgstatus" class="image-responsive" style="display: block;margin: 0 auto;">
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Page Content Start -->
+<%- include partials/innerfooter %>
+
+<script type="text/javascript">
+
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  var LoggedInId = document.getElementById("user_id");
+
+  var tokens = "<%= tokens %>";
+  // alert(tokens);
+  
+  var userName =  document.getElementById("user_nickname");
+
+
+  var tipIds = "<%=tipsIds%>";
+
+  var formdata = {offset : 0 , limit : 15};
+  $.ajax({
+      type: 'POST',
+      url: 'https://apistest.tradetipsapp.com/api/tip/getAllTipFeaturePaginationForUserWithMacdGif',
+      headers: {
+        Authorization: 'Bearer '+ tokens,
+         },
+      data: formdata,
+  success: function(data) {
+  var dataResult = data;
+  //console.log(dataResult1);          
+  //console.log(dataResult1.length);
+  var array = dataResult.sellStockCrossover;
+    document.getElementById("imgstatus").src = dataResult.sellMacDGif;
+
+   var totalarray = array.length;
+   var finalstockval = [];
+   var textstockMacd = [];
+     for(i=0;i<totalarray;i++){
+
+      finalstockval.push(array[i].stockSymbol);
+
+      textstockMacd += '<tr><th scope="row">'+ (i+1) +'</th><td>'+array[i].stockSymbol+'</td><td>'+array[i].stockName+'</td><td>$ '+array[i].closePrice+'</td></tr>';
+
+
+     }
+
+
+     $("#stockDeatilss").append(textstockMacd);
+
+   console.log(finalstockval.join(', '));
+
+  textMacdTips = '<div class="tips_bx_head"><a href="macdDetails?id=' + array[0].id + '" target="_blank"><div class="tips_bx_author author_bx"><img src="images/macd_sell.png" alt="images" style="border-radius:0px !important;"><div class="tips_bx_cmpny_name" style="color:white;"><h2><em class="only_id_use">MACD tips</em></h2></div></div></a><div class="tips_bx_amount"><h2>'+ totalarray +' Signals</h2><p>'+ finalstockval.join(', ') +'</p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn">' + array[0].crossover + '</span> <h2><em class="only_id_use">S&P500 and Nasdaq100</em> <span>All MACD convergence crossover signals </span></h2></div><div class="tips_bx_amount"><p><a href="#" data-toggle="modal" data-target="#myModalMACD">What is MACD ?</a></p></div></div>';
+          
+      $("#MACDdemo").append(textMacdTips);
+
+   
+  }
+  });
+
+
+  </script>
+

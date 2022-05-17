@@ -29,6 +29,23 @@ module.exports = function(app) {
     res.render('notification.ejs');
   });
 
+  app.get('/macdDetails', function(req, res) {
+
+    var mentorids = req.query.id;
+
+    var symbol = req.query.stockName;
+
+    res.render('macdDetails.ejs' , {tipsIds : mentorids , stockSymbol : symbol});
+  });
+
+        app.get('/macdSellDetails', function(req, res) {
+
+    var mentorids = req.query.id;
+
+    var symbol = req.query.stockName;
+
+    res.render('macdSellDetails.ejs' , {tipsIds : mentorids , stockSymbol : symbol});
+  });
      /////////////////////////////////////////////////////////////////////////
 
 

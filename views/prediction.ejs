@@ -31,6 +31,8 @@ credits{
 }
 .input-color input {
     padding-left: 20px;
+    background:linear-gradient(to top, rgb(51 139 247 / 22%), rgb(255 29 108 / 22%));
+    color:#fff;
 }
 .input-color .color-box {
     width: 10px;
@@ -209,12 +211,12 @@ const a = null
                                 if(valuees > 0){
                                    // $("#changepoint").text(valuees);
 
-                                  $("#changepoint").html('<span class="color_buy">' +valuees + '</span>');
+                                  $("#changepoint").html('<span class="color_buy" style="font-size:20px">' +valuees + '</span>');
                                    $("#changepoint").css("color" , "#09b598");
 
                                 }else{
 
-                                  $("#changepoint").html('<span class="color_sell">' +valuees + '</span>');
+                                  $("#changepoint").html('<span class="color_sell" style = " font-size:20px">' +valuees + '</span>');
                                    $("#changepoint").css("color" , "#dc3545");
                                 }
 
@@ -223,10 +225,46 @@ const a = null
 
                    }); 
 
+                   cp();
+                        async function cp(){
+
+                             var mydata = new Headers();
+                              mydata.append("Authorization", `Bearer ${tokens}`);    
+
+                              var formData = new FormData();
+                              formData.append("stockSymbol", symbol);
+
+                              var requestOp = {
+                                method: 'POST',
+                                headers: mydata,
+                                body: formData,
+                                redirect: 'follow'
+                              };
+
+                              const current_price = await fetch(`https://apistest.tradetipsapp.com/api/sectorNewsSentiment/getSentimentandSMAByStockSymbolResultSet`, requestOp);
+
+                              const array = await current_price.json();
+                              // alert(array[0].stock_name)
+
+                               const currentprice = await fetch(`https://cloud.iexapis.com/stable/stock/market/batch?types=quote&token=pk_dd324da3fb5f4428a47b05ab12f23ce2&symbols=${array[0].stock_name}`);
+                                const d = await currentprice.json()
+
+                                var currentPrice = d[array[0].stock_name].quote.latestPrice
+
+                                var CPP = {
+                                  x:0,
+                                  y:currentPrice,
+                                  label:"CurrentPrice"
+                                };
+
                   var data = [];
                   var data1 = [];
                   var data2 = [];
                   var data3 = [];
+
+                  data.splice(0,0,CPP)
+                  data1.splice(0,0,CPP)
+                  data2.splice(0,0,CPP)
                   var totalreslt = dataResult.object.length;
                   // alert(totalreslt);
 
@@ -292,28 +330,28 @@ const a = null
 
                        
                         data.push({
-                            x:i,
+                            x:i+1,
                             y: fparse,
                             label : "VXX Affected<br>" + num1,
 
                           });
 
                          data1.push({
-                            x:i,
+                            x:i+1,
                             y: fparse3,
                             label : "News Affected<br>" + num1,
 
                           });
 
                          data2.push({
-                            x:i,
+                            x:i+1,
                             y: fparse4,
                             label : "Technical Model<br>" + num1,
 
                           });
 
                           data3.push({
-                            x:i,
+                            x:i+1,
                             y: fparse5,
                             label : num1,
 
@@ -327,7 +365,7 @@ const a = null
 
 
                      var chart = new CanvasJS.Chart("chartContainer", {
-                        width:600,
+                        // width:600,
                         height:300,
                         zoomEnabled: true,
                         animationEnabled: true,
@@ -340,7 +378,8 @@ const a = null
                             enabled: true,
                             snapToDataPoint: true,
                             valueFormatString: "MMM YYYY"
-                          }
+                          },
+                          labelAngle: 1,
                         },
                         axisY: {
                           crosshair: {
@@ -361,13 +400,13 @@ const a = null
                         data: [{                         
                           type: "line",
                           markerType : "none",
-                          color : "navy blue",
+                          color : "rgb(4,4,153)",
                           dataPoints: data
                         },{
                          
                           type: "line",
                           markerType : "none",
-                          color : "orange",
+                          color : "#FF850A",
                           dataPoints: data1
                         },{
                          
@@ -385,10 +424,15 @@ const a = null
                       });
 
                       chart.render();
-               
+                      setAxisXMaximum();
+
+                      function setAxisXMaximum() {
+                        chart.axisX[0].set("minimum", chart.options.data[0].dataPoints[0].x);
+                      }
       
            }  
 
+          }
 
                         loaddata();
                         async function loaddata(){

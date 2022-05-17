@@ -268,22 +268,27 @@
 
                 let newtip = [];
                   for(var i=0; i< dataResult.length; i++) {  
+                    if(dataResult[i].serviceTypeMaster.title == "Recommended"){
+                      newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
+                    
+                  }else{
 
-                  newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div><div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
-                   
-                  // newtip += '<tr class="newwcss"><td><div class="pckg_item_desc"><p>'+ (dataResult[i].serviceTypeMaster.title)
-                  //  // + (dataResult[i].serviceTypeId == "b5d735b0-92ef-45d3-8f6e-e7adc7d9a8a8" ? ' 1-1 Chat Service ' : '' ) + (dataResult[i].serviceTypeId == "b9259b4f-4529-4aaa-b223-95d711ecb969" ? ' Video Channel Subscription ' : '' ) + (dataResult[i].serviceTypeId == "668b8486-64dd-43b7-9d24-563944009ebe" ? ' Live Chat Service ' : '' ) + (dataResult[i].serviceTypeId == "0f27f77e-1277-426d-83fa-192ae12165ba" ? ' Mentor Phone Group Service ' : '' ) + (dataResult[i].serviceTypeId == "6faa1011-33a7-4b71-b001-e20cebdaed22" ? ' Webinar Service ' : '' ) + (dataResult[i].serviceTypeId == "b098c61a-e451-4df7-a5d5-6ad88e096c3b" ? ' Books Sale ' : '' ) + (dataResult[i].serviceTypeId == "479a3b69-ed95-43c9-984a-593f1e519dc0" ? ' Investing Class Service ' : '' )
-                  //   + '</p></div></td><td><div class="pckg_item_img"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></td><td><div class="pckg_item_txt" style="padding-left:0px;"><p>'+ dataResult[i].title +'</p></div></td><td><div class="pckg_item_desc"><p>'+ dataResult[i].descriptionOne +'</p></div></td><td><div class="pckg_item"><ul><li><h5> <span>$'+ dataResult[i].price +'</span></h5></li></ul><td><ul><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><span><i class="fas fa-pencil-alt"></i></span><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=Newsletter">Edit Services</a></li><li><span><i class="far fa-trash-alt"></i></span><a onclick="DeleteService(this.id)" id="'+ dataResult[i].id +'"> Delete Services</a></li></ul></div></div></li></ul></div></div></td></tr><br>';
+                  function checkimage(){   
+                   var data ;
+                    if(!dataResult[i].imageDetails) {data = '<div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="'+ dataResult[i].thumbnailImageUrl +'" alt="images"></div></h2></div>'; }else{data = '<div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div>';}
 
-               
-
+                    return data;
                   }
-                   $("#newsletterServices").append(newtip);
-
-                }
-
+                  newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
+                  }
+                  }
+                  $("#newsletterServices").append(newtip);
                   
+                }
+                
+                
                  
+                // newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
 
               }
 
