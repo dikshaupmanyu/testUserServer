@@ -16,6 +16,14 @@
        #pswrd{
            -webkit-text-security:disc;
        }
+
+       .successmsg{
+         color:#fff;
+         font-size: 20px;
+         position: relative;
+         top:70px;
+         text-align: center;
+       }
    </style>
 <body>
 
@@ -30,6 +38,7 @@
 
 </form>
     <!-- Login Start -->
+    <div class="successmsg"></div>
     <div class="onboard_wrapper">
       <div class="account_bx login_bx">
         <div class="account_bx_head">
@@ -99,8 +108,8 @@
                   // alert(data.accessToken); 
                   if(dataResult.accessToken){                  
                     if(userName != "admin"){
-                      $("#success").show();
-                      $('#success').html('Login Sucessfully !');
+                      $(".successmsg").show();
+                      $('.successmsg').html('Login Sucessfully !');
                   
                             const tdss = dataResult.accessToken;
                             const tds7 = dataResult.fcmToken;
@@ -126,8 +135,9 @@
                        window.location.href = "/dashboard";  
                       }
                     else{
-                       alert('Invalid Username or Password !!!');
-                       window.location.href = "/"; 
+                      $(".successmsg").html('<span>Invalid Username or Password !!!</span>');
+                    setTimeout(function(){$(".successmsg").empty()}, 2000); 
+                    setTimeout(function(){window.location.href = "/"; }, 2000); 
                       }                                       
                     }
                   else if(dataResult.statusCode==201){
@@ -136,8 +146,11 @@
                     $('#error').html('Invalid Username or Password !!!');
 
                   } else {
-                    alert('Invalid Username or Password !!!');
-                    window.location.href = "/"; 
+                    // alert('Invalid Username or Password !!!');
+                    $(".successmsg").html('<span>Invalid Username or Password !!!</span>');
+                    setTimeout(function(){$(".successmsg").empty()}, 2000); 
+                    setTimeout(function(){window.location.href = "/"; }, 2000); 
+                   
 
                   }
                   
@@ -146,7 +159,9 @@
               });
             }
             else{
-              alert('Please fill all the field !');
+              // alert('Please fill all the field !');
+              $(".successmsg").html('<span>Please fill all the field !!</span>');
+       setTimeout(function(){$(".successmsg").empty()}, 2000); 
             }
           });
 
