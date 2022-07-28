@@ -1,4 +1,9 @@
 <%- include partials/innerheader %>
+<style>
+  .my_tab_content .nav-tabs .nav-item {
+    padding:20px;
+  }
+</style>
 <div class="app_main">
 <%- include partials/innersidebar %>
 <div class="app_content">
@@ -40,9 +45,9 @@
               </div> -->
 
             <div class="tab-pane fade" id="mtb_service" role="tabpanel" aria-labelledby="mt_service">
-              <div class="mentor_service_area" id="newsletterServices">
-               <h4>TradeTips Recommended Services</h4>  
-                <p>Learn how to invest, trade and use TradeTips</p>      
+              <div class="mentor_service_area" id="allService">
+               <!-- <h4>TradeTips Recommended Services</h4>  
+                <p>Learn how to invest, trade and use TradeTips</p>       -->
                 <br>
               </div>
              
@@ -125,51 +130,171 @@
   document.getElementById("user_n").textContent = user_name;
 
 
-        $.ajax({
-              type: 'POST',
-              url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/getAllTypeServicesForUser',
-              headers: {
-                Authorization: 'Bearer '+ tokens,
-                 },
-              data: {
-                  userId: LoggedInId,
-                },
-               success: function(data) {
-                 var datak = JSON.stringify(data);
-                 var fdataResult = JSON.parse(datak); 
-                // console.log(fdataResult.suggestedServiceSubscriptionPlans);
-                 var dataResult = fdataResult.suggestedServiceSubscriptionPlans;
-                 //console.log(dataResult);
-                  var len = dataResult.length;
-                  //alert(len);
-               if(dataResult.length == 0){
-                  
-                    document.getElementById('newsletterServices').innerHTML="<br><p>You currently have no Services created.</p>";
-                    $("#newsletterServices").css("text-align", "center");
-                    $("#newsletterServices").css("color", "white");
+  $.ajax({
 
-                 } else {
+type: "POST",
+url:
+  "https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlanWeb/getAllServiceSubscriptionPlan ",
+headers: {
+  // Authorization: "Bearer " + tokens,
+},
+data: {
+  userId: LoggedInId,
+},
+success: function (data) {
+  console.log(data)
+  var dataks = JSON.stringify(data);
+  var fdataResults = JSON.parse(dataks);
+
+  // alert(fdataResults);
+  var dataResults = fdataResults;
+  console.log(dataResults);
+  var len = dataResults.length;
+  // alert('count'+len);
+  if (dataResults.length == 0) {
+
+    document.getElementById("allService").innerHTML =
+      "<br><p>You currently have no Services created.</p>";
+    $("#allService").css("text-align", "center");
+    $("#allService").css("color", "white");
+  } else {
+    // alert('ok')
+
+    let newtip = [];
+    for (var i = 0; i < dataResults.length; i++)
+      if (dataResults[i].isActive != false) {
+        // if(dataResult[i].isActive == true){
+
+        //  alert(dataResult[i].title);
+
+        function checkimage() {
+          var data;
+          if (!dataResults[i].imageDetails) {
+            data = "";
+          } else {
+            data =
+              '<img src="https://apistest.tradetipsapp.com' +
+              dataResults[i].imageDetails +
+              '"';
+          }
+
+          return data;
+        }
+
+        function checkprice() {
+          var price;
+          if (dataResults[i].price == "0") {
+            price = "Free";
+          } else {
+            price = "$" + dataResults[i].price;
+          }
+
+          return price;
+        }
+
+        function checkserviceType() {
+          var url;
+          if (dataResults[i].price == "0") {
+            url = '<a href="' + dataResults[i].descriptionTwo + '" target="_blank"><button class="btn cmn_btn btn_primary">View </button></a>';
+          } else {
+            url = '<a href="serviceDetails?id=' + dataResults[i].id + '" target="_blank"><button class="btn cmn_btn btn_primary">View </button></a>';
+          }
+
+          return url;
+        }
+
+        newtip +=
+          '<div class="mentor_srvc"><h2>' +
+          dataResults[i].serviceTypeMaster.title +
+          '</h2><div class="mentor_srvc_bx">' +
+          checkimage() +
+          '</div><div class="mentor_srvc_bx_txt"><h3>' +
+          dataResults[i].title +
+          "<span>" +
+          checkprice() +
+          "</span></h3><p>" +
+          dataResults[i].descriptionOne +
+          '</p>' + checkserviceType() + '</div></div><br>';
+        // }
+      }
+    $("#allService").append(newtip);
 
 
-                let newtip = [];
-                  for(var i=0; i< dataResult.length; i++) {  
+  var dataResultpurchaseService = fdataResults;
+  var lenpurchaseService = dataResultpurchaseService.length;
+  if (dataResultpurchaseService.length == 0) {
+    // document.getElementById('purchaseServices').innerHTML="<br><p>You currently have no Services created.</p>";
+    //  $("#purchaseServices").css("text-align", "center");
+    //  $("#purchaseServices").css("color", "white");
+  } else {
+    let newtippurchaseServices = [];
+    for (var i = 0; i < dataResultpurchaseService.length; i++) {
+      function checkimagePurchase() {
+        var data;
+        if (!dataResultpurchaseService[i].imageDetails) {
+          data = "";
+        } else {
+          data =
+            '<img src="https://apistest.tradetipsapp.com' +
+            dataResultpurchaseService[i].imageDetails +
+            '"';
+        }
+
+        return data;
+      }
+
+      function checkpricePurchase() {
+        var price;
+        if (
+          dataResultpurchaseService[i].serviceSubscriptionPlan.price == "0"
+        ) {
+          price = "Free";
+        } else {
+          price =
+            "$" +
+            dataResultpurchaseService[i].serviceSubscriptionPlan.price;
+        }
+
+        return price;
+      }
+
+      function checkservicePurchase() {
+        var url;
+        if (dataResultpurchaseService[i].serviceSubscriptionPlan.price == "0") {
+          url = '<a href="' + dataResultpurchaseService[i].serviceSubscriptionPlan.descriptionTwo + '" target="_blank"><button class="btn cmn_btn btn_primary">View </button></a>';
+        } else {
+          url = '<a href="serviceDetails?id=' + dataResultpurchaseService[i].serviceSubscriptionPlan.id + '" target="_blank"><button class="btn cmn_btn btn_primary">View </button></a>';
+        }
+
+        return url;
+      }
 
 
-                  if(dataResult[i].isActive == true){
+      // if(dataResult[i].isActive == true){
+      newtippurchaseServices +=
+        '<div class="mentor_srvc"><h2>' +
+        dataResultpurchaseService[i].serviceSubscriptionPlan.title +
+        '</h2><div class="mentor_srvc_bx">' +
+        checkimagePurchase() +
+        '</div><div class="mentor_srvc_bx_txt"><h3>' +
+        dataResultpurchaseService[i].serviceSubscriptionPlan.title +
+        "<span>" +
+        checkpricePurchase() +
+        "</span></h3><p>" +
+        dataResultpurchaseService[i].serviceSubscriptionPlan
+          .descriptionOne +
+        '</p>' + checkservicePurchase() + '</div></div><br>';
+      // }
+    }
+    $("#allService").append(newtippurchaseServices);
+  }
 
-                  //  console.log(dataResult[i].title);
-                    newtip += '<div class="mentor_srvc"><h2>'+dataResult[i].serviceTypeMaster.title+'</h2><div class="mentor_srvc_bx"><img src="https://apis.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"><div class="mentor_srvc_bx_txt"><h3>'+dataResult[i].title+'<span>Free</span></h3><p>'+dataResult[i].descriptionOne+'</p><a href="'+dataResult[i].descriptionTwo+'" target="_blank"><button class="btn cmn_btn btn_primary">View Detail</button></a></div></div><br>'                 
-                  }
-                    
 
-                  }
-                   $("#newsletterServices").append(newtip);
+}
+}
+});
 
-                }                  
-                 
-             }
-             });
-
+// ///////////////////////////////////////////////////////////////////////////////////
         $.ajax({
               type: 'POST',
               url: 'https://apistest.tradetipsapp.com/api/followUserList/getAllFollowUserListByUserName',
@@ -294,12 +419,12 @@
                     if(data[i].tipResponse.tip.stockSuggestion == "Buy") 
 
                     {
-                    savedtip += '<div class="mentor_feed><div class="tips_bx buy_bg"><div class="mentor_feed"><div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrice' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+                    savedtip += '<div class="mentor_feed><div class="tips_bx buy_bg"><div class="mentor_feed"><div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrice' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer; width:25px"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
                   }
                   else if(data[i].tipResponse.tip.stockSuggestion == "Sell")
                   {
                     
-                    savedtip +='<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+                    savedtip +='<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer; width:25px"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
 
                   }
  /*                 else{
@@ -535,11 +660,11 @@
                     if(data[i].tipResponse.tip.stockSuggestion == "Buy") 
 
                     {
-                    savedtip += '<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_cmpny_name"><h2>'+stripped2+'</h2></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusn' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
+                    savedtip += '<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_cmpny_name"><h2>'+stripped2+'</h2></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusn' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"width:25px><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
 
                   } else {
                     
-                    savedtip +='<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_cmpny_name"><h2>'+stripped2+'</h2></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusn' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
+                    savedtip +='<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_cmpny_name"><h2>'+stripped2+'</h2></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatusn' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;width:25px"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
 
                   }                            
 
@@ -608,7 +733,7 @@
 
                  if(data[i].activityType == "Comment"){
 
-                   savedtip += '<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
+                   savedtip += '<div class="mentor_feed"><div class="tips_bx avoid_bg"><div class="mentor_feed"><div class="tips_bx_author author_bx"><div class="author_bx_txt"><h2>You commented on '+data[i].tipResponse.tip.stockName+'</h2></div></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;width:25px"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li></ul></div></div></div>' 
 
                  }
 
@@ -683,12 +808,12 @@
                         if(data[i].tipResponse.tip.stockSuggestion == "Buy") 
 
                           {
-                          savedtip += '<div class="mentor_feed><div class="tips_bx buy_bg"><div class="mentor_feed"><div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrice1' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span id="skComnyNames1'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus1' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+                          savedtip += '<div class="mentor_feed><div class="tips_bx buy_bg"><div class="mentor_feed"><div class="tips_bx buy_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrice1' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeVals1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn buy_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span id="skComnyNames1'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus1' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer; width:25px"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
                         }
                         else if(data[i].tipResponse.tip.stockSuggestion == "Sell")
                         {
                           
-                          savedtip +='<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices1' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames1'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus1' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer;"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
+                          savedtip +='<div class="tips_bx sell_bg"><div class="tips_bx_head"><div class="tips_bx_author author_bx"><img onerror="imgError(this);" id="imgcall' + data[i].tipResponse.tip.id + '" src="https://apistest.tradetipsapp.com/api/appUser/getImageByAppUserId?appUserId='+data[i].tipResponse.tip.appUser.id+'" alt="images"><div class="author_bx_txt"><h2>'+ data[i].tipResponse.tip.appUser.userName +'</h2><h3>'+stripped2+'</h3></div></div><div class="tips_bx_amount"><h2 class="hclass" id="flatestPrices1' + data[i].tipResponse.tip.id + '"><span>$</span></h2><p>At Time of Tip :  <span class="hclass" id="stockTipPrice1' + data[i].tipResponse.tip.id + '"><span><b style="color:white">$</b></span><b style="color:white">'+ parseFloat(data[i].tipResponse.tip.createTipPrice).toFixed(2) +'</b></span><span id="changeValsfront1' + data[i].tipResponse.tip.id + '"></span></span></p></div></div><div class="tips_bx_cmpny"><div class="tips_bx_cmpny_name"><span class="bs_btn sell_btn suggestion' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.tip.stockSuggestion+'</span><h2>'+data[i].tipResponse.tip.stockName+'<span span id="skComnyNames1'+ data[i].tipResponse.tip.id +'"></span></h2></div><div class="tips_bx_cmpny_states"><ul><li><h3>Entry</h3><h4 id="entrydata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.entryPoint).toFixed(2)+'</h4></li><li><h3>Exit</h3><h4 span id="exitdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.exitPoint).toFixed(2)+'</h4></li><li><h3>Stop</h3><h4 id="stopdata1' + data[i].tipResponse.tip.id + '"><span>$</span>'+parseFloat(data[i].tipResponse.tip.stopPoint).toFixed(2)+'</h4></li></ul></div></div><div class="tips_bx_txt"><p>'+data[i].tipResponse.tip.comment+'</p></div><div class="tips_bx_social"><ul><li><img src="images/tips-comment-icon.png" alt="images"><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.commentCount+' Comments</a></li><li><img id="imgLikestatus1' + data[i].tipResponse.tip.id + '" alt="images" style="cursor:pointer; width:25px"><a onclick="likeFunction(this.id)" id="' + data[i].tipResponse.tip.id + '" style="cursor:pointer;"><span id="textvalLike' + data[i].tipResponse.tip.id + '">'+data[i].tipResponse.likeCount+'</span> Likes</a><p id="StatusLike' + data[i].tipResponse.tip.id + '" style="display:none;">' + data[i].tipResponse.userLikeStatus + '</p></li><li><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/tips-more-icon.png" alt="images"> More</a><div class="dropdown-menu"><ul><li><a href="mentorDetails?id=' + data[i].tipResponse.tip.id + '"><span><i class="fas fa-folder-open"></i></span> View Detail</a></li><li onClick="copyClipboard(this.id)" id="'+data[i].tipResponse.tip.id +'"><input type = "text" aria-hidden="true" style="position: absolute;left: -999em;" id="divClipboard' +data[i].tipResponse.tip.id+'"><span><i class="fas fa-folder-open"></i></span>Copy to Clipboard</li></ul></div></div></li></ul></div></div></div>' 
 
                         }
 

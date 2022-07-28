@@ -363,6 +363,12 @@ module.exports = function(app) {
 
     res.render('mentorDetails.ejs' , {tipsIds : mentorids});
   });
+   app.get('/serviceDetails', function(req, res) {
+
+    var mentorids = req.query.id;
+
+    res.render('serviceDetail.ejs' , {tipsIds : mentorids});
+  });
 
      app.get('/aiDetails', function(req, res) {
 
