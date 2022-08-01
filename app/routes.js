@@ -366,8 +366,12 @@ module.exports = function(app) {
    app.get('/serviceDetails', function(req, res) {
 
     var mentorids = req.query.id;
+    var fdata = req.session.tokens;
+    var fusername = req.session.username;
+    var fuid = req.session.uid;
+    var femail = req.session.emails;
 
-    res.render('serviceDetail.ejs' , {tipsIds : mentorids});
+    res.render('serviceDetail.ejs' , {tipsIds : mentorids, tokens: fdata, userName:fusername, userid: fuid, email:femail});
   });
 
      app.get('/aiDetails', function(req, res) {
