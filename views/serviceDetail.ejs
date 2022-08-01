@@ -332,7 +332,7 @@ left:30%; */
           }
 
           function checkPurchase(form) {
-            alert("hii");
+            // alert("hii");
             var tokendata = "<%= tokens %>";
             var loginIds = "<%= userid %>";
             var subsids = "<%= tipsIds %>";
@@ -344,7 +344,7 @@ left:30%; */
                 userId: loginIds
               },
               success: function (data) {
-                alert('hello')
+                // alert('hello')
                 var dataks = JSON.stringify(data);
                 var dataResultps = JSON.parse(dataks);
                 // alert(dataResultps.serviceSubscriptions);
