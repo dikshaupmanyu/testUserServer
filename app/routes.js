@@ -273,7 +273,88 @@ module.exports = function(app) {
 };
 
 
+
+
+
+});
    
+app.post('/payment', async function(req, res){
+ 
+  // Moreover you can take more details from user
+  // like Address, Name, etc from form
+
+   console.log(req.body);
+
+    var couponId = req.body.text1;
+
+   let months = req.body.monthYear;
+        months = months.split("/")[0];
+     // console.log(months);
+    let dates = req.body.monthYear;
+        dates = dates.split("/")[1];
+    console.log(dates);
+    // sk_test_4eC39HqLyjWDarjtT1zdp7dc
+      const stripe = require('stripe')('pk_live_7b9zLcAaGBVeu14tr9Jueznl00HCPZZOU1');
+
+      try {
+
+      const paymentMethod = await stripe.paymentMethods.create({
+      type: 'card',
+      card: {
+        number: req.body.cardNumber,
+        exp_month: months,
+        exp_year: dates,
+        cvc: req.body.cvv,
+      },
+      billing_details: {
+        email: req.body.emailData,
+        name: req.body.cardName
+      }
+    });
+
+       // console.log("hiiiii data " + JSON.stringify(paymentMethod));
+
+      var options = { method: 'POST',
+          url: 'https://apis.tradetipsapp.com/api/stripePayment/createServiceSubscriptionPayment',
+          headers: 
+           { 'postman-token': 'a1f3bad2-8aab-6d21-7162-d82350e953af',
+             'cache-control': 'no-cache'},
+             // authorization: 'Bearer '+req.body.tokendata },     
+             formData: { userName: req.body.userName,
+             paymentId: paymentMethod.id,
+             serviceSubscriptionPlanId: req.body.serviceIds,
+         couponId : req.body.text1 } };
+
+        request(options, function (error, response, body) {
+
+           // console.log("body data  " + JSON.stringify(response)); 
+           // console.log("error data " + error);
+          if(response){
+
+            
+
+            res.render("success.ejs" , {userName : req.body.userName, email : req.body.emailData ,userid : req.body.userId, tokens : req.body.tokendata, service : req.body.serviceIds , mentorName : req.body.mentorName});
+          }
+           // if (error) throw new Error(error);
+
+          // {
+          //   res.render('incomplete.ejs');
+          // }
+          // throw new Error(error);
+
+          // console.log(response);
+          // console.log(error);
+          // console.log(body);
+          // res.render('complete.ejs');
+        });
+
+
+    } catch(error) {
+
+      console.log(error.raw.message);
+
+      res.render("failure.ejs" , {userName : req.body.userName, email : req.body.emailData ,userid : req.body.userId, tokens : req.body.tokendata, data : error.raw.message , service : req.body.serviceIds});
+   };
  
 });
 
