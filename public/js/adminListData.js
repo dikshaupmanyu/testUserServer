@@ -49,7 +49,7 @@ var config = {
          var monthlies = db.collection("/basilPrivateGroup").doc("Test").get();
          monthlies.then((res) => {
           // console.log(res.data().groupCode);
-          document.getElementById('room-button-2').innerText = "Enter " + res.data().groupTitle + " Room";
+          document.getElementById('room-Button-2').innerText = "Enter " + res.data().groupTitle + " Room";
   
          });
   
@@ -72,6 +72,19 @@ var config = {
     }
   
     getGroupDetailroomOnes();
+   function getGroupDetailroomOne() {
+  
+    var monthlies = db.collection("/basilPrivateGroup").doc("demoOpenGroup1").get();
+    monthlies.then((res) => {
+     // console.log(res.data().groupCode);
+     document.getElementById('room-button2').innerText = res.data().groupTitle + " Room";
+    
+    });
+    
+    
+    }
+  
+    getGroupDetailroomOne();
   
   
           

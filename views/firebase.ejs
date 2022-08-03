@@ -90,7 +90,7 @@
 
           <div class="dashboard_wrapper mentordashboard1_wrapper card" style="background: #ffff;">
                 <div class="card-header text-center" style="border: none!important;">
-                    <span><b>Room One</b></span>
+                  <span><b id="room-Button1"></b></span>
                 </div>
 
                 <div class="room">
@@ -423,6 +423,20 @@ function getGroupDetailroomOne() {
 }
 
 getGroupDetailroomOne();
+
+function getGroupDetailroom() {
+
+    var monthlies = db.collection("/openGroups").doc("demoOpenGroup1").get();
+    monthlies.then((res) => {
+      document.getElementById('room-Button1').innerText =  res.data().groupTitle + " Room";
+      console.log(res.data().groupTitle);
+
+    });
+
+
+}
+
+getGroupDetailroom();
 
 
 
