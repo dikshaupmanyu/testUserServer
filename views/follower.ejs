@@ -197,11 +197,13 @@ success: function (data) {
           if (dataResults[i].price == "0") {
             url = '<a href="' + dataResults[i].descriptionTwo + '" target="_blank"><button class="btn cmn_btn btn_primary">View </button></a>';
           } else {
-            url = '<a href="serviceDetails?id=' + dataResults[i].id + '" target="_blank"><button class="btn cmn_btn btn_primary">View </button></a>';
+            url = '<a href="serviceDetails?id=' + dataResults[i].id + '" target="_blank"><button class="btn cmn_btn btn_primary">Purchase </button></a>';
           }
 
           return url;
         }
+
+
 
         newtip +=
           '<div class="mentor_srvc"><h2>' +

@@ -446,13 +446,24 @@ app.post('/payment', async function(req, res){
   });
    app.get('/serviceDetails', function(req, res) {
 
+    
     var mentorids = req.query.id;
-    var fdata = req.session.tokens;
-    var fusername = req.session.username;
-    var fuid = req.session.uid;
-    var femail = req.session.emails;
 
-    res.render('serviceDetail.ejs' , {tipsIds : mentorids, tokens: fdata, userName:fusername, userid: fuid, email:femail});
+    res.render('serviceDetail.ejs' , {tipsIds : mentorids});
+
+  //   if(req.session.loggedIn)  { 
+	// 		var mentorids = req.query.id;
+	// 		var fdata = req.session.tokens;
+	// 		var fusername = req.session.username;
+	// 		var fuid = req.session.uid; 
+	// 		var femail = req.session.email; 
+	// 		console.log('MENTOR ID'+mentorids)
+
+  //   res.render('serviceDetail.ejs' , {tipsIds : mentorids , tokens : fdata , userName : fusername , userid : fuid , email :femail});
+
+  //    } else {
+	//      res.redirect('/')
+	//  }
   });
 
      app.get('/aiDetails', function(req, res) {

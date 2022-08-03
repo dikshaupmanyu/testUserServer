@@ -126,8 +126,8 @@ left:30%; */
           <br />
 
           <div class="edit_profile_form">
-            <p style="color: white; text-align: center">
-              Great ! <br />Thank you, rahul
+            <p id="userName-input" style="color: white; text-align: center">
+              <!-- Great ! <br />Thank you,  -->
             </p>
             <h5 class="text-center">Please complete your purchase below</h5>
           </div>
@@ -143,12 +143,12 @@ left:30%; */
                     <div class="input-group">
                       <!-- <label>Card Number</label> -->
 
-                      <input type="text" name="userName" value="<%= userName %>" style="display: none" />
-                      <input type="text" name="userId" value="<%= userid %>" style="display: none" />
-                      <input type="text" name="emailData" value="<%= email %>" style="display: none" />
-                      <input type="text" name="tokendata" value="<%= tokens %>" style="display: none" />
+                      <input type="text" name="userName"  style="display: none" />
+                      <input type="text" name="userId"  style="display: none" />
+                      <input type="text" name="emailData"  style="display: none" />
+                      <input type="text" name="tokendata"  style="display: none" />
                       <input type="text" name="amount" id="prices" style="display: none" />
-                      <input type="text" name="serviceIds" value="<%= tipsIds %>" style="display: none" />
+                      <input type="text" name="serviceIds" style="display: none" />
 
                       <input type="text" class="form-control" name="cardName" id="cardName" placeholder=" Full Name"
                         required="required" />
@@ -326,57 +326,6 @@ left:30%; */
               );
           }
         </script>
-        <!-- <script type="text/javascript">
-          function handleFormSubmit(form) {
-            checkPurchase(form);
-          }
-
-          function checkPurchase(form) {
-            // alert("hii");
-            var tokendata = "<%= tokens %>";
-            var loginIds = "<%= userid %>";
-            var subsids = "<%= tipsIds %>";
-
-            $.ajax({
-              type: 'POST',
-              // url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlanWeb/getAllTypeServicesForUser',
-              url: 'https://apistest.tradetipsapp.com/api/subscriptionPlan/getAllNewSubscriptionPlan',
-              data: {
-                userId: loginIds
-              },
-              success: function (data) {
-                // alert('hello')
-                var dataks = JSON.stringify(data);
-                var dataResultps = JSON.parse(dataks);
-                // alert(dataResultps.serviceSubscriptions);
-                // alert(dataResultps.serviceSubscriptions.length);
-                if (dataResultps.serviceSubscriptions.length == 0) {
-                  // alert("Purchase Allow !!");
-                  form.submit();
-                } else {
-                  for (var i = 0; i < dataResultps.serviceSubscriptions.length; i++) {
-                    if (dataResultps.serviceSubscriptions[i].serviceSubscriptionPlanId == subsids && dataResultps.serviceSubscriptions[i].stripeSubscriptionStatus == "active") {
-                      // alert("You Already Purchased this Service !!");
-                      $(".successmsg3").html(
-                        "You Already Purchased this Service !!"
-                      );
-                      setTimeout(function () {
-                        $(".successmsg3").empty();
-                      }, 3000);
-                    } else {
-                      form.submit();
-                      // alert("Purchase  Allow !!");
-                    }
-                  }
-
-                }
-
-              }
-
-            });
-          }
-        </script> -->
-
 
 
         <script type="text/javascript">
@@ -519,3 +468,45 @@ left:30%; */
             },
           });
         </script>
+
+        
+<script type="text/javascript">
+  window.history.forward(); 
+        function noBack() { 
+            window.history.forward(); 
+        } 
+
+        function myFunction() {
+  localStorage.clear();
+  window.location.href="/";
+}
+
+
+window.addEventListener("load", function() {
+
+  var url_string = window.location.href; 
+  var urls = new URL(url_string);
+ 
+  var sData = localStorage.getItem('allTokenData');
+  var storageData= JSON.parse(sData);
+  // alert(storageData.uid);
+ 
+   var LoggedInUsername = storageData.uname;
+  //  alert(LoggedInUsername)
+   var LoggedInEmail = storageData.email;
+   var LoggedInId = storageData.uid;
+   var tokens = storageData.tokendata;
+   // alert(LoggedInId);
+ 
+   $('#userName-input').html('Great ! <br />Thank you,  '+ LoggedInUsername);
+
+
+   // var testtoken = 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Im1haGVzaHdhcmkwNmdvdmluZEBnbWFpbC5jb20iLCJzdWIiOiJmMTQ4NmIzMy03YTM0LTQ1MDYtYWFhMS1kM2Y0YmYzOGQzNjYiLCJpYXQiOjE2MjYwODUxMjUsImV4cCI6MTYyNjY4OTkyNX0.m7wG3BhTp4sG4_PO0rAUtpO-Lc79jtryf78swvw8zdRz8lNj-z3Mm6G1HlGzgZuUbfYcawigT5tc9SREGNh6JA';
+
+
+});
+
+
+
+
+</script>
