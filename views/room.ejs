@@ -77,12 +77,12 @@ color:black;
 
               <a href="/firebase">
            
-              <button type="button" class="btn cmn_btn btn_small btn_primary" id="login-button">Enter Strategy Room</button>
+              <button type="button" class="btn cmn_btn btn_small btn_primary" id="room-button-1"> </button>
               </a>
 
               <a id="notmodalcalling">
            
-                <button type="button" class="btn cmn_btn btn_small btn_primary" id="room-button-2">Enter @basilnsage Room</button>
+                <button type="button" class="btn cmn_btn btn_small btn_primary" id="room-button-2"></button>
                 </a>
 
     
@@ -125,7 +125,7 @@ color:black;
 <script  src="https://www.gstatic.com/firebasejs/7.14.3/firebase-analytics.js"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
-
+  
 
      <%- include partials/innerfooter %> 
 
@@ -149,8 +149,8 @@ color:black;
            window.history.forward(); 
        } 
 
-        window.addEventListener("load", function() {
-
+       window.addEventListener("load", function() {
+          AmagiLoader.show();
           var sData = localStorage.getItem('allTokenData');
             var storageData= JSON.parse(sData);
             // alert(JSON.stringify(storageData));
@@ -258,15 +258,17 @@ nummers.get().then(function (querySnapshot) {
       var monthlies = db.collection("/basilPrivateGroup").doc("Test").get();
       monthlies.then((res) => {
         // document.getElementById('room-button-2').innerText = "Enter " + res.data().groupTitle + " Room";
-        
-         console.log(res.data().groupTitle);
-
+        document.getElementById('room-button-2').innerText =  res.data().groupTitle + " Room";
+        //  console.log(res.data().groupTitle);
+        AmagiLoader.hide();
       });
 
 
 }
 
 getGroupDetail();
+
+
 
 //    function getGroupDetails() {
     
@@ -287,7 +289,8 @@ function getGroupDetailroomOne() {
       var monthlies = db.collection("/openGroups").doc("demoOpenGroup1").get();
       monthlies.then((res) => {
         // document.getElementById('room-button-1').innerText = "Enter " + res.data().groupTitle + " Room";
-        console.log(res.data().groupTitle);
+        // console.log(res.data().groupTitle);
+        document.getElementById('room-button-1').innerText = res.data().groupTitle + " Room";
 
       });
 
@@ -298,7 +301,7 @@ getGroupDetailroomOne();
 
 
 
-getGroupDetailroomOne();
+// getGroupDetailroomOne();
 
 // alert("done")
 
@@ -401,3 +404,50 @@ $("#formoid").submit(function(event){
 
 </script>
 
+<script>
+  const AmagiLoader = {
+    __loader: null,
+    show: function () {
+
+        if (this.__loader == null) {
+            var divContainer = document.createElement('div');
+            divContainer.style.position = 'fixed';
+            divContainer.style.left = '0';
+            divContainer.style.top = '0';
+            divContainer.style.width = '100%';
+            divContainer.style.height = '100%';
+            divContainer.style.zIndex = '9998';
+            divContainer.style.backgroundColor = 'rgba(250, 250, 250, 20%)';
+
+            var div = document.createElement('div');
+            div.style.position = 'absolute';
+            div.style.left = '50%';
+            div.style.top = '50%';
+            div.style.zIndex = '9999';
+            div.style.height = '64px';
+            div.style.width = '64px';
+            div.style.margin = '-76px 0 0 -76px';
+            div.style.border = '8px solid #e1e1e1';
+            div.style.borderRadius = '50%';
+            div.style.borderTop = '8px solid #F36E21';
+            div.animate([
+                { transform: 'rotate(0deg)' },
+                { transform: 'rotate(360deg)' }
+              ], {
+                duration: 2000,
+                iterations: Infinity
+              });
+            divContainer.appendChild(div);
+            this.__loader = divContainer
+            document.body.appendChild(this.__loader);
+        }
+        this.__loader.style.display="";
+    },
+    hide: function(){
+        if(this.__loader!=null)
+        {
+            this.__loader.style.display="none";
+        }
+    }
+}
+</script>

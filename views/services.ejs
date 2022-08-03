@@ -34,7 +34,7 @@
     <div class="package_wrapper">
       <div class="package_head">
         <h2>My Services</h2>
-      
+        <%- include partials/serviceslist %>
         </div>
       </div>
       <!-- <div class="package_boxes">
@@ -62,19 +62,23 @@
       <div class="package_items_area package_items_flex">
         <p id="serviceMeans"></p><br>
 
-               <div class="tips_wtlist_items">
-                  <div class="head_of_tips_wtlist_items tips_wtlist_item">
-                   <div class="left_wti">Service Name</div>
-                   <div class="left_wti">Image</div>
-                   <div class="left_wti">Title</div>
-                   <div class="left_wti" style="text-align: center;">Description</div>
-                   <div class="left_wti" style="text-align: center;">Price</div>
-                   <div class="left_wti" style="text-align: center;">Url</div>
-                   <!-- <div class="left_wti">Action</div> -->
-                  </div>
-                </div>
-                <div class="tips_wtlist_items" id="newsletterServices">
-                </div>
+        <table class="table table-borderless" style="color: white;">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 125px;padding-left: 0px;">Service Name</th>
+              <th scope="col">Image</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="newsletterServices">
+           
+          </tbody>
+        </table>
+                <!-- <div class="tips_wtlist_items" id="newsletterServices">
+                </div> -->
        <!--  <div class="package_items_in" id="newsletterServices">
           <div class="table-responsive">
                 <table class="table table-borderless" id="dataTables" width="100%" cellspacing="0" style="color: white;">
@@ -269,17 +273,20 @@
                 let newtip = [];
                   for(var i=0; i< dataResult.length; i++) if(dataResult[i].isActive != false){  
                     if(dataResult[i].serviceTypeMaster.title == "Recommended"){
-                      newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
+                      // newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
+                      newtip += ' <tr><td class="row" style="width:125px;">'+ dataResult[i].serviceTypeMaster.title +'</td><td>'+ checkimage() +'</td><td>'+ dataResult[i].title +'</td><td>'+ dataResult[i].descriptionOne +'</td><td>$'+ dataResult[i].price.toFixed(2) +'</td><td><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><i class="fas fa-pencil-alt"></i><a href="/editService?id='+ dataResult[i].id +'&ids2=33428f3b-cf07-4861-875d-05d1189fdc71&sname=Recommended">Edit Service</a></li></ul></div></td></tr>';
                     
                   }else{
 
-                  function checkimage(){   
+                    function checkimage(){   
                    var data ;
-                    if(!dataResult[i].imageDetails) {data = '<div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="'+ dataResult[i].thumbnailImageUrl +'" alt="images"></div></h2></div>'; }else{data = '<div class="tips_wtlist_item_left"><h2><div class="pckg_item_img"><img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images"></div></h2></div>';}
+                    if(!dataResult[i].imageDetails) {data = '<img src="'+ dataResult[i].thumbnailImageUrl +'" alt="images" class="img-thumbnail" style="height:50px;width:50px;">'; }else{data = '<img src="https://apistest.tradetipsapp.com'+ dataResult[i].imageDetails +'" alt="images" class="img-thumbnail" style="height:50px;width:50px;">';}
 
                     return data;
                   }
-                  newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
+                  newtip += ' <tr><td class="row" style="width:125px;">'+ dataResult[i].serviceTypeMaster.title +'</td><td>'+ checkimage() +'</td><td>'+ dataResult[i].title +'</td><td>'+ dataResult[i].descriptionOne +'</td><td>$'+ dataResult[i].price.toFixed(2) +'</td><td><div class="dropdown msg_option_dropdown"><a class="btn dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="images/more-icon.png" alt="images"></a><div class="dropdown-menu dropdown-menu-right"><ul><li><i class="fas fa-pencil-alt"></i><a href="/editService?id='+ dataResult[i].id +'&ids2='+ dataResult[i].serviceTypeId +'&sname=Newsletter">Edit Service</a></li></ul></div></td></tr>'
+                  
+                  // newtip += '<div class="tips_wtlist_item"><div class="tips_wtlist_item_left"><h2>'+ dataResult[i].serviceTypeMaster.title +'</h2></div>'+ checkimage() +'<div class="tips_wtlist_item_left"><h2>'+ dataResult[i].title +'</h2></div><div class="tips_wtlist_item_left"><h2 style="margin-left:20px;">'+ dataResult[i].descriptionOne +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">$'+ dataResult[i].price.toFixed(2) +'</h2></div><div class="tips_wtlist_item_left"><h2 style="text-align:center;">'+ dataResult[i].descriptionTwo +'</h2></div></div>';                 
                   }
                   }
                   $("#newsletterServices").append(newtip);
