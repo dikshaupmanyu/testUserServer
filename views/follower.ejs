@@ -1,4 +1,6 @@
 <%- include partials/innerheader %>
+<link href="css/confirm.css" rel="stylesheet" type="text/css">
+<script src="/js/confirm.js"></script>
 <style>
   .my_tab_content .nav-tabs .nav-item {
     padding:20px;
@@ -981,8 +983,12 @@ function addFollow(id) {
     // alert("hii");
     // var id = $(this).attr('id');
     // alert(id);
-    var result = confirm("Are you sure you want to Follow?");
-    if(result){
+    // var result = confirm("Are you sure you want to Follow?");
+    // if(result){
+      var result =   Confirm.open({
+  title: 'Delete Confirm',
+  message: 'Are you sure to delete this Notification ?',
+    onok: () => {
         // Delete logic goes here
     var userdata = id;
     var formData = {followUserName:userdata,status:"true",description:"add"};
@@ -1007,13 +1013,12 @@ function addFollow(id) {
         }
 
     });
-    } else {
-
-       window.location.reload();
-
-    }
-           // $('#dataTables').DataTable().ajax.reload();
-
+  },oncancel: ()=>{ 
+       $(".successmsg").html('<span>Not deleted</span>');
+       setTimeout(function(){$(".successmsg").empty()}, 5000); 
+    // setTimeout(()=> { window.location.reload()},500)
+  }
+});
 
    }
 

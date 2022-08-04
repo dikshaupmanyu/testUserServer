@@ -1,4 +1,6 @@
 <%- include partials/innerheader %>
+<link href="css/confirm.css" rel="stylesheet" type="text/css">
+<script src="/js/confirm.js"></script>
 <div class="modal" id="myModalMACD">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -843,10 +845,14 @@
     //////////// delete stock start //////////////////////////
 
     function delete_stck(ID) {
-      var r = confirm("Are you sure to delete this company ?");
-      //stockname=stockname.toUpperCase();
+      // var r = confirm("Are you sure to delete this company ?");
       ID = ID.split(" ");
-      if (r == true) {
+      var result =   Confirm.open({
+  title: 'Delete Confirm',
+  message: 'Are you sure to delete this company ?',
+    onok: () => {
+      //stockname=stockname.toUpperCase();
+      // if (r == true) {
         $.ajax({
           type: "POST",
           url: "https://apistest.tradetipsapp.com/api/stockDetail/deleteStock",
@@ -863,8 +869,13 @@
             }, 3000);
           },
         });
-      }
-    }
+      }, oncancel: ()=>{ 
+       $(".successmsg").html('<span>  Not deleted</span>');
+       setTimeout(function(){$(".successmsg").empty()}, 5000); 
+    // setTimeout(()=> { window.location.reload()},500)
+  }
+})
+}
 
     /////////////////delete stock end///////////////////////
 

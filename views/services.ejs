@@ -1,4 +1,6 @@
   <%- include partials/innerheader %>
+  <link href="css/confirm.css" rel="stylesheet" type="text/css">
+  <script src="/js/confirm.js"></script>
 <!-- Page Content Start -->
 <div class="app_main">
                   
@@ -546,10 +548,13 @@ function DeleteService(e) {
  
   var formdata = {serviceSubscriptionPlanId : e};
 
-  var result = confirm("Are you sure you want to Delete?");
+  // var result = confirm("Are you sure you want to Delete?");
   
-  if(result){
-
+  // if(result){
+    var result =   Confirm.open({
+  title: 'Delete Confirm',
+  message: 'Are you sure to delete this Notification ?',
+    onok: () => { 
     $.ajax({
         type: 'POST',
         url: 'https://apistest.tradetipsapp.com/api/serviceMentorSubscriptionPlan/deleteServiceSubscriptionPlanById',
@@ -571,14 +576,16 @@ function DeleteService(e) {
 
       });
 
-  } else {
-
-       window.location.reload();
-
-    }
-
-
+  } ,    oncancel: ()=>{ 
+       $(".successmsg").html('<span>Not deleted</span>');
+       setTimeout(function(){$(".successmsg").empty()}, 5000); 
+    // setTimeout(()=> { window.location.reload()},500)
   }
+});
+}
+
+
+  
 
     
   </script>
