@@ -107,12 +107,16 @@ function handleCreate(event) {
 
   var loggedInVal = document.getElementById("user_id").value;
   var loggedInName = document.getElementById("user_nickname").value;
+  var editorText = CKEDITOR.instances.editor1.getData();
+  var logintoken = document.getElementById("tokenval").value;
+  var PNames = document.getElementById("pTag").innerHTML
 
-  if (message.value != "") {
+
+  if (message != "") {
     let task = {
       userName: loggedInName,
       userId: loggedInVal,
-      message: message.value,
+      message: editorText,
       messageId: loggedInVal + "_" + Date.now(),
       messageType: "text",
       createdDate: Date.now(),
@@ -123,9 +127,33 @@ function handleCreate(event) {
       // status: "incomplete"
     };
     return docRef.add(task).then((ref) => {
+
+      $.ajax({
+        type: "POST",
+        url: "https://apistest.tradetipsapp.com/api/chatNotificationActivity/sendNotificationForChat",
+        headers: {
+          // Authorization: 'Bearer '+ 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Inlhc2gwMUBtYWlsaW5hdG9yLmNvbSIsInN1YiI6IjA5OTYwMDZkLTViNzEtNDVjZi1hNTJmLTI2ZjM0MTc3YjhmYSIsImlhdCI6MTY2NTgxNjEzMiwiZXhwIjoxNjY2NDIwOTMyfQ.nw-G-gdwisObYW60Fi5vLKpT-dfXwN7lDbHzEFCUmbMgOJZ8gybPvgHFo5zTQLrOZ7H5UCqpNlGCAfIPM6z-Ag',
+          Authorization: 'Bearer '+ logintoken  ,
+        },
+        data: {
+          chatRoomName : "demoGroupRoom",
+          userNames : PNames
+        },
+        success: function (data) {
+          var dataks = JSON.stringify(data);
+          var dataResults = JSON.parse(dataks);
+          console.log(dataResults[0].message);
+          // $(".successmsg").html(dataResults[0].message);
+          // setTimeout(function() {
+          //   $(".successmsg").empty();
+          // }, 3000);
+        },
+      });
+
       task.id = ref.id;
       // fullName.value = '';
-      message.value = "";
+      CKEDITOR.instances.editor1.setData("");
+
       // date.value = '';
       // return createTask(task);
     });
@@ -292,6 +320,19 @@ function getoutput(event, id) {
   }, 8000);
 }
 
+
+function FunctionClick(e){
+
+  // alert(e);
+
+//  var dataID =  document.getElementById("IDData").value
+var dataIDs = document.getElementsByTagName("li")
+
+ var mm1 = document.getElementsByClassName("cke_autocomplete_selected")[0].innerText
+ console.log(mm1)
+
+ document.getElementById("pTag").innerHTML = mm1
+}
 // popup Create
 
 function popupCreate(event) {
@@ -300,39 +341,27 @@ function popupCreate(event) {
   $("ul#tasksreply" + event).show();
 
   var docId = document.getElementById("btn-input-replyId" + event).value;
-  // alert(docId);
-  // var ids = docId.value;
-  // docRef.doc(ids).get().then(function(doc) {
-
-  //     console.log(doc.id, " => ", doc.data());
-
-  //      });
   var fullName = document.getElementById("user_nickname");
-  // alert(fullName.value);
-  var message = document.getElementById("btn-input-replymsg" + event);
-  // alert(message.value);
+  var message = CKEDITOR.instances["btn-input-replymsg" + event].getData();
   var userId = document.getElementById("user_id");
-  // alert(userId.value);
-
   var loggedInVal = userId.value;
-  // alert(loggedInVal);
   var loggedInName = fullName.value;
-  // alert(loggedInName);
   var uniqueDocId = docId;
-  // alert(uniqueDocId);
+  var logintoken = document.getElementById("tokenval").value;
+  var PName = document.getElementById("pTag").innerHTML
 
   const docReply = db.collection(
     "/openGroups/demoOpenGroup1/messages/" + uniqueDocId + "/replies/"
   );
   // alert(docReply);
 
-  if (message.value != "") {
+  if (message != "") {
     // alert("message")
 
     let taskR = {
       userName: loggedInName,
       userId: loggedInVal,
-      message: message.value,
+      message: message,
       messageId: loggedInVal + "_" + Date.now(),
       messageType: "text",
       createdDate: Date.now(),
@@ -344,15 +373,34 @@ function popupCreate(event) {
     };
 
     return docReply.add(taskR).then((ref) => {
-      // alert(ref);
-      // alert(ref.id);
-      // console.log("div#exampleModalCenter"+uniqueDocId);
-
-      // $("div#exampleModalCenter"+uniqueDocId).css("display", "none");
+      $.ajax({
+        type: "POST",
+        url: "https://apistest.tradetipsapp.com/api/chatNotificationActivity/sendNotificationForChat",
+        headers: {
+          // Authorization: 'Bearer '+ 'eyJhbGciOiJIUzUxMiJ9.eyJlbWFpbCI6Inlhc2gwMUBtYWlsaW5hdG9yLmNvbSIsInN1YiI6IjA5OTYwMDZkLTViNzEtNDVjZi1hNTJmLTI2ZjM0MTc3YjhmYSIsImlhdCI6MTY2NTgxNjEzMiwiZXhwIjoxNjY2NDIwOTMyfQ.nw-G-gdwisObYW60Fi5vLKpT-dfXwN7lDbHzEFCUmbMgOJZ8gybPvgHFo5zTQLrOZ7H5UCqpNlGCAfIPM6z-Ag',
+          Authorization: 'Bearer '+ logintoken  ,
+        },
+        data: {
+          chatRoomName : "demoGroupRoom",
+          userNames : PName
+        },
+        success: function (data) {
+          var dataks = JSON.stringify(data);
+          var dataResults = JSON.parse(dataks);
+          // alert(dataResults);
+          console.log(dataResults);
+          // $(".successmsg").html(dataResults[0].message);
+          // setTimeout(function() {
+          //   $(".successmsg").empty();
+          // }, 3000);
+  
+        },
+      });
 
       taskR.id = ref.id;
       // fullName.value = '';
-      message.value = "";
+      CKEDITOR.instances["btn-input-replymsg" + event].setData("");
+
       // alert("")
       // date.value = '';
       return fetchTasksReply(taskR.id);
@@ -549,6 +597,80 @@ function replypopup(id) {
   // closepopup(id);
   // alert("reply value");
   fetchTasksReply(id);
+
+  
+  $(document).ready(function() {
+    $(".ckeditor").each(function(_, ckeditor) {
+      var formData = { appUserName: "all" };
+      $.ajax({
+        type: "POST",
+        url: "https://apistest.tradetipsapp.com/api/appUser/getAllUserDetails",
+        data: formData,
+        success: function(datan) {
+          var dataks = JSON.stringify(datan);
+          var users = JSON.parse(dataks);
+
+          CKEDITOR.replace(ckeditor, {
+            plugins:
+              "mentions,emoji,basicstyles,undo,link,wysiwygarea,toolbar, pastefromgdocs, pastefromlibreoffice, pastefromword",
+            height: "40px",
+            width: "86%",
+            toolbarLocation: "bottom",
+            toolbar: [
+              {
+                name: "document",
+                items: ["Undo", "Redo"],
+              },
+              {
+                name: "basicstyles",
+                items: ["Bold", "Italic", "Strike"],
+              },
+              {
+                name: "links",
+                items: ["EmojiPanel", "Link", "Unlink"],
+              },
+            ],
+            mentions: [
+              {
+                feed: dataFeed,
+                itemTemplate:
+                  '<li data-id="{id}" id="IDData" onclick="FunctionClick(this.id)">' +
+                  '<img class="photo" src="" />' +
+                  '<strong class="userName">{userName}</strong>' +
+                  '<span class="fullname"></span>' +
+                  "</li>",
+                outputTemplate:
+                  '<a href="#"><b>@{userName}<b></a><span></span>',
+                minChars: 0,
+              },
+            ],
+            removeButtons: "PasteFromWord",
+          });
+
+          function dataFeed(opts, callback) {
+            var userNamescs = document.getElementById("user_nickname").value;
+            // console.log(userNamescs)
+            var matchProperty = 'userName';
+            var countdata = users.filter(function(s) { return s.userName != userNamescs });
+              data = countdata.filter(function (item) {
+                // console.log(item) 
+                return item[matchProperty].indexOf(opts.query.toLowerCase()) == 0;
+  
+              });
+  
+  
+            data = data.sort(function (a, b) {
+              return a[matchProperty].localeCompare(b[matchProperty], undefined, {
+                sensitivity: 'accent'
+              });
+            });
+  
+            callback(data);
+          }
+        },
+      });
+    });
+  });
 }
 
 // dom functions
@@ -1156,6 +1278,8 @@ function reviewTemplate(
          </div>
         
      </li>
+     <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+
      <div class="modal fade" id="exampleModalCenter${taskId}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle${taskId}" aria-hidden="true" data-backdrop="static" data-keyboard="false">
              <div class="modal-dialog modal-lg" role="document" style="top:40px;">
              
@@ -1177,17 +1301,9 @@ function reviewTemplate(
                     </ul>
                  </div>
                  <div class="modal-footer">
-                 <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
-          
-          
+                 <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>     
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off" />
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
-                 
-            
-                  
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}" >
                            <i class="fa fa-paper-plane" aria-hidden="true" ></i>
@@ -1250,12 +1366,7 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)'style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
-                    
-                   
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -1326,10 +1437,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)'style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
                    
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1397,10 +1506,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
 
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1468,10 +1575,7 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
 
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1494,7 +1598,7 @@ function reviewTemplate(
          <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
      </span>
      
-     <div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;" >
+     <div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;" >
      
      <div class="overlay">
          <div class="overlay-1">
@@ -1545,10 +1649,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
 
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1588,7 +1690,7 @@ function reviewTemplate(
      <span class="chat-img left clearfix mx-2">
          <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
      </span>
-     <div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+     <div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
    <div class="overlay">
        <div class="overlay-1">
          <div class="content-2"  id='popup${taskId}'>
@@ -1633,10 +1735,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
   
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1676,7 +1776,7 @@ function reviewTemplate(
      <span class="chat-img left clearfix mx-2">
          <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
      </span>
-     <div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+     <div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
        <div class="overlay">
            <div class="overlay-1">
              <div class="content-2"  id='popup${taskId}'>
@@ -1719,10 +1819,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)'style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
                 
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1770,7 +1868,7 @@ function reviewTemplate(
      <span class="chat-img left clearfix mx-2">
          <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
      </span>
-     <div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+     <div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
        <div class="overlay">
            <div class="overlay-1">
              <div class="content-2"  id='popup${taskId}'>
@@ -1814,10 +1912,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
               
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -1857,7 +1953,7 @@ function reviewTemplate(
      <span class="chat-img left clearfix mx-2">
          <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
      </span>
-     <div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+     <div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
 
        <div class="overlay">
            <div class="overlay-1">
@@ -1903,10 +1999,8 @@ function reviewTemplate(
                  <div class="modal-footer">
                  <input type="file" class="fa fa-paperclip attachment btn btn-primary_1" id='${taskId}' name='inputfile' onChange='getoutput(event,this.id)' style="display:inherit"/>
                    <input id="btn-input-replyId${taskId}" type="hidden" class="form-control input-lg" value="${taskId}" placeholder="Type your message here..." />
-                   <input id="btn-input-replymsg${taskId}" type="text" class="form-control input-lg" value="" placeholder="Type your message here..."  autocomplete="off"/>
-                   <label for="emoji-buttons${taskId}" style="cursor:pointer">
-                   😊<input type="button" id="emoji-buttons${taskId}" dataid="${taskId}" onclick="emojifunction(this.value)" value="${taskId}" style="width:1px;  display:none;"></input>
-                   </label>
+                   <textarea id="btn-input-replymsg${taskId}" onkeypress="myFunction(event,this.id)" cols="50" class="ckeditor form-control" name="chapterContent[]" style="width:100%;"></textarea>
+
               
                    <span class="input-group-btn">
                        <button class="Btn btn btn-primary" type="button" onClick='popupCreate(this.id)' id="${taskId}">
@@ -2187,7 +2281,7 @@ function reviewTemplateReply(
 <span class="chat-img left clearfix mx-2">
 <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
 </span>
-<div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+<div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
 <div class="header clearfix">              
     <small class="right text-muted" style="color: #000"><span class="glyphicon glyphicon-time"></span>${stripped1}</small>
     <strong class="primary-font" class='fullName' style="color: #000">${userName}</strong>
@@ -2205,7 +2299,7 @@ function reviewTemplateReply(
 <span class="chat-img left clearfix mx-2">
 <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
 </span>
-<div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+<div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
 
 <div class="header clearfix">
     <small class="right text-muted" style="color: #000"><span class="glyphicon glyphicon-time"></span>${stripped1}</small>
@@ -2224,7 +2318,7 @@ function reviewTemplateReply(
 <span class="chat-img left clearfix mx-2">
 <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
 </span>
-<div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+<div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
 <div class="header clearfix">
     <small class="right text-muted" style="color: #000"><span class="glyphicon glyphicon-time"></span>${stripped1}</small>
     <strong class="primary-font" class='fullName' style="color: #000">${userName}</strong>
@@ -2241,7 +2335,7 @@ function reviewTemplateReply(
 <span class="chat-img right clearfix mx-2">
     <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
 </span>
-<div class="chat-body clearfix">
+<div class="chat-body1 clearfix">
     <div class="header clearfix">
         <small class="left text-muted"><span class="glyphicon glyphicon-time"></span>${stripped1}</small>
         <strong class="right primary-font" class='fullName'>${userName}</strong>
@@ -2262,7 +2356,7 @@ function reviewTemplateReply(
 <span class="chat-img left clearfix mx-2">
 <img onerror="imgError(this);" src="${profileImageUrl}" alt="Admin" class="img-circle" style="width: 50px;height: 50px;"/>
 </span>
-<div class="chat-body clearfix agent" style="float:none;background:#77839647;color:#000;">
+<div class="chat-body1 clearfix agent" style="float:none;background:#77839647;color:#000;">
 <div class="header clearfix">
     <small class="right text-muted" style="color: #000"><span class="glyphicon glyphicon-time"></span>${stripped1}</small>
     <strong class="primary-font" class='fullName' style="color: #000">${userName}</strong>

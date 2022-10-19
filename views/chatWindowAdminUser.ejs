@@ -33,6 +33,7 @@
             $("#user_nickname").val(storageData.uname);
             $('#user_id').val(storageData.uid);
             $('#user_fcm_token').val(storageData.fcmToken);
+            $("#tokenval").val(storageData.tokendata);
 
             // alert(storageData.fcmToken);
            
@@ -188,6 +189,8 @@
                     <input type="hidden" id="user_id">
                     <input type="hidden" id="user_nickname">
                     <input type="hidden" id="user_fcm_token">
+                    <input type="hidden" id="tokenval">
+
                    <!--  <input type="hidden" id="dateval"> -->
                     <span class="input-group-btn">
                          <input type="file"  id="imageUploaddata" style="display: none;">
@@ -195,7 +198,9 @@
                             <i class="fa fa-paperclip attachment btn btn-primary" aria-hidden="true" style="height: 38px;"></i>
                       
                     </span>
-                    <input id="btn-input" type="text" class="form-control input-lg" placeholder="Type your message here..." autocomplete="off"/>
+                    <!-- <input id="btn-input" type="text" class="form-control input-lg" placeholder="Type your message here..." autocomplete="off"/> -->
+  <textarea cols="50" class="form-control" id="editor1" name="editor1" rows="2" style="width: 100%; height:30px" ></textarea>
+  <p id="pTag" hidden></p>             
                     <span class="input-group-btn">
                         <button class="btn btn-primary" type="submit" id="Btn_1">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -263,6 +268,100 @@
 
 
 <script src='js/inputEmoji.js'></script>
+
+
+<script src="https://cdn.ckeditor.com/4.19.1/standard-all/ckeditor.js"></script>
+
+<script>
+  function FunctionClicks(e) {
+
+    // alert(e);
+
+    //  var dataID =  document.getElementById("IDData").value
+    var dataIDs = document.getElementsByTagName("li")
+
+    var mm1 = document.getElementsByClassName("cke_autocomplete_selected")[0].innerText
+    console.log(mm1)
+
+    document.getElementById("pTag").innerHTML = mm1
+  }
+</script>
+
+<script>
+
+var formData = { appUserName: "all" };
+ $.ajax({
+   type: "POST",
+   url: "https://apistest.tradetipsapp.com/api/appUser/getAllUserDetails",
+   data: formData,
+   success: function (datan) {
+     var dataks = JSON.stringify(datan);
+     var users = JSON.parse(dataks);
+
+
+
+
+
+  CKEDITOR.replace('editor1', {
+    plugins: 'mentions,emoji,basicstyles,undo,link,wysiwygarea,toolbar, pastefromgdocs, pastefromlibreoffice, pastefromword',
+    height: "40px",
+    width:"91%",
+    toolbarLocation: 'bottom',
+    toolbar: [{
+        name: 'document',
+        items: ['Undo', 'Redo']
+      },
+      {
+        name: 'basicstyles',
+        items: ['Bold', 'Italic', 'Strike']
+      },
+      {
+        name: 'links',
+        items: ['EmojiPanel', 'Link', 'Unlink']
+      }
+    ],
+    mentions: [{
+        feed: dataFeed,
+        itemTemplate: '<li data-id="{id}" id="IDData" onclick="FunctionClicks(this.id)">' +
+          '<img class="photo" src="" />' +
+          '<strong class="userName">{userName}</strong>' +
+          '<span class="fullname"></span>' +
+          '</li>',
+        outputTemplate: '<a href="#"><b>@{userName}<b></a><span></span>',
+        minChars: 0
+      },
+    ],
+    removeButtons: 'PasteFromWord'
+  });
+
+  
+
+  function dataFeed(opts, callback) {
+          var userNamescs = document.getElementById("user_nickname").value;
+          // console.log(userNamescs)
+          var matchProperty = 'userName';
+          var countdata = users.filter(function(s) { return s.userName != userNamescs });
+            data = countdata.filter(function (item) {
+              // console.log(item) 
+              return item[matchProperty].indexOf(opts.query.toLowerCase()) == 0;
+
+            });
+
+
+          data = data.sort(function (a, b) {
+            return a[matchProperty].localeCompare(b[matchProperty], undefined, {
+              sensitivity: 'accent'
+            });
+          });
+
+          callback(data);
+        }
+
+ },
+ });
+</script>
+
+
 <script>
 
 
